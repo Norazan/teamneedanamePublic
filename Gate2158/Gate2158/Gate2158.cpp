@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "ball.h"
+#include "rectangle.h"
 
 int main()
 {
@@ -11,6 +12,8 @@ int main()
 	shape.setFillColor(sf::Color::Green);
 
 	ball myBall{sf::Vector2f{200,200},50};
+    rectangle myRectangle{sf::Vector2f{50,10}, sf::Color::Red};
+
 
 
 	while (window.isOpen())
@@ -25,6 +28,7 @@ int main()
 		window.clear();
 		window.draw(shape);
         myBall.draw(window);
+        myRectangle.draw(window, sf::Vector2f{50,50});
 		window.display();
 	}
 
