@@ -7,7 +7,9 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(400, 400), "No files in project!");
+	sf::RenderWindow window(sf::VideoMode(400, 400), "SFML works!");
+    window.setVerticalSyncEnabled(true);
+
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
 
