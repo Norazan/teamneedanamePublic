@@ -2,12 +2,16 @@
 //
 
 #include <SFML/Graphics.hpp>
+#include "ball.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(400, 400), "SFML works!");
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
+
+	ball myBall{sf::Vector2f{200,200},50};
+
 
 	while (window.isOpen())
 	{
@@ -20,6 +24,7 @@ int main()
 
 		window.clear();
 		window.draw(shape);
+        myBall.draw(window);
 		window.display();
 	}
 
