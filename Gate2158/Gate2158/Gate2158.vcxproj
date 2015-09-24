@@ -87,7 +87,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ball.cpp" />
     <ClCompile Include="Gate2158.cpp" />
+    <ClCompile Include="Test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ball.h" />
+    <ClInclude Include="Test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
