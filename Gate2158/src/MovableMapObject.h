@@ -5,12 +5,12 @@
 #ifndef GATE2158_MOVABLEMAPOBJECT_H
 #define GATE2158_MOVABLEMAPOBJECT_H
 
+#include "MapObject.h"
 
 class MovableMapObject : public MapObject {
 public:
     void setVelocity(float v);
-
-    float getVelocity(void);
+    float getVelocity();
 
 private:
     float velocity;

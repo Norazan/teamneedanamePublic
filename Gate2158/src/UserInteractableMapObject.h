@@ -6,6 +6,8 @@
 #define GATE2158_USERINTERACTABLEMAPOBJECT_H
 
 
+#include "Character.h"
+
 class UserInteractableMapObject {
 public:
     void interact(Character);

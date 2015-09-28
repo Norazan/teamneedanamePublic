@@ -4,14 +4,12 @@
 
 #include "MapObject.h"
 
-MapObject::MapObject() {
 
-}
 
 void MapObject::setAngle(float angle) {
 
 }
 
-float MapObject::getAngle(void v) {
+float MapObject::getAngle() {
     return 0;
 }

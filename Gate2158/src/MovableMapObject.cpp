@@ -4,10 +4,11 @@
 
 #include "MovableMapObject.h"
 
-void MovableMapObject::setVelocity(float) {
+void MovableMapObject::setVelocity(float v) {
     velocity = v;
 }
 
 float MovableMapObject::getVelocity() {
-    return velocity
+    return velocity;
 }
+
