@@ -17,7 +17,14 @@
 
 #include <SFML\Graphics.hpp>
 
+class WindowManager{
 
+public:
+	WindowManager();
+
+private:
+	sf::RenderWindow window;
+};
 
 
 #endif
