@@ -13,7 +13,9 @@ set(SOURCE_FILES
         src/MovableMapObject.h
         src/UserInteractableMapObject.cpp
         src/UserInteractableMapObject.h
-        src/Character.cpp src/Character.h)
+        src/Character.cpp src/Character.h
+        )
+
 
 #Test auto include all source files
 AUX_SOURCE_DIRECTORY(./src DIR_ALL_SRC)
