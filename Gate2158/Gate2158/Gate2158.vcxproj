@@ -94,7 +94,7 @@
     <ClCompile Include="\*.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="bball.h" />
+    <ClInclude Include="ball.h" />
     <ClInclude Include="rectangle.h" />
     <ClInclude Include="WindowManager.h" />
   </ItemGroup>
