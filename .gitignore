@@ -6,6 +6,7 @@
 
 #VS2013 ignore specials
 .vcxproj
+.vcxproj.filters
 .filters
 .user
 
