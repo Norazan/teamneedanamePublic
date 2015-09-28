@@ -10,6 +10,6 @@ void MapObject::setAngle(float angle) {
 
 }
 
-float MapObject::getAngle(void) {
+float MapObject::getAngle() {
     return 0;
 }

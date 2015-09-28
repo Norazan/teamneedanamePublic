@@ -11,7 +11,7 @@
 class MapObject {
 public:
     void setAngle(float angle);
-    float getAngle(void);
+    float getAngle();
 private:
     sf::Vector2f position;
     unsigned int colorCode;
