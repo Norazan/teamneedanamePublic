@@ -10,7 +10,11 @@ set(SOURCE_FILES
         Gate2158/rectangle.cpp
         Gate2158/rectangle.h
     )
-add_executable(Gate2158 ${SOURCE_FILES})
+
+#Test auto include all source files
+AUX_SOURCE_DIRECTORY(./Gate2158 DIR_ALL_SRC)
+
+add_executable(Gate2158 ${SOURCE_FILES} ${DIR_ALL_SRC})
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
 find_package(SFML REQUIRED system window graphics network audio)
