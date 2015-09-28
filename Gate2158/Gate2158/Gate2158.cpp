@@ -5,18 +5,21 @@
 #include "ball.h"
 #include "rectangle.h"
 
+void setWindowOptions(sf::RenderWindow & window){
+	window.setVerticalSyncEnabled(true);
+
+}
+
+
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(400, 400), "SFML works!");
-    window.setVerticalSyncEnabled(true);
+	sf::RenderWindow window(sf::VideoMode(400, 400), "Gate2158");
 
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
 
 	ball myBall{sf::Vector2f{200,200},50};
     rectangle myRectangle{sf::Vector2f{50,10}, sf::Color::Red};
-
-
 
 	while (window.isOpen())
 	{
