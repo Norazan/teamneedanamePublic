@@ -9,6 +9,7 @@
 .vcxproj.filters
 .filters
 .user
+MSV-Project/
 
 # User-specific files
 *.suo
