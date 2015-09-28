@@ -23,7 +23,7 @@ AUX_SOURCE_DIRECTORY(./src DIR_ALL_SRC)
 add_executable(Gate2158 ${SOURCE_FILES} ${DIR_ALL_SRC})
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
-find_package(SFML REQUIRED system window graphics network audio)
+find_package(SFML 2 REQUIRED system window graphics network audio)
 if (SFML_FOUND)
     include_directories(${SFML_INCLUDE_DIR})
     target_link_libraries(Gate2158 ${SFML_LIBRARIES})
