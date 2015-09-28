@@ -10,7 +10,6 @@
 
 class MapObject {
 public:
-    MapObject() = 0;
     void setAngle(float angle);
     float getAngle(void);
 private:
