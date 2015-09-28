@@ -8,9 +8,16 @@
 //
 // Editors:
 // 
+//
 // Version: V1.0
-// 
-// 
 //------------------------------------------------------------------
 
+#ifndef WINDOWMANAGER_H
+#define WINDOWMANAGER_H
 
+#include <SFML\Graphics.hpp>
+
+
+
+
+#endif
