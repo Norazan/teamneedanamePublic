@@ -17,7 +17,12 @@ void Camera::updateMapObjects(std::vector<MapObject> &mapObjects){
 }
 
 void Camera::draw(){
-	for (auto mo : mapObjects){
-		mo.draw();
+	int renderLayer = 3;
+	for (int i = 0; i < renderLayer; i++){
+		for (auto mo : mapObjects){
+			if (mo.getRenderLayer == i){
+				mo.draw();
+			}
+		}
 	}
 }

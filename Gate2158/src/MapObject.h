@@ -14,6 +14,8 @@ public:
     float getAngle();
 	void setPosition(sf::Vector2f pos);
 	sf::Vector2f getPosition();
+	void setRenderLayer(int renderLayer);
+	int getRenderLayer();
 	void draw();
 private:
     sf::Vector2f position;
