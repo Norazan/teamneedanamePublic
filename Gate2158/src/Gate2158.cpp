@@ -2,18 +2,16 @@
 //
 
 #include <SFML/Graphics.hpp>
+#include "Menu.h"
 
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(400, 400), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(1280, 720), "GATE2158");
     
     window.setVerticalSyncEnabled(true);
 
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
-
-
+	Menu menuScreen;
 
     while (window.isOpen())
     {
@@ -25,8 +23,7 @@ int main()
         }
 
         window.clear();
-        window.draw(shape);
-
+		menuScreen.show(true, window);
         window.display();
     }
 
