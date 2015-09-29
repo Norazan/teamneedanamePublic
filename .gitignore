@@ -6,8 +6,10 @@
 
 #VS2013 ignore specials
 .vcxproj
+.vcxproj.filters
 .filters
 .user
+MSV-Project/
 
 # User-specific files
 *.suo
@@ -25,7 +27,7 @@
 [Rr]eleases/
 x64/
 x86/
-build/
+[Bb]uild/
 bld/
 [Bb]in/
 [Oo]bj/
