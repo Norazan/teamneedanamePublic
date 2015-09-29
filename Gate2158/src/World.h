@@ -7,7 +7,7 @@
 class World {
 public:
 	World(float worldSeed = 0.0);
-	Map getCurrentMap();
+	Map* getCurrentMap();
 	void addMap(Map m);
 private:
 	Map currentMap;

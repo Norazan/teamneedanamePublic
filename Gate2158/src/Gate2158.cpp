@@ -11,7 +11,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(400, 400), "Gate2158");
     
 	World Gate2158;
-	Map currentMap;
+	Map * currentMap;
 	currentMap = Gate2158.getCurrentMap();
 
 	Camera userCamera(window, currentMap);
