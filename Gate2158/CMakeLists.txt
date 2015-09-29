@@ -13,8 +13,11 @@ set(SOURCE_FILES
         src/MovableMapObject.h
         src/UserInteractableMapObject.cpp
         src/UserInteractableMapObject.h
-        src/Character.cpp src/Character.h
-        )
+        src/Character.cpp
+        src/Character.h
+        src/Camera.cpp
+        src/Camera.hpp
+    )
 
 
 #Test auto include all source files
