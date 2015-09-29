@@ -10,7 +10,8 @@
 
 class Camera {
 public:
-	Camera(sf::RenderWindow & window);
+	Camera(sf::RenderWindow &window);
+
 private:
 	sf::RenderWindow &window;
 };
