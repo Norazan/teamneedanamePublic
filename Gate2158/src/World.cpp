@@ -9,8 +9,8 @@ World::World(float worldSeed){
 	//MapLoader(worldSeed);
 }
 
-Map* World::getCurrentMap(){
-	return & currentMap;
+Map& World::getCurrentMap(){
+	return currentMap;
 }
 
 void World::addMap(Map m){
