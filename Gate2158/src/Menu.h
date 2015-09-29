@@ -5,10 +5,17 @@
 
 class Menu{
 public:
-	void show(bool showMenu, sf::RenderWindow &windowRef);
+	Menu(sf::RenderWindow &windowRef);
+	void show(bool showMenu);
+	int getCurrentSelection();
+	void setCurrentSelection(int selection);
+	void skipSplashScreen();
 
-private:
-
+protected:
+	sf::RenderWindow &window;
+	bool showingMenu;
+	int currentSelection;
+	bool splashScreen;
 };
 
 
