@@ -6,12 +6,13 @@
 
 class World {
 public:
-	World();
+	World(float worldSeed = 0.0);
 	Map getCurrentMap();
 	void addMap(Map m);
 private:
 	Map currentMap;
-	Map maps[];
+	Map maps[10];
+	float worldSeed;
 };
 
 

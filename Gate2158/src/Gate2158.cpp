@@ -3,14 +3,18 @@
 
 #include <SFML/Graphics.hpp>
 #include "World.h"
-
-
+#include "Map.h"
+#include "Camera.hpp"
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(400, 400), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(400, 400), "Gate2158");
     
-	World Gate2158();
+	World Gate2158;
+	Map currentMap;
+	currentMap = Gate2158.getCurrentMap();
+
+	Camera userCamera(window, currentMap);
 
     window.setVerticalSyncEnabled(true);
 
