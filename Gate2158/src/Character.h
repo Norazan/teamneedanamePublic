@@ -10,6 +10,7 @@
 
 class Character : public MovableMapObject {
 public:
+	Character(float maxHealth);
     float getHealth(void);
     void setHealth(float h);
 

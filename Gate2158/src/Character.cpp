@@ -4,6 +4,12 @@
 
 #include "Character.h"
 
+Character::Character(float maxHealth):
+	maxHealth{maxHealth}
+{
+
+}
+
 float Character::getHealth(void) {
     return 0;
 }
