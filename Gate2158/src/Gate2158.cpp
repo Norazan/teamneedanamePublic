@@ -6,7 +6,7 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(400, 400), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(400, 400), "Gate2158");
     
     window.setVerticalSyncEnabled(true);
 
