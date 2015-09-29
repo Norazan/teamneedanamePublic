@@ -9,7 +9,7 @@
 
 class UserInput {
 public:
-	static bool getPressed(char key);
+	bool getPressed(char key);
 private:
 };
 

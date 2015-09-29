@@ -2,7 +2,8 @@
 //
 
 #include <SFML/Graphics.hpp>
-#include "Menu.h"
+#include "TitleScreen.h"
+#include "UserInput.h"
 
 
 int main()
@@ -11,7 +12,8 @@ int main()
     
     window.setVerticalSyncEnabled(true);
 
-	Menu menuScreen;
+	Menu menuScreen(window);
+	UserInput userInputKey;
 
     while (window.isOpen())
     {
@@ -21,9 +23,36 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+		if (userInputKey.getPressed('w')){
+			if (menuScreen.getCurrentSelection() == 1){
+				menuScreen.setCurrentSelection(2);
+			}
+			else{
+				menuScreen.setCurrentSelection(1);
+			}
+		}
+		else if (userInputKey.getPressed('s')){
+			if (menuScreen.getCurrentSelection() == 2){
+				menuScreen.setCurrentSelection(1);
+			}
+			else{
+				menuScreen.setCurrentSelection(2);
+			}
+		}
+		else if (userInputKey.getPressed('a')){
+			menuScreen.skipSplashScreen();
+		}
+		else if (userInputKey.getPressed('d')){
+			if (menuScreen.getCurrentSelection() == 2){
+				window.close();
+			}
+			else if (menuScreen.getCurrentSelection() == 1){
+				// game start
+			}
+		}
 
         window.clear();
-		menuScreen.show(true, window);
+		menuScreen.show(true);
         window.display();
     }
 

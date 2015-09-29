@@ -3,4 +3,13 @@
 
 #include "Menu.h"
 
+class TitleScreen{
+public:
+	void drawTitle();
+protected:
+	sf::RenderWindow &window;
+	bool showingMenu;
+
+};
+
 #endif
