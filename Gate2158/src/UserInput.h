@@ -7,7 +7,7 @@
 
 #include <SFML/Graphics.hpp>
 
-class UserInput {
+class UserInput{
 public:
 	bool getPressed(char key);
 private:
