@@ -8,10 +8,9 @@ Map::Map() {
 
 }
 
-Map::Map(int layers, std::vector<MapObject> mapObjects) :
-layers{ layers },
-mapObjects{ mapObjects } {
-
+Map::Map(int layers) :
+layers{ layers }
+{
 }
 
 void Map::addMapObject(MapObject object) {

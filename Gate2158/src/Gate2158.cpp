@@ -14,11 +14,12 @@ int main()
 	rec1.setFillColor(sf::Color::Blue);
 	MapObject rectangle0(0, rec0);
 	MapObject rectangle1(1, rec1);
-	std::vector<MapObject> testMapObjects;
-	testMapObjects.push_back(rectangle0);
-	testMapObjects.push_back(rectangle1);
-	Map testMap(2, testMapObjects);
+
+	Map testMap(2);
     
+	testMap.addMapObject(rectangle0);
+	testMap.addMapObject(rectangle1);
+
 	World Gate2158;
 	Gate2158.addMap(testMap);
 	Map &currentMap = Gate2158.getCurrentMap();

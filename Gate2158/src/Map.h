@@ -12,7 +12,7 @@
 class Map {
 public:
     Map();
-	Map(int laters, std::vector<MapObject> mapObjects);
+	Map(int layers);
     void addMapObject(MapObject);
 	std::vector<MapObject>& getAllMapObjects();
 	int getLayers();
