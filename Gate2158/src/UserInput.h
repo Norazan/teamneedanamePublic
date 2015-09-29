@@ -5,6 +5,13 @@
 #ifndef GATE2158_USERINPUT_H
 #define GATE2158_USERINPUT_H
 
+#include <SFML/Graphics.hpp>
+
+class UserInput {
+public:
+	static bool getPressed(char key);
+private:
+};
 
 
 #endif //GATE2158_USERINPUT_H
