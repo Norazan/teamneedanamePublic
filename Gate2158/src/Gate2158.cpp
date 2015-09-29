@@ -2,10 +2,13 @@
 //
 
 #include <SFML/Graphics.hpp>
+#include "World.h"
 
 
 int main(){
     sf::RenderWindow window(sf::VideoMode(400, 400), "SFML works!");
+
+    World Gate2158();
 
     window.setVerticalSyncEnabled(true);
 
