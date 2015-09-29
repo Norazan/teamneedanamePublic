@@ -7,13 +7,14 @@
 
 
 #include "MapObject.h"
+#include <vector>
 
 class Map {
 public:
     Map();
     void addMapObject(MapObject);
 private:
-
+	std::vector<MapObject> mapObjects;
 };
 
 
