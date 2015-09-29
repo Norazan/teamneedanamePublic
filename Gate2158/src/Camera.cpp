@@ -4,8 +4,19 @@
 
 #include "Camera.hpp"
 
-Camera::Camera(sf::RenderWindow & window):
-	window{window}
+Camera::Camera(sf::RenderWindow & window) :
+	window{ window }
 {
 
+}
+
+
+void Camera::updateMapObjects(std::vector<MapObject> &mapObjects){
+	this->mapObjects = mapObjects;
+}
+
+void Camera::draw(){
+	for (auto mo : mapObjects){
+		mo.draw();
+	}
 }

@@ -7,9 +7,21 @@
 
 
 void MapObject::setAngle(float angle) {
-
+	this->angle = angle;
 }
 
 float MapObject::getAngle() {
-    return 0;
+    return angle;
+}
+
+
+void MapObject::setPosition(sf::Vector2f pos){
+	position = pos;
+}
+
+sf::Vector2f MapObject::getPosition(){
+	return position;
+}
+void MapObject::draw(){
+
 }
