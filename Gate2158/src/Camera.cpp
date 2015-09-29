@@ -3,3 +3,9 @@
 //
 
 #include "Camera.hpp"
+
+Camera::Camera(sf::RenderWindow & window):
+	window{window}
+{
+
+}
