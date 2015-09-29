@@ -3,7 +3,7 @@
 
 class Menu{
 public:
-	void show(boolean showMenu);
+	void show(bool showMenu);
 
 private:
 
