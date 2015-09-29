@@ -2,18 +2,17 @@
 //
 
 #include <SFML/Graphics.hpp>
+#include "UserInput.h"
+#include "UserCharacter.h"
+#include <iostream>
 
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(400, 400), "SFML works!");
-    
-    window.setVerticalSyncEnabled(true);
 
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
-
-
+	UserCharacter player = UserCharacter({ 25, 25 }, {200, 200}, sf::Color::Magenta);
+	player.draw(window);
 
     while (window.isOpen())
     {
@@ -25,7 +24,19 @@ int main()
         }
 
         window.clear();
-        window.draw(shape);
+		if(UserInput::getPressed('a')){
+			player.move(sf::Vector2f{ -1, 0 });
+		}
+		if(UserInput::getPressed('d')){
+			player.move(sf::Vector2f{ +1, 0 });
+		}
+		if(UserInput::getPressed('w')){
+			player.move(sf::Vector2f{ 0, -1 });
+		}
+		if(UserInput::getPressed('s')){
+			player.move(sf::Vector2f{ 0, +1 });
+		}
+        
 
         window.display();
     }
