@@ -11,23 +11,23 @@ Menu::Menu(sf::RenderWindow &windowRef)
 
 void Menu::show(bool showMenu){
 	if (!splashScreen){
-		sf::Texture logoTexture;
-		if (!logoTexture.loadFromFile("C://Users//Yaluzan//Documents//GitHub//Gate2158//Gate2158//Textures//TEAMNEEDSANAME.png")){
+		//sf::Texture logoTexture;
+		//if (!logoTexture.loadFromFile("path")){
 
-		}
-		sf::Sprite logo;
-		logo.setTexture(logoTexture);
-		logo.setPosition(sf::Vector2f(1280 / 2 - 500 / 2, 720 / 2 - 380 / 2));
-		window.draw(logo);
+		//}
+		//sf::Sprite logo;
+		//logo.setTexture(logoTexture);
+		//logo.setPosition(sf::Vector2f(1280 / 2 - 500 / 2, 720 / 2 - 380 / 2));
+		//window.draw(logo);
 	}
 	else if (splashScreen){
-		sf::Texture logoTexture;
-		if (!logoTexture.loadFromFile("C://Users//Yaluzan//Documents//GitHub//Gate2158//Gate2158//Textures//TEAMNEEDSANAME.png")){
+		//sf::Texture logoTexture;
+		//if (!logoTexture.loadFromFile("path")){
 
-		}
-		sf::Sprite logo;
-		logo.setTexture(logoTexture);
-		logo.setPosition(sf::Vector2f(1280 / 2 - 500 / 2, 0));
+		//}
+		//sf::Sprite logo;
+		//logo.setTexture(logoTexture);
+		//logo.setPosition(sf::Vector2f(1280 / 2 - 500 / 2, 0));
 
 		sf::RectangleShape choiceOne(sf::Vector2f(200, 100));
 		choiceOne.setPosition(1280 / 2 - 200 / 2, 400);
@@ -48,7 +48,7 @@ void Menu::show(bool showMenu){
 			select2.setPosition(1280 / 2 + 150, 575);
 		}
 
-		window.draw(logo);
+		//window.draw(logo);
 		window.draw(choiceOne);
 		window.draw(choiceTwo);
 		window.draw(select1);

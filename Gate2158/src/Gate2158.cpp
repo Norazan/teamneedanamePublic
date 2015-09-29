@@ -3,16 +3,16 @@
 
 #include <SFML/Graphics.hpp>
 #include "UserInput.h"
-#include "UserCharacter.h"
+//#include "UserCharacter.h"
 #include "Menu.h"
 
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(400, 400), "Gate2158");
+    sf::RenderWindow window(sf::VideoMode(1280, 720), "Gate2158");
 
-	UserCharacter player = UserCharacter({ 25, 25 }, {200, 200}, sf::Color::Magenta);
-	player.draw(window);
+	//UserCharacter player = UserCharacter({ 25, 25 }, {200, 200}, sf::Color::Magenta);
+	//player.draw(window);
 
 	Menu menuScreen(window);
 	UserInput userInputKey;
@@ -54,7 +54,7 @@ int main()
 		}
 
         window.clear();
-		player.draw(window);
+		//player.draw(window);
 		menuScreen.show(true);
         window.display();
     }
