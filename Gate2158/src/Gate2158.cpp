@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "UserInput.h"
 #include "UserCharacter.h"
-#include <iostream>
+#include "Menu.h"
 
 
 int main()
@@ -13,6 +13,8 @@ int main()
 
 	UserCharacter player = UserCharacter({ 25, 25 }, {200, 200}, sf::Color::Magenta);
 	player.draw(window);
+
+	Menu menuScreen;
 
     while (window.isOpen())
     {
@@ -37,6 +39,7 @@ int main()
 			player.move(sf::Vector2f{ 0, +1 });
 		}
         
+		menuScreen.show(true, window);
 
         window.display();
     }
