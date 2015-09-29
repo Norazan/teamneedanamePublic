@@ -9,5 +9,5 @@ Map::Map() {
 }
 
 void Map::addMapObject(MapObject object) {
-
+	mapObjects.push_back(object);
 }
