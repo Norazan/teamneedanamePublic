@@ -21,7 +21,7 @@ void Camera::draw(){
 	for (int i = 0; i < renderLayer; i++){
 		for (auto mo : mapObjects){
 			if (mo.getRenderLayer == i){
-				mo.draw();
+				mo.draw(window);
 			}
 		}
 	}
