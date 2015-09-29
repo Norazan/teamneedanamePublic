@@ -17,7 +17,7 @@ public:
 	void draw();
 private:
 	sf::RenderWindow &window;
-	std::vector<MapObject> &mapObjects{};
+	std::vector<MapObject> &mapObjects;
 	Map &currentMap;
 };
 
