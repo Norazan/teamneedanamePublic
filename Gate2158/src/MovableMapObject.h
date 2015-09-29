@@ -9,7 +9,8 @@
 
 class MovableMapObject : public MapObject {
 public:
-    void setVelocity(float v);
+	MovableMapObject();
+	void setVelocity(float v);
     float getVelocity();
 
 private:

@@ -4,9 +4,13 @@
 
 #include "MapObject.h"
 
+MapObject::MapObject(){
+
+}
+
 MapObject::MapObject(int renderLayer, sf::RectangleShape shape):
-renderLayer{renderLayer},
-drawObject{ shape }
+	renderLayer{renderLayer},
+	drawObject{ shape }
 {
 
 }

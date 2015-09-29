@@ -14,5 +14,5 @@ Map& World::getCurrentMap(){
 }
 
 void World::addMap(Map m){
-
+	currentMap = m;
 }

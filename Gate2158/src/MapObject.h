@@ -10,6 +10,7 @@
 
 class MapObject {
 public:
+	MapObject();
 	MapObject(int renderLayer, sf::RectangleShape shape);
 	void setAngle(float angle);
     float getAngle();
