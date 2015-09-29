@@ -22,6 +22,14 @@ void MapObject::setPosition(sf::Vector2f pos){
 sf::Vector2f MapObject::getPosition(){
 	return position;
 }
+
+void MapObject::setRenderLayer(int renderLayer){
+	this->renderLayer = renderLayer;
+}
+
+int MapObject::getRenderLayer(){
+	return renderLayer;
+}
 void MapObject::draw(){
 
 }
