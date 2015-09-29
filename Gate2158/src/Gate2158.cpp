@@ -8,11 +8,17 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(400, 400), "Gate2158");
+	sf::RenderWindow window(sf::VideoMode(400, 400), "Gate2158");
+	sf::RectangleShape rec0(sf::Vector2f{ 30.0, 30.0 });
+	sf::RectangleShape rec1(sf::Vector2f{ 40.0, 40.0 });
+	MapObject rectangle0(0, rec0);
+	MapObject rectangle1(1, rec0);
+	std::vector<MapObject> testMap;
+	testMap.push_back(rectangle0);
+	testMap.push_back(rectangle1);
     
 	World Gate2158;
 	Map &currentMap = Gate2158.getCurrentMap();
-
 	Camera userCamera(window, currentMap);
 
     window.setVerticalSyncEnabled(true);
