@@ -5,18 +5,27 @@
 #ifndef GATE2158_MAPOBJECT_H
 #define GATE2158_MAPOBJECT_H
 
-
+#include <SFML/Graphics.hpp>
 #include <SFML/System/Vector2.hpp>
 
 class MapObject {
 public:
-    void setAngle(float angle);
+	MapObject();
+	MapObject(int renderLayer, sf::RectangleShape shape);
+	void setAngle(float angle);
     float getAngle();
+	void setPosition(sf::Vector2f pos);
+	sf::Vector2f getPosition();
+	void setRenderLayer(int renderLayer);
+	int getRenderLayer();
+	void draw(sf::RenderWindow & window);
 private:
+	sf::RectangleShape drawObject;
     sf::Vector2f position;
     unsigned int colorCode;
     bool isSolid;
     float angle;
+	int renderLayer;
 };
 
 
