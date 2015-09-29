@@ -4,7 +4,12 @@
 
 #include "MapObject.h"
 
+MapObject::MapObject(int renderLayer, sf::RectangleShape shape):
+renderLayer{renderLayer},
+drawObject{ shape }
+{
 
+}
 
 void MapObject::setAngle(float angle) {
 	this->angle = angle;
@@ -30,6 +35,6 @@ void MapObject::setRenderLayer(int renderLayer){
 int MapObject::getRenderLayer(){
 	return renderLayer;
 }
-void MapObject::draw(){
-
+void MapObject::draw(sf::RenderWindow & window){
+	window.draw(drawObject);
 }

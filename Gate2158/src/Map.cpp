@@ -8,6 +8,24 @@ Map::Map() {
 
 }
 
+Map::Map(int layers, std::vector<MapObject> mapObjects) :
+layers{ layers },
+mapObjects{ mapObjects } {
+
+}
+
 void Map::addMapObject(MapObject object) {
 	mapObjects.push_back(object);
+}
+
+std::vector<MapObject>& Map::getAllMapObjects(){
+	return this->mapObjects;
+}
+
+void Map::setLayers(int layers){
+	this->layers = layers;
+}
+
+int Map::getLayers(){
+	return layers;
 }
