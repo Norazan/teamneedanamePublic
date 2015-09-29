@@ -38,7 +38,7 @@ int main()
 		if(UserInput::getPressed('s')){
 			player.move(sf::Vector2f{ 0, +1 });
 		}
-        
+		player.draw(window);
 		menuScreen.show(true, window);
 
         window.display();

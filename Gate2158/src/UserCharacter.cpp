@@ -11,13 +11,13 @@ UserCharacter::UserCharacter(sf::Vector2f charSize, sf::Vector2f charInitPos, sf
 	charColor(charColor)
 {}
 
-void UserCharacter::draw(sf::RenderWindow & window) const{
-	character(charSize);
+void UserCharacter::draw(sf::RenderWindow & window) {
+	character.setSize(charSize);
 	character.setPosition(charInitPos);
 	character.setFillColor(charColor);
 	window.draw(character);
 }
 
-void UserCharacter::move(sf::Vector2f dir) const{
+void UserCharacter::move(sf::Vector2f dir){
 	character.setPosition(character.getPosition() + dir);
 }

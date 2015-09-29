@@ -6,6 +6,7 @@
 #define GATE2158_USERCHARACTER_H
 
 //#include "Character.h"
+#include <SFML/Graphics.hpp>
 
 class UserCharacter{
 public:
@@ -15,9 +16,9 @@ public:
 		sf::Color charColor
 	);
 
-	void draw(sf::RenderWindow & window) const;
+	void draw(sf::RenderWindow & window);
 
-	void move(sf::Vector2f dir) const;
+	void move(sf::Vector2f dir);
 
 private:
 	sf::Vector2f charSize;
