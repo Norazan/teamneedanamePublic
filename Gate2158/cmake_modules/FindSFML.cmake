@@ -72,7 +72,7 @@ set(FIND_SFML_PATHS
     /opt/local
     /opt/csw
     /opt
-    ${CMAKE_CURRENT_SOURCE_DIR}/lib/windows_x86/SFML-2.3.2/
+    ${CMAKE_CURRENT_SOURCE_DIR}/../lib/windows_x86/SFML-2.3.2/
 )
 
 # find the SFML include directory
