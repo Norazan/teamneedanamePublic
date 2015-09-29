@@ -4,11 +4,11 @@
 
 #include "Camera.hpp"
 
-Camera::Camera(sf::RenderWindow & window, Map &currentMap) :
+Camera::Camera(sf::RenderWindow &window, Map &currentMap) :
 	window{ window },
 	currentMap{currentMap}
 {
-
+	
 }
 
 
