@@ -5,21 +5,29 @@
 #include "World.h"
 #include "Map.h"
 #include "Camera.hpp"
+#include "Rectangle.h"
 #include <iostream>
 
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(400, 400), "Gate2158");
-	sf::RectangleShape rec0(sf::Vector2f{ 30.0, 30.0 });
-	sf::RectangleShape rec1(sf::Vector2f{ 40.0, 40.0 });
-	rec1.setFillColor(sf::Color::Blue);
-	MapObject rectangle0(0, rec0);
-	MapObject rectangle1(1, rec1);
-
+	Rectangle rec0(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 30.0, 30.0 }, sf::Color::Blue);
+	Rectangle rec1(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 40.0, 40.0 }, sf::Color::Red);
+	MapObject rectangle0(0, &rec0);
+	MapObject rectangle1(1, &rec1);
+	/*
+	sf::Texture spriteTexture;
+	sf::Sprite sprite;
+	if (!spriteTexture.loadFromFile("../../Gate2158/media/download.jpg"))
+		std::cout << "error" << std::endl;
+	sprite.setTexture(spriteTexture);
+	MapObject picture(0, sf::Vector2f{ 50.0, 50.0 }, &sprite);
+	*/
 	Map testMap(2);
     
 	testMap.addMapObject(rectangle0);
 	testMap.addMapObject(rectangle1);
+	//testMap.addMapObject(picture);
 
 
 	//test sprite

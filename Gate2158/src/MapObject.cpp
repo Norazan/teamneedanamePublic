@@ -5,12 +5,12 @@
 #include "MapObject.h"
 
 MapObject::MapObject(){
-
+	
 }
 
-MapObject::MapObject(int renderLayer, sf::RectangleShape shape):
+MapObject::MapObject(int renderLayer, drawable *drawable):
 	renderLayer{renderLayer},
-	drawObject{ shape }
+	drawObject{ drawable }
 {
 
 }
@@ -40,5 +40,5 @@ int MapObject::getRenderLayer(){
 	return renderLayer;
 }
 void MapObject::draw(sf::RenderWindow & window){
-	window.draw(drawObject);
+	drawObject->draw(window);
 }

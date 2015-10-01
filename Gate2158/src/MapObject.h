@@ -7,11 +7,12 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Vector2.hpp>
+#include "drawable.h"
 
 class MapObject {
 public:
 	MapObject();
-	MapObject(int renderLayer, sf::RectangleShape shape);
+	MapObject(int renderLayer, drawable *drawable);
 	void setAngle(float angle);
     float getAngle();
 	void setPosition(sf::Vector2f pos);
@@ -20,7 +21,7 @@ public:
 	int getRenderLayer();
 	void draw(sf::RenderWindow & window);
 private:
-	sf::RectangleShape drawObject;
+	drawable *drawObject;
     sf::Vector2f position;
     unsigned int colorCode;
     bool isSolid;
