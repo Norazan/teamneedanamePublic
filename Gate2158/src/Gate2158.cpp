@@ -6,6 +6,7 @@
 #include "Map.h"
 #include "Camera.hpp"
 #include "Rectangle.h"
+#include "Sprite.h"
 #include <iostream>
 
 int main()
@@ -13,21 +14,16 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(400, 400), "Gate2158");
 	Rectangle rec0(sf::Vector2f{ 50.0, 0.0 }, sf::Vector2f{ 30.0, 30.0 }, sf::Color::Blue);
 	Rectangle rec1(sf::Vector2f{ 50.0, 0.0 }, sf::Vector2f{ 40.0, 40.0 }, sf::Color::Red);
+	Sprite testSprite(sf::Vector2f{ 100.0, 50.0 }, "../../Gate2158/media/download.jpg");
+	MapObject picture(0, &testSprite);
 	MapObject rectangle0(0, &rec0);
 	MapObject rectangle1(1, &rec1);
-	/*
-	sf::Texture spriteTexture;
-	sf::Sprite sprite;
-	if (!spriteTexture.loadFromFile("../../Gate2158/media/download.jpg"))
-		std::cout << "error" << std::endl;
-	sprite.setTexture(spriteTexture);
-	MapObject picture(0, sf::Vector2f{ 50.0, 50.0 }, &sprite);
-	*/
+	
 	Map testMap(2);
     
 	testMap.addMapObject(rectangle0);
 	testMap.addMapObject(rectangle1);
-	//testMap.addMapObject(picture);
+	testMap.addMapObject(picture);
 
 
 	//test sprite
