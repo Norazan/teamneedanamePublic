@@ -13,7 +13,6 @@
 class Camera {
 public:
 	Camera(sf::RenderWindow &window, Map &currentMap);
-	void updateMapObjects();
 	void draw();
 private:
 	sf::RenderWindow &window;

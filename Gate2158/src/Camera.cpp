@@ -4,6 +4,10 @@
 
 #include "Camera.hpp"
 
+//! Constructor of Camera
+//
+//! @parameter window for drawing the mapObjects on window
+//! @parameter currenMap for drawing the correctly map
 Camera::Camera(sf::RenderWindow &window, Map &currentMap) :
 	window{ window },
 	currentMap{ currentMap }
