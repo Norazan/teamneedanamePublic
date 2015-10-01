@@ -3,6 +3,7 @@
 //
 
 #include "MapObject.h"
+#include <iostream>
 
 MapObject::MapObject(){
 	
@@ -25,11 +26,11 @@ float MapObject::getAngle() {
 
 
 void MapObject::setPosition(sf::Vector2f pos){
-	position = pos;
+	drawObject->setPosition(pos);
 }
 
 sf::Vector2f MapObject::getPosition(){
-	return position;
+	return drawObject->getPosition();
 }
 
 void MapObject::setRenderLayer(int renderLayer){

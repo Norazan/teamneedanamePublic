@@ -11,8 +11,8 @@
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(400, 400), "Gate2158");
-	Rectangle rec0(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 30.0, 30.0 }, sf::Color::Blue);
-	Rectangle rec1(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 40.0, 40.0 }, sf::Color::Red);
+	Rectangle rec0(sf::Vector2f{ 50.0, 0.0 }, sf::Vector2f{ 30.0, 30.0 }, sf::Color::Blue);
+	Rectangle rec1(sf::Vector2f{ 50.0, 0.0 }, sf::Vector2f{ 40.0, 40.0 }, sf::Color::Red);
 	MapObject rectangle0(0, &rec0);
 	MapObject rectangle1(1, &rec1);
 	/*
@@ -56,17 +56,15 @@ int main()
     shape.setFillColor(sf::Color::Green);
 
 
-    while(window.isOpen()){
+	while(window.isOpen()){
         sf::Event event;
         while(window.pollEvent(event)){
             if(event.type == sf::Event::Closed){
                 window.close();
             }
         }
-
         window.clear();
 		userCamera.draw();
-
         window.display();
     }
 

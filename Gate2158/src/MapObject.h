@@ -22,7 +22,6 @@ public:
 	void draw(sf::RenderWindow & window);
 private:
 	drawable *drawObject;
-    sf::Vector2f position;
     unsigned int colorCode;
     bool isSolid;
     float angle;
