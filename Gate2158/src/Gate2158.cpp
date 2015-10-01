@@ -5,6 +5,7 @@
 #include "World.h"
 #include "Map.h"
 #include "Camera.hpp"
+#include <iostream>
 
 int main()
 {
@@ -19,6 +20,22 @@ int main()
     
 	testMap.addMapObject(rectangle0);
 	testMap.addMapObject(rectangle1);
+
+
+	//test sprite
+	//sf::Texture spriteTexture;
+	//sf::Sprite sprite;
+
+	//if (!spriteTexture.loadFromFile("../../Gate2158/media/background.png"))
+		//std::cout << "error" << std::endl;
+
+	//sprite.setTexture(spriteTexture);
+
+	//MapObject spriteObj(2, sprite);
+
+	//testMap.addMapObject(spriteObj);
+
+
 
 	World Gate2158;
 	Gate2158.addMap(testMap);
