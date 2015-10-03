@@ -7,6 +7,7 @@
 #include "Camera.hpp"
 #include "Rectangle.h"
 #include "Sprite.h"
+#include "Text.h"
 #include <iostream>
 
 int main()
@@ -15,29 +16,19 @@ int main()
 	Rectangle rec0(sf::Vector2f{ 50.0, 0.0 }, sf::Vector2f{ 30.0, 30.0 }, sf::Color::Blue);
 	Rectangle rec1(sf::Vector2f{ 50.0, 0.0 }, sf::Vector2f{ 40.0, 40.0 }, sf::Color::Red);
 	Sprite testSprite(sf::Vector2f{ 100.0, 50.0 }, "../../Gate2158/media/download.jpg");
+	Text testText("Hello World!", sf::Vector2f{ 100.0, 250.0 }, sf::Text::Style::Bold, sf::Color::Red, 50);
+
 	MapObject picture(0, &testSprite);
 	MapObject rectangle0(0, &rec0);
 	MapObject rectangle1(1, &rec1);
+	MapObject text(1, &testText);
 	
 	Map testMap(2);
     
 	testMap.addMapObject(rectangle0);
 	testMap.addMapObject(rectangle1);
 	testMap.addMapObject(picture);
-
-
-	//test sprite
-	//sf::Texture spriteTexture;
-	//sf::Sprite sprite;
-
-	//if (!spriteTexture.loadFromFile("../../Gate2158/media/background.png"))
-		//std::cout << "error" << std::endl;
-
-	//sprite.setTexture(spriteTexture);
-
-	//MapObject spriteObj(2, sprite);
-
-	//testMap.addMapObject(spriteObj);
+	testMap.addMapObject(text);
 
 
 
@@ -47,10 +38,6 @@ int main()
 	Camera userCamera(window, currentMap);
 
     window.setVerticalSyncEnabled(true);
-
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
-
 
 	while(window.isOpen()){
         sf::Event event;
