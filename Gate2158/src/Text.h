@@ -19,6 +19,14 @@ public:
 		int size = 30,
 		std::string font = "SF Electrotome.ttf"
 	);
+	Text(
+		sf::String t,
+		sf::Vector2f pos,
+		sf::Text::Style style,
+		sf::Color color,
+		int size,
+		sf::Font *font
+		);
 	void draw(sf::RenderWindow &window) override;
 private:
 	sf::Text text;
