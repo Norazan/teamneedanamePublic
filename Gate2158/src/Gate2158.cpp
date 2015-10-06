@@ -38,6 +38,9 @@
 #include "Rectangle.h"
 #include "Sprite.h"
 #include "Text.h"
+#include "Circle.h"
+#include "Character.h"
+#include "UserCharacter.h"
 #include <iostream>
 
 
@@ -49,9 +52,13 @@ int main()
 	Menu menuScreen(window);
 	UserInput userInputKey;
 
-	Rectangle rec0(sf::Vector2f{ 50.0, 0.0 }, sf::Vector2f{ 30.0, 30.0 }, sf::Color::Blue);
-	Rectangle rec1(sf::Vector2f{ 50.0, 0.0 }, sf::Vector2f{ 40.0, 40.0 }, sf::Color::Red);
-	Sprite testSprite(sf::Vector2f{ 100.0, 50.0 }, "../../Gate2158/media/download.jpg");
+	Rectangle rec0(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 30.0, 30.0 }, sf::Color::Blue);
+	Rectangle rec1(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 40.0, 40.0 }, sf::Color::Red);
+	Sprite testSprite(sf::Vector2f{ 200.0, 100.0 }, "../../Gate2158/media/download.jpg");
+	Circle circle(sf::Vector2f{ 100.0, 300.0 }, 30, sf::Color::Blue);
+	
+	Character character(100, 0, &rec0);
+	UserCharacter userCharacter(100, 3, &testSprite);
 
 	sf::Font tFont;
 
@@ -63,20 +70,22 @@ int main()
 	//Always pass the font by reference, they are heavy elements! 
 	//Passing nby value will give a C++ exception error
 	//Loading font should be a function in the Text object, maybe load minimal amount of fonts on game startup?
-	Text testText(ttString, sf::Vector2f(50, 50), sf::Text::Style::Regular, sf::Color::Red, 30, &tFont);
+	Text testText(ttString, sf::Vector2f(200, 200), sf::Text::Style::Regular, sf::Color::Red, 30, &tFont);
 
-	MapObject picture(3, &testSprite);
-	MapObject rectangle0(0, &rec0);
+	//MapObject picture(3, &testSprite);
+	//MapObject rectangle0(0, &rec0);
 	MapObject rectangle1(1, &rec1);
 	MapObject text(2, &testText);
+	MapObject circle0(2, &circle);
 
 
 	Map testMap(3);
     
-	testMap.addMapObject(rectangle0);
+	testMap.addMapObject(character);
 	testMap.addMapObject(rectangle1);
-	testMap.addMapObject(picture);
+	testMap.addMapObject(userCharacter);
 	testMap.addMapObject(text);
+	testMap.addMapObject(circle0);
 
 	World Gate2158;
 	Gate2158.addMap(testMap);
@@ -122,8 +131,11 @@ int main()
         window.clear();
 		//userCamera.draw();
 		//player.draw(window);
-		menuScreen.show(true);
-		//userCamera.draw();
+		//menuScreen.show(true);
+		userCamera.draw();
+		for (auto & i : testMap.getAllMapObjects()){
+			i.rotate(1);
+		}
         window.display();
     }
     return 0;

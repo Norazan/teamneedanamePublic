@@ -41,3 +41,23 @@ void Text::draw(sf::RenderWindow &window){
 	text.setPosition(getPosition());
 	window.draw(text);
 }
+
+sf::Vector2f Text::getSize(){
+	sf::Vector2f size;
+	size.x = text.getLocalBounds().width;
+	size.y = text.getLocalBounds().height;
+	return size;
+}
+
+float Text::getAngle(){
+	return text.getRotation();
+}
+
+void Text::rotate(float rotation){
+	sf::Vector2f size = getSize();
+	sf::Vector2f center;
+	center.x = size.x / 2;
+	center.y = size.y / 2;
+	text.setOrigin(center);
+	text.rotate(rotation);
+}

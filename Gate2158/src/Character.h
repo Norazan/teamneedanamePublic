@@ -10,7 +10,8 @@
 
 class Character : public MovableMapObject {
 public:
-	Character(float maxHealth = 100);
+	Character(float maxHealth, int renderLayer, drawable *drawable);
+	void draw(sf::RenderWindow & window);
     float getHealth(void);
     void setHealth(float h);
 
