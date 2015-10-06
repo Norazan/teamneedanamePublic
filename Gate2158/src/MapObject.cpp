@@ -16,12 +16,12 @@ MapObject::MapObject(int renderLayer, drawable *drawable):
 
 }
 
-void MapObject::setAngle(float angle) {
-	this->angle = angle;
+void MapObject::rotate(float rotation) {
+	drawObject->rotate(rotation);
 }
 
 float MapObject::getAngle() {
-    return angle;
+	return drawObject->getAngle();
 }
 
 
@@ -42,4 +42,7 @@ int MapObject::getRenderLayer(){
 }
 void MapObject::draw(sf::RenderWindow & window){
 	drawObject->draw(window);
+}
+sf::Vector2f MapObject::getSize(){
+	return drawObject->getSize();
 }

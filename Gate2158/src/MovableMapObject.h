@@ -9,7 +9,7 @@
 
 class MovableMapObject : public MapObject {
 public:
-	MovableMapObject();
+	MovableMapObject(int renderLayer, drawable *drawable);
 	void setVelocity(float v);
     float getVelocity();
 

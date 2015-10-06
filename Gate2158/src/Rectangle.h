@@ -12,6 +12,9 @@ class Rectangle : public drawable {
 public:
 	Rectangle(sf::Vector2f pos, sf::Vector2f size, sf::Color color);
 	void draw(sf::RenderWindow &window) override;
+	sf::Vector2f getSize() override;
+	float getAngle() override;
+	void rotate(float rotation) override;
 private:
 	sf::RectangleShape rectangle;
 };

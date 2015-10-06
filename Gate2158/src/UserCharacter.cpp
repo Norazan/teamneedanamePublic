@@ -5,19 +5,15 @@
 #include "UserCharacter.h"
 #include "UserInput.h"
 
-UserCharacter::UserCharacter(sf::Vector2f charSize, sf::Vector2f charInitPos, sf::Color charColor) :
-	charSize(charSize),
-	charInitPos(charInitPos),
-	charColor(charColor)
+UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable *drawable) :
+Character(maxHealth, renderLayer, drawable)
+
 {}
 
 void UserCharacter::draw(sf::RenderWindow & window) {
-	character.setSize(charSize);
-	character.setPosition(charInitPos);
-	character.setFillColor(charColor);
-	window.draw(character);
+	MapObject::draw(window);
 }
 
 void UserCharacter::move(sf::Vector2f dir){
-	character.setPosition(character.getPosition() + dir);
+	setPosition(getPosition() + dir);
 }

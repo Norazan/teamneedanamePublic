@@ -13,12 +13,13 @@ class MapObject {
 public:
 	MapObject();
 	MapObject(int renderLayer, drawable *drawable);
-	void setAngle(float angle);
+	void rotate(float rotation);
     float getAngle();
 	void setPosition(sf::Vector2f pos);
 	sf::Vector2f getPosition();
 	void setRenderLayer(int renderLayer);
 	int getRenderLayer();
+	sf::Vector2f getSize();
 	void draw(sf::RenderWindow & window);
 private:
 	drawable *drawObject;
