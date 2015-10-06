@@ -27,15 +27,15 @@ int main()
 	//Always pass the font by reference, they are heavy elements! 
 	//Passing nby value will give a C++ exception error
 	//Loading font should be a function in the Text object, maybe load minimal amount of fonts on game startup?
-	Text testText(ttString, sf::Vector2f(50, 50), sf::Text::Style::Regular, sf::Color::White, 30, &tFont);
+	Text testText(ttString, sf::Vector2f(50, 50), sf::Text::Style::Regular, sf::Color::Red, 30, &tFont);
 
-	MapObject picture(2, &testSprite);
+	MapObject picture(3, &testSprite);
 	MapObject rectangle0(0, &rec0);
 	MapObject rectangle1(1, &rec1);
-	MapObject text(1, &testText);
+	MapObject text(2, &testText);
 
 
-	Map testMap(2);
+	Map testMap(3);
     
 	testMap.addMapObject(rectangle0);
 	testMap.addMapObject(rectangle1);
