@@ -3,14 +3,15 @@
 //
 
 #include "MapObject.h"
+#include <iostream>
 
 MapObject::MapObject(){
-
+	
 }
 
-MapObject::MapObject(int renderLayer, sf::RectangleShape shape):
+MapObject::MapObject(int renderLayer, drawable *drawable):
 	renderLayer{renderLayer},
-	drawObject{ shape }
+	drawObject{ drawable }
 {
 
 }
@@ -25,11 +26,11 @@ float MapObject::getAngle() {
 
 
 void MapObject::setPosition(sf::Vector2f pos){
-	position = pos;
+	drawObject->setPosition(pos);
 }
 
 sf::Vector2f MapObject::getPosition(){
-	return position;
+	return drawObject->getPosition();
 }
 
 void MapObject::setRenderLayer(int renderLayer){
@@ -40,5 +41,5 @@ int MapObject::getRenderLayer(){
 	return renderLayer;
 }
 void MapObject::draw(sf::RenderWindow & window){
-	window.draw(drawObject);
+	drawObject->draw(window);
 }
