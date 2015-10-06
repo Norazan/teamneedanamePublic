@@ -23,7 +23,7 @@ private:
 
 struct MyToggleKey{
 	sf::Keyboard::Key key;
-	bool previousState;
+	bool pressedState;
 	bool currentState;
 };
 
