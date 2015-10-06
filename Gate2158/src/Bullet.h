@@ -1,0 +1,4 @@
+#ifndef GATE2158_BULLET_H
+#define GATE2158_BULLET_H
+
+#endif
