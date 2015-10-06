@@ -7,7 +7,6 @@
 
 
 #include "MovableMapObject.h"
-#include "UserinteractebleMapObject"
 
 class Character : public MovableMapObject {
 public:
