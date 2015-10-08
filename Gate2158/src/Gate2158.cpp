@@ -103,6 +103,9 @@ int main()
 			}
         }
 
+
+		//std::cout << userInputKey.getToggleKey(sf::Keyboard::W);
+
 		userInputKey.updateToggleKey();
 
 
@@ -117,8 +120,8 @@ int main()
 				menuScreen.setCurrentSelection(1);
 			}
 		}
-		//else if (userInputKey.getPressed('s')){
-		else if (userInputKey.isKeyPressed(sf::Keyboard::S)){
+		else if (userInputKey.getPressed('s')){
+		//else if (userInputKey.isKeyPressed(sf::Keyboard::S)){
 			if (menuScreen.getCurrentSelection() == 2){
 				menuScreen.setCurrentSelection(1);
 			}

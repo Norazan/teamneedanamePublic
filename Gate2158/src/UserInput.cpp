@@ -41,8 +41,8 @@ void UserInput::setToggleKey(sf::Keyboard::Key key){
 	MyToggleKey k1;
 	k1.key = key;
 	k1.currentState = getPressed(key);
-	k1.pressed = true;
-	k1.hold = true;
+	k1.pressed = false;
+	k1.hold = false;
 	k1.pressedState = false;
 
 	keyToggleList.push_back(k1);
@@ -63,14 +63,16 @@ void UserInput::updateToggleKey(){
 	for (std::vector<MyToggleKey>::iterator it = keyToggleList.begin(); it != keyToggleList.end(); it++)
 	{
 		it->currentState = getPressed(it->key);
-		if (it->pressed && it->currentState){
+
+		if (it->currentState == true && it->pressed == false && it->hold == false){
+			it->pressed = true;
 			it->hold = true;
 		}
-		else if (!it->currentState){
-			it->hold = false;
-			it->pressed = false;
-		}
 
+		if (it->currentState == false){
+			it->pressed = false;
+			it->hold = false;
+		}
 	}
 }
 
