@@ -94,4 +94,3 @@ bool UserInput::isKeyHold(sf::Keyboard::Key key){
 	}
 	return false;
 }
-

@@ -11,7 +11,7 @@
 class Character : public MovableMapObject {
 public:
 	Character(float maxHealth, int renderLayer, drawable* drawable);
-	void draw(sf::RenderWindow & window);
+	virtual void draw(sf::RenderWindow & window) override;
     float getHealth(void);
     void setHealth(float h);
 

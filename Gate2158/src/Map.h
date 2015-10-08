@@ -13,13 +13,13 @@ class Map {
 public:
     Map();
 	Map(int layers);
-    void addMapObject(MapObject);
-	std::vector<MapObject>& getAllMapObjects();
+    void addMapObject(MapObject *mapObject);
+	std::vector<MapObject*>& getAllMapObjects();
 	int getLayers();
 	void setLayers(int layers);
 private:
 	int layers;
-	std::vector<MapObject> mapObjects;
+	std::vector<MapObject*> mapObjects;
 };
 
 

@@ -13,11 +13,11 @@ layers{ layers }
 {
 }
 
-void Map::addMapObject(MapObject object) {
+void Map::addMapObject(MapObject *object) {
 	mapObjects.push_back(object);
 }
 
-std::vector<MapObject>& Map::getAllMapObjects(){
+std::vector<MapObject*>& Map::getAllMapObjects(){
 	return this->mapObjects;
 }
 

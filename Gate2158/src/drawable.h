@@ -8,8 +8,8 @@ public:
 	drawable(sf::Vector2f pos);
 	virtual void draw(sf::RenderWindow &window);
 	virtual sf::Vector2f getSize();
-	virtual float getAngle();
-	virtual void rotate(float rotation);
+	virtual float getRotation();
+	virtual void setRotation(float rotation);
 	void setPosition(sf::Vector2f pos);
 	sf::Vector2f getPosition();
 	

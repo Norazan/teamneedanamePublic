@@ -17,6 +17,9 @@ drawable(pos)
 		std::cout << "error: can't load the font.";
 	}
 	text.setFont(font);
+	sf::Vector2f s = getSize();
+	sf::Vector2f center{ s.x / 2, s.y / 2 };
+	text.setOrigin(center);
 }
 
 Text::Text(
@@ -49,15 +52,10 @@ sf::Vector2f Text::getSize(){
 	return size;
 }
 
-float Text::getAngle(){
+float Text::getRotation(){
 	return text.getRotation();
 }
 
-void Text::rotate(float rotation){
-	sf::Vector2f size = getSize();
-	sf::Vector2f center;
-	center.x = size.x / 2;
-	center.y = size.y / 2;
-	text.setOrigin(center);
-	text.rotate(rotation);
+void Text::setRotation(float rotation){
+	text.setRotation(rotation);
 }

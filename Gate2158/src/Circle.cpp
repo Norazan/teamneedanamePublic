@@ -9,6 +9,9 @@ Circle::Circle(sf::Vector2f pos, float radius, sf::Color color) :
 {
 	circle.setRadius(radius);
 	circle.setFillColor(color);
+	sf::Vector2f size = getSize();
+	sf::Vector2f center{ size.x / 2, size.y / 2 };
+	circle.setOrigin(center);
 }
 
 void Circle::draw(sf::RenderWindow &window){
@@ -23,15 +26,10 @@ sf::Vector2f Circle::getSize(){
 	return size;
 }
 
-float Circle::getAngle(){
+float Circle::getRotation(){
 	return circle.getRotation();
 }
 
-void Circle::rotate(float rotation){
-	sf::Vector2f size = getSize();
-	sf::Vector2f center;
-	center.x = size.x / 2;
-	center.y = size.y / 2;
-	circle.setOrigin(center);
-	circle.rotate(rotation);
+void Circle::setRotation(float rotation){
+	circle.setRotation(rotation);
 }

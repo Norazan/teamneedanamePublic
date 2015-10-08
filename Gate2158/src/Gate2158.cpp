@@ -60,7 +60,7 @@ int main()
 	Sprite testSprite(sf::Vector2f{ 200.0, 100.0 }, "../../Gate2158/media/download.jpg");
 	Circle circle(sf::Vector2f{ 100.0, 300.0 }, 30, sf::Color::Blue);
 	
-	Character character(100, 0, &rec0);
+	//Character character(100, 0, &rec0);
 	UserCharacter userCharacter(100, 3, &testSprite);
 
 	sf::Font tFont;
@@ -84,11 +84,11 @@ int main()
 
 	Map testMap(3);
     
-	testMap.addMapObject(character);
-	testMap.addMapObject(rectangle1);
-	testMap.addMapObject(userCharacter);
-	testMap.addMapObject(text);
-	testMap.addMapObject(circle0);
+	//testMap.addMapObject(character);
+	//testMap.addMapObject(rectangle1);
+	testMap.addMapObject(&userCharacter);
+	//testMap.addMapObject(text);
+	//testMap.addMapObject(circle0);
 
 	World Gate2158;
 	Gate2158.addMap(testMap);
@@ -97,8 +97,8 @@ int main()
 
     window.setVerticalSyncEnabled(true);
 
-	userInputKey.setToggleKey(sf::Keyboard::W);
-	userInputKey.setToggleKey(sf::Keyboard::S);
+	//userInputKey.setToggleKey(sf::Keyboard::W);
+	//userInputKey.setToggleKey(sf::Keyboard::S);
 
 	while(window.isOpen()){
         sf::Event event;
@@ -119,7 +119,7 @@ int main()
 
 
 
-
+		/*
 		//if (userInputKey.getPressed('w')){
 		if (userInputKey.isKeyPressed(sf::Keyboard::W)){
 			if (menuScreen.getCurrentSelection() == 1){
@@ -153,15 +153,13 @@ int main()
 		if (userInputKey.getMousePress(sf::Mouse::Left)){
 			std::cout << "\nx: " << userInputKey.getMousePosition(window).x << "y: " << userInputKey.getMousePosition(window).y;
 		}
-
+		*/
         window.clear();
-		//userCamera.draw();
+		userCamera.draw();
 		//player.draw(window);
 		//menuScreen.show(true);
-		userCamera.draw();
-		for (auto & i : testMap.getAllMapObjects()){
-			i.rotate(1);
-		}
+
+		//userCharacter.draw(window);
         window.display();
     }
     return 0;

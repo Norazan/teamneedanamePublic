@@ -17,11 +17,11 @@ MapObject::MapObject(int renderLayer, drawable* drawable) :
 }
 
 void MapObject::rotate(float rotation) {
-	drawObject->rotate(rotation);
+	drawObject->setRotation(rotation);
 }
 
-float MapObject::getAngle() {
-	return drawObject->getAngle();
+float MapObject::getRotation() {
+	return drawObject->getRotation();
 }
 
 

@@ -18,3 +18,8 @@ float MovableMapObject::getVelocity() {
     return velocity;
 }
 
+
+void MovableMapObject::draw(sf::RenderWindow & window){
+
+}
+

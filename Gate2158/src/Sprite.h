@@ -13,8 +13,8 @@ public:
 	Sprite(sf::Vector2f pos, std::string name);
 	void draw(sf::RenderWindow &window) override;
 	sf::Vector2f getSize() override;
-	float getAngle() override;
-	void rotate(float rotation) override;
+	float getRotation() override;
+	void setRotation(float rotation) override;
 private:
 	sf::Texture texture;
 	sf::Sprite sprite;

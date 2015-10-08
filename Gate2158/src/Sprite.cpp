@@ -12,6 +12,9 @@ Sprite::Sprite(sf::Vector2f pos, std::string name) :
 		std::cout << "can't load the sprite: " << name << std::endl;
 	}
 	sprite.setTexture(texture);
+	sf::Vector2f size = getSize();
+	sf::Vector2f center{ size.x / 2, size.y / 2 };
+	sprite.setOrigin(center);
 }
 
 void Sprite::draw(sf::RenderWindow &window){
@@ -26,15 +29,10 @@ sf::Vector2f Sprite::getSize(){
 	return size;
 }
 
-float Sprite::getAngle(){
+float Sprite::getRotation(){
 	return sprite.getRotation();
 }
 
-void Sprite::rotate(float rotation){
-	sf::Vector2f size = getSize();
-	sf::Vector2f center;
-	center.x = size.x / 2;
-	center.y = size.y / 2;
-	sprite.setOrigin(center);
-	sprite.rotate(rotation);
+void Sprite::setRotation(float rotation){
+	sprite.setRotation(rotation);
 }

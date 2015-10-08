@@ -21,9 +21,9 @@ sf::Vector2f drawable::getPosition(){
 sf::Vector2f drawable::getSize(){
 	return sf::Vector2f{ 0.0, 0.0 };
 }
-float drawable::getAngle(){
+float drawable::getRotation(){
 	return 0.0;
 }
-void drawable::rotate(float rotation){
+void drawable::setRotation(float rotation){
 	
 }

@@ -14,13 +14,13 @@ public:
 	MapObject();
 	MapObject(int renderLayer, drawable* drawables);
 	void rotate(float rotation);
-    float getAngle();
+    float getRotation();
 	void setPosition(sf::Vector2f pos);
 	sf::Vector2f getPosition();
 	void setRenderLayer(int renderLayer);
 	int getRenderLayer();
 	sf::Vector2f getSize();
-	void draw(sf::RenderWindow & window);
+	virtual void draw(sf::RenderWindow & window);
 private:
 	drawable* drawObject;
     unsigned int colorCode;

@@ -12,6 +12,7 @@ public:
 	MovableMapObject(int renderLayer, drawable* drawable);
 	void setVelocity(float v);
     float getVelocity();
+	virtual void draw(sf::RenderWindow & window) override;
 
 private:
     float velocity;
