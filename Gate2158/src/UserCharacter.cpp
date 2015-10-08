@@ -5,7 +5,7 @@
 #include "UserCharacter.h"
 #include "UserInput.h"
 
-UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable *drawable) :
+UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawable) :
 Character(maxHealth, renderLayer, drawable)
 
 {}

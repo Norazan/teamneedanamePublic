@@ -9,9 +9,9 @@ MapObject::MapObject(){
 	
 }
 
-MapObject::MapObject(int renderLayer, drawable *drawable):
-	renderLayer{renderLayer},
-	drawObject{ drawable }
+MapObject::MapObject(int renderLayer, drawable* drawable) :
+	renderLayer{ renderLayer },
+	drawObject{drawable}
 {
 
 }

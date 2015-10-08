@@ -4,7 +4,7 @@
 
 #include "MovableMapObject.h"
 
-MovableMapObject::MovableMapObject(int renderLayer, drawable *drawable) :
+MovableMapObject::MovableMapObject(int renderLayer, drawable* drawable) :
 	MapObject(renderLayer, drawable)
 {
 

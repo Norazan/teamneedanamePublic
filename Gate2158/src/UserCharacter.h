@@ -10,7 +10,7 @@
 
 class UserCharacter : public Character {
 public:
-	UserCharacter(float maxHealth, int renderLayer, drawable *drawable);
+	UserCharacter(float maxHealth, int renderLayer, drawable* drawable);
 
 	void draw(sf::RenderWindow & window);
 
