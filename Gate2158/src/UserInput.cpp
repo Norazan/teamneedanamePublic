@@ -3,6 +3,7 @@
 //
 
 #include "UserInput.h"
+#include <iostream>
 
 bool UserInput::getPressed(char key){
 
@@ -49,10 +50,10 @@ void UserInput::setToggleKey(sf::Keyboard::Key key){
 }
 
 bool UserInput::getToggleKey(sf::Keyboard::Key key){
-	for (std::vector<MyToggleKey>::iterator it = keyToggleList.begin(); it !=keyToggleList.end(); it++)
+	for (auto & it : keyToggleList)
 	{
-		if (it->key == key){
-			return it->currentState;
+		if (it.key == key){
+			return it.currentState;
 		}
 	}
 
@@ -60,25 +61,24 @@ bool UserInput::getToggleKey(sf::Keyboard::Key key){
 }
 
 void UserInput::updateToggleKey(){
-	for (std::vector<MyToggleKey>::iterator it = keyToggleList.begin(); it != keyToggleList.end(); it++)
+	for (auto & it : keyToggleList)
 	{
-		it->currentState = getPressed(it->key);
-		if (it->pressed && it->currentState){
-			it->hold = true;
+		it.currentState = getPressed(it.key);
+		if (it.pressed && it.currentState){
+			it.hold = true;
 		}
-		else if (!it->currentState){
-			it->hold = false;
-			it->pressed = false;
+		else if (!it.currentState){
+			it.hold = false;
+			it.pressed = false;
 		}
 
 	}
 }
 
 bool UserInput::isKeyPressed(sf::Keyboard::Key key){
-	for (std::vector<MyToggleKey>::iterator it = keyToggleList.begin(); it != keyToggleList.end(); it++)
-	{
-		if ((it->key == key) && (it->pressed)){
-			it->pressed = false;
+	for (auto & it : keyToggleList){
+		if ((it.key == key) && (it.pressed)){
+			it.pressed = false;
 			return true;
 		}
 	}
