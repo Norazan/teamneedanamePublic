@@ -46,7 +46,10 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1280, 720), "Gate2158");
+
+	int width= 1280;
+	int height = 720;
+    sf::RenderWindow window(sf::VideoMode(width, height), "Gate2158");
 	//UserCharacter player = UserCharacter({ 25, 25 }, {200, 200}, sf::Color::Magenta);
 	//player.draw(window);
 	Menu menuScreen(window);
@@ -94,14 +97,31 @@ int main()
 
     window.setVerticalSyncEnabled(true);
 
+	userInputKey.setToggleKey(sf::Keyboard::W);
+	userInputKey.setToggleKey(sf::Keyboard::S);
+
 	while(window.isOpen()){
         sf::Event event;
         while(window.pollEvent(event)){
             if(event.type == sf::Event::Closed){
                 window.close();
             }
+			if (event.type == sf::Event::Resized){
+				height = event.size.height;
+				width = event.size.width;
+			}
         }
-		if (userInputKey.getPressed('w')){
+
+
+		//std::cout << userInputKey.getToggleKey(sf::Keyboard::W);
+
+		userInputKey.updateToggleKey();
+
+
+
+
+		//if (userInputKey.getPressed('w')){
+		if (userInputKey.isKeyPressed(sf::Keyboard::W)){
 			if (menuScreen.getCurrentSelection() == 1){
 				menuScreen.setCurrentSelection(2);
 			}
@@ -110,6 +130,7 @@ int main()
 			}
 		}
 		else if (userInputKey.getPressed('s')){
+		//else if (userInputKey.isKeyPressed(sf::Keyboard::S)){
 			if (menuScreen.getCurrentSelection() == 2){
 				menuScreen.setCurrentSelection(1);
 			}
@@ -128,6 +149,11 @@ int main()
 				// game start
 			}
 		}
+
+		if (userInputKey.getMousePress(sf::Mouse::Left)){
+			std::cout << "\nx: " << userInputKey.getMousePosition(window).x << "y: " << userInputKey.getMousePosition(window).y;
+		}
+
         window.clear();
 		//userCamera.draw();
 		//player.draw(window);
