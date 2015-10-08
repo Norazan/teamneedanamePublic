@@ -87,6 +87,10 @@ int main()
 	Camera userCamera(window, currentMap);
 
     window.setVerticalSyncEnabled(true);
+
+	userInputKey.setToggleKey(sf::Keyboard::W);
+	userInputKey.setToggleKey(sf::Keyboard::S);
+
 	while(window.isOpen()){
         sf::Event event;
         while(window.pollEvent(event)){
@@ -99,8 +103,13 @@ int main()
 			}
         }
 
+		userInputKey.updateToggleKey();
 
-		if (userInputKey.getPressed('w')){
+
+
+
+		//if (userInputKey.getPressed('w')){
+		if (userInputKey.isKeyPressed(sf::Keyboard::W)){
 			if (menuScreen.getCurrentSelection() == 1){
 				menuScreen.setCurrentSelection(2);
 			}
@@ -108,7 +117,8 @@ int main()
 				menuScreen.setCurrentSelection(1);
 			}
 		}
-		else if (userInputKey.getPressed('s')){
+		//else if (userInputKey.getPressed('s')){
+		else if (userInputKey.isKeyPressed(sf::Keyboard::S)){
 			if (menuScreen.getCurrentSelection() == 2){
 				menuScreen.setCurrentSelection(1);
 			}

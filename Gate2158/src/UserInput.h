@@ -8,6 +8,14 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
+struct MyToggleKey{
+	sf::Keyboard::Key key;
+	bool pressed;
+	bool hold;
+	bool pressedState;
+	bool currentState;
+};
+
 class UserInput{
 public:
 	bool getPressed(char key);
@@ -16,16 +24,14 @@ public:
 	sf::Vector2i getMousePosition(sf::RenderWindow &window);
 	bool getToggleKey(sf::Keyboard::Key);
 	void setToggleKey(sf::Keyboard::Key);
+	bool isKeyPressed(sf::Keyboard::Key);
+	bool isKeyHold(sf::Keyboard::Key);
 	void updateToggleKey();
 private:
 	std::vector<MyToggleKey> keyToggleList;
 };
 
-struct MyToggleKey{
-	sf::Keyboard::Key key;
-	bool pressedState;
-	bool currentState;
-};
+
 
 
 #endif //GATE2158_USERINPUT_H
