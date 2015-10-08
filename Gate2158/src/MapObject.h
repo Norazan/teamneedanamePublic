@@ -12,7 +12,7 @@
 class MapObject {
 public:
 	MapObject();
-	MapObject(int renderLayer, std::vector<drawable*> drawables);
+	MapObject(int renderLayer, drawable* drawables);
 	void rotate(float rotation);
     float getAngle();
 	void setPosition(sf::Vector2f pos);
