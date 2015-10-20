@@ -17,15 +17,49 @@
 
 class UserCharacter : public Character {
 public:
+	//! Constructor
+	//
+	//! @parameter maxHealth
+	//! @parameter renderLayer
+	//! @parameter drawable
 	UserCharacter(float maxHealth, int renderLayer, drawable* drawable);
+
+	//! Function draw
+	//
+	//! draws the drawable of the UserCharacter.
 	void draw(sf::RenderWindow & window) override;
 
 private:
+	//! Function move
+	//
+	//! @parameter dir is de direction and speed of movement
+	//! Adds the direction to the position.
 	void move(sf::Vector2f dir);
+
+	//! Funcion processKeys
+	//
+	//! Check of one of the keys is pressed.
+	//! And use function move to change the position of the character.
 	void processKeys();
+
+	//! Function processMous
+	//
+	//! @parameter window
+	//! Checks where the mouse is.
+	//! Calls the function calculateRotation and sets the rotation.
 	void processMouse(sf::RenderWindow & window);
+
+	//! Function calculateRotation
+	//
+	//! @parameter mousePosition
+	//! Calculate the rotation, so the character rotate to the mouse.
+	//! And returns the value of the rotation.
 	float calculateRotation(sf::Vector2i mousePosition);
+
+	//! input, to check the keys.
 	UserInput input;
+
+	//! the speed of the character in pixels.
 	int speed = 10;
 };
 
