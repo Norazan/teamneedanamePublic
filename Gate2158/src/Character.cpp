@@ -20,5 +20,10 @@ float Character::getHealth(void) {
 }
 
 void Character::setHealth(float h) {
-    health = h;
+	if (h >= maxHealth){
+		health = maxHealth;
+	}
+	else {
+		health = h;
+	}
 }

@@ -10,9 +10,28 @@
 
 class Character : public MovableMapObject {
 public:
+	//! Constructor
+	//
+	//! @parameter maxHealth
+	//! @parameter renderLayer
+	//! @parameter drawable
 	Character(float maxHealth, int renderLayer, drawable* drawable);
+
+	//! Function draw
+	//
+	//! @parameter window
+	//! Draws the drawable
 	virtual void draw(sf::RenderWindow & window) override;
+
+	//! Function getHealth
+	//
+	//! Returns health
     float getHealth(void);
+
+	//! Function setHealth
+	//
+	//! @parameter h = health
+	//! Set health
     void setHealth(float h);
 
 private:
