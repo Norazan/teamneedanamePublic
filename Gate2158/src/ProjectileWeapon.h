@@ -6,7 +6,7 @@
 
 class ProjectileWeapon: public Weapon{
 public:
-	ProjectileWeapon(int shotType, int attackSpeed, int projectileSpeed, int maxAmmo, int baseDamage, int maxAmmoInMagazine);
+	ProjectileWeapon(int shotType, int attackSpeed, int maxAmmo, int baseDamage, int maxAmmoInMagazine);
 	void shoot(sf::Vector2f location, float angle);
 	int getAmmo();
 	int getAmmoInMagazine();

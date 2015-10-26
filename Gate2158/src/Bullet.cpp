@@ -1,12 +1,17 @@
 #include "Bullet.h"
+#include <math.h>
 #include <iostream>
 
-Bullet::Bullet(int damage, sf::Vector2f startingLocation, float angle, int velocity){
+Bullet::Bullet(int bulletDamage, sf::Vector2f startingLocation, float startAngle, sf::Vector2f startingVelocity){
 std::cout << "Bullet created";
+damage = bulletDamage;
+location = startingLocation;
+angle = startAngle;
+velocity = startingVelocity;
 }
 void onHit(){
 
 }
-void updateLocation(){
-
+void Bullet::updateLocation(){
+	location + velocity;
 }

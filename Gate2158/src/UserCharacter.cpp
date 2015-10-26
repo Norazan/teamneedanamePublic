@@ -15,7 +15,7 @@ UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawabl
 	input.setToggleKey(sf::Keyboard::A);
 	input.setToggleKey(sf::Keyboard::S);
 	input.setToggleKey(sf::Keyboard::D);
-	weapon = new ProjectileWeapon(2, 10, 5, 100, 20, 10);
+	weapon = new ProjectileWeapon(2, 10, 100, 20, 10);
 }
 
 void UserCharacter::draw(sf::RenderWindow & window) {
