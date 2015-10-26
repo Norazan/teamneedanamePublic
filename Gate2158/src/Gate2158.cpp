@@ -38,14 +38,15 @@
 #include "Rectangle.h"
 #include "Sprite.h"
 #include "Text.h"
+#include "UserCharacter.h"
 #include <iostream>
 
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Gate2158");
-	//UserCharacter player = UserCharacter({ 25, 25 }, {200, 200}, sf::Color::Magenta);
-	//player.draw(window);
+	UserCharacter player = UserCharacter({ 25, 25 }, {200, 200}, sf::Color::Magenta);
+	player.draw(window);
 	Menu menuScreen(window);
 	UserInput userInputKey;
 
@@ -72,12 +73,12 @@ int main()
 
 
 	Map testMap(3);
-    
-	testMap.addMapObject(rectangle0);
+   	testMap.loadFromFile("../../Gate2158/media/maps/checkerboard.png");
+	/*testMap.addMapObject(rectangle0);
 	testMap.addMapObject(rectangle1);
 	testMap.addMapObject(picture);
 	testMap.addMapObject(text);
-
+*/
 	World Gate2158;
 	Gate2158.addMap(testMap);
 	Map &currentMap = Gate2158.getCurrentMap();
@@ -120,10 +121,9 @@ int main()
 			}
 		}
         window.clear();
-		//userCamera.draw();
-		//player.draw(window);
+		userCamera.draw();
+		player.draw(window);
 		menuScreen.show(true);
-		//userCamera.draw();
         window.display();
     }
     return 0;

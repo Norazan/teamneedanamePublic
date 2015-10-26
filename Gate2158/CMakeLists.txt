@@ -4,24 +4,12 @@ project(Gate2158)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
-        src/Gate2158.cpp
-        src/Map.cpp
-        src/Map.h
-        src/MapObject.cpp
-        src/MapObject.h
-        src/MovableMapObject.cpp
-        src/MovableMapObject.h
-        src/UserInteractableMapObject.cpp
-        src/UserInteractableMapObject.h
-        src/Character.cpp
-        src/Character.h
-        src/Camera.cpp
-        src/Camera.hpp
-    )
+        )
 
 
 #Test auto include all source files
 AUX_SOURCE_DIRECTORY(./src DIR_ALL_SRC)
+AUX_SOURCE_DIRECTORY(./src DIR_ALL_H)
 
 add_executable(Gate2158 ${SOURCE_FILES} ${DIR_ALL_SRC})
 
