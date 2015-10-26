@@ -8,6 +8,7 @@
 #include "Character.h"
 #include "UserInput.h"
 #include <SFML/Graphics.hpp>
+#include "ProjectileWeapon.h"
 
 #define PI 3.14159265
 #define angleOfAbove 270.0;
@@ -61,6 +62,8 @@ private:
 
 	//! the speed of the character in pixels.
 	int speed = 10;
+
+	ProjectileWeapon* weapon;
 };
 
 #endif //GATE2158_USERCHARACTER_H
