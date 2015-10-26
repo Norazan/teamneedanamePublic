@@ -59,7 +59,6 @@ void UserCharacter::processMouse(sf::RenderWindow & window){
 
 float UserCharacter::calculateRotation(sf::Vector2i mousePosition){
 	sf::Vector2f pos = getPosition();
-	std::cout << "ojbect = (" << pos.x << "," << pos.y << ")  mouse = (" << mousePosition.x << "," << mousePosition.y << ")\n";
 	// Make vector with the difference between the two vectors, position of character and position of the mouse.
 	sf::Vector2f difference{ (pos.x - mousePosition.x), (pos.y - mousePosition.y) };
 
