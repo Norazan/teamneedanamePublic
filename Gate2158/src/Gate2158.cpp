@@ -58,17 +58,17 @@ int main()
 	Rectangle rec0(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 30.0, 30.0 }, sf::Color::Blue);
 	Rectangle rec1(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 40.0, 40.0 }, sf::Color::Red);
 	Sprite testSprite(sf::Vector2f{ 200.0, 100.0 }, "../../Gate2158/media/download.jpg");
-	Sprite characterNormal(sf::Vector2f{ 200.0, 100.0 }, "../../Gate2158/media/character_normal.png");
+	//Sprite characterNormal(sf::Vector2f{ 200.0, 100.0 }, "../../Gate2158/media/character_normal.png");
 	Sprite characterGun(sf::Vector2f{ 300.0, 100.0 }, "../../Gate2158/media/character_gun.png");
-	Sprite characterShotgun(sf::Vector2f{ 200.0, 200.0 }, "../../Gate2158/media/character_shotgun.png");
-	Sprite characterMachineGun(sf::Vector2f{ 300.0, 200.0 }, "../../Gate2158/media/character_machinegun.png");
-	Circle circle(sf::Vector2f{ 100.0, 300.0 }, 30, sf::Color::Blue);
+	//Sprite characterShotgun(sf::Vector2f{ 200.0, 200.0 }, "../../Gate2158/media/character_shotgun.png");
+	//Sprite characterMachineGun(sf::Vector2f{ 300.0, 200.0 }, "../../Gate2158/media/character_machinegun.png");
+	//Circle circle(sf::Vector2f{ 100.0, 300.0 }, 30, sf::Color::Blue);
 	
 	//Character character(100, 0, &rec0);
-	UserCharacter userCharacter0(100, 3, &characterNormal);
+	//UserCharacter userCharacter0(100, 3, &characterNormal);
 	UserCharacter userCharacter1(100, 3, &characterGun);
-	UserCharacter userCharacter2(100, 3, &characterMachineGun);
-	UserCharacter userCharacter3(100, 3, &characterShotgun);
+	//UserCharacter userCharacter2(100, 3, &characterMachineGun);
+	//UserCharacter userCharacter3(100, 3, &characterShotgun);
 
 	sf::Font tFont;
 
@@ -85,18 +85,18 @@ int main()
 	//MapObject picture(3, &testSprite);
 	//MapObject rectangle0(0, &rec0);
 	MapObject rectangle1(1, &rec1);
-	MapObject text(2, &testText);
-	MapObject circle0(2, &circle);
+	//MapObject text(2, &testText);
+	//MapObject circle0(2, &circle);
 
 
 	Map testMap(3);
     
 	//testMap.addMapObject(character);
 	//testMap.addMapObject(rectangle1);
-	testMap.addMapObject(&userCharacter0);
+	//testMap.addMapObject(&userCharacter0);
 	testMap.addMapObject(&userCharacter1);
-	testMap.addMapObject(&userCharacter2);
-	testMap.addMapObject(&userCharacter3);
+	//testMap.addMapObject(&userCharacter2);
+	//testMap.addMapObject(&userCharacter3);
 	//testMap.addMapObject(text);
 	//testMap.addMapObject(circle0);
 

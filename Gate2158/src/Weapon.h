@@ -1,12 +1,12 @@
 #ifndef GATE2158_WEAPON_H
 #define GATE2158_WEAPON_H
 
-#include "UserCharacter.h"
+#include <SFML/Graphics.hpp>
 class Weapon{
 public:
-	virtual void shoot() = 0;
+	virtual void shoot(sf::Vector2f location, float angle) = 0;
 	virtual int getAmmo() = 0;
-	virtual void setAmmo() = 0;
+	virtual void setAmmo(int ammo) = 0;
 	virtual int calculateDamage()= 0;
 };
 

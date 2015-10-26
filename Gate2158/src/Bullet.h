@@ -5,14 +5,14 @@
 
 class Bullet{
 public:
-	Bullet(int damage, sf::Vector2f startingLocation, int angle, int speed);
+	Bullet(int damage, sf::Vector2f startingLocation, float angle, int velocity);
 	void onHit();
 	void updateLocation();
 private:
 	int damage;
 	sf::Vector2f startingLocation;
-	int angle;
-	int speed;
+	float angle;
+	int velocity;
 };
 
 #endif

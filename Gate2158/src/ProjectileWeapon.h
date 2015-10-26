@@ -2,14 +2,15 @@
 #define GATE2158_PROJECTILEWEAPON_H
 
 #include "Weapon.h"
+#include "Bullet.h"
 
 class ProjectileWeapon: public Weapon{
 public:
-	ProjectileWeapon(int shotType, int attackSpeed, int maxAmmo, int baseDamage, int maxAmmoInMagazine);
-	void shoot();
-	int getCurrentAmmo();
+	ProjectileWeapon(int shotType, int attackSpeed, int projectileSpeed, int maxAmmo, int baseDamage, int maxAmmoInMagazine);
+	void shoot(sf::Vector2f location, float angle);
+	int getAmmo();
 	int getAmmoInMagazine();
-	void setCurrentAmmo(int ammo);
+	void setAmmo(int ammo);
 	void setAmmoInMagazine(int ammo);
 	int calculateDamage();
 	void reload();
@@ -22,7 +23,8 @@ private:
 	int maxAmmoInMagazine;
 	int baseDamage;
 	int weaponTier;
-
+	int projectileVelocity;
+	Bullet* shotBullet;
 };
 
 #endif
