@@ -1,7 +1,7 @@
 #include "ProjectileWeapon.h"
 #include <SFML/Graphics.hpp>
 
-ProjectileWeapon::ProjectileWeapon(int shotType, int attackSpeed int maxAmmo, int baseDamage, int maxAmmoInMagazine)
+ProjectileWeapon::ProjectileWeapon(int shotType, int attackSpeed, int maxAmmo, int baseDamage, int maxAmmoInMagazine)
 {
 	currentAmmo = 100;
 	ammoInMagazine = 10;
@@ -9,8 +9,8 @@ ProjectileWeapon::ProjectileWeapon(int shotType, int attackSpeed int maxAmmo, in
 }
 
 void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
-
-	shotBullet = new Bullet(calculateDamage(), location, angle);
+	sf::Vector2f startingVelocity;
+	shotBullet = new Bullet(calculateDamage(), location, startingVelocity);
 }
 int ProjectileWeapon::getAmmo(){
 	return currentAmmo;
