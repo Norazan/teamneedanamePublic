@@ -74,11 +74,11 @@ int main()
 
 	Map testMap(3);
    	testMap.loadFromFile("../../Gate2158/media/maps/checkerboard.png");
-	/*testMap.addMapObject(rectangle0);
+	testMap.addMapObject(rectangle0);
 	testMap.addMapObject(rectangle1);
 	testMap.addMapObject(picture);
 	testMap.addMapObject(text);
-*/
+
 	World Gate2158;
 	Gate2158.addMap(testMap);
 	Map &currentMap = Gate2158.getCurrentMap();

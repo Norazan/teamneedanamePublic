@@ -41,8 +41,8 @@ void Map::loadFromFile(const std::string filename){
         for(int j = 0; j < dimensions.x; ++j){
             sf::Color color = mapImage.getPixel(j, i);
             if(color == sf::Color::White){
-                Rectangle rect(sf::Vector2f{ j, i }, sf::Vector2f{10.0, 10.0}, color);
-                MapObject obj(0, &rect);
+                drawable *rect = new Rectangle(sf::Vector2f{ j * 10, i * 10 }, sf::Vector2f{10.0, 10.0}, sf::Color::Magenta);
+                MapObject obj(0, rect);
                 addMapObject(obj);
             }
         }
