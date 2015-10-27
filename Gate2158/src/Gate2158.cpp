@@ -92,7 +92,15 @@ int main()
 
 	Map testMap(3);
     
-	Convex convex(sf::Vector2f(200, 200));
+	std::vector<sf::Vector2f> convex_test;
+
+	convex_test.push_back(sf::Vector2f(0,0));
+	convex_test.push_back(sf::Vector2f(150, 10));
+	convex_test.push_back(sf::Vector2f(120, 90));
+	convex_test.push_back(sf::Vector2f(30, 100));
+	convex_test.push_back(sf::Vector2f(0, 50));
+
+	Convex convex(convex_test, sf::Vector2f(200, 200));
 
 	//sf::ConvexShape convex1;
 	/*convex1.setPosition(sf::Vector2f(200, 200));

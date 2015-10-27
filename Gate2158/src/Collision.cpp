@@ -3,6 +3,7 @@
 //
 
 #include "Collision.h"
+#include <vector>
 
 int Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 	std::vector<line> lines_obj1 = getLines(obj1);
