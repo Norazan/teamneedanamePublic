@@ -29,7 +29,7 @@ private:
 	std::vector<line> getAxes(std::vector<line> lines);
 
 	// returns the overlap of the to objects on the axes.
-	int getOverlapOnAxes(line axes, MapObject & obj1, MapObject & obj2);
+	float getOverlapOnAxes(line axes, MapObject & obj1, MapObject & obj2);
 	
 };
 
