@@ -57,9 +57,9 @@ int main()
 
 	Map testMap(3);
 	std::vector<sf::Vector2f> points{ 
-		sf::Vector2f{ 10, 10 },
-		sf::Vector2f{ 20, 20 },
-		sf::Vector2f{ 10, 20 }
+		sf::Vector2f{ 100, 100 },
+		sf::Vector2f{ 150, 200 },
+		sf::Vector2f{ 200, 150 }
 	};
 	Convex convex(points, sf::Vector2f(200, 200));
 
@@ -72,19 +72,12 @@ int main()
 	convex1.setPoint(3, sf::Vector2f(30, 100));
 	convex1.setPoint(4, sf::Vector2f(0, 50));*/
 
-	MapObject con1(0, &convex);
+	MapObject con1(0, &characterGun, &convex);
 
-	userCharacter1.setHitbox(&convex);
 
-	//testMap.addMapObject(character);
 	testMap.addMapObject(&rectangle1);
-	//testMap.addMapObject(&userCharacter0);
-	//testMap.addMapObject(&con1);
+	testMap.addMapObject(&con1);
 	testMap.addMapObject(&userCharacter1);
-	//testMap.addMapObject(&userCharacter2);
-	//testMap.addMapObject(&userCharacter3);
-	//testMap.addMapObject(text);
-	//testMap.addMapObject(circle0);
 
 	World Gate2158;
 	Gate2158.addMap(testMap);
@@ -93,8 +86,6 @@ int main()
 
     window.setVerticalSyncEnabled(true);
 
-	//userInputKey.setToggleKey(sf::Keyboard::W);
-	//userInputKey.setToggleKey(sf::Keyboard::S);
 
 	while(window.isOpen()){
         sf::Event event;

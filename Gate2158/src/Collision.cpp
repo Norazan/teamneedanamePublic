@@ -5,9 +5,14 @@
 #include "Collision.h"
 #include <iostream>
 
+struct line {
+	sf::Vector2f position_1;
+	sf::Vector2f position_2;
+};
+
 int Collision::checkCollision(MapObject & obj1, MapObject & obj2){
-	std::vector<line> lines_obj1 = getLines(obj1);
-	std::vector<line> lines_obj2 = getLines(obj1);
+	std::vector<line> &lines_obj1 = getLines(obj1);
+	std::vector<line> &lines_obj2 = getLines(obj2);
 	std::vector<line> axes_obj1 = getAxes(lines_obj1);
 	std::vector<line> axes_obj2 = getAxes(lines_obj2);
 	// loop over the axes1
@@ -46,7 +51,7 @@ int Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 }
 
 std::vector<Collision::line> Collision::getLines(MapObject & mo){
-	std::vector<sf::Vector2f> points = mo.getConvexPoints();
+	std::vector<sf::Vector2f> &points = mo.getConvexPoints();
 	std::vector<line> lines;
 	int size = points.size();
 	for (int i = 0; i < size; i++){
@@ -64,7 +69,7 @@ std::vector<Collision::line> Collision::getLines(MapObject & mo){
 	return lines;
 }
 
-std::vector<Collision::line> Collision::getAxes(std::vector<line> lines){
+std::vector<Collision::line> Collision::getAxes(std::vector<line> & lines){
 	std::vector<line> axes;
 	for (auto & l : lines){
 		// axes is perpendicular to the line, 
@@ -79,13 +84,13 @@ std::vector<Collision::line> Collision::getAxes(std::vector<line> lines){
 }
 
 float Collision::getOverlapOnAxes(line axes, MapObject & obj1, MapObject & obj2){
-	std::vector<sf::Vector2f> convexPointsObj1 = obj1.getConvexPoints();
-	std::vector<sf::Vector2f> convexPointsObj2 = obj2.getConvexPoints();
+	std::vector<sf::Vector2f> &convexPointsObj1 = obj1.getConvexPoints();
+	std::vector<sf::Vector2f> &convexPointsObj2 = obj2.getConvexPoints();
 	line projectionObj1{ sf::Vector2f{ 0, 0 }, sf::Vector2f{ 0, 0 } };
 	line projectionObj2{ sf::Vector2f{ 0, 0 }, sf::Vector2f{ 0, 0 } };
 	// make a function (y = ax + b ) of the axes that goes through the origin.
 	// function gous through the origin when b = 0, only value we don't know is 'a' (a = delta y / delta x)
-	float a = (axes.position_1.y - axes.position_2.y) / (axes.position_1.x - axes.position_2.y);
+	float a = (axes.position_1.y - axes.position_2.y) / (axes.position_1.x - axes.position_2.x);
 	for (auto & p : convexPointsObj1) {
 		// make a function that is perpendicular to the axes and goes through the point. (y = -(1/a)x + b)
 		// we can fill the point into the function so we can get b. ( b = y + (1/a)x )
