@@ -10,9 +10,13 @@
 
 class Convex {
 public:
-	Convex();
+	Convex(std::vector<sf::Vector2f> points);
 	~Convex();
-	std::vector<sf::Vector2f> getPoints();
+	std::vector<sf::Vector2f>& getPoints();
+	void setPostion(sf::Vector2f pos);
+private:
+	sf::ConvexShape polygon;
+	std::vector<sf::Vector2f> points;
 };
 
 #endif
