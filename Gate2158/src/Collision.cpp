@@ -12,6 +12,7 @@ struct line {
 };
 
 int Collision::checkCollision(MapObject & obj1, MapObject & obj2){
+	
 	std::vector<line> &lines_obj1 = getLines(obj1);
 	std::vector<line> &lines_obj2 = getLines(obj2);
 	std::vector<line> axes_obj1 = getAxes(lines_obj1);
@@ -21,7 +22,11 @@ int Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 	int intersecting_axes_obj1, intersecting_axes_obj2, axesCount = 0;
 	for (auto & axes : axes_obj1) {
 		// do the projections overlap on the axes?
+		if (obj1.getHitbox() != nullptr && obj2.getHitbox() != nullptr){
+			return 0;
+		}
 		float overlap = getOverlapOnAxes(axes, obj1, obj2);
+		
 		if (overlap = 0) {
 			// there is no overlap..
 			return 0;
@@ -37,7 +42,7 @@ int Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 	for (auto & axes : axes_obj2) {
 		// do the projections overlap on the axes?
 		float overlap = getOverlapOnAxes(axes, obj1, obj2);
-		if (overlap = 0) {
+		if (overlap == 0) {
 			// there is no overlap..
 			return 0;
 		}
