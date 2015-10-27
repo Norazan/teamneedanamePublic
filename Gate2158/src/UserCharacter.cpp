@@ -8,8 +8,8 @@
 #include <math.h>
 #include <iostream>
 
-UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawable) :
-	Character(maxHealth, renderLayer, drawable)
+UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawable, Convex* convex) :
+	Character(maxHealth, renderLayer, drawable, convex)
 {
 	input.setToggleKey(sf::Keyboard::W);
 	input.setToggleKey(sf::Keyboard::A);

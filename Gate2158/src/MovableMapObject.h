@@ -9,7 +9,7 @@
 
 class MovableMapObject : public MapObject {
 public:
-	MovableMapObject(int renderLayer, drawable* drawable);
+	MovableMapObject(int renderLayer, drawable* drawable, Convex* convex);
 	void setVelocity(float v);
     float getVelocity();
 	virtual void draw(sf::RenderWindow & window) override;

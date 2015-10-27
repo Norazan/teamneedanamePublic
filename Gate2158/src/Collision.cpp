@@ -21,7 +21,7 @@ int Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 	for (auto & axes : axes_obj1) {
 		// do the projections overlap on the axes?
 		float overlap = getOverlapOnAxes(axes, obj1, obj2);
-		if (overlap = 0) {
+		if (overlap == 0) {
 			// there is no overlap..
 			return 0;
 		}
@@ -36,7 +36,7 @@ int Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 	for (auto & axes : axes_obj2) {
 		// do the projections overlap on the axes?
 		float overlap = getOverlapOnAxes(axes, obj1, obj2);
-		if (overlap = 0) {
+		if (overlap == 0) {
 			// there is no overlap..
 			return 0;
 		}

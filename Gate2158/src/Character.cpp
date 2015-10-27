@@ -4,8 +4,8 @@
 
 #include "Character.h"
 
-Character::Character(float maxHealth, int renderLayer, drawable* drawable) :
-	MovableMapObject(renderLayer, drawable),
+Character::Character(float maxHealth, int renderLayer, drawable* drawable, Convex* convex) :
+	MovableMapObject(renderLayer, drawable, convex),
 	maxHealth{maxHealth}
 {
 

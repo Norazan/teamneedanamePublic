@@ -4,8 +4,8 @@
 
 #include "MovableMapObject.h"
 
-MovableMapObject::MovableMapObject(int renderLayer, drawable* drawable) :
-	MapObject(renderLayer, drawable)
+MovableMapObject::MovableMapObject(int renderLayer, drawable* drawable, Convex *convex) :
+	MapObject(renderLayer, drawable, convex)
 {
 
 }

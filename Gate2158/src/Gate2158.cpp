@@ -32,7 +32,7 @@ int main()
 	Sprite characterGun(sf::Vector2f{ 300.0, 100.0 }, "../../Gate2158/media/character_gun.png");
 	//Character character(100, 0, &rec0);
 	//UserCharacter userCharacter0(100, 3, &characterNormal);
-	UserCharacter userCharacter1(100, 3, &characterGun);
+	//UserCharacter userCharacter1(100, 3, &characterGun);
 	//UserCharacter userCharacter2(100, 3, &characterMachineGun);
 	//UserCharacter userCharacter3(100, 3, &characterShotgun);
 
@@ -56,12 +56,20 @@ int main()
 
 
 	Map testMap(3);
+
 	std::vector<sf::Vector2f> points{ 
-		sf::Vector2f{ 100, 100 },
-		sf::Vector2f{ 150, 200 },
-		sf::Vector2f{ 200, 150 }
+		sf::Vector2f{ 0, 0 },
+		sf::Vector2f{ 0, 25 },
+		sf::Vector2f{ 50, 50 }
 	};
 	Convex convex(points, sf::Vector2f(200, 200));
+
+	std::vector<sf::Vector2f> points1{
+		sf::Vector2f{ 0, 0 },
+		sf::Vector2f{ 0, 25 },
+		sf::Vector2f{ 50, 50 }
+	};
+	Convex convex1(points1, sf::Vector2f(50, 50));
 
 	//sf::ConvexShape convex1;
 	/*convex1.setPosition(sf::Vector2f(200, 200));
@@ -72,12 +80,14 @@ int main()
 	convex1.setPoint(3, sf::Vector2f(30, 100));
 	convex1.setPoint(4, sf::Vector2f(0, 50));*/
 
-	MapObject con1(0, &characterGun, &convex);
+	MapObject con1(0, &rec0, &convex);
+	UserCharacter con2(100, 0, &characterGun, &convex1);
 
 
-	testMap.addMapObject(&rectangle1);
+	//testMap.addMapObject(&rectangle1);
 	testMap.addMapObject(&con1);
-	testMap.addMapObject(&userCharacter1);
+	testMap.addMapObject(&con2);
+	//testMap.addMapObject(&userCharacter1);
 
 	World Gate2158;
 	Gate2158.addMap(testMap);

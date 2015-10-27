@@ -13,8 +13,7 @@ Convex::Convex(std::vector<sf::Vector2f> points, sf::Vector2f position) :
 	for (auto & point : points){
 		convex.setPoint(count++, point);
 	}
-	convex.setOutlineColor(sf::Color::Red);
-	convex.setOutlineThickness(5);
+	convex.setFillColor(sf::Color::Blue);
 }
 
 std::vector<sf::Vector2f>& Convex::getPoints(){

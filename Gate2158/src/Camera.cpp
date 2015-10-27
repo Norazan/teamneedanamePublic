@@ -16,12 +16,12 @@ void Camera::draw(){
 	MapObject *last = nullptr;
 	for (int i = currentMap.getLayers(); i >= 0; i--){
 		for (auto mo : currentMap.getAllMapObjects()){
-			if (last != nullptr){
-				collision.checkCollision(*mo, *last);
-			}
-			last = mo;
 			if (mo->getRenderLayer() == i){
 				mo->draw(window);
+				if (last != nullptr){
+					collision.checkCollision(*mo, *last);
+				}
+				last = mo;
 			}
 		}
 	}

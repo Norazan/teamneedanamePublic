@@ -15,7 +15,7 @@ public:
 	//! @parameter maxHealth
 	//! @parameter renderLayer
 	//! @parameter drawable
-	Character(float maxHealth, int renderLayer, drawable* drawable);
+	Character(float maxHealth, int renderLayer, drawable* drawable, Convex* convex);
 
 	//! Function draw
 	//
