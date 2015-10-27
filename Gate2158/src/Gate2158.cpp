@@ -38,6 +38,7 @@
 #include "Rectangle.h"
 #include "Sprite.h"
 #include "Text.h"
+#include "UserCharacter.h"
 #include <iostream>
 
 
@@ -49,6 +50,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(width, height), "Gate2158");
 	//UserCharacter player = UserCharacter({ 25, 25 }, {200, 200}, sf::Color::Magenta);
 	//player.draw(window);
+	
 	Menu menuScreen(window);
 	UserInput userInputKey;
 
@@ -75,7 +77,7 @@ int main()
 
 
 	Map testMap(3);
-    
+   	testMap.loadFromFile("../../Gate2158/media/maps/checkerboard.png");
 	testMap.addMapObject(rectangle0);
 	testMap.addMapObject(rectangle1);
 	testMap.addMapObject(picture);
@@ -107,9 +109,6 @@ int main()
 		//std::cout << userInputKey.getToggleKey(sf::Keyboard::W);
 
 		userInputKey.updateToggleKey();
-
-
-
 
 		//if (userInputKey.getPressed('w')){
 		if (userInputKey.isKeyPressed(sf::Keyboard::W)){
@@ -146,10 +145,9 @@ int main()
 		}
 
         window.clear();
-		//userCamera.draw();
+		userCamera.draw();
 		//player.draw(window);
 		menuScreen.show(true);
-		//userCamera.draw();
         window.display();
     }
     return 0;
