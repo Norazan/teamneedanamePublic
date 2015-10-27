@@ -16,7 +16,18 @@ MapObject::MapObject(int renderLayer, drawable* drawable) :
 
 }
 
+MapObject::MapObject(int renderLayer, drawable* drawable, Convex * hitbox) :
+renderLayer{ renderLayer },
+drawObject{ drawable },
+Hitbox{hitbox}
+{
+
+}
+
 void MapObject::rotate(float rotation) {
+	if (Hitbox != nullptr){
+		Hitbox->setRotation(rotation);
+	}
 	drawObject->setRotation(rotation);
 }
 
@@ -26,6 +37,9 @@ float MapObject::getRotation() {
 
 
 void MapObject::setPosition(sf::Vector2f pos){
+	if (Hitbox != nullptr){
+		Hitbox->setPosition(pos);
+	}
 	drawObject->setPosition(pos);
 }
 
@@ -41,8 +55,19 @@ int MapObject::getRenderLayer(){
 	return renderLayer;
 }
 void MapObject::draw(sf::RenderWindow & window){
+	if (Hitbox != nullptr){
+		Hitbox->draw(window);
+	}
 	drawObject->draw(window);
 }
 sf::Vector2f MapObject::getSize(){
 	return drawObject->getSize();
+}
+
+void MapObject::setHitbox(Convex * Hitbox){
+	MapObject::Hitbox = Hitbox;
+}
+
+Convex* MapObject::getHitbox(){
+	return Hitbox;
 }

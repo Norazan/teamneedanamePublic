@@ -41,6 +41,7 @@
 #include "Circle.h"
 #include "Character.h"
 #include "UserCharacter.h"
+#include "Convex.h"
 #include <iostream>
 
 
@@ -91,9 +92,25 @@ int main()
 
 	Map testMap(3);
     
+	Convex convex(sf::Vector2f(200, 200));
+
+	//sf::ConvexShape convex1;
+	/*convex1.setPosition(sf::Vector2f(200, 200));
+	convex1.setPointCount(5);
+	convex1.setPoint(0, sf::Vector2f(0, 0));
+	convex1.setPoint(1, sf::Vector2f(150, 10));
+	convex1.setPoint(2, sf::Vector2f(120, 90));
+	convex1.setPoint(3, sf::Vector2f(30, 100));
+	convex1.setPoint(4, sf::Vector2f(0, 50));*/
+
+	MapObject con1(0, &convex);
+
+	userCharacter1.setHitbox(&convex);
+
 	//testMap.addMapObject(character);
-	//testMap.addMapObject(rectangle1);
+	testMap.addMapObject(&rectangle1);
 	//testMap.addMapObject(&userCharacter0);
+	//testMap.addMapObject(&con1);
 	testMap.addMapObject(&userCharacter1);
 	//testMap.addMapObject(&userCharacter2);
 	//testMap.addMapObject(&userCharacter3);
@@ -166,6 +183,7 @@ int main()
 		*/
         window.clear();
 		userCamera.draw();
+		//window.draw(convex1);
 		//player.draw(window);
 		//menuScreen.show(true);
 

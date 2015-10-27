@@ -8,15 +8,14 @@
 #include <SFML/Graphics.hpp>
 #include "drawable.h"
 
-class Convex : public drawable {
+class Convex : public drawable{
 public:
 	Convex(sf::Vector2f position);
 	void draw(sf::RenderWindow &window) override;
-	sf::Vector2f getSize() override;
 	float getRotation() override;
 	void setRotation(float rotation) override;
 private:
 	sf::ConvexShape convex;
 };
 
-#endif //GATE2158_CIRCLE_H
+#endif GATE2158_CONVEX_H
