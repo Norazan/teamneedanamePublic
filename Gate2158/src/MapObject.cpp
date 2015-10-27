@@ -9,15 +9,25 @@ MapObject::MapObject(){
 	
 }
 
-MapObject::MapObject(int renderLayer, drawable* drawable, Convex & convex) :
+MapObject::MapObject(int renderLayer, drawable* drawable) :
 	renderLayer{ renderLayer },
-	drawObject{ drawable },
-	convex{ convex }
+	drawObject{ drawable }
 {
 	
 }
 
+MapObject::MapObject(int renderLayer, drawable* drawable, Convex * hitbox) :
+	renderLayer{ renderLayer },
+	drawObject{ drawable },
+	Hitbox{hitbox}
+{
+
+}
+
 void MapObject::rotate(float rotation) {
+	if (Hitbox != nullptr){
+		Hitbox->setRotation(rotation);
+	}
 	drawObject->setRotation(rotation);
 }
 
@@ -27,6 +37,9 @@ float MapObject::getRotation() {
 
 
 void MapObject::setPosition(sf::Vector2f pos){
+	if (Hitbox != nullptr){
+		Hitbox->setPosition(pos);
+	}
 	drawObject->setPosition(pos);
 }
 
@@ -43,12 +56,23 @@ int MapObject::getRenderLayer(){
 }
 
 std::vector<sf::Vector2f> MapObject::getConvexPoints(){
-	return convex.getPoints();
+	return Hitbox->getPoints();
 }
 
 void MapObject::draw(sf::RenderWindow & window){
+	if (Hitbox != nullptr){
+		Hitbox->draw(window);
+	}
 	drawObject->draw(window);
 }
 sf::Vector2f MapObject::getSize(){
 	return drawObject->getSize();
+}
+
+void MapObject::setHitbox(Convex * Hitbox){
+	MapObject::Hitbox = Hitbox;
+}
+
+Convex* MapObject::getHitbox(){
+	return Hitbox;
 }

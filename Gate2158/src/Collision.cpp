@@ -10,7 +10,7 @@ int Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 	std::vector<line> axes_obj1 = getAxes(lines_obj1);
 	std::vector<line> axes_obj2 = getAxes(lines_obj2);
 	// loop over the axes1
-	int smallest_overlap = 500, intersecting_axes, count = 0;
+	int smallest_overlap = 500, intersecting_axes_obj1, intersecting_axes_obj2, axesCount = 0;
 	for (auto & axes : axes_obj1) {
 		// do the projections overlap on the axes?
 		int overlap = getOverlapOnAxes(axes, obj1, obj2);
@@ -20,27 +20,24 @@ int Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 		}
 		else if(overlap < smallest_overlap){
 			smallest_overlap = overlap;
-			intersecting_axes = count;
+			intersecting_axes_obj1 = axesCount;
 		}
-		++count;
+		++axesCount;
 	}
 	// loop over the axes2
-	count = 0;
+	axesCount = 0;
 	for (auto & axes : axes_obj2) {
-		// project both shapes onto the axis
-		line projection_obj1 = getProjection(axes, obj1);
-		line projection_obj2 = getProjection(axes, obj2);
-		// do the projections overlap?
-		int current_overlap = overlap(projection_obj1, projection_obj2);
-		if (current_overlap = 0) {
-			// then we can guarantee that the shapes do not overlap
+		// do the projections overlap on the axes?
+		int overlap = getOverlapOnAxes(axes, obj1, obj2);
+		if (overlap = 0) {
+			// there is no overlap..
 			return 0;
 		}
-		else if (current_overlap < smallest_overlap){
-			smallest_overlap = current_overlap;
-			intersecting_axes = count;
+		else if (overlap < smallest_overlap){
+			smallest_overlap = overlap;
+			intersecting_axes_obj2 = axesCount;
 		}
-		++count;
+		++axesCount;
 	}
 	// do stuff with it the collision
 	return 1;

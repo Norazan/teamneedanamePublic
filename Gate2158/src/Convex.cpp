@@ -1,21 +1,18 @@
 //
-// Created by ole on 10/27/15.
+// Created by Jordan on 26-10-2015
 //
 
 #include "Convex.h"
 
-Convex::Convex(std::vector<sf::Vector2f> points) : 
-	points{points} 
+Convex::Convex(std::vector<sf::Vector2f> points, sf::Vector2f position) : 
+	points{ points }, 
+	drawable(position)
 {
 	int count = 0;
-	polygon.setPointCount(points.size());
+	convex.setPointCount(points.size());
 	for (auto & point : points){
-		polygon.setPoint(count++, point);
+		convex.setPoint(count++, point);
 	}
-}
-
-Convex::~Convex(){
-
 }
 
 std::vector<sf::Vector2f>& Convex::getPoints(){
@@ -23,5 +20,17 @@ std::vector<sf::Vector2f>& Convex::getPoints(){
 }
 
 void Convex::setPostion(sf::Vector2f pos){
-	polygon.setPosition(pos);
+	convex.setPosition(pos);
+}
+
+void Convex::draw(sf::RenderWindow & window){
+	convex.setPosition(drawable::getPosition());
+	window.draw(Convex::convex);
+}
+
+float Convex::getRotation(){
+	return convex.getRotation();
+}
+void Convex::setRotation(float rotation){
+	convex.setRotation(rotation);
 }

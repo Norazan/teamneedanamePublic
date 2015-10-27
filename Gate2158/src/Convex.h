@@ -7,16 +7,19 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include "drawable.h"
 
-class Convex {
+class Convex : public drawable{
 public:
-	Convex(std::vector<sf::Vector2f> points);
-	~Convex();
+	Convex(std::vector<sf::Vector2f> points, sf::Vector2f position);
+	void draw(sf::RenderWindow &window) override;
+	float getRotation() override;
+	void setRotation(float rotation) override;
 	std::vector<sf::Vector2f>& getPoints();
 	void setPostion(sf::Vector2f pos);
 private:
-	sf::ConvexShape polygon;
+	sf::ConvexShape convex;
 	std::vector<sf::Vector2f> points;
 };
 
-#endif
+#endif GATE2158_CONVEX_H
