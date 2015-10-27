@@ -55,8 +55,15 @@ int MapObject::getRenderLayer(){
 	return renderLayer;
 }
 
-std::vector<sf::Vector2f> MapObject::getConvexPoints(){
-	return Hitbox->getPoints();
+std::vector<sf::Vector2f>& MapObject::getConvexPoints(){
+	if (Hitbox != nullptr){
+		return Hitbox->getPoints();
+	}
+	else {
+		std::vector<sf::Vector2f> nultje{ sf::Vector2f{ 0, 0 } };
+		std::vector<sf::Vector2f> &nul = nultje;
+		return nul;
+	}
 }
 
 void MapObject::draw(sf::RenderWindow & window){

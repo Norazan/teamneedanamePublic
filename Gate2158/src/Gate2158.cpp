@@ -2,35 +2,7 @@
 //
 
 #include <SFML/Graphics.hpp>
-//#include "World.h"
-//#include "Map.h"
-//#include "Camera.hpp"
-//
-//int main()
-//{
-//	sf::RenderWindow window(sf::VideoMode(400, 400), "Gate2158");
-//	sf::RectangleShape rec0(sf::Vector2f{ 30.0, 30.0 });
-//	sf::RectangleShape rec1(sf::Vector2f{ 40.0, 40.0 });
-//	rec1.setFillColor(sf::Color::Blue);
-//	MapObject rectangle0(0, rec0);
-//	MapObject rectangle1(1, rec1);
-//
-//	Map testMap(2);
-//    
-//	testMap.addMapObject(rectangle0);
-//	testMap.addMapObject(rectangle1);
-//
-//	World Gate2158;
-//	Gate2158.addMap(testMap);
-//	Map &currentMap = Gate2158.getCurrentMap();
-//	Camera userCamera(window, currentMap);
-//
-//    window.setVerticalSyncEnabled(true);
-//
-//    sf::CircleShape shape(100.f);
-//    shape.setFillColor(sf::Color::Green);
 #include "UserInput.h"
-//#include "UserCharacter.h"
 #include "Menu.h"
 #include "World.h"
 #include "Map.h"
@@ -51,20 +23,13 @@ int main()
 	int width= 1280;
 	int height = 720;
     sf::RenderWindow window(sf::VideoMode(width, height), "Gate2158");
-	//UserCharacter player = UserCharacter({ 25, 25 }, {200, 200}, sf::Color::Magenta);
-	//player.draw(window);
 	Menu menuScreen(window);
 	UserInput userInputKey;
 
 	Rectangle rec0(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 30.0, 30.0 }, sf::Color::Blue);
 	Rectangle rec1(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 40.0, 40.0 }, sf::Color::Red);
 	Sprite testSprite(sf::Vector2f{ 200.0, 100.0 }, "../../Gate2158/media/download.jpg");
-	//Sprite characterNormal(sf::Vector2f{ 200.0, 100.0 }, "../../Gate2158/media/character_normal.png");
 	Sprite characterGun(sf::Vector2f{ 300.0, 100.0 }, "../../Gate2158/media/character_gun.png");
-	//Sprite characterShotgun(sf::Vector2f{ 200.0, 200.0 }, "../../Gate2158/media/character_shotgun.png");
-	//Sprite characterMachineGun(sf::Vector2f{ 300.0, 200.0 }, "../../Gate2158/media/character_machinegun.png");
-	//Circle circle(sf::Vector2f{ 100.0, 300.0 }, 30, sf::Color::Blue);
-	
 	//Character character(100, 0, &rec0);
 	//UserCharacter userCharacter0(100, 3, &characterNormal);
 	UserCharacter userCharacter1(100, 3, &characterGun);
@@ -91,16 +56,13 @@ int main()
 
 
 	Map testMap(3);
-    
-	std::vector<sf::Vector2f> convex_test;
 
-	convex_test.push_back(sf::Vector2f(0,0));
-	convex_test.push_back(sf::Vector2f(150, 10));
-	convex_test.push_back(sf::Vector2f(120, 90));
-	convex_test.push_back(sf::Vector2f(30, 100));
-	convex_test.push_back(sf::Vector2f(0, 50));
-
-	Convex convex(convex_test, sf::Vector2f(200, 200));
+	std::vector<sf::Vector2f> points{ 
+		sf::Vector2f{ 100, 100 },
+		sf::Vector2f{ 150, 200 },
+		sf::Vector2f{ 200, 150 }
+	};
+	Convex convex(points, sf::Vector2f(200, 200));
 
 	//sf::ConvexShape convex1;
 	/*convex1.setPosition(sf::Vector2f(200, 200));
@@ -111,19 +73,12 @@ int main()
 	convex1.setPoint(3, sf::Vector2f(30, 100));
 	convex1.setPoint(4, sf::Vector2f(0, 50));*/
 
-	MapObject con1(0, &convex);
+	MapObject con1(0, &characterGun, &convex);
 
-	userCharacter1.setHitbox(&convex);
 
-	//testMap.addMapObject(character);
 	testMap.addMapObject(&rectangle1);
-	//testMap.addMapObject(&userCharacter0);
-	//testMap.addMapObject(&con1);
+	testMap.addMapObject(&con1);
 	testMap.addMapObject(&userCharacter1);
-	//testMap.addMapObject(&userCharacter2);
-	//testMap.addMapObject(&userCharacter3);
-	//testMap.addMapObject(text);
-	//testMap.addMapObject(circle0);
 
 	World Gate2158;
 	Gate2158.addMap(testMap);
@@ -132,8 +87,6 @@ int main()
 
     window.setVerticalSyncEnabled(true);
 
-	//userInputKey.setToggleKey(sf::Keyboard::W);
-	//userInputKey.setToggleKey(sf::Keyboard::S);
 
 	while(window.isOpen()){
         sf::Event event;

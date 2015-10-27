@@ -3,6 +3,7 @@
 //
 
 #include "Camera.hpp"
+#include "Collision.h"
 
 Camera::Camera(sf::RenderWindow &window, Map &currentMap) :
 	window{ window },
@@ -11,8 +12,14 @@ Camera::Camera(sf::RenderWindow &window, Map &currentMap) :
 }
 
 void Camera::draw(){
+	Collision collision;
+	MapObject *last = nullptr;
 	for (int i = currentMap.getLayers(); i >= 0; i--){
 		for (auto mo : currentMap.getAllMapObjects()){
+			if (last != nullptr){
+				collision.checkCollision(*mo, *last);
+			}
+			last = mo;
 			if (mo->getRenderLayer() == i){
 				mo->draw(window);
 			}
