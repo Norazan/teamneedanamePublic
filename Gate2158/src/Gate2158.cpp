@@ -62,8 +62,16 @@ int main()
 		sf::Vector2f{ 150, 200 },
 		sf::Vector2f{ 200, 150 }
 	};
-	Convex convex(points, sf::Vector2f(200, 200));
 
+	std::vector<sf::Vector2f> userHitbox{
+		sf::Vector2f{ 0, 50 },
+		sf::Vector2f{ 50, 0 },
+		sf::Vector2f{ 100, 50 },
+		sf::Vector2f{ 50, 100 }
+	};
+	Convex convex(points, sf::Vector2f(200, 200));
+	Convex userHit(userHitbox, sf::Vector2f(200, 200), sf::Vector2f(50,50));
+	
 	//sf::ConvexShape convex1;
 	/*convex1.setPosition(sf::Vector2f(200, 200));
 	convex1.setPointCount(5);
@@ -74,7 +82,7 @@ int main()
 	convex1.setPoint(4, sf::Vector2f(0, 50));*/
 
 	MapObject con1(0, &characterGun, &convex);
-
+	userCharacter1.setHitbox(&userHit);
 
 	testMap.addMapObject(&rectangle1);
 	testMap.addMapObject(&con1);

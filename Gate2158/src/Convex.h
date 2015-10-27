@@ -12,6 +12,7 @@
 class Convex : public drawable{
 public:
 	Convex(std::vector<sf::Vector2f> points, sf::Vector2f position);
+	Convex(std::vector<sf::Vector2f> points, sf::Vector2f position, sf::Vector2f center);
 	void draw(sf::RenderWindow &window) override;
 	float getRotation() override;
 	void setRotation(float rotation) override;
