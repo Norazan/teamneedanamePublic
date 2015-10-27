@@ -9,11 +9,12 @@ MapObject::MapObject(){
 	
 }
 
-MapObject::MapObject(int renderLayer, drawable* drawable) :
+MapObject::MapObject(int renderLayer, drawable* drawable, Convex & convex) :
 	renderLayer{ renderLayer },
-	drawObject{drawable}
+	drawObject{ drawable },
+	convex{ convex }
 {
-
+	
 }
 
 void MapObject::rotate(float rotation) {
@@ -40,6 +41,11 @@ void MapObject::setRenderLayer(int renderLayer){
 int MapObject::getRenderLayer(){
 	return renderLayer;
 }
+
+std::vector<sf::Vector2f> MapObject::getConvexPoints(){
+	return convex.getPoints();
+}
+
 void MapObject::draw(sf::RenderWindow & window){
 	drawObject->draw(window);
 }

@@ -8,11 +8,12 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Vector2.hpp>
 #include "drawable.h"
+#include "Convex.h"
 
 class MapObject {
 public:
 	MapObject();
-	MapObject(int renderLayer, drawable* drawables);
+	MapObject(int renderLayer, drawable* drawables, Convex & convex);
 	void rotate(float rotation);
     float getRotation();
 	void setPosition(sf::Vector2f pos);
@@ -20,9 +21,11 @@ public:
 	void setRenderLayer(int renderLayer);
 	int getRenderLayer();
 	sf::Vector2f getSize();
+	std::vector<sf::Vector2f> getConvexPoints();
 	virtual void draw(sf::RenderWindow & window);
 private:
 	drawable* drawObject;
+	Convex &convex;
     unsigned int colorCode;
     bool isSolid;
     float angle;

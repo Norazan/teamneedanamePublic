@@ -35,7 +35,7 @@ private:
 	std::vector<line> getAxes(std::vector<line> lines);
 
 	// returns the projection
-	line getProjection(line axes, std::vector<line> lines );
+	line getProjection(line axes, MapObject & mo);
 
 	// returns the overlap
 	int overlap(line projection_1, line projection_2);

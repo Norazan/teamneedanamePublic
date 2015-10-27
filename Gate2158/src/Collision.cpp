@@ -13,8 +13,8 @@ int Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 	int smallest_overlap = 500, intersecting_axes, count = 0;
 	for (auto & axes : axes_obj1) {
 		// project both shapes onto the axis
-		line projection_obj1 = getProjection(axes, lines_obj1);
-		line projection_obj2 = getProjection(axes, lines_obj2);
+		line projection_obj1 = getProjection(axes, obj1);
+		line projection_obj2 = getProjection(axes, obj2);
 		// do the projections overlap?
 		int current_overlap = overlap(projection_obj1, projection_obj2);
 		if (current_overlap = 0) {
@@ -31,8 +31,8 @@ int Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 	count = 0;
 	for (auto & axes : axes_obj2) {
 		// project both shapes onto the axis
-		line projection_obj1 = getProjection(axes, lines_obj1);
-		line projection_obj2 = getProjection(axes, lines_obj2);
+		line projection_obj1 = getProjection(axes, obj1);
+		line projection_obj2 = getProjection(axes, obj2);
 		// do the projections overlap?
 		int current_overlap = overlap(projection_obj1, projection_obj2);
 		if (current_overlap = 0) {
@@ -45,7 +45,7 @@ int Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 		}
 		++count;
 	}
-	// do stuff with it..
+	// do stuff with it the collision
 	return 1;
 }
 
@@ -65,12 +65,12 @@ std::vector<Collision::line> Collision::getAxes(std::vector<line> lines){
 	}
 }
 
-Collision::line Collision::getProjection(line axes, std::vector<line> lines){
-	double min = axis.dot(shape.vertices[0]);
+Collision::line Collision::getProjection(line axes, MapObject & mo){
+	double min = // first point of convex
 	double max = min;
 	for (int i = 1; i < shape.vertices.length; i++) {
 		// NOTE: the axis must be normalized to get accurate projections
-		double p = axis.dot(shape.vertices[i]);
+		double p = // next point of convex
 		if (p < min) {
 			min = p;
 		}
