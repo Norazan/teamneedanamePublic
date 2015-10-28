@@ -5,10 +5,25 @@
 #include "Convex.h"
 
 Convex::Convex(std::vector<sf::Vector2f> points, sf::Vector2f position) : 
-	points{ points }, 
-	drawable(position)
+	points( points ), 
+	drawable{ position }
 {
 	int count = 0;
+
+	convex.setPointCount(points.size());
+	for (auto & point : points){
+		convex.setPoint(count++, point);
+	}
+	convex.setOutlineColor(sf::Color::Red);
+	convex.setOutlineThickness(5);
+}
+
+Convex::Convex(std::vector<sf::Vector2f> points, sf::Vector2f position, sf::Vector2f center) :
+	points(points),
+	drawable{ position }
+{
+	int count = 0;
+	convex.setOrigin(center);
 	convex.setPointCount(points.size());
 	for (auto & point : points){
 		convex.setPoint(count++, point);
