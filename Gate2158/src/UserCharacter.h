@@ -63,7 +63,7 @@ private:
 	//! the speed of the character in pixels.
 	int speed = 10;
 
-	ProjectileWeapon* weapon;
+	ProjectileWeapon* pistol;
 };
 
 #endif //GATE2158_USERCHARACTER_H

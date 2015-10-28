@@ -4,6 +4,8 @@
 #include "Weapon.h"
 #include "Bullet.h"
 
+#define PI 3.14159265
+
 class ProjectileWeapon: public Weapon{
 public:
 	ProjectileWeapon(int shotType, int attackSpeed, int maxAmmo, int baseDamage, int maxAmmoInMagazine);
@@ -14,6 +16,7 @@ public:
 	void setAmmoInMagazine(int ammo);
 	int calculateDamage();
 	void reload();
+	void ProjectileWeapon::drawBullets(sf::RenderWindow & window);
 private:
 	int shotType;
 	int attackSpeed;

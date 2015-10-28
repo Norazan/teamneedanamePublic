@@ -15,13 +15,14 @@ UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawabl
 	input.setToggleKey(sf::Keyboard::A);
 	input.setToggleKey(sf::Keyboard::S);
 	input.setToggleKey(sf::Keyboard::D);
-	weapon = new ProjectileWeapon(2, 10, 100, 20, 10);
+	pistol = new ProjectileWeapon(2, 10, 100, 20, 10);
 }
 
 void UserCharacter::draw(sf::RenderWindow & window) {
 	input.updateToggleKey();
 	processKeys();
 	processMouse(window);
+	pistol->drawBullets(window);
 	MapObject::draw(window);
 }
 
@@ -53,7 +54,7 @@ void UserCharacter::processMouse(sf::RenderWindow & window){
 	sf::Vector2i mousePosition = input.getMousePosition(window);
 	rotate(calculateRotation(mousePosition));
 	if (input.getMousePress(sf::Mouse::Button::Left)){
-		weapon->shoot(getPosition(), calculateRotation(input.getMousePosition(window)));
+		pistol->shoot(getPosition(), calculateRotation(input.getMousePosition(window)));
 	}
 }
 

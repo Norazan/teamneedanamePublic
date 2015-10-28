@@ -9,8 +9,12 @@ ProjectileWeapon::ProjectileWeapon(int shotType, int attackSpeed, int maxAmmo, i
 }
 
 void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
-	sf::Vector2f startingVelocity;
+	float radian = angle * ((float)PI / (float)180);
+	sf::Vector2f startingVelocity{ sin(radian), cos(radian) };
 	shotBullet = new Bullet(calculateDamage(), location, startingVelocity);
+}
+void ProjectileWeapon::drawBullets(sf::RenderWindow & window){
+	shotBullet->draw(window);
 }
 int ProjectileWeapon::getAmmo(){
 	return currentAmmo;
@@ -39,6 +43,5 @@ void ProjectileWeapon::reload(){
 			currentAmmo = 0;
 		}
 	}
-
 }
 
