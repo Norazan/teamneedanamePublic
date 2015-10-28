@@ -108,42 +108,56 @@ float Collision::getOverlapOnAxes(line axes, MapObject & obj1, MapObject & obj2)
 	// make a function (y = ax + b ) of the axes that goes through the origin.
 	// function gous through the origin when b = 0, only value we don't know is 'a' (a = delta y / delta x)
 	float a = (axes.position_1.y - axes.position_2.y) / (axes.position_1.x - axes.position_2.x);
-	if (axes.position_1.x == axes.position_2.x){ a = 0;  }
+	// if pos1.y = pos2.y a is 0.
+	//if (axes.position_1.y == axes.position_2.y){ a = 0;  }
+	
 	for (auto & p : convexPointsObj1) {
-		// make a function that is perpendicular to the axes and goes through the point. (y = -(1/a)x + b)
-		// we can fill the point into the function so we can get b. ( b = y + (1/a)x )
-		float b = p.y + (1 / a) * p.x;
+		float b, y, x;
+		// if axes is the same as the y-axes, we don't need to check x but we need to check y.
+		if (axes.position_1.x == axes.position_2.x){
+			x = p.y;
+		}
+		else {
+			// make a function that is perpendicular to the axes and goes through the point. (y = -(1/a)x + b)
+			// we can fill the point into the function so we can get b. ( b = y + (1/a)x )
+			b = p.y + (1 / a) * p.x;
 
-		// where do the two lines cross. (  y = ax  and  y = -(1/a)x + b   so ->  ax = -(1/a)x + b  )
-		float x = (a * b) / (pow(a, 2) + 1);
-		float y = a * x;
+			// where do the two lines cross. (  y = ax  and  y = -(1/a)x + b   so ->  ax = -(1/a)x + b  )
+			x = (a * b) / (pow(a, 2) + 1);
+			y = a * x;
 
-		// if a = 0, x = x of point.
-		if (a == 0){
-			x = p.x;
+			// if a = 0, x = x of point.
+			if (a == 0){
+				x = p.x;
+			}
 		}
 		// save the smallest and the biggest values in projection 
 		if (projectionObj1.position_1.x > x || projectionObj1.position_1.x == 0) {
 			projectionObj1.position_1.x = x;
-			projectionObj1.position_1.y = y;
 		}
 		if (projectionObj1.position_2.x < x || projectionObj1.position_2.x == 0){
 			projectionObj1.position_2.x = x;
-			projectionObj1.position_2.y = y;
 		}
 	}
 	for (auto & p : convexPointsObj2) {
-		// make a function that is perpendicular to the axes and goes through the point. (y = -(1/a)x + b)
-		// we can fill the point into the function so we can get b. ( b = y + (1/a)x )
-		float b = p.y + (1 / a) * p.x;
+		float b, y, x;
+		// if axes is the same as the y-axes, we don't need to check x but we need to check y.
+		if (axes.position_1.x == axes.position_2.x){
+			x = p.y;
+		}
+		else {
+			// make a function that is perpendicular to the axes and goes through the point. (y = -(1/a)x + b)
+			// we can fill the point into the function so we can get b. ( b = y + (1/a)x )
+			b = p.y + (1 / a) * p.x;
 
-		// where do the two lines cross. (  y = ax  and  y = -(1/a)x + b   so ->  ax = -(1/a)x + b  )
-		float x = (a * b) / (pow(a, 2) + 1);
-		float y = a * x;
+			// where do the two lines cross. (  y = ax  and  y = -(1/a)x + b   so ->  ax = -(1/a)x + b  )
+			x = (a * b) / (pow(a, 2) + 1);
+			y = a * x;
 
-		// if a = 0, x = x of point.
-		if (a == 0){
-			x = p.x;
+			// if a = 0, x = x of point.
+			if (a == 0){
+				x = p.x;
+			}
 		}
 		// save the smallest and the biggest values in projection 
 		if (projectionObj2.position_1.x > x || projectionObj2.position_1.x == 0) {

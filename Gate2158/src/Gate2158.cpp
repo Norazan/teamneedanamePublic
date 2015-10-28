@@ -58,17 +58,15 @@ int main()
 	Map testMap(3);
 
 	std::vector<sf::Vector2f> points{ 
-		sf::Vector2f{ 0, 1 },
-		sf::Vector2f{ 25, 2 },
-		sf::Vector2f{ 25, 26 },
-		sf::Vector2f{ 0, 28}
+		sf::Vector2f{ 0, 0 },
+		sf::Vector2f{ 25, 0 },
+		sf::Vector2f{ 25, 25 }
 	};
 
 	std::vector<sf::Vector2f> userHitbox{
-		sf::Vector2f{ 0, 1 },
-		sf::Vector2f{ 50, 2 },
-		sf::Vector2f{ 50, 53 },
-		sf::Vector2f{ 0, 54 }
+		sf::Vector2f{ 0, 0 },
+		sf::Vector2f{ 50, 0 },
+		sf::Vector2f{ 50, 50 }
 	};
 	Convex convex(points, sf::Vector2f(250, 250));
 	Convex userHit(userHitbox, sf::Vector2f(300, 100));
