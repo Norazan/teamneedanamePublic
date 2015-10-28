@@ -61,7 +61,7 @@ private:
 	UserInput input;
 
 	//! the speed of the character in pixels.
-	int speed = 10;
+	int speed = 1;
 
 	ProjectileWeapon* weapon;
 };

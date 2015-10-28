@@ -12,16 +12,27 @@ Camera::Camera(sf::RenderWindow &window, Map &currentMap) :
 }
 
 void Camera::draw(){
-	Collision collision;
-	MapObject *last = nullptr;
+	checkCollision();
 	for (int i = currentMap.getLayers(); i >= 0; i--){
 		for (auto mo : currentMap.getAllMapObjects()){
 			if (mo->getRenderLayer() == i){
 				mo->draw(window);
-				if (last != nullptr){
-					collision.checkCollision(*mo, *last);
+			}
+		}
+	}
+}
+
+void Camera::checkCollision(){
+	Collision collision;
+	// get all playable objects
+	for (auto mo : currentMap.getAllMapObjects()){
+		if (mo->getRenderLayer() == 0){
+			// check if character has collision with objects
+			for (auto object : currentMap.getAllMapObjects()){
+				if (object != mo){
+					// do nothing with overlap
+					(void)collision.checkCollision(*mo, *object);
 				}
-				last = mo;
 			}
 		}
 	}

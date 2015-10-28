@@ -5,21 +5,16 @@
 #include "Convex.h"
 
 Convex::Convex(std::vector<sf::Vector2f> points, sf::Vector2f position) : 
-	points( points ), 
 	drawable{ position }
 {
 	int count = 0;
-
 	convex.setPointCount(points.size());
 	for (auto & point : points){
 		convex.setPoint(count++, point);
 	}
-	convex.setOutlineColor(sf::Color::Red);
-	convex.setOutlineThickness(5);
 }
 
 Convex::Convex(std::vector<sf::Vector2f> points, sf::Vector2f position, sf::Vector2f center) :
-	points(points),
 	drawable{ position }
 {
 	int count = 0;
@@ -29,9 +24,19 @@ Convex::Convex(std::vector<sf::Vector2f> points, sf::Vector2f position, sf::Vect
 		convex.setPoint(count++, point);
 	}
 	convex.setFillColor(sf::Color::Blue);
+	updatePoints();
+}
+
+void Convex::updatePoints(){
+	int pointCount = convex.getPointCount();
+	points.clear();
+	for (int i = 0; i < pointCount; i++){
+		points.push_back(convex.getPoint(i));
+	}
 }
 
 std::vector<sf::Vector2f>& Convex::getPoints(){
+	updatePoints();
 	return points;
 }
 
@@ -48,5 +53,5 @@ float Convex::getRotation(){
 	return convex.getRotation();
 }
 void Convex::setRotation(float rotation){
-	convex.setRotation(rotation);
+	//convex.setRotation(rotation);
 }

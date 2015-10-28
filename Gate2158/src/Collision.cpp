@@ -11,18 +11,17 @@ struct line {
 	sf::Vector2f position_2;
 };
 
-int Collision::checkCollision(MapObject & obj1, MapObject & obj2){
-	
+float Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 	std::vector<line> &lines_obj1 = getLines(obj1);
 	std::vector<line> &lines_obj2 = getLines(obj2);
 	std::vector<line> axes_obj1 = getAxes(lines_obj1);
 	std::vector<line> axes_obj2 = getAxes(lines_obj2);
 	// loop over the axes1
 	float smallest_overlap = 500;
-	int intersecting_axes_obj1, intersecting_axes_obj2, axesCount = 0;
+	int smalles_overlap_on_axes_obj1 = 0, smalles_overlap_on_axes_obj2 = 0, axesCount = 0;
 	for (auto & axes : axes_obj1) {
 		// do the projections overlap on the axes?
-		if (obj1.getHitbox() != nullptr && obj2.getHitbox() != nullptr){
+		if (obj1.getHitbox() == nullptr && obj2.getHitbox() == nullptr){
 			return 0;
 		}
 		float overlap = getOverlapOnAxes(axes, obj1, obj2);
@@ -32,7 +31,7 @@ int Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 		}
 		else if(overlap < smallest_overlap){
 			smallest_overlap = overlap;
-			intersecting_axes_obj1 = axesCount;
+			smalles_overlap_on_axes_obj1 = axesCount;
 		}
 		++axesCount;
 	}
@@ -47,12 +46,21 @@ int Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 		}
 		else if (overlap < smallest_overlap){
 			smallest_overlap = overlap;
-			intersecting_axes_obj2 = axesCount;
+			smalles_overlap_on_axes_obj2 = axesCount;
 		}
 		++axesCount;
 	}
-	std::cout << "collision !";
-	return 1;
+	// if smalles overlap is not changed by object 2 overlap in on object 1.
+	line intersecting_line;
+	if (smalles_overlap_on_axes_obj2 == 0){
+		intersecting_line = lines_obj1[smalles_overlap_on_axes_obj1];
+	}
+	else {
+		intersecting_line = lines_obj2[smalles_overlap_on_axes_obj2];
+	}
+	std::cout << "(" << intersecting_line.position_1.x << "," << intersecting_line.position_1.y << ")  ";
+	std::cout << "(" << intersecting_line.position_2.x << "," << intersecting_line.position_2.y << ")  \n";
+	return smallest_overlap;
 }
 
 std::vector<Collision::line> Collision::getLines(MapObject & mo){
@@ -100,6 +108,7 @@ float Collision::getOverlapOnAxes(line axes, MapObject & obj1, MapObject & obj2)
 	// make a function (y = ax + b ) of the axes that goes through the origin.
 	// function gous through the origin when b = 0, only value we don't know is 'a' (a = delta y / delta x)
 	float a = (axes.position_1.y - axes.position_2.y) / (axes.position_1.x - axes.position_2.x);
+	if (axes.position_1.x == axes.position_2.x){ a = 0;  }
 	for (auto & p : convexPointsObj1) {
 		// make a function that is perpendicular to the axes and goes through the point. (y = -(1/a)x + b)
 		// we can fill the point into the function so we can get b. ( b = y + (1/a)x )
@@ -109,12 +118,16 @@ float Collision::getOverlapOnAxes(line axes, MapObject & obj1, MapObject & obj2)
 		float x = (a * b) / (pow(a, 2) + 1);
 		float y = a * x;
 
+		// if a = 0, x = x of point.
+		if (a == 0){
+			x = p.x;
+		}
 		// save the smallest and the biggest values in projection 
-		if (projectionObj1.position_1.x == 0 || projectionObj1.position_1.x > x) {
+		if (projectionObj1.position_1.x > x || projectionObj1.position_1.x == 0) {
 			projectionObj1.position_1.x = x;
 			projectionObj1.position_1.y = y;
 		}
-		else if (projectionObj1.position_2.x < x){
+		if (projectionObj1.position_2.x < x || projectionObj1.position_2.x == 0){
 			projectionObj1.position_2.x = x;
 			projectionObj1.position_2.y = y;
 		}
@@ -128,20 +141,24 @@ float Collision::getOverlapOnAxes(line axes, MapObject & obj1, MapObject & obj2)
 		float x = (a * b) / (pow(a, 2) + 1);
 		float y = a * x;
 
+		// if a = 0, x = x of point.
+		if (a == 0){
+			x = p.x;
+		}
 		// save the smallest and the biggest values in projection 
-		if (projectionObj2.position_1.x == 0 || projectionObj2.position_1.x > x) {
+		if (projectionObj2.position_1.x > x || projectionObj2.position_1.x == 0) {
 			projectionObj2.position_1.x = x;
 		}
-		else if (projectionObj2.position_2.x < x){
+		if (projectionObj2.position_2.x < x || projectionObj2.position_2.x == 0){
 			projectionObj2.position_2.x = x;
 		}
 	}
 	float overlap = 0;
 	// check the projection overlap
-	if (projectionObj1.position_1.x < projectionObj2.position_1.x ||
-		projectionObj2.position_1.x > projectionObj1.position_2.x ||
-		projectionObj1.position_1.x < projectionObj2.position_2.x ||
-		projectionObj2.position_2.x > projectionObj1.position_2.x){
+	if (projectionObj2.position_2.x < projectionObj1.position_1.x &&
+		projectionObj2.position_2.x < projectionObj1.position_2.x ||
+		projectionObj2.position_1.x > projectionObj1.position_1.x &&
+		projectionObj2.position_1.x > projectionObj1.position_2.x){
 		return 0;
 	}
 	else if (projectionObj1.position_2.x >= projectionObj2.position_2.x){

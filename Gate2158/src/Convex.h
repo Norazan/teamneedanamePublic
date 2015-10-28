@@ -14,6 +14,7 @@ public:
 	Convex(std::vector<sf::Vector2f> points, sf::Vector2f position);
 	Convex(std::vector<sf::Vector2f> points, sf::Vector2f position, sf::Vector2f center);
 	void draw(sf::RenderWindow &window) override;
+	void updatePoints();
 	float getRotation() override;
 	void setRotation(float rotation) override;
 	std::vector<sf::Vector2f>& getPoints();

@@ -23,6 +23,8 @@ public:
 	//! Drawed all the MapObjects 
 	void draw();
 
+	void checkCollision();
+
 private:
 	sf::RenderWindow &window;
 	Map &currentMap;

@@ -22,7 +22,7 @@ public:
 	void setRenderLayer(int renderLayer);
 	int getRenderLayer();
 	sf::Vector2f getSize();
-	std::vector<sf::Vector2f>& getConvexPoints();
+	std::vector<sf::Vector2f> getConvexPoints();
 	virtual void draw(sf::RenderWindow & window);
 
 	void setHitbox(Convex *Hitbox);

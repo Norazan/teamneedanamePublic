@@ -14,7 +14,7 @@
 class Collision {
 public:
 	// returns 1 if collision is detected otherwise it returns 0;
-	int checkCollision(MapObject & ob1, MapObject & ob2);
+	float checkCollision(MapObject & ob1, MapObject & ob2);
 
 private:
 	struct line {
