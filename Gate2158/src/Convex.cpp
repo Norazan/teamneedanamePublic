@@ -53,5 +53,5 @@ float Convex::getRotation(){
 	return convex.getRotation();
 }
 void Convex::setRotation(float rotation){
-	//convex.setRotation(rotation);
+	convex.setRotation(rotation);
 }
