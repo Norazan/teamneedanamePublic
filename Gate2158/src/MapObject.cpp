@@ -61,7 +61,44 @@ std::vector<sf::Vector2f> MapObject::getConvexPoints(){
 		for (auto & point : points){
 			point = getPosition() + point;
 		}
-		return points;
+		//Add rotation to ConvexPoints
+		float rotationAngle = getRotation();
+
+		std::vector<sf::Vector2f> rotatedPoints;
+		sf::Vector2f origin = getOrigin() + getPosition();
+
+		for (auto &p : points){
+
+			float deltaX = p.x - origin.x;
+			float deltaY = p.y - origin.y;
+
+			float length = sqrt(pow(deltaX, 2) + pow(deltaY, 2));
+
+			float deltaAngle = abs(atan(deltaX / deltaY));
+			deltaAngle = float(deltaAngle * (360 /( 2 * 3.1415)));
+			float pointAngle = 0;
+
+			if (p.x > origin.x && p.y < origin.y){ // 1
+				pointAngle = deltaAngle;
+			}
+			else if (p.x < origin.x && p.y < origin.y){ // 2
+				pointAngle = deltaAngle + 90;
+			}
+			else if (p.x < origin.x && p.y > origin.y){ // 3
+				pointAngle = deltaAngle + 180;
+			}
+			else if (p.x > origin.x && p.y > origin.y){ // 4
+				pointAngle = deltaAngle + 270;
+			}
+
+			float x = cos(float((360 - rotationAngle + pointAngle)*(360 / (2 * 3.1415)))) * length;
+			float y = sin(float((360 - rotationAngle + pointAngle)*(360 / (2 * 3.1415)))) * length;
+
+			
+
+			rotatedPoints.push_back(sf::Vector2f(getPosition().x + x, getPosition().y + y));
+		}
+		return rotatedPoints;
 	}
 	else {
 		std::vector<sf::Vector2f> nultje{ sf::Vector2f{ 0, 0 } };
@@ -86,4 +123,8 @@ void MapObject::setHitbox(Convex * Hitbox){
 
 Convex* MapObject::getHitbox(){
 	return Hitbox;
+}
+
+sf::Vector2f MapObject::getOrigin(){
+	return Hitbox->getOrigin();
 }

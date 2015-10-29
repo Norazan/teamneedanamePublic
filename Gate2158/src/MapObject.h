@@ -23,6 +23,7 @@ public:
 	int getRenderLayer();
 	sf::Vector2f getSize();
 	std::vector<sf::Vector2f> getConvexPoints();
+	sf::Vector2f getOrigin();
 
 	virtual void draw(sf::RenderWindow & window);
 

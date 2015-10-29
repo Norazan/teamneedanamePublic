@@ -55,3 +55,7 @@ float Convex::getRotation(){
 void Convex::setRotation(float rotation){
 	convex.setRotation(rotation);
 }
+
+sf::Vector2f Convex::getOrigin(){
+	return convex.getOrigin();
+}

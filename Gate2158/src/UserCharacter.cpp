@@ -32,7 +32,7 @@ void UserCharacter::move(sf::Vector2f dir){
 void UserCharacter::processKeys(){
 	sf::Vector2f velocity{ 0.0, 0.0 };
 	// check if key is hold and set velocity
-	int speed = 1;
+	
 	if (input.isKeyHold(sf::Keyboard::W)){
 		velocity.y -= speed;
 	}

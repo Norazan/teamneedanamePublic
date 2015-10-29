@@ -19,6 +19,7 @@ public:
 	void setRotation(float rotation) override;
 	std::vector<sf::Vector2f>& getPoints();
 	void setPostion(sf::Vector2f pos);
+	sf::Vector2f getOrigin();
 private:
 	sf::ConvexShape convex;
 	std::vector<sf::Vector2f> points;

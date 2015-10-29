@@ -5,6 +5,7 @@
 #include "Collision.h"
 #include <vector>
 #include <iostream>
+#include <math.h>
 
 struct line {
 	sf::Vector2f position_1;
@@ -64,20 +65,9 @@ float Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 }
 
 std::vector<Collision::line> Collision::getLines(MapObject & mo){
-	//Add rotation to ConvexPoints
-	float rotationAngle = mo.getRotation();
 
-	std::vector<sf::Vector2f> rotatedPoints;
 
-	for (auto &p : mo.getConvexPoints()){
-		float x = p.x * cos(360-rotationAngle) - p.y * sin(360-rotationAngle);
-		float y = p.x * sin(360-rotationAngle) + p.y * cos(360-rotationAngle);
-
-		rotatedPoints.push_back(sf::Vector2f(x, y));
-	}
-
-	//std::vector<sf::Vector2f> &points = mo.getConvexPoints();
-	std::vector<sf::Vector2f> &points = rotatedPoints;
+	std::vector<sf::Vector2f> &points = mo.getConvexPoints();
 
 	std::vector<line> lines;
 	int size = points.size();

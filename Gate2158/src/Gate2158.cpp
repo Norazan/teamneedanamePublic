@@ -60,16 +60,18 @@ int main()
 	std::vector<sf::Vector2f> points{ 
 		sf::Vector2f{ 0, 0 },
 		sf::Vector2f{ 25, 0 },
-		sf::Vector2f{ 25, 25 }
+		sf::Vector2f{ 25, 25 },
+		sf::Vector2f{ 0, 25 }
 	};
 
 	std::vector<sf::Vector2f> userHitbox{
-		sf::Vector2f{ 0, 0 },
+		sf::Vector2f{ 0	, 0 },
 		sf::Vector2f{ 50, 0 },
-		sf::Vector2f{ 50, 50 }
+		sf::Vector2f{ 50, 50},
+		sf::Vector2f{ 0	, 50 }
 	};
-	Convex convex(points, sf::Vector2f(250, 250));
-	Convex userHit(userHitbox, sf::Vector2f(300, 100));
+	Convex convex(points, sf::Vector2f(250, 250), sf::Vector2f(12.5, 12.5));
+	Convex userHit(userHitbox, sf::Vector2f(300, 100), sf::Vector2f(25,25));
 	
 	//sf::ConvexShape convex1;
 	/*convex1.setPosition(sf::Vector2f(200, 200));
