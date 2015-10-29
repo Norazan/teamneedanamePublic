@@ -22,6 +22,8 @@ void UserCharacter::draw(sf::RenderWindow & window) {
 	input.updateToggleKey();
 	processKeys();
 	processMouse(window);
+	//pistol->drawBullets(window);
+
 	pistol->drawBullets(window);
 	MapObject::draw(window);
 }
@@ -54,7 +56,7 @@ void UserCharacter::processMouse(sf::RenderWindow & window){
 	sf::Vector2i mousePosition = input.getMousePosition(window);
 	rotate(calculateRotation(mousePosition));
 	if (input.getMousePress(sf::Mouse::Button::Left)){
-		pistol->shoot(getPosition(), calculateRotation(input.getMousePosition(window)));
+		pistol->shoot(getPosition(), calculateRotation(mousePosition));
 	}
 }
 

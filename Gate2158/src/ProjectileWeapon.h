@@ -3,6 +3,7 @@
 
 #include "Weapon.h"
 #include "Bullet.h"
+#include <vector>
 
 #define PI 3.14159265
 
@@ -27,6 +28,7 @@ private:
 	int baseDamage;
 	int weaponTier;
 	int projectileVelocity;
+	std::vector<Bullet> shotBullets;
 	Bullet* shotBullet;
 };
 

@@ -1,5 +1,6 @@
 #include "ProjectileWeapon.h"
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 ProjectileWeapon::ProjectileWeapon(int shotType, int attackSpeed, int maxAmmo, int baseDamage, int maxAmmoInMagazine)
 {
@@ -11,10 +12,27 @@ ProjectileWeapon::ProjectileWeapon(int shotType, int attackSpeed, int maxAmmo, i
 void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
 	float radian = angle * ((float)PI / (float)180);
 	sf::Vector2f startingVelocity{ sin(radian), cos(radian) };
-	shotBullet = new Bullet(calculateDamage(), location, startingVelocity);
+
+	
+
+	shotBullets.push_back(Bullet(calculateDamage(), location, startingVelocity, angle));
+	
+	/*if (shotBullets.capacity() > 10){
+		shotBullets.erase(shotBullets.begin());
+	}*/
+
+	//shotBullet = ;
 }
 void ProjectileWeapon::drawBullets(sf::RenderWindow & window){
-	shotBullet->draw(window);
+	if (!shotBullets.empty()){
+		for (auto &b : shotBullets){	
+			if (b.outOfBound(window)){
+				//shotBullets.erase(remove(shotBullets.begin(), shotBullets.end(), b), shotBullets.end());
+				std::cout << "Out of bound !\n";
+			}
+			b.draw(window);
+		}
+	}
 }
 int ProjectileWeapon::getAmmo(){
 	return currentAmmo;
