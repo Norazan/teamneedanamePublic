@@ -27,7 +27,7 @@ int main()
 	UserInput userInputKey;
 
 	Rectangle rec0(sf::Vector2f{ 250.0, 250.0 }, sf::Vector2f{ 30.0, 30.0 }, sf::Color::Blue);
-	Rectangle rec1(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 40.0, 40.0 }, sf::Color::Red);
+	Rectangle rec1(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 30, 30 }, sf::Color::Red);
 	Sprite testSprite(sf::Vector2f{ 200.0, 100.0 }, "../../Gate2158/media/download.jpg");
 	Sprite characterGun(sf::Vector2f{ 300.0, 100.0 }, "../../Gate2158/media/character_gun.png");
 	//Character character(100, 0, &rec0);
@@ -59,9 +59,9 @@ int main()
 
 	std::vector<sf::Vector2f> points{ 
 		sf::Vector2f{ 0, 0 },
-		sf::Vector2f{ 25, 0 },
-		sf::Vector2f{ 25, 25 },
-		sf::Vector2f{ 0, 25 }
+		sf::Vector2f{ 30, 0 },
+		sf::Vector2f{ 30, 30 },
+		sf::Vector2f{ 0, 30 }
 	};
 
 	std::vector<sf::Vector2f> userHitbox{
@@ -70,7 +70,8 @@ int main()
 		sf::Vector2f{ 50, 50},
 		sf::Vector2f{ 0	, 50 }
 	};
-	Convex convex(points, sf::Vector2f(250, 250), sf::Vector2f(12.5, 12.5));
+	Convex convex(points, sf::Vector2f(250, 250), sf::Vector2f(15, 15));
+	Convex convex2(points, sf::Vector2f(50, 50), sf::Vector2f(15, 15));
 	Convex userHit(userHitbox, sf::Vector2f(300, 100), sf::Vector2f(25,25));
 	
 	//sf::ConvexShape convex1;
@@ -83,6 +84,7 @@ int main()
 	convex1.setPoint(4, sf::Vector2f(0, 50));*/
 
 	MapObject con1(1, &rec0, &convex);
+	MapObject con3(1, &rec1, &convex2);
 	UserCharacter con2(100, 0, &characterGun, &userHit);
 
 	//testMap.addMapObject(&rectangle1);

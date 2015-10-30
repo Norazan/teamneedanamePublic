@@ -59,16 +59,19 @@ float Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 	else {
 		intersecting_line = lines_obj2[smalles_overlap_on_axes_obj2];
 	}
-	std::cout << "(" << intersecting_line.position_1.x << "," << intersecting_line.position_1.y << ")  ";
-	std::cout << "(" << intersecting_line.position_2.x << "," << intersecting_line.position_2.y << ")  \n";
+	// if overlap is smaller then 1 pixel, there is no overlap because of rounding error.
+	if (smallest_overlap < 1){
+		return 0;
+	}
+	else {
+		std::cout << "(" << intersecting_line.position_1.x << "," << intersecting_line.position_1.y << ")  ";
+		std::cout << "(" << intersecting_line.position_2.x << "," << intersecting_line.position_2.y << ")  \n";
+	}
 	return smallest_overlap;
 }
 
 std::vector<Collision::line> Collision::getLines(MapObject & mo){
-
-
 	std::vector<sf::Vector2f> &points = mo.getConvexPoints();
-
 	std::vector<line> lines;
 	int size = points.size();
 	for (int i = 0; i < size; i++){
@@ -107,70 +110,13 @@ float Collision::getOverlapOnAxes(line axes, MapObject & obj1, MapObject & obj2)
 	if (convexPointsObj1.size() == 0 || convexPointsObj2.size() == 0){
 		return 0;
 	}
-	line projectionObj1{ sf::Vector2f{ 0, 0 }, sf::Vector2f{ 0, 0 } };
-	line projectionObj2{ sf::Vector2f{ 0, 0 }, sf::Vector2f{ 0, 0 } };
 	// make a function (y = ax + b ) of the axes that goes through the origin.
 	// function gous through the origin when b = 0, only value we don't know is 'a' (a = delta y / delta x)
 	float a = (axes.position_1.y - axes.position_2.y) / (axes.position_1.x - axes.position_2.x);
-	// if pos1.y = pos2.y a is 0.
-	//if (axes.position_1.y == axes.position_2.y){ a = 0;  }
 	
-	for (auto & p : convexPointsObj1) {
-		float b, y, x;
-		// if axes is the same as the y-axes, we don't need to check x but we need to check y.
-		if (axes.position_1.x == axes.position_2.x){
-			x = p.y;
-		}
-		else {
-			// make a function that is perpendicular to the axes and goes through the point. (y = -(1/a)x + b)
-			// we can fill the point into the function so we can get b. ( b = y + (1/a)x )
-			b = p.y + (1 / a) * p.x;
+	line projectionObj1 = getProjection(a, obj1, convexPointsObj1, axes);
+	line projectionObj2 = getProjection(a, obj2, convexPointsObj2, axes);
 
-			// where do the two lines cross. (  y = ax  and  y = -(1/a)x + b   so ->  ax = -(1/a)x + b  )
-			x = (a * b) / (pow(a, 2) + 1);
-			y = a * x;
-
-			// if a = 0, x = x of point.
-			if (a == 0){
-				x = p.x;
-			}
-		}
-		// save the smallest and the biggest values in projection 
-		if (projectionObj1.position_1.x > x || projectionObj1.position_1.x == 0) {
-			projectionObj1.position_1.x = x;
-		}
-		if (projectionObj1.position_2.x < x || projectionObj1.position_2.x == 0){
-			projectionObj1.position_2.x = x;
-		}
-	}
-	for (auto & p : convexPointsObj2) {
-		float b, y, x;
-		// if axes is the same as the y-axes, we don't need to check x but we need to check y.
-		if (axes.position_1.x == axes.position_2.x){
-			x = p.y;
-		}
-		else {
-			// make a function that is perpendicular to the axes and goes through the point. (y = -(1/a)x + b)
-			// we can fill the point into the function so we can get b. ( b = y + (1/a)x )
-			b = p.y + (1 / a) * p.x;
-
-			// where do the two lines cross. (  y = ax  and  y = -(1/a)x + b   so ->  ax = -(1/a)x + b  )
-			x = (a * b) / (pow(a, 2) + 1);
-			y = a * x;
-
-			// if a = 0, x = x of point.
-			if (a == 0){
-				x = p.x;
-			}
-		}
-		// save the smallest and the biggest values in projection 
-		if (projectionObj2.position_1.x > x || projectionObj2.position_1.x == 0) {
-			projectionObj2.position_1.x = x;
-		}
-		if (projectionObj2.position_2.x < x || projectionObj2.position_2.x == 0){
-			projectionObj2.position_2.x = x;
-		}
-	}
 	float overlap = 0;
 	// check the projection overlap
 	if (projectionObj2.position_2.x < projectionObj1.position_1.x &&
@@ -179,6 +125,7 @@ float Collision::getOverlapOnAxes(line axes, MapObject & obj1, MapObject & obj2)
 		projectionObj2.position_1.x > projectionObj1.position_2.x){
 		return 0;
 	}
+	// if overlap, what is the overlap?
 	else if (projectionObj1.position_2.x >= projectionObj2.position_2.x){
 		overlap = projectionObj2.position_2.x - projectionObj1.position_1.x;
 	}
@@ -187,4 +134,37 @@ float Collision::getOverlapOnAxes(line axes, MapObject & obj1, MapObject & obj2)
 	}
 	// we have the overlap on the x-axes but we have an other axes so we need to know the length relative to our axes.
 	return (overlap / (cos(atan(a))));
+}
+
+Collision::line Collision::getProjection(float a, MapObject & mo, std::vector<sf::Vector2f> convexPoints, line axes){
+	line projection{ sf::Vector2f{ 0, 0 }, sf::Vector2f{ 0, 0 } };
+	for (auto & p : convexPoints) {
+		float b, y, x;
+		// if axes is the same as the y-axes, we don't need to check x but we need to check y.
+		if (axes.position_1.x == axes.position_2.x){
+			x = p.y;
+		}
+		else {
+			// make a function that is perpendicular to the axes and goes through the point. (y = -(1/a)x + b)
+			// we can fill the point into the function so we can get b. ( b = y + (1/a)x )
+			b = p.y + (1 / a) * p.x;
+
+			// where do the two lines cross. (  y = ax  and  y = -(1/a)x + b   so ->  ax = -(1/a)x + b  )
+			x = (a * b) / (pow(a, 2) + 1);
+			y = a * x;
+
+			// if a = 0, x = x of point.
+			if (a == 0){
+				x = p.x;
+			}
+		}
+		// save the smallest and the biggest values in projection 
+		if (projection.position_1.x > x || projection.position_1.x == 0) {
+			projection.position_1.x = x;
+		}
+		if (projection.position_2.x < x || projection.position_2.x == 0){
+			projection.position_2.x = x;
+		}
+	}
+	return projection;
 }

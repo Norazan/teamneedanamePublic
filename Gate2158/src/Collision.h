@@ -30,6 +30,9 @@ private:
 
 	// returns the overlap of the to objects on the axes.
 	float getOverlapOnAxes(line axes, MapObject & obj1, MapObject & obj2);
+
+	// returns the projection on a axes.
+	line getProjection(float a, MapObject & mo, std::vector<sf::Vector2f> convexPoints, line axes);
 	
 };
 
