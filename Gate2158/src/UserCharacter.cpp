@@ -46,6 +46,7 @@ void UserCharacter::processKeys(){
 		velocity.x += speed;
 	}
 	// move userCharacter with the velocity that has been set.
+	setVelocity(velocity);
 	move(velocity);
 }
 
@@ -106,4 +107,9 @@ float UserCharacter::calculateRotation(sf::Vector2i mousePosition){
 		rotation = 90 - angle;
 	}
 	return rotation;
+}
+
+void UserCharacter::collisionDetected(MapObject & mo){
+	sf::Vector2f velocity = getVelocity();
+	move(-velocity);
 }

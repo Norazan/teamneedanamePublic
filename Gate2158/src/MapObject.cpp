@@ -75,7 +75,7 @@ std::vector<sf::Vector2f> MapObject::getConvexPoints(){
 			float length = sqrt(pow(deltaX, 2) + pow(deltaY, 2));
 
 			float deltaAngle = abs(atan(deltaX / deltaY));
-			deltaAngle = float(deltaAngle * (360 /( 2 * 3.1415)));
+			deltaAngle = float(deltaAngle * (360 / (2 * 3.14159265359)));
 			float pointAngle = 0;
 
 			if (p.x > origin.x && p.y < origin.y){ // 1
@@ -91,8 +91,8 @@ std::vector<sf::Vector2f> MapObject::getConvexPoints(){
 				pointAngle = deltaAngle + 270;
 			}
 
-			float x = cos(float((360 - rotationAngle + pointAngle)*(360 / (2 * 3.1415)))) * length;
-			float y = sin(float((360 - rotationAngle + pointAngle)*(360 / (2 * 3.1415)))) * length;
+			float x = cos(float((360 - rotationAngle + pointAngle)*(360 / (2 * 3.14159265359)))) * length;
+			float y = sin(float((360 - rotationAngle + pointAngle)*(360 / (2 * 3.14159265359)))) * length;
 
 			
 
@@ -127,4 +127,8 @@ Convex* MapObject::getHitbox(){
 
 sf::Vector2f MapObject::getOrigin(){
 	return Hitbox->getOrigin();
+}
+
+void MapObject::collisionDetected(MapObject & mos){
+
 }

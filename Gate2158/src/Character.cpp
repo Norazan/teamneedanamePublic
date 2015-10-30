@@ -27,3 +27,7 @@ void Character::setHealth(float h) {
 		health = h;
 	}
 }
+
+void Character::collisionDetected(MapObject & mo){
+
+}

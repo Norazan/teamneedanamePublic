@@ -34,6 +34,9 @@ public:
 	//! Set health
     void setHealth(float h);
 
+
+	virtual void collisionDetected(MapObject & mo) override;
+
 private:
     float health;
     float maxHealth;

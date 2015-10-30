@@ -30,6 +30,8 @@ public:
 	//! draws the drawable of the UserCharacter.
 	void draw(sf::RenderWindow & window) override;
 
+	void collisionDetected(MapObject & mo) override;
+
 private:
 	//! Function move
 	//
@@ -61,7 +63,7 @@ private:
 	UserInput input;
 
 	//! the speed of the character in pixels.
-	int speed = 10;
+	int speed = 1;
 
 	ProjectileWeapon* weapon;
 };

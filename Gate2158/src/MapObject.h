@@ -29,6 +29,7 @@ public:
 
 	void setHitbox(Convex *Hitbox);
 	Convex* getHitbox();
+	virtual void collisionDetected(MapObject & mo);
 
 private:
 	drawable* drawObject;

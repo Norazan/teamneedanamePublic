@@ -156,6 +156,30 @@ int main()
 		*/
         window.clear();
 		userCamera.draw();
+
+		sf::ConvexShape c;
+		std::vector<sf::Vector2f> points = con1.getConvexPoints();
+		c.setPointCount(points.size());
+		int count = 0;
+		for (auto & p : points){
+			c.setPoint(count++, p);
+		}
+		c.setOrigin(con1.getOrigin());
+		c.setFillColor(sf::Color::White);
+
+		sf::ConvexShape b;
+		std::vector<sf::Vector2f> pointss = con2.getConvexPoints();
+		b.setPointCount(pointss.size());
+		count = 0;
+		for (auto & p : pointss){
+			b.setPoint(count++, p);
+		}
+		b.setOrigin(con2.getOrigin());
+		b.setFillColor(sf::Color::White);
+
+		window.draw(b);
+		window.draw(c);
+
 		//window.draw(convex1);
 		//player.draw(window);
 		//menuScreen.show(true);

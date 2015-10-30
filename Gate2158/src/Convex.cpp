@@ -5,7 +5,8 @@
 #include "Convex.h"
 
 Convex::Convex(std::vector<sf::Vector2f> points, sf::Vector2f position) : 
-	drawable{ position }
+	drawable{ position },
+	points(points)
 {
 	int count = 0;
 	convex.setPointCount(points.size());
@@ -15,7 +16,8 @@ Convex::Convex(std::vector<sf::Vector2f> points, sf::Vector2f position) :
 }
 
 Convex::Convex(std::vector<sf::Vector2f> points, sf::Vector2f position, sf::Vector2f center) :
-	drawable{ position }
+	drawable{ position },
+	points(points)
 {
 	int count = 0;
 	convex.setOrigin(center);
@@ -24,19 +26,9 @@ Convex::Convex(std::vector<sf::Vector2f> points, sf::Vector2f position, sf::Vect
 		convex.setPoint(count++, point);
 	}
 	convex.setFillColor(sf::Color::Blue);
-	updatePoints();
-}
-
-void Convex::updatePoints(){
-	int pointCount = convex.getPointCount();
-	points.clear();
-	for (int i = 0; i < pointCount; i++){
-		points.push_back(convex.getPoint(i));
-	}
 }
 
 std::vector<sf::Vector2f>& Convex::getPoints(){
-	updatePoints();
 	return points;
 }
 

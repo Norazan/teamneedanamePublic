@@ -63,10 +63,8 @@ float Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 	if (smallest_overlap < 1){
 		return 0;
 	}
-	else {
-		std::cout << "(" << intersecting_line.position_1.x << "," << intersecting_line.position_1.y << ")  ";
-		std::cout << "(" << intersecting_line.position_2.x << "," << intersecting_line.position_2.y << ")  \n";
-	}
+	obj1.collisionDetected(obj2);
+	obj2.collisionDetected(obj1);
 	return smallest_overlap;
 }
 
