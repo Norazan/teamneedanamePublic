@@ -81,7 +81,7 @@ std::vector<sf::Vector2f> MapObject::getConvexPoints(){
 			if (p.x > origin.x && p.y < origin.y){ // 1
 				pointAngle = deltaAngle;
 			}
-			else if (p.x < origin.x && p.y < origin.y){ // 2
+			else if ((p.x < origin.x && p.y < origin.y) || (p.y == origin.y && p.x < origin.x)){ // 2
 				pointAngle = deltaAngle + 90;
 			}
 			else if (p.x < origin.x && p.y > origin.y){ // 3
@@ -91,12 +91,13 @@ std::vector<sf::Vector2f> MapObject::getConvexPoints(){
 				pointAngle = deltaAngle + 270;
 			}
 
-			float x = cos(float((360 - rotationAngle + pointAngle)*(360 / (2 * 3.14159265359)))) * length;
-			float y = sin(float((360 - rotationAngle + pointAngle)*(360 / (2 * 3.14159265359)))) * length;
-
+			//float x = cos(float((360 - rotationAngle + pointAngle)*(360 / (2 * 3.14159265359)))) * length;
+			//float y = sin(float((360 - rotationAngle + pointAngle)*(360 / (2 * 3.14159265359)))) * length;
+			float x = (float)(length * cos((rotationAngle + pointAngle) * 3.14159265359 / 180)) + origin.x;
+			float y = (float)(length * sin((rotationAngle + pointAngle) * 3.14159265359 / 180)) + origin.y;
 			
 
-			rotatedPoints.push_back(sf::Vector2f(getPosition().x + x, getPosition().y + y));
+			rotatedPoints.push_back(sf::Vector2f(x, y));
 		}
 		return rotatedPoints;
 	}

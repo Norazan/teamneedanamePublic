@@ -65,14 +65,16 @@ int main()
 	};
 
 	std::vector<sf::Vector2f> userHitbox{
-		sf::Vector2f{ 0	, 0 },
-		sf::Vector2f{ 50, 0 },
-		sf::Vector2f{ 50, 50},
-		sf::Vector2f{ 0	, 50 }
+		sf::Vector2f{ 20, 0 },
+		sf::Vector2f{ 70, 0 },
+		sf::Vector2f{ 90, 25 },
+		sf::Vector2f{ 70, 50 },
+		sf::Vector2f{ 20, 50 },
+		sf::Vector2f{ 0, 25 }
 	};
 	Convex convex(points, sf::Vector2f(250, 250), sf::Vector2f(15, 15));
 	Convex convex2(points, sf::Vector2f(50, 50), sf::Vector2f(15, 15));
-	Convex userHit(userHitbox, sf::Vector2f(300, 100), sf::Vector2f(25,25));
+	Convex userHit(userHitbox, sf::Vector2f(300, 100), sf::Vector2f(45,25));
 	
 	//sf::ConvexShape convex1;
 	/*convex1.setPosition(sf::Vector2f(200, 200));
@@ -155,7 +157,6 @@ int main()
 		}
 		*/
         window.clear();
-		userCamera.draw();
 
 		sf::ConvexShape c;
 		std::vector<sf::Vector2f> points = con1.getConvexPoints();
@@ -179,12 +180,15 @@ int main()
 
 		window.draw(b);
 		window.draw(c);
+		sf::Vector2f pos = rec0.getPosition();
+		std::cout << pos.x << "  " << pos.y << " \n";
 
 		//window.draw(convex1);
 		//player.draw(window);
 		//menuScreen.show(true);
 
 		//userCharacter.draw(window);
+		userCamera.draw();
         window.display();
     }
     return 0;

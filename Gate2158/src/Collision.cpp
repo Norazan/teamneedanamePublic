@@ -30,7 +30,7 @@ float Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 			// there is no overlap..
 			return 0;
 		}
-		else if(overlap < smallest_overlap){
+		else if (overlap < smallest_overlap){
 			smallest_overlap = overlap;
 			smalles_overlap_on_axes_obj1 = axesCount;
 		}
@@ -58,10 +58,6 @@ float Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 	}
 	else {
 		intersecting_line = lines_obj2[smalles_overlap_on_axes_obj2];
-	}
-	// if overlap is smaller then 1 pixel, there is no overlap because of rounding error.
-	if (smallest_overlap < 1){
-		return 0;
 	}
 	obj1.collisionDetected(obj2);
 	obj2.collisionDetected(obj1);
@@ -111,7 +107,7 @@ float Collision::getOverlapOnAxes(line axes, MapObject & obj1, MapObject & obj2)
 	// make a function (y = ax + b ) of the axes that goes through the origin.
 	// function gous through the origin when b = 0, only value we don't know is 'a' (a = delta y / delta x)
 	float a = (axes.position_1.y - axes.position_2.y) / (axes.position_1.x - axes.position_2.x);
-	
+
 	line projectionObj1 = getProjection(a, obj1, convexPointsObj1, axes);
 	line projectionObj2 = getProjection(a, obj2, convexPointsObj2, axes);
 
