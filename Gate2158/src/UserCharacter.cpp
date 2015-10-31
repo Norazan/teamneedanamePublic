@@ -4,6 +4,7 @@
 
 #include "UserCharacter.h"
 #include "UserInput.h"
+#include "Collision.h"
 #include <cmath>
 #include <math.h>
 #include <iostream>
@@ -32,18 +33,21 @@ void UserCharacter::move(sf::Vector2f dir){
 void UserCharacter::processKeys(){
 	sf::Vector2f velocity{ 0.0, 0.0 };
 	// check if key is hold and set velocity
-	
 	if (input.isKeyHold(sf::Keyboard::W)){
 		velocity.y -= speed;
+		canRotate = true;
 	}
 	if (input.isKeyHold(sf::Keyboard::A)){
 		velocity.x -= speed;
+		canRotate = true;
 	}
 	if (input.isKeyHold(sf::Keyboard::S)){
 		velocity.y += speed;
+		canRotate = true;
 	}
 	if (input.isKeyHold(sf::Keyboard::D)){
 		velocity.x += speed;
+		canRotate = true;
 	}
 	// move userCharacter with the velocity that has been set.
 	setVelocity(velocity);
@@ -53,9 +57,13 @@ void UserCharacter::processKeys(){
 void UserCharacter::processMouse(sf::RenderWindow & window){
 	// Get mouse position, claculate the rotation and set the rotation.
 	sf::Vector2i mousePosition = input.getMousePosition(window);
-	rotate(calculateRotation(mousePosition));
+	if (canRotate){
+		previousRotation = currentRotation;
+		currentRotation = calculateRotation(mousePosition);
+		rotate(currentRotation);
+	}
 	if (input.getMousePress(sf::Mouse::Button::Left)){
-		weapon->shoot(getPosition(), calculateRotation(input.getMousePosition(window)));
+		weapon->shoot(getPosition(), currentRotation);
 	}
 }
 
@@ -112,4 +120,6 @@ float UserCharacter::calculateRotation(sf::Vector2i mousePosition){
 void UserCharacter::collisionDetected(MapObject & mo){
 	sf::Vector2f velocity = getVelocity();
 	move(-velocity);
+	canRotate = false;
+	rotate(previousRotation);
 }

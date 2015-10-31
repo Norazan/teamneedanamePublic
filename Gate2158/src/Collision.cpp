@@ -53,12 +53,21 @@ float Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 	}
 	// if smalles overlap is not changed by object 2 overlap in on object 1.
 	line intersecting_line;
+	//sf::Vector2f size;
 	if (smalles_overlap_on_axes_obj2 == 0){
 		intersecting_line = lines_obj1[smalles_overlap_on_axes_obj1];
+		//size = obj1.getSize();
 	}
 	else {
 		intersecting_line = lines_obj2[smalles_overlap_on_axes_obj2];
+		//size = obj2.getSize();
 	}
+	//intersecting_line.position_1.x += ((size.x - 90) / 10) * -5;
+	//intersecting_line.position_1.y += ((size.y - 50) / 10) * -5;
+	//intersecting_line.position_2.x += ((size.x - 90) / 10) * -5;
+	//intersecting_line.position_2.y += ((size.y - 50) / 10) * -5;
+	//std::cout << intersecting_line.position_1.x << " , " << intersecting_line.position_1.y << "\n ";
+	//std::cout << intersecting_line.position_2.x << " , " << intersecting_line.position_2.y << "\n\n ";
 	obj1.collisionDetected(obj2);
 	obj2.collisionDetected(obj1);
 	return smallest_overlap;
@@ -127,7 +136,14 @@ float Collision::getOverlapOnAxes(line axes, MapObject & obj1, MapObject & obj2)
 		overlap = projectionObj1.position_2.x - projectionObj2.position_1.x;
 	}
 	// we have the overlap on the x-axes but we have an other axes so we need to know the length relative to our axes.
-	return (overlap / (cos(atan(a))));
+	float result;
+	if (axes.position_1.x == axes.position_2.x){
+		result = overlap;
+	}
+	else {
+		result = (overlap / (cos(atan(a))));
+	}
+	return result;
 }
 
 Collision::line Collision::getProjection(float a, MapObject & mo, std::vector<sf::Vector2f> convexPoints, line axes){

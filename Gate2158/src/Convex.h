@@ -16,6 +16,7 @@ public:
 	void draw(sf::RenderWindow &window) override;
 	float getRotation() override;
 	void setRotation(float rotation) override;
+	sf::Vector2f getSize() override;
 	std::vector<sf::Vector2f>& getPoints();
 	void setPostion(sf::Vector2f pos);
 	sf::Vector2f getOrigin();

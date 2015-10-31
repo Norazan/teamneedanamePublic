@@ -63,7 +63,16 @@ private:
 	UserInput input;
 
 	//! the speed of the character in pixels.
-	int speed = 1;
+	int speed = 2;
+
+	//! the current rotation of the character in degrees.
+	float currentRotation;
+	
+	//! the previous rotation of the character in degrees.
+	float previousRotation;
+
+	//! boolean canRotate
+	bool canRotate = true;
 
 	ProjectileWeapon* weapon;
 };

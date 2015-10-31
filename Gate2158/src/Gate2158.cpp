@@ -26,8 +26,10 @@ int main()
 	Menu menuScreen(window);
 	UserInput userInputKey;
 
-	Rectangle rec0(sf::Vector2f{ 250.0, 250.0 }, sf::Vector2f{ 30.0, 30.0 }, sf::Color::Blue);
-	Rectangle rec1(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 30, 30 }, sf::Color::Red);
+	Rectangle rec0(sf::Vector2f{ 300, 250.0 }, sf::Vector2f{ 200, 200 }, sf::Color::Blue);
+	Rectangle rec1(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 50, 50 }, sf::Color::Red);
+	Rectangle rec2(sf::Vector2f{ 400.0, 400 }, sf::Vector2f{ 40, 40 }, sf::Color::Red);
+	Rectangle rec3(sf::Vector2f{ 200, 300 }, sf::Vector2f{ 60, 60 }, sf::Color::Yellow);
 	Sprite testSprite(sf::Vector2f{ 200.0, 100.0 }, "../../Gate2158/media/download.jpg");
 	Sprite characterGun(sf::Vector2f{ 300.0, 100.0 }, "../../Gate2158/media/character_gun.png");
 	//Character character(100, 0, &rec0);
@@ -59,9 +61,29 @@ int main()
 
 	std::vector<sf::Vector2f> points{ 
 		sf::Vector2f{ 0, 0 },
-		sf::Vector2f{ 30, 0 },
-		sf::Vector2f{ 30, 30 },
-		sf::Vector2f{ 0, 30 }
+		sf::Vector2f{ 200, 0 },
+		sf::Vector2f{ 200, 200 },
+		sf::Vector2f{ 0, 200 }
+	};
+	std::vector<sf::Vector2f> squarePoints{
+		sf::Vector2f{ 0, 0 },
+		sf::Vector2f{ 50, 0 },
+		sf::Vector2f{ 50, 50 },
+		sf::Vector2f{ 0, 50 }
+	};
+
+	std::vector<sf::Vector2f> squarePointss{
+		sf::Vector2f{ 0, 0 },
+		sf::Vector2f{ 40, 0 },
+		sf::Vector2f{ 40, 40 },
+		sf::Vector2f{ 0, 40 }
+	};
+
+	std::vector<sf::Vector2f> squarePointsss{
+		sf::Vector2f{ 0, 0 },
+		sf::Vector2f{ 60, 0 },
+		sf::Vector2f{ 60, 60 },
+		sf::Vector2f{ 0, 60 }
 	};
 
 	std::vector<sf::Vector2f> userHitbox{
@@ -69,11 +91,12 @@ int main()
 		sf::Vector2f{ 70, 0 },
 		sf::Vector2f{ 90, 25 },
 		sf::Vector2f{ 70, 50 },
-		sf::Vector2f{ 20, 50 },
-		sf::Vector2f{ 0, 25 }
+		sf::Vector2f{ 20, 50 }
 	};
-	Convex convex(points, sf::Vector2f(250, 250), sf::Vector2f(15, 15));
-	Convex convex2(points, sf::Vector2f(50, 50), sf::Vector2f(15, 15));
+	Convex convex(points, sf::Vector2f(300, 250), sf::Vector2f(100, 100));
+	Convex convex2(squarePoints, sf::Vector2f(50, 50), sf::Vector2f(25, 25));
+	Convex convex3(squarePointss, sf::Vector2f(400, 400), sf::Vector2f(20, 20));
+	Convex convex4(squarePointsss, sf::Vector2f(200, 300), sf::Vector2f(30, 30));
 	Convex userHit(userHitbox, sf::Vector2f(300, 100), sf::Vector2f(45,25));
 	
 	//sf::ConvexShape convex1;
@@ -87,11 +110,16 @@ int main()
 
 	MapObject con1(1, &rec0, &convex);
 	MapObject con3(1, &rec1, &convex2);
+	MapObject con4(1, &rec2, &convex3);
+	MapObject con5(1, &rec3, &convex4);
 	UserCharacter con2(100, 0, &characterGun, &userHit);
 
 	//testMap.addMapObject(&rectangle1);
 	testMap.addMapObject(&con1);
 	testMap.addMapObject(&con2);
+	testMap.addMapObject(&con3);
+	testMap.addMapObject(&con4);
+	testMap.addMapObject(&con5);
 	//testMap.addMapObject(&userCharacter1);
 
 	World Gate2158;
@@ -158,30 +186,17 @@ int main()
 		*/
         window.clear();
 
-		sf::ConvexShape c;
-		std::vector<sf::Vector2f> points = con1.getConvexPoints();
-		c.setPointCount(points.size());
+		sf::ConvexShape d;
+		std::vector<sf::Vector2f> pointssss = con2.getConvexPoints();
+		d.setPointCount(pointssss.size());
 		int count = 0;
-		for (auto & p : points){
-			c.setPoint(count++, p);
+		for (auto & p : pointssss){
+			d.setPoint(count++, p);
 		}
-		c.setOrigin(con1.getOrigin());
-		c.setFillColor(sf::Color::White);
+		d.setOrigin(con2.getOrigin());
+		d.setFillColor(sf::Color::White);
 
-		sf::ConvexShape b;
-		std::vector<sf::Vector2f> pointss = con2.getConvexPoints();
-		b.setPointCount(pointss.size());
-		count = 0;
-		for (auto & p : pointss){
-			b.setPoint(count++, p);
-		}
-		b.setOrigin(con2.getOrigin());
-		b.setFillColor(sf::Color::White);
-
-		window.draw(b);
-		window.draw(c);
-		sf::Vector2f pos = rec0.getPosition();
-		std::cout << pos.x << "  " << pos.y << " \n";
+		window.draw(d);
 
 		//window.draw(convex1);
 		//player.draw(window);

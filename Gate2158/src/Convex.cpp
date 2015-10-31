@@ -3,6 +3,7 @@
 //
 
 #include "Convex.h"
+#include <iostream>
 
 Convex::Convex(std::vector<sf::Vector2f> points, sf::Vector2f position) : 
 	drawable{ position },
@@ -25,7 +26,12 @@ Convex::Convex(std::vector<sf::Vector2f> points, sf::Vector2f position, sf::Vect
 	for (auto & point : points){
 		convex.setPoint(count++, point);
 	}
-	convex.setFillColor(sf::Color::Blue);
+	convex.setFillColor(sf::Color::Transparent);
+
+	sf::Vector2f size = getSize();
+	position.x += ((size.x - 90) / 10) * -5;
+	position.y += ((size.y - 50) / 10) * -5;
+	setPosition(position);
 }
 
 std::vector<sf::Vector2f>& Convex::getPoints(){
@@ -50,4 +56,8 @@ void Convex::setRotation(float rotation){
 
 sf::Vector2f Convex::getOrigin(){
 	return convex.getOrigin();
+}
+
+sf::Vector2f Convex::getSize(){
+	return sf::Vector2f{ getOrigin().x * 2, getOrigin().y * 2 };
 }

@@ -59,13 +59,13 @@ std::vector<sf::Vector2f> MapObject::getConvexPoints(){
 	if (Hitbox != nullptr){
 		std::vector<sf::Vector2f> points = Hitbox->getPoints();
 		for (auto & point : points){
-			point = getPosition() + point;
+			point = Hitbox->getPosition() + point;
 		}
 		//Add rotation to ConvexPoints
 		float rotationAngle = getRotation();
 
 		std::vector<sf::Vector2f> rotatedPoints;
-		sf::Vector2f origin = getOrigin() + getPosition();
+		sf::Vector2f origin = Hitbox->getOrigin() + Hitbox->getPosition();
 
 		for (auto &p : points){
 
