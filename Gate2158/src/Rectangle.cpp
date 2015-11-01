@@ -4,14 +4,14 @@
 
 #include "Rectangle.h"
 
-Rectangle::Rectangle(sf::Vector2f pos, sf::Vector2f size, sf::Color color):
-	drawable(pos)
+Rectangle::Rectangle(sf::Vector2f size, sf::Color color):
+	drawable()
 {
 	rectangle.setSize(size);
 	rectangle.setFillColor(color);
 }
 
-void Rectangle::draw(sf::RenderWindow &window){
-	rectangle.setPosition(getPosition());
+void Rectangle::draw(sf::RenderWindow &window, sf::Vector2f &position){
+	rectangle.setPosition(position);
 	window.draw(rectangle);
 }

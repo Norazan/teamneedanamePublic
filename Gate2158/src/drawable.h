@@ -5,12 +5,9 @@
 
 class drawable {
 public: 
-	drawable(sf::Vector2f pos);
-	virtual void draw(sf::RenderWindow &window);
-	void setPosition(sf::Vector2f pos);
-	sf::Vector2f getPosition();
-private:
-	sf::Vector2f position;
+	//drawable() = 0;
+	virtual void draw(sf::RenderWindow &window, sf::Vector2f &pos) = 0;
+
 };
 
 #endif

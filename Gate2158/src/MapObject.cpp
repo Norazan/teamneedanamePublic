@@ -9,9 +9,10 @@ MapObject::MapObject(){
 	
 }
 
-MapObject::MapObject(int renderLayer, drawable *drawable):
+MapObject::MapObject(int renderLayer, drawable *drawable, sf::Vector2f position):
 	renderLayer{renderLayer},
-	drawObject{ drawable }
+	drawObject{ drawable },
+	position{ position }
 {
 
 }
@@ -26,11 +27,11 @@ float MapObject::getAngle() {
 
 
 void MapObject::setPosition(sf::Vector2f pos){
-	drawObject->setPosition(pos);
+	position = pos;
 }
 
 sf::Vector2f MapObject::getPosition(){
-	return drawObject->getPosition();
+	return position;
 }
 
 void MapObject::setRenderLayer(int renderLayer){
@@ -38,8 +39,8 @@ void MapObject::setRenderLayer(int renderLayer){
 }
 
 int MapObject::getRenderLayer(){
-	return renderLayer;
+	return this->renderLayer;
 }
 void MapObject::draw(sf::RenderWindow & window){
-	drawObject->draw(window);
+	drawObject->draw(window, position);
 }

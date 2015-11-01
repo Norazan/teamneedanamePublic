@@ -10,8 +10,8 @@
 
 class Rectangle : public drawable {
 public:
-	Rectangle(sf::Vector2f pos, sf::Vector2f size, sf::Color color);
-	void draw(sf::RenderWindow &window) override;
+	Rectangle(sf::Vector2f size, sf::Color color);
+	void draw(sf::RenderWindow &window, sf::Vector2f &position) override;
 private:
 	sf::RectangleShape rectangle;
 };

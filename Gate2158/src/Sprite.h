@@ -10,8 +10,8 @@
 
 class Sprite : public drawable {
 public:
-	Sprite(sf::Vector2f pos, std::string name);
-	void draw(sf::RenderWindow &window) override;
+	Sprite(std::string name);
+	void draw(sf::RenderWindow &window, sf::Vector2f &position);
 private:
 	sf::Texture texture;
 	sf::Sprite sprite;

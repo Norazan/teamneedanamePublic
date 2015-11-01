@@ -12,8 +12,7 @@
 class Text : public drawable {
 public:
 	Text(
-		std::string text, 
-		sf::Vector2f pos, 
+		std::string text,
 		sf::Text::Style style = sf::Text::Style::Regular, 
 		sf::Color color = sf::Color::Black, 
 		int size = 30,
@@ -21,13 +20,12 @@ public:
 	);
 	Text(
 		sf::String t,
-		sf::Vector2f pos,
 		sf::Text::Style style,
 		sf::Color color,
 		int size,
 		sf::Font *font
 		);
-	void draw(sf::RenderWindow &window) override;
+	void draw(sf::RenderWindow &window, sf::Vector2f &position);
 private:
 	sf::Text text;
 };

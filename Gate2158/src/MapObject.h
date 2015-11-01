@@ -12,7 +12,7 @@
 class MapObject {
 public:
 	MapObject();
-	MapObject(int renderLayer, drawable *drawable);
+	MapObject(int renderLayer, drawable *drawable, sf::Vector2f position);
 	void setAngle(float angle);
     float getAngle();
 	void setPosition(sf::Vector2f pos);
@@ -21,11 +21,12 @@ public:
 	int getRenderLayer();
 	void draw(sf::RenderWindow & window);
 private:
-	drawable *drawObject;
-    unsigned int colorCode;
     bool isSolid;
     float angle;
+protected:
+	drawable *drawObject;
 	int renderLayer;
+	sf::Vector2f position;
 };
 
 
