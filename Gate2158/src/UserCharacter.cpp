@@ -52,6 +52,9 @@ void UserCharacter::processKeys(){
 	if (input.isKeyHold(sf::Keyboard::R)){
 		pistol->reload();
 	}
+	if (input.getMousePress(sf::Mouse::Button::Left)){
+		std::cout << "shoting while walking \n";
+	}
 	// move userCharacter with the velocity that has been set.
 	move(velocity);
 }
