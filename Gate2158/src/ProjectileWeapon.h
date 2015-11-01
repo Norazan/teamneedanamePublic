@@ -31,6 +31,9 @@ private:
 	int projectileVelocity;
 	std::vector<Bullet> shotBullets;
 	Bullet* shotBullet;
+	clock_t currentClock;
+	clock_t previousClock = clock();
+	double old;
 };
 
 #endif

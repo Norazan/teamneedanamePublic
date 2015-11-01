@@ -49,7 +49,7 @@ void UserCharacter::processKeys(){
 	if (input.isKeyHold(sf::Keyboard::D)){
 		velocity.x += speed;
 	}
-	if (input.isKeyPressed(sf::Keyboard::R)){
+	if (input.isKeyHold(sf::Keyboard::R)){
 		pistol->reload();
 	}
 	// move userCharacter with the velocity that has been set.

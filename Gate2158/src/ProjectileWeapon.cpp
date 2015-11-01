@@ -15,7 +15,11 @@ ProjectileWeapon::ProjectileWeapon(int shotType, int attackSpeed, int maxAmmo, i
 }
 
 void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
-	if (ammoInMagazine > 0){
+	currentClock = clock();
+	double diffticks = currentClock - previousClock;
+	double diffms = diffticks / (CLOCKS_PER_SEC / 1000);
+
+	if (ammoInMagazine > 0 && diffms > 500){
 		float radian = (angle + 90) * ((float)PI / (float)180);
 		sf::Vector2f startingVelocity{ sin(radian), cos(radian) };
 
@@ -28,6 +32,11 @@ void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
 			}*/
 
 		ammoInMagazine -= 1;
+		
+		previousClock = currentClock;
+	}
+	else {
+		std::cout << diffms << "\n";
 	}
 }
 void ProjectileWeapon::drawBullets(sf::RenderWindow & window){

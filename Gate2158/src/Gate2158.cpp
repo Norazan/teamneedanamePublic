@@ -43,10 +43,8 @@
 #include "UserCharacter.h"
 #include <iostream>
 
-
 int main()
 {
-
 	int width= 1280;
 	int height = 720;
     sf::RenderWindow window(sf::VideoMode(width, height), "Gate2158");
