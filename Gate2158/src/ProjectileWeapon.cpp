@@ -10,16 +10,16 @@ ProjectileWeapon::ProjectileWeapon(int shotType, int attackSpeed, int maxAmmo, i
 }
 
 void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
-	float radian = angle * ((float)PI / (float)180);
+	float radian = (angle+90) * ((float)PI / (float)180);
 	sf::Vector2f startingVelocity{ sin(radian), cos(radian) };
 
 	
 
 	shotBullets.push_back(Bullet(calculateDamage(), location, startingVelocity, angle));
 	
-	/*if (shotBullets.capacity() > 10){
+	if (shotBullets.capacity() > 20){
 		shotBullets.erase(shotBullets.begin());
-	}*/
+	}
 
 	//shotBullet = ;
 }
@@ -28,7 +28,7 @@ void ProjectileWeapon::drawBullets(sf::RenderWindow & window){
 		for (auto &b : shotBullets){	
 			if (b.outOfBound(window)){
 				//shotBullets.erase(remove(shotBullets.begin(), shotBullets.end(), b), shotBullets.end());
-				std::cout << "Out of bound !\n";
+				//std::cout << "Out of bound !\n";
 			}
 			b.draw(window);
 		}
@@ -51,15 +51,10 @@ int ProjectileWeapon::calculateDamage(){
 
 }
 void ProjectileWeapon::reload(){
-	if (ammoInMagazine < maxAmmoInMagazine){
-		if (currentAmmo >= maxAmmoInMagazine){
-			ammoInMagazine += maxAmmoInMagazine;
-			currentAmmo -= maxAmmoInMagazine;
-		}
-		else{
-			ammoInMagazine += currentAmmo;
-			currentAmmo = 0;
-		}
+	if (currentAmmo >= maxAmmoInMagazine && ammoInMagazine < maxAmmoInMagazine){
+		ammoInMagazine = maxAmmoInMagazine;;
+		currentAmmo -= ammoInMagazine;
+		std::cout << "Reloaded";
 	}
 }
 

@@ -3,8 +3,9 @@
 #include <math.h>
 
 Bullet::Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity){
-	bullet.setRadius(50);
-	std::cout << "Bullet created\n";
+	bullet.setRadius(10);
+	bullet.setOrigin(sf::Vector2f{ 65, 5 });
+	//std::cout << "Bullet created\n";
 	damage = bulletDamage;
 	location = startingLocation;
 	velocity = startingVelocity;
@@ -12,13 +13,15 @@ Bullet::Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f sta
 }
 
 Bullet::Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, float angle){
-	bullet.setRadius(50);
+	bullet.setRadius(10);
+	bullet.setFillColor(sf::Color{ 0, 255, 0 });
+	bullet.setOrigin(sf::Vector2f{ -18, 13 });
 	bullet.setPosition(startingLocation);
-	std::cout << "Bullet created\n";
+	//std::cout << "Bullet created\n";
 	damage = bulletDamage;
 	location = startingLocation;
 	velocity = startingVelocity;
-	bSpeed = 10.0;
+	bSpeed =20.0;
 	this->angle = angle;
 
 	bullet.setRotation(angle);
@@ -29,7 +32,7 @@ void onHit(){
 }
 
 void Bullet::draw(sf::RenderWindow & window){
-	std::cout << "Bullet fired: " << ((bullet.getRotation()*3.1415) / 180.0)*10 << "\n";
+	//std::cout << "Bullet fired: " << ((bullet.getRotation()*3.1415) / 180.0)*10 << "\n";
 	if (outOfBound(window)){
 		//remove the bullet!
 		
@@ -42,7 +45,7 @@ void Bullet::draw(sf::RenderWindow & window){
 	int x = 20;
 	int y = 20;
 
-	location = sf::Vector2f(location.x + x, location.y + y);
+	location = sf::Vector2f(location.x + velocity.x*bSpeed, location.y - velocity.y*bSpeed);
 	bullet.setPosition(location);
 	window.draw(bullet);
 }

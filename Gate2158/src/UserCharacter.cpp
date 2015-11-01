@@ -22,7 +22,6 @@ void UserCharacter::draw(sf::RenderWindow & window) {
 	input.updateToggleKey();
 	processKeys();
 	processMouse(window);
-	//pistol->drawBullets(window);
 
 	pistol->drawBullets(window);
 	MapObject::draw(window);
@@ -35,6 +34,7 @@ void UserCharacter::move(sf::Vector2f dir){
 void UserCharacter::processKeys(){
 	sf::Vector2f velocity{ 0.0, 0.0 };
 	// check if key is hold and set velocity
+
 	if (input.isKeyHold(sf::Keyboard::W)){
 		velocity.y -= speed;
 	}
@@ -47,6 +47,9 @@ void UserCharacter::processKeys(){
 	if (input.isKeyHold(sf::Keyboard::D)){
 		velocity.x += speed;
 	}
+	if (input.isKeyPressed(sf::Keyboard::R)){
+		pistol->reload();
+	}
 	// move userCharacter with the velocity that has been set.
 	move(velocity);
 }
@@ -56,7 +59,14 @@ void UserCharacter::processMouse(sf::RenderWindow & window){
 	sf::Vector2i mousePosition = input.getMousePosition(window);
 	rotate(calculateRotation(mousePosition));
 	if (input.getMousePress(sf::Mouse::Button::Left)){
-		pistol->shoot(getPosition(), calculateRotation(mousePosition));
+		if (pistol->getAmmoInMagazine() > 0){
+			pistol->shoot(getPosition(), calculateRotation(mousePosition));
+			pistol->setAmmoInMagazine(pistol->getAmmoInMagazine() - 1);
+			std::cout << pistol->getAmmoInMagazine();
+		}
+		else{
+			pistol->reload();
+		}
 	}
 }
 
