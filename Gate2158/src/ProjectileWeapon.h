@@ -4,6 +4,7 @@
 #include "Weapon.h"
 #include "Bullet.h"
 #include <vector>
+#include <memory>
 
 #define PI 3.14159265
 

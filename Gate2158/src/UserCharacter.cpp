@@ -15,7 +15,9 @@ UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawabl
 	input.setToggleKey(sf::Keyboard::A);
 	input.setToggleKey(sf::Keyboard::S);
 	input.setToggleKey(sf::Keyboard::D);
-	pistol = new ProjectileWeapon(2, 10, 100, 20, 10);
+	input.setToggleKey(sf::Keyboard::R);
+	int shotType = 2, attackSpeed = 10, maxAmmo = 100, baseDamage = 20, maxAmmoInMagazine = 10;
+	pistol = new ProjectileWeapon(shotType, attackSpeed, maxAmmo, baseDamage, maxAmmoInMagazine);
 }
 
 void UserCharacter::draw(sf::RenderWindow & window) {
@@ -59,14 +61,7 @@ void UserCharacter::processMouse(sf::RenderWindow & window){
 	sf::Vector2i mousePosition = input.getMousePosition(window);
 	rotate(calculateRotation(mousePosition));
 	if (input.getMousePress(sf::Mouse::Button::Left)){
-		if (pistol->getAmmoInMagazine() > 0){
-			pistol->shoot(getPosition(), calculateRotation(mousePosition));
-			pistol->setAmmoInMagazine(pistol->getAmmoInMagazine() - 1);
-			std::cout << pistol->getAmmoInMagazine();
-		}
-		else{
-			pistol->reload();
-		}
+		pistol->shoot(getPosition(), calculateRotation(mousePosition));
 	}
 }
 

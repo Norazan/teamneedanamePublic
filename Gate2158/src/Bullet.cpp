@@ -54,7 +54,7 @@ bool Bullet::outOfBound(sf::RenderWindow & window){
 	if (bullet.getPosition().x > window.getSize().x || bullet.getPosition().x < 0){
 		return true;
 	}
-	if (bullet.getPosition().y > window.getSize().y || bullet.getPosition().y < 0){
+	else if (bullet.getPosition().y > window.getSize().y || bullet.getPosition().y < 0){
 		return true;
 	}
 	return false;
