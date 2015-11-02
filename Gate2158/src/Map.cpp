@@ -28,7 +28,9 @@ void Map::removeMapObject(std::vector<MapObject*> removeObjects){
 			}
 			++count;
 		}
+		MapObject *deletingObject = mapObjects[removeObjectCount];
 		mapObjects.erase(mapObjects.begin() + removeObjectCount);
+		deletingObject->~MapObject();
 	}
 	
 }

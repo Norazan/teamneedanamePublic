@@ -16,7 +16,7 @@ UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawabl
 	input.setToggleKey(sf::Keyboard::S);
 	input.setToggleKey(sf::Keyboard::D);
 	input.setToggleKey(sf::Keyboard::R);
-	pistol = new ProjectileWeapon(2);
+	pistol = new ProjectileWeapon("pistol");
 }
 
 void UserCharacter::draw(sf::RenderWindow & window) {
@@ -52,9 +52,6 @@ void UserCharacter::processKeys(){
 	}
 	if (input.isKeyHold(sf::Keyboard::R)){
 		pistol->reload();
-	}
-	if (input.getMousePress(sf::Mouse::Button::Left)){
-		std::cout << "shoting while walking \n";
 	}
 	// move userCharacter with the velocity that has been set.
 	move(velocity);

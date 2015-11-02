@@ -2,24 +2,26 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-ProjectileWeapon::ProjectileWeapon(int shotType) :
-shotType{ shotType }
+ProjectileWeapon::ProjectileWeapon(std::string weaponType) :
+weaponType{ weaponType }
 {
-	if (shotType == 1){
+	if (weaponType == "pistol"){
 		attackSpeed = 200;
 		maxAmmo = 100;
 		baseDamage = 25;
-		maxAmmoInMagazine = 100;
+		maxAmmoInMagazine = 10;
 		amountOfBullets = 1;
 		spread = 0;
+		reloadTime = 1000;
 	}
-	else if (shotType == 2){
+	else if (weaponType == "shotgun"){
 		attackSpeed = 500;
 		maxAmmo = 40;
 		baseDamage = 4;
 		maxAmmoInMagazine = 8;
 		amountOfBullets = 12;
 		spread = 0.005f;
+		reloadTime = 1000;
 	}
 	currentAmmo = maxAmmo;
 	ammoInMagazine = maxAmmoInMagazine;
@@ -28,15 +30,16 @@ shotType{ shotType }
 
 void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
 	currentClock = clock();
-	double diffticks = currentClock - previousClock;
-	double diffms = diffticks / (CLOCKS_PER_SEC / 1000);
+	double shootDiffTicks = currentClock - previousClock;
+	double reloadDiffTicks = currentClock - reloadClock;
+	double shootDiffMS = shootDiffTicks / (CLOCKS_PER_SEC / 1000);
+	double reloadDiffMS = reloadDiffTicks / (CLOCKS_PER_SEC / 1000);
 
-	if (ammoInMagazine > 0 && diffms > attackSpeed){
+	if (ammoInMagazine > 0 && shootDiffMS > attackSpeed && reloadDiffMS > reloadTime){
 		float radian = (angle + 90) * ((float)PI / (float)180);
 
 		for (float i = amountOfBullets/2 - amountOfBullets; i < amountOfBullets/2; i++){
 			float bulletSpread = (amountOfBullets / 2) * spread * i;
-			std::cout << bulletSpread << "\n";
 			sf::Vector2f startingVelocity{ sin(radian + bulletSpread), cos(radian + bulletSpread) };
 			Bullet *bullet = new Bullet(calculateDamage(), location, startingVelocity, angle);
 			bullet->setCamera(camera);
@@ -44,9 +47,6 @@ void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
 		}
 		ammoInMagazine -= 1;
 		previousClock = currentClock;
-	}
-	else {
-		std::cout << diffms << "\n";
 	}
 }
 void ProjectileWeapon::setCamera(Camera * c){
@@ -79,5 +79,6 @@ void ProjectileWeapon::reload(){
 			currentAmmo = 0;
 		}
 	}
+	reloadClock = clock();
 }
 

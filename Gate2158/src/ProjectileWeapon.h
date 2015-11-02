@@ -4,14 +4,14 @@
 #include "Weapon.h"
 #include "Bullet.h"
 #include <vector>
-#include <memory>
+#include <string>
 #include "Camera.hpp"
 
 #define PI 3.14159265
 
 class ProjectileWeapon: public Weapon{
 public:
-	ProjectileWeapon(int shotType);
+	ProjectileWeapon(std::string weaponType);
 	void shoot(sf::Vector2f location, float angle);
 	int getAmmo();
 	int getAmmoInMagazine();
@@ -21,7 +21,7 @@ public:
 	void reload();
 	void setCamera(Camera *c);
 private:
-	int shotType;
+	std::string weaponType;
 	int attackSpeed;
 	int maxAmmo;
 	int currentAmmo;
@@ -30,10 +30,12 @@ private:
 	int baseDamage;
 	int weaponTier;
 	int projectileVelocity;
+	int reloadTime;
 	float spread;
 	float amountOfBullets;
 	clock_t currentClock;
 	clock_t previousClock = clock();
+	clock_t reloadClock = clock();
 	Camera * camera;
 };
 
