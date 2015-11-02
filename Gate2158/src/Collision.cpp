@@ -66,7 +66,6 @@ float Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 
 std::vector<Collision::line> Collision::getLines(MapObject & mo){
 	std::vector<sf::Vector2f> &points = mo.getConvexPoints();
-	checkPoints(points);
 	std::vector<line> lines;
 	int size = points.size();
 	for (int i = 0; i < size; i++){
@@ -169,12 +168,4 @@ Collision::line Collision::getProjection(float a, MapObject & mo, std::vector<sf
 		}
 	}
 	return projection;
-}
-
-void Collision::checkPoints(std::vector<sf::Vector2f> & points){
-	if (points.size() == 1){
-		points.push_back(sf::Vector2f{ 10, 0 });
-		points.push_back(sf::Vector2f{ 10, 10 });
-		points.push_back(sf::Vector2f{ 0, 10 });
-	}
 }

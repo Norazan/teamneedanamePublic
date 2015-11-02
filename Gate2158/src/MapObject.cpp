@@ -13,7 +13,7 @@ MapObject::MapObject(int renderLayer, drawable* drawable) :
 	renderLayer{ renderLayer },
 	drawObject{ drawable }
 {
-	
+	position = sf::Vector2f{ 0, 0 };
 }
 
 MapObject::MapObject(int renderLayer, drawable* drawable, Convex * hitbox) :
@@ -21,13 +21,13 @@ MapObject::MapObject(int renderLayer, drawable* drawable, Convex * hitbox) :
 	drawObject{ drawable },
 	Hitbox{hitbox}
 {
-
+	position = sf::Vector2f{ 0, 0 };
 }
 
 MapObject::MapObject(int renderLayer) :
 	renderLayer{ renderLayer }
 {
-	
+	position = sf::Vector2f{ 0, 0 };
 }
 
 void MapObject::rotate(float rotation) {
@@ -56,15 +56,14 @@ void MapObject::setPosition(sf::Vector2f pos){
 	if (drawObject != nullptr){
 		drawObject->setPosition(pos);
 	}
+	position = pos;
 }
 
 sf::Vector2f MapObject::getPosition(){
 	if (drawObject != nullptr){
-		return drawObject->getPosition();
+		 position = drawObject->getPosition();
 	}
-	else {
-		return sf::Vector2f{ 0, 0 };
-	}
+	return position;
 }
 
 void MapObject::setRenderLayer(int renderLayer){
@@ -122,9 +121,12 @@ std::vector<sf::Vector2f> MapObject::getConvexPoints(){
 		return rotatedPoints;
 	}
 	else {
-		std::vector<sf::Vector2f> nultje{ sf::Vector2f{ 0, 0 } };
-		std::vector<sf::Vector2f> &nul = nultje;
-		return nul;
+		std::vector<sf::Vector2f> points;
+		points.push_back(sf::Vector2f{ position.x + ((10 - 90) / 10) * -5, position.y + ((10 - 50) / 10) * -5 });
+		points.push_back(sf::Vector2f{ position.x + 10 + ((10 - 90) / 10) * -5, position.y + ((10 - 50) / 10) * -5 });
+		points.push_back(sf::Vector2f{ position.x + 10 + ((10 - 90) / 10) * -5, 10 + ((10 - 50) / 10) * -5 });
+		points.push_back(sf::Vector2f{ position.x + ((10 - 90) / 10) * -5, position.y + 10 + ((10 - 50) / 10) * -5 });
+		return points;
 	}
 }
 

@@ -34,6 +34,7 @@ void Bullet::draw(sf::RenderWindow & window){
 	else {
 		location = sf::Vector2f(location.x + velocity.x*bSpeed, location.y - velocity.y*bSpeed);
 		bullet.setPosition(location);
+		position = location;
 		window.draw(bullet);
 	}
 }

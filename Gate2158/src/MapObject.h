@@ -39,6 +39,8 @@ private:
     bool isSolid;
     float angle;
 	int renderLayer;
+protected:
+	sf::Vector2f position;
 };
 
 
