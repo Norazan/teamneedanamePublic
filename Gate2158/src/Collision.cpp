@@ -13,8 +13,8 @@ struct line {
 };
 
 float Collision::checkCollision(MapObject & obj1, MapObject & obj2){
-	std::vector<line> &lines_obj1 = getLines(obj1);
-	std::vector<line> &lines_obj2 = getLines(obj2);
+	const std::vector<line> &lines_obj1 = getLines(obj1);
+	const std::vector<line> &lines_obj2 = getLines(obj2);
 	std::vector<line> axes_obj1 = getAxes(lines_obj1);
 	std::vector<line> axes_obj2 = getAxes(lines_obj2);
 	// loop over the axes1
@@ -65,7 +65,7 @@ float Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 }
 
 std::vector<Collision::line> Collision::getLines(MapObject & mo){
-	std::vector<sf::Vector2f> &points = mo.getConvexPoints();
+	const std::vector<sf::Vector2f> &points = mo.getConvexPoints();
 	std::vector<line> lines;
 	int size = points.size();
 	for (int i = 0; i < size; i++){
@@ -83,7 +83,7 @@ std::vector<Collision::line> Collision::getLines(MapObject & mo){
 	return lines;
 }
 
-std::vector<Collision::line> Collision::getAxes(std::vector<line> & lines){
+std::vector<Collision::line> Collision::getAxes(const std::vector<line> & lines){
 	std::vector<line> axes;
 	for (auto & l : lines){
 		// axes is perpendicular to the line, 
@@ -98,8 +98,8 @@ std::vector<Collision::line> Collision::getAxes(std::vector<line> & lines){
 }
 
 float Collision::getOverlapOnAxes(line axes, MapObject & obj1, MapObject & obj2){
-	std::vector<sf::Vector2f> &convexPointsObj1 = obj1.getConvexPoints();
-	std::vector<sf::Vector2f> &convexPointsObj2 = obj2.getConvexPoints();
+	const std::vector<sf::Vector2f> &convexPointsObj1 = obj1.getConvexPoints();
+	const std::vector<sf::Vector2f> &convexPointsObj2 = obj2.getConvexPoints();
 	// there is no convex.
 	if (convexPointsObj1.size() == 0 || convexPointsObj2.size() == 0){
 		return 0;
