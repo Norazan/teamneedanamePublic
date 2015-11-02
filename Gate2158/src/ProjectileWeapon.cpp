@@ -2,13 +2,25 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-ProjectileWeapon::ProjectileWeapon(int shotType, int attackSpeed, int maxAmmo, int baseDamage, int maxAmmoInMagazine) :
-	attackSpeed{ attackSpeed },
-	shotType{ shotType },
-	maxAmmo{ maxAmmo },
-	baseDamage{ baseDamage },
-	maxAmmoInMagazine{maxAmmoInMagazine}
+ProjectileWeapon::ProjectileWeapon(int shotType) :
+shotType{ shotType }
 {
+	if (shotType == 1){
+		attackSpeed = 200;
+		maxAmmo = 100;
+		baseDamage = 25;
+		maxAmmoInMagazine = 100;
+		amountOfBullets = 1;
+		spread = 0;
+	}
+	else if (shotType == 2){
+		attackSpeed = 500;
+		maxAmmo = 40;
+		baseDamage = 4;
+		maxAmmoInMagazine = 8;
+		amountOfBullets = 12;
+		spread = 0.005f;
+	}
 	currentAmmo = maxAmmo;
 	ammoInMagazine = maxAmmoInMagazine;
 	weaponTier = 1;
@@ -19,20 +31,16 @@ void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
 	double diffticks = currentClock - previousClock;
 	double diffms = diffticks / (CLOCKS_PER_SEC / 1000);
 
-	if (ammoInMagazine > 0 && diffms > 500){
+	if (ammoInMagazine > 0 && diffms > attackSpeed){
 		float radian = (angle + 90) * ((float)PI / (float)180);
-		sf::Vector2f startingVelocity{ sin(radian), cos(radian) };
 
-
-		//std::unique_ptr<Bullet> bullet(new Bullet(calculateDamage(), location, startingVelocity, angle));
-		shotBullets.push_back(Bullet(calculateDamage(), location, startingVelocity, angle));
-
-		/*if (shotBullets.capacity() > 20){
-			shotBullets.erase(shotBullets.begin());
-			}*/
-
+		for (float i = amountOfBullets/2 - amountOfBullets; i < amountOfBullets/2; i++){
+			float bulletSpread = (amountOfBullets / 2) * spread * i;
+			std::cout << bulletSpread << "\n";
+			sf::Vector2f startingVelocity{ sin(radian+bulletSpread), cos(radian+bulletSpread) };
+			shotBullets.push_back(Bullet(calculateDamage(), location, startingVelocity, angle));
+		}
 		ammoInMagazine -= 1;
-		
 		previousClock = currentClock;
 	}
 	else {
@@ -47,8 +55,6 @@ void ProjectileWeapon::drawBullets(sf::RenderWindow & window){
 			if (b.outOfBound(window)){
 				deleting = true;
 				deletingObject = count;
-				//shotBullets.erase(remove(shotBullets.begin(), shotBullets.end(), b), shotBullets.end());
-				//std::cout << "Out of bound !\n";
 			}
 			else {
 				b.draw(window);
@@ -77,11 +83,15 @@ int ProjectileWeapon::calculateDamage(){
 
 }
 void ProjectileWeapon::reload(){
-	if (currentAmmo >= maxAmmoInMagazine && ammoInMagazine < maxAmmoInMagazine){
-		int oldAmmoInMagazine = ammoInMagazine;
-		ammoInMagazine = maxAmmoInMagazine;
-		currentAmmo -= (ammoInMagazine - oldAmmoInMagazine);
-		std::cout << "Reloaded: \ncurrentAmmo: " << currentAmmo << "\nammoInMagazine: " << ammoInMagazine << "\n\n";
+	if(ammoInMagazine < maxAmmoInMagazine){
+		if(currentAmmo >= maxAmmoInMagazine){
+			ammoInMagazine = maxAmmoInMagazine;
+			currentAmmo -= maxAmmoInMagazine;
+		}
+		else{
+			ammoInMagazine = currentAmmo;
+			currentAmmo = 0;
+		}
 	}
 }
 

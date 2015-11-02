@@ -108,9 +108,6 @@ int main()
 	//userInputKey.setToggleKey(sf::Keyboard::W);
 	//userInputKey.setToggleKey(sf::Keyboard::S);
 
-	Bullet bill(10, sf::Vector2f(200, 200), sf::Vector2f(10, 10));
-
-
 	while(window.isOpen()){
         sf::Event event;
         while(window.pollEvent(event)){
@@ -169,7 +166,6 @@ int main()
 		userCamera.draw();
 		//player.draw(window);
 		//menuScreen.show(true);
-		bill.draw(window);
 		//userCharacter.draw(window);
         window.display();
     }
