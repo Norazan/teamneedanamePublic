@@ -6,16 +6,18 @@
 #define GATE2158_MOVABLEMAPOBJECT_H
 
 #include "MapObject.h"
+#include <SFML/Graphics.hpp>
 
 class MovableMapObject : public MapObject {
 public:
-	MovableMapObject(int renderLayer, drawable* drawable);
-	void setVelocity(float v);
-    float getVelocity();
+	MovableMapObject(int renderLayer, drawable* drawable, Convex* convex);
+	void setVelocity(sf::Vector2f v);
+    sf::Vector2f getVelocity();
 	virtual void draw(sf::RenderWindow & window) override;
+	virtual void collisionDetected(MapObject & mo) override;
 
 private:
-    float velocity;
+    sf::Vector2f velocity;
 };
 
 

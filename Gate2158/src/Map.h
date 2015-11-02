@@ -8,6 +8,7 @@
 
 #include "MapObject.h"
 #include <vector>
+#include <string>
 
 class Map {
 public:
@@ -18,6 +19,7 @@ public:
 	std::vector<MapObject*>& getAllMapObjects();
 	int getLayers();
 	void setLayers(int layers);
+	void loadFromFile(std::string filename);
 private:
 	int layers;
 	std::vector<MapObject*> mapObjects;

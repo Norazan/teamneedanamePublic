@@ -15,7 +15,7 @@ public:
 	//! @parameter maxHealth
 	//! @parameter renderLayer
 	//! @parameter drawable
-	Character(float maxHealth, int renderLayer, drawable* drawable);
+	Character(float maxHealth, int renderLayer, drawable* drawable, Convex* convex);
 
 	//! Function draw
 	//
@@ -24,6 +24,20 @@ public:
 	virtual void draw(sf::RenderWindow & window) override;
 
 protected:
+	//! Function getHealth
+	//
+	//! Returns health
+    float getHealth(void);
+
+	//! Function setHealth
+	//
+	//! @parameter h = health
+	//! Set health
+    void setHealth(float h);
+
+
+	virtual void collisionDetected(MapObject & mo) override;
+
     float health;
     float maxHealth;
 };

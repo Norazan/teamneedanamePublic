@@ -25,6 +25,7 @@ public:
 
 	void addMapObjectToCurrentMap(MapObject *mo);
 	void revmoveMapObjectOnCurrentMap(MapObject *mo);
+	void checkCollision();
 
 private:
 	sf::RenderWindow &window;

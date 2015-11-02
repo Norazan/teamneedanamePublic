@@ -24,7 +24,7 @@ public:
 	//! @parameter maxHealth
 	//! @parameter renderLayer
 	//! @parameter drawable
-	UserCharacter(float maxHealth, int renderLayer, drawable* drawable);
+	UserCharacter(float maxHealth, int renderLayer, drawable* drawable, Convex* convex);
 
 	//! Function draw
 	//
@@ -32,6 +32,7 @@ public:
 	void draw(sf::RenderWindow & window) override;
 
 	void setCamera(Camera * c); 
+	void collisionDetected(MapObject & mo) override;
 
 private:
 	//! Function move
@@ -67,6 +68,14 @@ private:
 	int speed = 10;
 
 	ProjectileWeapon* pistol;
+	//! the current rotation of the character in degrees.
+	float currentRotation;
+	
+	//! the previous rotation of the character in degrees.
+	float previousRotation;
+
+	//! boolean canRotate
+	bool canRotate = true;
 };
 
 #endif //GATE2158_USERCHARACTER_H

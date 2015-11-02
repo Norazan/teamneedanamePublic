@@ -4,12 +4,13 @@
 
 #include "UserCharacter.h"
 #include "UserInput.h"
+#include "Collision.h"
 #include <cmath>
 #include <math.h>
 #include <iostream>
 
-UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawable) :
-	Character(maxHealth, renderLayer, drawable)
+UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawable, Convex* convex) :
+	Character(maxHealth, renderLayer, drawable, convex)
 {
 	input.setToggleKey(sf::Keyboard::W);
 	input.setToggleKey(sf::Keyboard::A);
@@ -40,27 +41,36 @@ void UserCharacter::processKeys(){
 
 	if (input.isKeyHold(sf::Keyboard::W)){
 		velocity.y -= speed;
+		canRotate = true;
 	}
 	if (input.isKeyHold(sf::Keyboard::A)){
 		velocity.x -= speed;
+		canRotate = true;
 	}
 	if (input.isKeyHold(sf::Keyboard::S)){
 		velocity.y += speed;
+		canRotate = true;
 	}
 	if (input.isKeyHold(sf::Keyboard::D)){
 		velocity.x += speed;
+		canRotate = true;
 	}
 	if (input.isKeyHold(sf::Keyboard::R)){
 		pistol->reload();
 	}
 	// move userCharacter with the velocity that has been set.
+	setVelocity(velocity);
 	move(velocity);
 }
 
 void UserCharacter::processMouse(sf::RenderWindow & window){
 	// Get mouse position, claculate the rotation and set the rotation.
 	sf::Vector2i mousePosition = input.getMousePosition(window);
-	rotate(calculateRotation(mousePosition));
+	if (canRotate){
+		previousRotation = currentRotation;
+		currentRotation = calculateRotation(mousePosition);
+		rotate(currentRotation);
+	}
 	if (input.getMousePress(sf::Mouse::Button::Left)){
 		pistol->shoot(getPosition(), calculateRotation(mousePosition));
 	}
@@ -113,4 +123,11 @@ float UserCharacter::calculateRotation(sf::Vector2i mousePosition){
 		rotation = 90 - angle;
 	}
 	return rotation;
+}
+
+void UserCharacter::collisionDetected(MapObject & mo){
+	sf::Vector2f velocity = getVelocity();
+	move(-velocity);
+	canRotate = false;
+	rotate(previousRotation);
 }
