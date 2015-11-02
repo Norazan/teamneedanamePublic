@@ -4,17 +4,25 @@
 
 #include "MovableMapObject.h"
 
-MovableMapObject::MovableMapObject() :
-	MapObject()
+MovableMapObject::MovableMapObject(int renderLayer, drawable* drawable, Convex *convex) :
+	MapObject(renderLayer, drawable, convex)
 {
 
 }
 
-void MovableMapObject::setVelocity(float v) {
+void MovableMapObject::setVelocity(sf::Vector2f v) {
     velocity = v;
 }
 
-float MovableMapObject::getVelocity() {
+sf::Vector2f MovableMapObject::getVelocity() {
     return velocity;
 }
 
+
+void MovableMapObject::draw(sf::RenderWindow & window){
+
+}
+
+void MovableMapObject::collisionDetected(MapObject & mo){
+
+}

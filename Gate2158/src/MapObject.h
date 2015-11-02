@@ -8,20 +8,32 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Vector2.hpp>
 #include "drawable.h"
+#include "Convex.h"
 
 class MapObject {
 public:
 	MapObject();
-	MapObject(int renderLayer, drawable *drawable);
-	void setAngle(float angle);
-    float getAngle();
+	MapObject(int renderLayer, drawable* drawables);
+	MapObject(int renderLayer, drawable* drawables, Convex* hitbox);
+	void rotate(float rotation);
+    float getRotation();
 	void setPosition(sf::Vector2f pos);
 	sf::Vector2f getPosition();
 	void setRenderLayer(int renderLayer);
 	int getRenderLayer();
-	void draw(sf::RenderWindow & window);
+	sf::Vector2f getSize();
+	std::vector<sf::Vector2f> getConvexPoints();
+	sf::Vector2f getOrigin();
+
+	virtual void draw(sf::RenderWindow & window);
+
+	void setHitbox(Convex *Hitbox);
+	Convex* getHitbox();
+	virtual void collisionDetected(MapObject & mo);
+
 private:
-	drawable *drawObject;
+	drawable* drawObject;
+	Convex* Hitbox = nullptr;
     unsigned int colorCode;
     bool isSolid;
     float angle;

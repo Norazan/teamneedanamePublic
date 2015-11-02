@@ -2,35 +2,7 @@
 //
 
 #include <SFML/Graphics.hpp>
-//#include "World.h"
-//#include "Map.h"
-//#include "Camera.hpp"
-//
-//int main()
-//{
-//	sf::RenderWindow window(sf::VideoMode(400, 400), "Gate2158");
-//	sf::RectangleShape rec0(sf::Vector2f{ 30.0, 30.0 });
-//	sf::RectangleShape rec1(sf::Vector2f{ 40.0, 40.0 });
-//	rec1.setFillColor(sf::Color::Blue);
-//	MapObject rectangle0(0, rec0);
-//	MapObject rectangle1(1, rec1);
-//
-//	Map testMap(2);
-//    
-//	testMap.addMapObject(rectangle0);
-//	testMap.addMapObject(rectangle1);
-//
-//	World Gate2158;
-//	Gate2158.addMap(testMap);
-//	Map &currentMap = Gate2158.getCurrentMap();
-//	Camera userCamera(window, currentMap);
-//
-//    window.setVerticalSyncEnabled(true);
-//
-//    sf::CircleShape shape(100.f);
-//    shape.setFillColor(sf::Color::Green);
 #include "UserInput.h"
-//#include "UserCharacter.h"
 #include "Menu.h"
 #include "World.h"
 #include "Map.h"
@@ -38,7 +10,10 @@
 #include "Rectangle.h"
 #include "Sprite.h"
 #include "Text.h"
+#include "Circle.h"
+#include "Character.h"
 #include "UserCharacter.h"
+#include "Convex.h"
 #include <iostream>
 
 
@@ -48,15 +23,15 @@ int main()
 	int width= 1280;
 	int height = 720;
     sf::RenderWindow window(sf::VideoMode(width, height), "Gate2158");
-	//UserCharacter player = UserCharacter({ 25, 25 }, {200, 200}, sf::Color::Magenta);
-	//player.draw(window);
-	
 	Menu menuScreen(window);
 	UserInput userInputKey;
 
-	Rectangle rec0(sf::Vector2f{ 50.0, 0.0 }, sf::Vector2f{ 30.0, 30.0 }, sf::Color::Blue);
-	Rectangle rec1(sf::Vector2f{ 50.0, 0.0 }, sf::Vector2f{ 40.0, 40.0 }, sf::Color::Red);
-	Sprite testSprite(sf::Vector2f{ 100.0, 50.0 }, "../../Gate2158/media/download.jpg");
+	Rectangle rec0(sf::Vector2f{ 300, 250.0 }, sf::Vector2f{ 200, 200 }, sf::Color::Blue);
+	Rectangle rec1(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 50, 50 }, sf::Color::Red);
+	Rectangle rec2(sf::Vector2f{ 400.0, 400 }, sf::Vector2f{ 40, 40 }, sf::Color::Red);
+	Rectangle rec3(sf::Vector2f{ 200, 300 }, sf::Vector2f{ 60, 60 }, sf::Color::Yellow);
+	Sprite testSprite(sf::Vector2f{ 200.0, 100.0 }, "../../Gate2158/media/download.jpg");
+	Sprite characterGun(sf::Vector2f{ 300.0, 100.0 }, "../../Gate2158/media/character_gun.png");
 
 	sf::Font tFont;
 
@@ -68,20 +43,62 @@ int main()
 	//Always pass the font by reference, they are heavy elements! 
 	//Passing nby value will give a C++ exception error
 	//Loading font should be a function in the Text object, maybe load minimal amount of fonts on game startup?
-	Text testText(ttString, sf::Vector2f(50, 50), sf::Text::Style::Regular, sf::Color::Red, 30, &tFont);
+	Text testText(ttString, sf::Vector2f(200, 200), sf::Text::Style::Regular, sf::Color::Red, 30, &tFont);
 
-	MapObject picture(3, &testSprite);
-	MapObject rectangle0(0, &rec0);
 	MapObject rectangle1(1, &rec1);
-	MapObject text(2, &testText);
 
+	std::vector<sf::Vector2f> points{ 
+		sf::Vector2f{ 0, 0 },
+		sf::Vector2f{ 200, 0 },
+		sf::Vector2f{ 200, 200 },
+		sf::Vector2f{ 0, 200 }
+	};
+	std::vector<sf::Vector2f> squarePoints{
+		sf::Vector2f{ 0, 0 },
+		sf::Vector2f{ 50, 0 },
+		sf::Vector2f{ 50, 50 },
+		sf::Vector2f{ 0, 50 }
+	};
+
+	std::vector<sf::Vector2f> squarePointss{
+		sf::Vector2f{ 0, 0 },
+		sf::Vector2f{ 40, 0 },
+		sf::Vector2f{ 40, 40 },
+		sf::Vector2f{ 0, 40 }
+	};
+
+	std::vector<sf::Vector2f> squarePointsss{
+		sf::Vector2f{ 0, 0 },
+		sf::Vector2f{ 60, 0 },
+		sf::Vector2f{ 60, 60 },
+		sf::Vector2f{ 0, 60 }
+	};
+
+	std::vector<sf::Vector2f> userHitbox{
+		sf::Vector2f{ 20, 0 },
+		sf::Vector2f{ 70, 0 },
+		sf::Vector2f{ 90, 25 },
+		sf::Vector2f{ 70, 50 },
+		sf::Vector2f{ 20, 50 }
+	};
+	Convex convex(points, sf::Vector2f(300, 250), sf::Vector2f(100, 100));
+	Convex convex2(squarePoints, sf::Vector2f(50, 50), sf::Vector2f(25, 25));
+	Convex convex3(squarePointss, sf::Vector2f(400, 400), sf::Vector2f(20, 20));
+	Convex convex4(squarePointsss, sf::Vector2f(200, 300), sf::Vector2f(30, 30));
+	Convex userHit(userHitbox, sf::Vector2f(300, 100), sf::Vector2f(45,25));
+
+	MapObject con1(1, &rec0, &convex);
+	MapObject con3(1, &rec1, &convex2);
+	MapObject con4(1, &rec2, &convex3);
+	MapObject con5(1, &rec3, &convex4);
+	UserCharacter con2(100, 0, &characterGun, &userHit);
 
 	Map testMap(3);
-   	testMap.loadFromFile("../../Gate2158/media/maps/checkerboard.png");
-	testMap.addMapObject(rectangle0);
-	testMap.addMapObject(rectangle1);
-	testMap.addMapObject(picture);
-	testMap.addMapObject(text);
+	testMap.addMapObject(&con1);
+	testMap.addMapObject(&con2);
+	testMap.addMapObject(&con3);
+	testMap.addMapObject(&con4);
+	testMap.addMapObject(&con5);
 
 	World Gate2158;
 	Gate2158.addMap(testMap);
@@ -90,8 +107,6 @@ int main()
 
     window.setVerticalSyncEnabled(true);
 
-	userInputKey.setToggleKey(sf::Keyboard::W);
-	userInputKey.setToggleKey(sf::Keyboard::S);
 
 	while(window.isOpen()){
         sf::Event event;
@@ -105,49 +120,13 @@ int main()
 			}
         }
 
-
-		//std::cout << userInputKey.getToggleKey(sf::Keyboard::W);
-
 		userInputKey.updateToggleKey();
 
-		//if (userInputKey.getPressed('w')){
-		if (userInputKey.isKeyPressed(sf::Keyboard::W)){
-			if (menuScreen.getCurrentSelection() == 1){
-				menuScreen.setCurrentSelection(2);
-			}
-			else{
-				menuScreen.setCurrentSelection(1);
-			}
-		}
-		else if (userInputKey.getPressed('s')){
-		//else if (userInputKey.isKeyPressed(sf::Keyboard::S)){
-			if (menuScreen.getCurrentSelection() == 2){
-				menuScreen.setCurrentSelection(1);
-			}
-			else{
-				menuScreen.setCurrentSelection(2);
-			}
-		}
-		else if (userInputKey.getPressed('a')){
-			menuScreen.skipSplashScreen();
-		}
-		else if (userInputKey.getPressed('d')){
-			if (menuScreen.getCurrentSelection() == 2){
-				window.close();
-			}
-			else if (menuScreen.getCurrentSelection() == 1){
-				// game start
-			}
-		}
-
-		if (userInputKey.getMousePress(sf::Mouse::Left)){
-			std::cout << "\nx: " << userInputKey.getMousePosition(window).x << "y: " << userInputKey.getMousePosition(window).y;
-		}
-
         window.clear();
+
 		userCamera.draw();
-		//player.draw(window);
 		menuScreen.show(true);
+
         window.display();
     }
     return 0;

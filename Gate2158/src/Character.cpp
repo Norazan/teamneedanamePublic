@@ -4,16 +4,30 @@
 
 #include "Character.h"
 
-Character::Character(float maxHealth):
+Character::Character(float maxHealth, int renderLayer, drawable* drawable, Convex* convex) :
+	MovableMapObject(renderLayer, drawable, convex),
 	maxHealth{maxHealth}
 {
 
 }
 
+void Character::draw(sf::RenderWindow & window){
+	MapObject::draw(window);
+}
+
 float Character::getHealth(void) {
-    return 0;
+	return 0;
 }
 
 void Character::setHealth(float h) {
-    health = h;
+	if (h >= maxHealth){
+		health = maxHealth;
+	}
+	else {
+		health = h;
+	}
+}
+
+void Character::collisionDetected(MapObject & mo){
+
 }

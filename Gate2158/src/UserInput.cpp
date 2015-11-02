@@ -11,7 +11,6 @@ bool UserInput::getPressed(char key){
 	if (sf::Keyboard::isKeyPressed((sf::Keyboard::Key)keyRequested)) {
 		return 1;
 	}
-
 	return 0;
 }
 
@@ -20,16 +19,13 @@ bool UserInput::getPressed(sf::Keyboard::Key key){
 	if (sf::Keyboard::isKeyPressed(key)){
 		return 1;
 	}
-
 	return 0;
 }
 
 bool UserInput::getMousePress(sf::Mouse::Button mouseButton){
-
 	if (sf::Mouse::isButtonPressed(mouseButton)){
 		return 1;
 	}
-
 	return 0;
 }
 
@@ -55,7 +51,6 @@ bool UserInput::getToggleKey(sf::Keyboard::Key key){
 			return it.currentState;
 		}
 	}
-
 	return false;
 }
 
@@ -94,4 +89,3 @@ bool UserInput::isKeyHold(sf::Keyboard::Key key){
 	}
 	return false;
 }
-

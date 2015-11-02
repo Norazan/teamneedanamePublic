@@ -11,15 +11,16 @@ Map::Map(){
 }
 
 Map::Map(int layers) :
-        layers{layers}{
+   layers{layers}
+{
 }
 
-void Map::addMapObject(MapObject object){
-    mapObjects.push_back(object);
+void Map::addMapObject(MapObject *object) {
+	mapObjects.push_back(object);
 }
 
-std::vector<MapObject> &Map::getAllMapObjects(){
-    return this->mapObjects;
+std::vector<MapObject*>& Map::getAllMapObjects(){
+	return this->mapObjects;
 }
 
 void Map::setLayers(int layers){
@@ -41,8 +42,8 @@ void Map::loadFromFile(const std::string filename){
         for(int j = 0; j < dimensions.x; ++j){
             sf::Color color = mapImage.getPixel(j, i);
             if(color == sf::Color::White){
-                drawable *rect = new Rectangle(sf::Vector2f{ j * 10, i * 10 }, sf::Vector2f{10.0, 10.0}, sf::Color::Magenta);
-                MapObject obj(0, rect);
+                drawable *rect = new Rectangle(sf::Vector2f{ float(j * 10), float(i * 10) }, sf::Vector2f{10.0, 10.0}, sf::Color::Magenta);
+                MapObject *obj = new MapObject(0, rect);
                 addMapObject(obj);
             }
         }

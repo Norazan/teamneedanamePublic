@@ -12,8 +12,19 @@
 
 class Camera {
 public:
+	//! Constructor of Camera
+	//
+	//! @parameter window
+	//! @parameter currenMap
 	Camera(sf::RenderWindow &window, Map &currentMap);
+
+	//! Draw function
+	//
+	//! Drawed all the MapObjects 
 	void draw();
+
+	void checkCollision();
+
 private:
 	sf::RenderWindow &window;
 	Map &currentMap;
