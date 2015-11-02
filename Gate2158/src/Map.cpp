@@ -38,8 +38,8 @@ void Map::loadFromFile(const std::string filename){
 
     std::cout << "(" << dimensions.x << "," << dimensions.y << ")" << std::endl;
 
-    for(int i = 0; i < dimensions.y; ++i){
-        for(int j = 0; j < dimensions.x; ++j){
+    for(unsigned int i = 0; i < dimensions.y; ++i){
+        for(unsigned int j = 0; j < dimensions.x; ++j){
             sf::Color color = mapImage.getPixel(j, i);
             if(color == sf::Color::White){
                 drawable *rect = new Rectangle(sf::Vector2f{ float(j * 10), float(i * 10) }, sf::Vector2f{10.0, 10.0}, sf::Color::Magenta);
