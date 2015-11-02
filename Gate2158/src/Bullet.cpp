@@ -2,7 +2,9 @@
 #include <iostream>
 #include <math.h>
 
-Bullet::Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, float angle){
+Bullet::Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, float angle) :
+	MapObject(1)
+{
 	bullet.setRadius(10);
 	bullet.setFillColor(sf::Color{ 0, 255, 0 });
 	bullet.setOrigin(sf::Vector2f{ -18, 13 });
@@ -18,9 +20,14 @@ Bullet::Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f sta
 }
 
 void Bullet::draw(sf::RenderWindow & window){
-	location = sf::Vector2f(location.x + velocity.x*bSpeed, location.y - velocity.y*bSpeed);
-	bullet.setPosition(location);
-	window.draw(bullet);
+	if (outOfBound(window)){
+		camera->revmoveMapObjectOnCurrentMap(this);
+	}
+	else {
+		location = sf::Vector2f(location.x + velocity.x*bSpeed, location.y - velocity.y*bSpeed);
+		bullet.setPosition(location);
+		window.draw(bullet);
+	}
 }
 
 bool Bullet::outOfBound(sf::RenderWindow & window){
@@ -31,4 +38,8 @@ bool Bullet::outOfBound(sf::RenderWindow & window){
 		return true;
 	}
 	return false;
+}
+
+void Bullet::setCamera(Camera * a){
+	camera = a;
 }

@@ -12,6 +12,7 @@
 class MapObject {
 public:
 	MapObject();
+	MapObject::MapObject(int renderLayer);
 	MapObject(int renderLayer, drawable* drawables);
 	void rotate(float rotation);
     float getRotation();

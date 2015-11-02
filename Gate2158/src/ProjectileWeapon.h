@@ -19,7 +19,6 @@ public:
 	void setAmmoInMagazine(int ammo);
 	int calculateDamage();
 	void reload();
-	void ProjectileWeapon::drawBullets(sf::RenderWindow & window);
 	void setCamera(Camera *c);
 private:
 	int shotType;
@@ -33,8 +32,6 @@ private:
 	int projectileVelocity;
 	float spread;
 	float amountOfBullets;
-	std::vector<Bullet> shotBullets;
-	Bullet* shotBullet;
 	clock_t currentClock;
 	clock_t previousClock = clock();
 	Camera * camera;

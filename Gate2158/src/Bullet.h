@@ -3,12 +3,14 @@
 
 #include <SFML/Graphics.hpp>
 #include "MapObject.h"
+#include "Camera.hpp"
 
 class Bullet : public MapObject {
 public:
 	Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, float angle);
-	void draw(sf::RenderWindow & window);
+	void draw(sf::RenderWindow & window) override;
 	bool outOfBound(sf::RenderWindow & window);
+	void setCamera(Camera *c);
 private:
 	sf::CircleShape bullet;
 	int damage;
@@ -16,6 +18,7 @@ private:
 	sf::Vector2f velocity;
 	float bSpeed = 10;
 	float angle = 0;
+	Camera* camera;
 };
 
 #endif

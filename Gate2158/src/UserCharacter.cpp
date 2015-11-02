@@ -23,8 +23,6 @@ void UserCharacter::draw(sf::RenderWindow & window) {
 	input.updateToggleKey();
 	processKeys();
 	processMouse(window);
-
-	pistol->drawBullets(window);
 	MapObject::draw(window);
 }
 

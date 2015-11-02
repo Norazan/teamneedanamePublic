@@ -14,7 +14,7 @@ public:
     Map();
 	Map(int layers);
     void addMapObject(MapObject *mapObject);
-	void removeMapObject(MapObject *mapObject);
+	void removeMapObject(std::vector<MapObject*> removeObject);
 	std::vector<MapObject*>& getAllMapObjects();
 	int getLayers();
 	void setLayers(int layers);

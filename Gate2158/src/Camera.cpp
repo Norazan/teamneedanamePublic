@@ -18,12 +18,16 @@ void Camera::draw(){
 			}
 		}
 	}
+	currentMap.removeMapObject(removeObjects);
+	for (auto & addObject : addObjects){
+		currentMap.addMapObject(addObject);
+	}
 }
 
 void Camera::addMapObjectToCurrentMap(MapObject *mo){
-	currentMap.addMapObject(mo);
+	addObjects.push_back(mo);
 }
 
 void Camera::revmoveMapObjectOnCurrentMap(MapObject *mo){
-	currentMap.removeMapObject(mo);
+	removeObjects.push_back(mo);
 }

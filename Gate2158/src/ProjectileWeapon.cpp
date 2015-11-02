@@ -38,32 +38,15 @@ void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
 			float bulletSpread = (amountOfBullets / 2) * spread * i;
 			std::cout << bulletSpread << "\n";
 			sf::Vector2f startingVelocity{ sin(radian + bulletSpread), cos(radian + bulletSpread) };
-			camera->addMapObjectToCurrentMap(new Bullet(calculateDamage(), location, startingVelocity, angle));
+			Bullet *bullet = new Bullet(calculateDamage(), location, startingVelocity, angle);
+			bullet->setCamera(camera);
+			camera->addMapObjectToCurrentMap(bullet);
 		}
 		ammoInMagazine -= 1;
 		previousClock = currentClock;
 	}
 	else {
 		std::cout << diffms << "\n";
-	}
-}
-void ProjectileWeapon::drawBullets(sf::RenderWindow & window){
-	if (!shotBullets.empty()){
-		int count = 0;
-		bool deleting = false; int deletingObject = 0;
-		for (auto &b : shotBullets){	
-			if (b.outOfBound(window)){
-				deleting = true;
-				deletingObject = count;
-			}
-			else {
-				b.draw(window);
-			}
-			++count;
-		}
-		if (deleting){
-			shotBullets.erase(shotBullets.begin() + deletingObject);
-		}
 	}
 }
 void ProjectileWeapon::setCamera(Camera * c){

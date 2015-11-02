@@ -16,21 +16,41 @@ MapObject::MapObject(int renderLayer, drawable* drawable) :
 
 }
 
+MapObject::MapObject(int renderLayer) :
+	renderLayer{ renderLayer }
+{
+
+}
+
 void MapObject::rotate(float rotation) {
-	drawObject->setRotation(rotation);
+	if (drawObject != nullptr){
+		drawObject->setRotation(rotation);
+	}
 }
 
 float MapObject::getRotation() {
-	return drawObject->getRotation();
+	if (drawObject != nullptr){
+		return drawObject->getRotation();
+	}
+	else {
+		return 0;
+	}
 }
 
 
 void MapObject::setPosition(sf::Vector2f pos){
-	drawObject->setPosition(pos);
+	if (drawObject != nullptr){
+		drawObject->setPosition(pos);
+	}
 }
 
 sf::Vector2f MapObject::getPosition(){
-	return drawObject->getPosition();
+	if (drawObject != nullptr){
+		return drawObject->getPosition();
+	}
+	else {
+		return sf::Vector2f{ 0, 0 };
+	}
 }
 
 void MapObject::setRenderLayer(int renderLayer){
@@ -44,5 +64,10 @@ void MapObject::draw(sf::RenderWindow & window){
 	drawObject->draw(window);
 }
 sf::Vector2f MapObject::getSize(){
-	return drawObject->getSize();
+	if (drawObject != nullptr){
+		return drawObject->getSize();
+	}
+	else {
+		return sf::Vector2f{ 0, 0 };
+	}
 }

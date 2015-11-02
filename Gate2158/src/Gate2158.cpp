@@ -102,7 +102,9 @@ int main()
 	Gate2158.addMap(testMap);
 	Map &currentMap = Gate2158.getCurrentMap();
 	Camera userCamera(window, currentMap);
-
+	
+	// add camera to usercharacter for bullet. need to do this before drawing character.
+	userCharacter1.setCamera(&userCamera);
     window.setVerticalSyncEnabled(true);
 
 	//userInputKey.setToggleKey(sf::Keyboard::W);
