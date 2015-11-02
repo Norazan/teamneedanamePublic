@@ -2,7 +2,7 @@
 #include <iostream>
 #include <math.h>
 
-Bullet::Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, float angle, ProjectileWeapon *weapon) :
+Bullet::Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, float angle, Weapon * weapon) :
 	MapObject(1),
 	weapon{weapon}
 {

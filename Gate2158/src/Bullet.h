@@ -4,17 +4,17 @@
 #include <SFML/Graphics.hpp>
 #include "MapObject.h"
 #include "Camera.hpp"
-#include "ProjectileWeapon.h"
+#include "Weapon.h"
 
 class Bullet : public MapObject {
 public:
-	Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, float angle, ProjectileWeapon* weapon);
+	Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, float angle, Weapon* weapon);
 	void draw(sf::RenderWindow & window) override;
 	bool outOfBound(sf::RenderWindow & window);
 	void setCamera(Camera *c);
 private:
 	sf::CircleShape bullet;
-	ProjectileWeapon* weapon;
+	Weapon* weapon;
 	int damage;
 	sf::Vector2f location;
 	sf::Vector2f velocity;
