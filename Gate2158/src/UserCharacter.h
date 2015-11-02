@@ -63,7 +63,7 @@ private:
 	UserInput input;
 
 	//! the speed of the character in pixels.
-	int speed = 2;
+	int speed = 10;
 
 	//! the current rotation of the character in degrees.
 	float currentRotation;
