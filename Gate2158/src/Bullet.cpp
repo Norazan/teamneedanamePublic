@@ -4,12 +4,17 @@
 #include <math.h>
 
 Bullet::Bullet(	
-	int bulletDamage, sf::Vector2f startingLocation, 
-	sf::Vector2f startingVelocity, float angle, 
-	Weapon * weapon
+	int bulletDamage, 
+	sf::Vector2f startingLocation, 
+	sf::Vector2f startingVelocity, 
+	float angle, 
+	Weapon * weapon,
+	bool isFriend
 ) :
-	weapon{weapon}
+	weapon{ weapon }
 {
+	isFriendly = isFriend;
+
 	float size = 10;
 	bullet.setRadius(size);
 	bullet.setFillColor(sf::Color{ 0, 255, 0 });
@@ -23,7 +28,7 @@ Bullet::Bullet(
 	this->angle = angle;
 
 	bullet.setRotation(angle);
-	MapObject(0);
+	MapObject(1);
 
 }
 
@@ -54,5 +59,7 @@ void Bullet::setCamera(Camera * a){
 }
 
 void Bullet::collisionDetected(MapObject &mo){
-	hasCollision = true;
+	if (!mo.isFriend()){
+		hasCollision = true;
+	}
 }

@@ -14,6 +14,7 @@ MapObject::MapObject(int renderLayer, drawable* drawable) :
 	drawObject{ drawable }
 {
 	position = sf::Vector2f{ 0, 0 };
+	isFriendly = false;
 }
 
 MapObject::MapObject(int renderLayer, drawable* drawable, Convex * hitbox) :
@@ -22,12 +23,14 @@ MapObject::MapObject(int renderLayer, drawable* drawable, Convex * hitbox) :
 	Hitbox{hitbox}
 {
 	position = sf::Vector2f{ 0, 0 };
+	isFriendly = false;
 }
 
 MapObject::MapObject(int renderLayer) :
 	renderLayer{ renderLayer }
 {
 	position = sf::Vector2f{ 0, 0 };
+	isFriendly = false;
 }
 
 void MapObject::rotate(float rotation) {
@@ -122,10 +125,13 @@ std::vector<sf::Vector2f> MapObject::getConvexPoints(){
 	}
 	else {
 		std::vector<sf::Vector2f> points;
-		points.push_back(sf::Vector2f{ position.x + ((10 - 90) / 10) * -5, position.y + ((10 - 50) / 10) * -5 });
-		points.push_back(sf::Vector2f{ position.x + 10 + ((10 - 90) / 10) * -5, position.y + ((10 - 50) / 10) * -5 });
-		points.push_back(sf::Vector2f{ position.x + 10 + ((10 - 90) / 10) * -5, 10 + ((10 - 50) / 10) * -5 });
-		points.push_back(sf::Vector2f{ position.x + ((10 - 90) / 10) * -5, position.y + 10 + ((10 - 50) / 10) * -5 });
+		sf::Vector2f pos = position;
+		pos.x += ((10 - 90) / 10) * -5; 
+		pos.y += ((10 - 50) / 10) * -5;
+		points.push_back(sf::Vector2f{ pos.x, pos.y });
+		points.push_back(sf::Vector2f{ pos.x + 10, pos.y });
+		points.push_back(sf::Vector2f{ pos.x + 10, pos.y + 10 });
+		points.push_back(sf::Vector2f{ pos.x, pos.y + 10 });
 		return points;
 	}
 }
@@ -155,6 +161,10 @@ Convex* MapObject::getHitbox(){
 
 sf::Vector2f MapObject::getOrigin(){
 	return Hitbox->getOrigin();
+}
+
+bool MapObject::isFriend(){
+	return isFriendly;
 }
 
 void MapObject::collisionDetected(MapObject & mos){

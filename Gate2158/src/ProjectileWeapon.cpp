@@ -3,8 +3,9 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-ProjectileWeapon::ProjectileWeapon(std::string weaponType) :
-	weaponType{ weaponType }
+ProjectileWeapon::ProjectileWeapon(std::string weaponType, bool isFriendly) :
+	weaponType{ weaponType },
+	isFriendly{isFriendly}
 {
 	if (weaponType == "pistol"){
 		attackSpeed = 200;
@@ -20,7 +21,7 @@ ProjectileWeapon::ProjectileWeapon(std::string weaponType) :
 		maxAmmo = 40;
 		baseDamage = 4;
 		maxAmmoInMagazine = 8;
-		amountOfBullets = 12;
+		amountOfBullets = 8;
 		spread = 0.005f;
 		reloadTime = 1000;
 	}
@@ -46,7 +47,7 @@ void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
 		for (float i = amountOfBullets/2 - amountOfBullets; i < amountOfBullets/2; i++){
 			float bulletSpread = (amountOfBullets / 2) * spread * i;
 			sf::Vector2f startingVelocity{ sin(radian + bulletSpread), cos(radian + bulletSpread) };
-			Bullet *bullet = new Bullet(calculateDamage(), location, startingVelocity, angle, this);
+			Bullet *bullet = new Bullet(calculateDamage(), location, startingVelocity, angle, this, isFriendly);
 			bullet->setCamera(camera);
 			camera->addMapObjectToCurrentMap(bullet);
 		}

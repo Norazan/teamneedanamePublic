@@ -11,7 +11,7 @@
 
 class ProjectileWeapon: public Weapon{
 public:
-	ProjectileWeapon(std::string weaponType);
+	ProjectileWeapon(std::string weaponType, bool isFriendly);
 	ProjectileWeapon();
 	void shoot(sf::Vector2f location, float angle);
 	int getAmmo();
@@ -34,6 +34,7 @@ private:
 	int reloadTime;
 	float spread;
 	float amountOfBullets;
+	bool isFriendly;
 	clock_t currentClock;
 	clock_t previousClock = clock();
 	clock_t reloadClock = clock();

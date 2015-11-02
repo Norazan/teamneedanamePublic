@@ -9,8 +9,12 @@
 class Bullet : public MapObject {
 public:
 	Bullet(	
-		int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, 
-		float angle, Weapon* weapon
+		int bulletDamage, 
+		sf::Vector2f startingLocation, 
+		sf::Vector2f startingVelocity, 
+		float angle, 
+		Weapon* weapon,
+		bool isFriend
 	);
 	void draw(sf::RenderWindow & window) override;
 	bool outOfBound(sf::RenderWindow & window);

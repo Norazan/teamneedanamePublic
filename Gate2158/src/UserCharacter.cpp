@@ -12,12 +12,13 @@
 UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawable, Convex* convex) :
 	Character(maxHealth, renderLayer, drawable, convex)
 {
+	isFriendly = true;
 	input.setToggleKey(sf::Keyboard::W);
 	input.setToggleKey(sf::Keyboard::A);
 	input.setToggleKey(sf::Keyboard::S);
 	input.setToggleKey(sf::Keyboard::D);
 	input.setToggleKey(sf::Keyboard::R);
-	pistol = new ProjectileWeapon("pistol");
+	pistol = new ProjectileWeapon("pistol", isFriendly);
 }
 
 void UserCharacter::draw(sf::RenderWindow & window) {
@@ -130,4 +131,7 @@ void UserCharacter::collisionDetected(MapObject & mo){
 	move(-velocity);
 	canRotate = false;
 	rotate(previousRotation);
+	if (mo.isFriend()){
+		move(velocity);
+	}
 }

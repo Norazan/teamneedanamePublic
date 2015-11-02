@@ -85,10 +85,10 @@ int main()
 	Convex convex4(squarePointsss, sf::Vector2f(200, 300), sf::Vector2f(30, 30));
 	Convex userHit(userHitbox, sf::Vector2f(300, 100), sf::Vector2f(45,25));
 
-	MapObject con1(1, &rec0, &convex);
-	MapObject con3(1, &rec1, &convex2);
-	MapObject con4(1, &rec2, &convex3);
-	MapObject con5(1, &rec3, &convex4);
+	MapObject con1(2, &rec0, &convex);
+	MapObject con3(2, &rec1, &convex2);
+	MapObject con4(2, &rec2, &convex3);
+	MapObject con5(2, &rec3, &convex4);
 	UserCharacter con2(100, 0, &characterGun, &userHit);
 
 	Map testMap(3);

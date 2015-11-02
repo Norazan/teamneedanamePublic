@@ -25,6 +25,7 @@ public:
 	sf::Vector2f getSize();
 	std::vector<sf::Vector2f> getConvexPoints();
 	sf::Vector2f getOrigin();
+	bool isFriend();
 
 	virtual void draw(sf::RenderWindow & window);
 
@@ -35,12 +36,11 @@ public:
 private:
 	drawable* drawObject;
 	Convex* Hitbox = nullptr;
-    unsigned int colorCode;
-    bool isSolid;
-    float angle;
 	int renderLayer;
+
 protected:
 	sf::Vector2f position;
+	bool isFriendly = false;
 };
 
 

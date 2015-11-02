@@ -32,6 +32,7 @@ private:
 	std::vector<MapObject*> removeObjects;
 	std::vector<MapObject*> addObjects;
 	Map &currentMap;
+	bool canCheckCollision = true;
 };
 
 

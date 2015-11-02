@@ -4,6 +4,7 @@
 
 #include "Camera.hpp"
 #include "Collision.h"
+#include <iostream>
 
 Camera::Camera(sf::RenderWindow &window, Map &currentMap) :
 	window{ window },
@@ -12,9 +13,12 @@ Camera::Camera(sf::RenderWindow &window, Map &currentMap) :
 }
 
 void Camera::draw(){
-	checkCollision();
+	if (canCheckCollision){
+		checkCollision();
+	}
+	canCheckCollision = (canCheckCollision) ? false : true;
 	for (int i = currentMap.getLayers(); i >= 0; i--){
-		for (auto mo : currentMap.getAllMapObjects()){
+		for (auto &mo : currentMap.getAllMapObjects()){
 			if (mo->getRenderLayer() == i){
 				mo->draw(window);
 			}
@@ -43,7 +47,7 @@ void Camera::checkCollision(){
 		if (mo->getRenderLayer() == 0){
 			// check if character has collision with objects
 			for (auto &object : currentMap.getAllMapObjects()){
-				if (object != mo){
+				if (object != mo && mo->getRenderLayer() != 1){
 					// do nothing with overlap
 					(void)collision.checkCollision(*mo, *object);
 				}
