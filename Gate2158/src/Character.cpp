@@ -15,15 +15,3 @@ void Character::draw(sf::RenderWindow & window){
 	MapObject::draw(window);
 }
 
-float Character::getHealth(void) {
-	return 0;
-}
-
-void Character::setHealth(float h) {
-	if (h >= maxHealth){
-		health = maxHealth;
-	}
-	else {
-		health = h;
-	}
-}

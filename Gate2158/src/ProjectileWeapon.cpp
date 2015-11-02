@@ -3,7 +3,7 @@
 #include <iostream>
 
 ProjectileWeapon::ProjectileWeapon(std::string weaponType) :
-weaponType{ weaponType }
+	weaponType{ weaponType }
 {
 	if (weaponType == "pistol"){
 		attackSpeed = 200;
@@ -28,6 +28,10 @@ weaponType{ weaponType }
 	weaponTier = 1;
 }
 
+ProjectileWeapon::ProjectileWeapon(){
+
+}
+
 void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
 	currentClock = clock();
 	double shootDiffTicks = currentClock - previousClock;
@@ -41,7 +45,7 @@ void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
 		for (float i = amountOfBullets/2 - amountOfBullets; i < amountOfBullets/2; i++){
 			float bulletSpread = (amountOfBullets / 2) * spread * i;
 			sf::Vector2f startingVelocity{ sin(radian + bulletSpread), cos(radian + bulletSpread) };
-			Bullet *bullet = new Bullet(calculateDamage(), location, startingVelocity, angle);
+			Bullet *bullet = new Bullet(calculateDamage(), location, startingVelocity, angle, this);
 			bullet->setCamera(camera);
 			camera->addMapObjectToCurrentMap(bullet);
 		}

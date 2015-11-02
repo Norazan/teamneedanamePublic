@@ -23,18 +23,7 @@ public:
 	//! Draws the drawable
 	virtual void draw(sf::RenderWindow & window) override;
 
-	//! Function getHealth
-	//
-	//! Returns health
-    float getHealth(void);
-
-	//! Function setHealth
-	//
-	//! @parameter h = health
-	//! Set health
-    void setHealth(float h);
-
-private:
+protected:
     float health;
     float maxHealth;
 };

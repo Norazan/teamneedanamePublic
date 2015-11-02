@@ -2,8 +2,9 @@
 #include <iostream>
 #include <math.h>
 
-Bullet::Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, float angle) :
-	MapObject(1)
+Bullet::Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, float angle, ProjectileWeapon *weapon) :
+	MapObject(1),
+	weapon{weapon}
 {
 	bullet.setRadius(10);
 	bullet.setFillColor(sf::Color{ 0, 255, 0 });

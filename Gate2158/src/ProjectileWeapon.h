@@ -12,6 +12,7 @@
 class ProjectileWeapon: public Weapon{
 public:
 	ProjectileWeapon(std::string weaponType);
+	ProjectileWeapon();
 	void shoot(sf::Vector2f location, float angle);
 	int getAmmo();
 	int getAmmoInMagazine();
