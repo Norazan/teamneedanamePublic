@@ -6,9 +6,7 @@
 
 class Bullet : public MapObject {
 public:
-	Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity);
 	Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, float angle);
-	void onHit();
 	void draw(sf::RenderWindow & window);
 	bool outOfBound(sf::RenderWindow & window);
 private:

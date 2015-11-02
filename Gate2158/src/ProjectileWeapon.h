@@ -11,7 +11,7 @@
 
 class ProjectileWeapon: public Weapon{
 public:
-	ProjectileWeapon(int shotType, int attackSpeed, int maxAmmo, int baseDamage, int maxAmmoInMagazine);
+	ProjectileWeapon(int shotType);
 	void shoot(sf::Vector2f location, float angle);
 	int getAmmo();
 	int getAmmoInMagazine();
@@ -31,7 +31,9 @@ private:
 	int baseDamage;
 	int weaponTier;
 	int projectileVelocity;
-	std::vector<Bullet*> shotBullets;
+	float spread;
+	float amountOfBullets;
+	std::vector<Bullet> shotBullets;
 	Bullet* shotBullet;
 	clock_t currentClock;
 	clock_t previousClock = clock();
