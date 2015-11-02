@@ -39,10 +39,10 @@ void Camera::revmoveMapObjectOnCurrentMap(MapObject *mo){
 void Camera::checkCollision(){
 	Collision collision;
 	// get all playable objects
-	for (auto mo : currentMap.getAllMapObjects()){
+	for (auto &mo : currentMap.getAllMapObjects()){
 		if (mo->getRenderLayer() == 0){
 			// check if character has collision with objects
-			for (auto object : currentMap.getAllMapObjects()){
+			for (auto &object : currentMap.getAllMapObjects()){
 				if (object != mo){
 					// do nothing with overlap
 					(void)collision.checkCollision(*mo, *object);

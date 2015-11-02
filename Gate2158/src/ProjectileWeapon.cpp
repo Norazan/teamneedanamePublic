@@ -1,4 +1,5 @@
 #include "ProjectileWeapon.h"
+#include "Circle.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 

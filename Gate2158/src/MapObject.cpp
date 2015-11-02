@@ -27,7 +27,7 @@ MapObject::MapObject(int renderLayer, drawable* drawable, Convex * hitbox) :
 MapObject::MapObject(int renderLayer) :
 	renderLayer{ renderLayer }
 {
-
+	
 }
 
 void MapObject::rotate(float rotation) {

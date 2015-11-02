@@ -1,12 +1,17 @@
 #include "Bullet.h"
+#include "Convex.h"
 #include <iostream>
 #include <math.h>
 
-Bullet::Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, float angle, Weapon * weapon) :
-	MapObject(1),
+Bullet::Bullet(	
+	int bulletDamage, sf::Vector2f startingLocation, 
+	sf::Vector2f startingVelocity, float angle, 
+	Weapon * weapon
+) :
 	weapon{weapon}
 {
-	bullet.setRadius(10);
+	float size = 10;
+	bullet.setRadius(size);
 	bullet.setFillColor(sf::Color{ 0, 255, 0 });
 	bullet.setOrigin(sf::Vector2f{ -18, 13 });
 	bullet.setPosition(startingLocation);
@@ -18,10 +23,12 @@ Bullet::Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f sta
 	this->angle = angle;
 
 	bullet.setRotation(angle);
+	MapObject(0);
+
 }
 
 void Bullet::draw(sf::RenderWindow & window){
-	if (outOfBound(window)){
+	if (outOfBound(window) || hasCollision){
 		camera->revmoveMapObjectOnCurrentMap(this);
 	}
 	else {
@@ -43,4 +50,8 @@ bool Bullet::outOfBound(sf::RenderWindow & window){
 
 void Bullet::setCamera(Camera * a){
 	camera = a;
+}
+
+void Bullet::collisionDetected(MapObject &mo){
+	hasCollision = true;
 }

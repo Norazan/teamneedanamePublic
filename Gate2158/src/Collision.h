@@ -34,6 +34,7 @@ private:
 	// returns the projection on a axes.
 	line getProjection(float a, MapObject & mo, std::vector<sf::Vector2f> convexPoints, line axes);
 	
+	void checkPoints(std::vector<sf::Vector2f> &points);
 };
 
 #endif

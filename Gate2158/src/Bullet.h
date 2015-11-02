@@ -8,10 +8,14 @@
 
 class Bullet : public MapObject {
 public:
-	Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, float angle, Weapon* weapon);
+	Bullet(	
+		int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, 
+		float angle, Weapon* weapon
+	);
 	void draw(sf::RenderWindow & window) override;
 	bool outOfBound(sf::RenderWindow & window);
 	void setCamera(Camera *c);
+	void collisionDetected(MapObject &mo) override;
 private:
 	sf::CircleShape bullet;
 	Weapon* weapon;
@@ -21,6 +25,7 @@ private:
 	float bSpeed = 10;
 	float angle = 0;
 	Camera* camera;
+	bool hasCollision = false;
 };
 
 #endif
