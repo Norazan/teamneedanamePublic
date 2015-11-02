@@ -17,6 +17,17 @@ void Map::addMapObject(MapObject *object) {
 	mapObjects.push_back(object);
 }
 
+void Map::removeMapObject(MapObject *mapObject){
+	int count = 0;
+	for (auto & mo : mapObjects){
+		if (mapObject == mo){
+			mapObjects.erase(mapObjects.begin() + count);
+			break;
+		}
+		++count;
+	}
+}
+
 std::vector<MapObject*>& Map::getAllMapObjects(){
 	return this->mapObjects;
 }

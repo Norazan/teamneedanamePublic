@@ -29,6 +29,10 @@ void UserCharacter::draw(sf::RenderWindow & window) {
 	MapObject::draw(window);
 }
 
+void UserCharacter::setCamera(Camera * c){
+	pistol->setCamera(c);
+}
+
 void UserCharacter::move(sf::Vector2f dir){
 	setPosition(getPosition() + dir);
 }

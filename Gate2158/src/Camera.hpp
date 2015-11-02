@@ -23,6 +23,9 @@ public:
 	//! Drawed all the MapObjects 
 	void draw();
 
+	void addMapObjectToCurrentMap(MapObject *mo);
+	void revmoveMapObjectOnCurrentMap(MapObject *mo);
+
 private:
 	sf::RenderWindow &window;
 	Map &currentMap;

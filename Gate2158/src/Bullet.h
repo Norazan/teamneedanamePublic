@@ -2,8 +2,9 @@
 #define GATE2158_BULLET_H
 
 #include <SFML/Graphics.hpp>
+#include "MapObject.h"
 
-class Bullet{
+class Bullet : public MapObject {
 public:
 	Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity);
 	Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, float angle);

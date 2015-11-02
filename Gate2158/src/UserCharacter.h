@@ -9,6 +9,7 @@
 #include "UserInput.h"
 #include <SFML/Graphics.hpp>
 #include "ProjectileWeapon.h"
+#include "Camera.hpp"
 
 #define PI 3.14159265
 #define angleOfAbove 270.0;
@@ -29,6 +30,8 @@ public:
 	//
 	//! draws the drawable of the UserCharacter.
 	void draw(sf::RenderWindow & window) override;
+
+	void setCamera(Camera * c); 
 
 private:
 	//! Function move

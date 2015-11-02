@@ -19,3 +19,11 @@ void Camera::draw(){
 		}
 	}
 }
+
+void Camera::addMapObjectToCurrentMap(MapObject *mo){
+	currentMap.addMapObject(mo);
+}
+
+void Camera::revmoveMapObjectOnCurrentMap(MapObject *mo){
+	currentMap.removeMapObject(mo);
+}

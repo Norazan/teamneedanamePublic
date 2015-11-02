@@ -25,7 +25,7 @@ void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
 
 
 		//std::unique_ptr<Bullet> bullet(new Bullet(calculateDamage(), location, startingVelocity, angle));
-		shotBullets.push_back(Bullet(calculateDamage(), location, startingVelocity, angle));
+		camera->addMapObjectToCurrentMap(new Bullet(calculateDamage(), location, startingVelocity, angle));
 
 		/*if (shotBullets.capacity() > 20){
 			shotBullets.erase(shotBullets.begin());
@@ -44,7 +44,7 @@ void ProjectileWeapon::drawBullets(sf::RenderWindow & window){
 		int count = 0;
 		bool deleting = false; int deletingObject = 0;
 		for (auto &b : shotBullets){	
-			if (b.outOfBound(window)){
+			if (b->outOfBound(window)){
 				deleting = true;
 				deletingObject = count;
 				//shotBullets.erase(remove(shotBullets.begin(), shotBullets.end(), b), shotBullets.end());
@@ -59,6 +59,9 @@ void ProjectileWeapon::drawBullets(sf::RenderWindow & window){
 			shotBullets.erase(shotBullets.begin() + deletingObject);
 		}
 	}
+}
+void ProjectileWeapon::setCamera(Camera * c){
+	camera = c;
 }
 int ProjectileWeapon::getAmmo(){
 	return currentAmmo;

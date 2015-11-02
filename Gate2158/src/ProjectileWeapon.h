@@ -5,6 +5,7 @@
 #include "Bullet.h"
 #include <vector>
 #include <memory>
+#include "Camera.hpp"
 
 #define PI 3.14159265
 
@@ -19,6 +20,7 @@ public:
 	int calculateDamage();
 	void reload();
 	void ProjectileWeapon::drawBullets(sf::RenderWindow & window);
+	void setCamera(Camera *c);
 private:
 	int shotType;
 	int attackSpeed;
@@ -29,11 +31,11 @@ private:
 	int baseDamage;
 	int weaponTier;
 	int projectileVelocity;
-	std::vector<Bullet> shotBullets;
+	std::vector<Bullet*> shotBullets;
 	Bullet* shotBullet;
 	clock_t currentClock;
 	clock_t previousClock = clock();
-	double old;
+	Camera * camera;
 };
 
 #endif
