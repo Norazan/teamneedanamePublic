@@ -5,6 +5,7 @@
 #include "UserCharacter.h"
 #include "UserInput.h"
 #include "Collision.h"
+#include "Text.h"
 #include <cmath>
 #include <math.h>
 #include <iostream>
@@ -18,13 +19,21 @@ UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawabl
 	input.setToggleKey(sf::Keyboard::S);
 	input.setToggleKey(sf::Keyboard::D);
 	input.setToggleKey(sf::Keyboard::R);
+
 	pistol = new ProjectileWeapon("pistol", isFriendly);
+
+	if (!tFont.loadFromFile("../../Gate2158/media/Another_America.ttf")){
+		//Error handeling
+		std::cout << "can't load font";
+	}
+	makeUserInterface();
 }
 
 void UserCharacter::draw(sf::RenderWindow & window) {
 	input.updateToggleKey();
 	processKeys();
 	processMouse(window);
+	drawUserInterface(window);
 	MapObject::draw(window);
 }
 
@@ -133,5 +142,33 @@ void UserCharacter::collisionDetected(MapObject & mo){
 	rotate(previousRotation);
 	if (mo.isFriend()){
 		move(velocity);
+	}
+}
+
+void UserCharacter::makeUserInterface(){
+	Text ammoInMagazine(
+		std::to_string(pistol->getAmmoInMagazine()),
+		sf::Vector2f(500, 50), 
+		sf::Text::Style::Regular, 
+		sf::Color::Red, 
+		30, 
+		&tFont
+	);
+	Text currentAmmo(
+		std::to_string(pistol->getAmmo()),
+		sf::Vector2f(550, 50),
+		sf::Text::Style::Regular,
+		sf::Color::Red,
+		30,
+		&tFont
+	);
+	std::cout << std::to_string(pistol->getAmmo());
+	userInterface.push_back(ammoInMagazine);
+	userInterface.push_back(currentAmmo);
+}
+
+void UserCharacter::drawUserInterface(sf::RenderWindow & window){
+	for (auto & ui : userInterface){
+		ui.draw(window);
 	}
 }

@@ -2,6 +2,9 @@
 // Created by martijn on 9/28/15.
 //
 
+
+#define PI 3.14159265
+
 #include "MapObject.h"
 #include <iostream>
 
@@ -97,7 +100,7 @@ std::vector<sf::Vector2f> MapObject::getConvexPoints(){
 			float length = sqrt(pow(deltaX, 2) + pow(deltaY, 2));
 
 			float deltaAngle = abs(atan(deltaX / deltaY));
-			deltaAngle = float(deltaAngle * (360 / (2 * 3.14159265359)));
+			deltaAngle = float(deltaAngle * (360 / (2 * PI)));
 			float pointAngle = 0;
 
 			if (p.x > origin.x && p.y < origin.y){ // 1
@@ -115,8 +118,8 @@ std::vector<sf::Vector2f> MapObject::getConvexPoints(){
 
 			//float x = cos(float((360 - rotationAngle + pointAngle)*(360 / (2 * 3.14159265359)))) * length;
 			//float y = sin(float((360 - rotationAngle + pointAngle)*(360 / (2 * 3.14159265359)))) * length;
-			float x = (float)(length * cos((rotationAngle + pointAngle) * 3.14159265359 / 180)) + origin.x;
-			float y = (float)(length * sin((rotationAngle + pointAngle) * 3.14159265359 / 180)) + origin.y;
+			float x = (float)(length * cos((rotationAngle + pointAngle) * PI / 180)) + origin.x;
+			float y = (float)(length * sin((rotationAngle + pointAngle) * PI / 180)) + origin.y;
 			
 
 			rotatedPoints.push_back(sf::Vector2f(x, y));

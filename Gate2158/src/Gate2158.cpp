@@ -31,17 +31,17 @@ int main()
 	Sprite testSprite(sf::Vector2f{ 200.0, 100.0 }, "../../Gate2158/media/download.jpg");
 	Sprite characterGun(sf::Vector2f{ 300.0, 100.0 }, "../../Gate2158/media/character_gun.png");
 
-	sf::Font tFont;
+	//sf::Font tFont;
 
-	if (!tFont.loadFromFile("../../Gate2158/media/Another_America.ttf")){
+	//if (!tFont.loadFromFile("../../Gate2158/media/Another_America.ttf")){
 		//Error handeling
-	}
+	//}
 
-	sf::String ttString("Test string");
+	//sf::String ttString("Test string");
 	//Always pass the font by reference, they are heavy elements! 
 	//Passing nby value will give a C++ exception error
 	//Loading font should be a function in the Text object, maybe load minimal amount of fonts on game startup?
-	Text testText(ttString, sf::Vector2f(200, 200), sf::Text::Style::Regular, sf::Color::Red, 30, &tFont);
+	//Text testText(ttString, sf::Vector2f(200, 200), sf::Text::Style::Regular, sf::Color::Red, 30, &tFont);
 
 	MapObject rectangle1(1, &rec1);
 
@@ -123,7 +123,6 @@ int main()
 		userInputKey.updateToggleKey();
 
         window.clear();
-
 		userCamera.draw();
 		menuScreen.show(true);
 

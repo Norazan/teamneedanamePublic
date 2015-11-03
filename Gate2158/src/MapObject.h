@@ -5,6 +5,7 @@
 #ifndef GATE2158_MAPOBJECT_H
 #define GATE2158_MAPOBJECT_H
 
+
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Vector2.hpp>
 #include "drawable.h"

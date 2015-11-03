@@ -37,7 +37,10 @@ Text::Text(
 	text.setColor(color);
 	text.setCharacterSize(size);
 	text.setFont(*font);
-	
+
+	sf::Vector2f s = getSize();
+	sf::Vector2f center{ s.x / 2, s.y / 2 };
+	text.setOrigin(center);
 }
 
 void Text::draw(sf::RenderWindow &window){
@@ -58,4 +61,8 @@ float Text::getRotation(){
 
 void Text::setRotation(float rotation){
 	text.setRotation(rotation);
+}
+
+void Text::setText(std::string s){
+	text.setString(s);
 }

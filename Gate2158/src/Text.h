@@ -31,6 +31,7 @@ public:
 	sf::Vector2f getSize() override;
 	float getRotation() override;
 	void setRotation(float rotation) override;
+	void setText(std::string s);
 private:
 	sf::Text text;
 };

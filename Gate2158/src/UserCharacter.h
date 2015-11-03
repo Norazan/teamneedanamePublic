@@ -7,6 +7,7 @@
 
 #include "Character.h"
 #include "UserInput.h"
+#include "Text.h"
 #include <SFML/Graphics.hpp>
 #include "ProjectileWeapon.h"
 #include "Camera.hpp"
@@ -61,6 +62,10 @@ private:
 	//! And returns the value of the rotation.
 	float calculateRotation(sf::Vector2i mousePosition);
 
+	void makeUserInterface();
+
+	void drawUserInterface(sf::RenderWindow & window);
+
 	//! input, to check the keys.
 	UserInput input;
 
@@ -76,6 +81,10 @@ private:
 
 	//! boolean canRotate
 	bool canRotate = true;
+
+	sf::Font tFont;
+
+	std::vector<Text> userInterface;
 };
 
 #endif //GATE2158_USERCHARACTER_H

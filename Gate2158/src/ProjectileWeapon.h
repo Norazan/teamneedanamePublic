@@ -1,13 +1,14 @@
 #ifndef GATE2158_PROJECTILEWEAPON_H
 #define GATE2158_PROJECTILEWEAPON_H
 
+
+#define PI 3.14159265
+
 #include "Weapon.h"
 #include "Bullet.h"
 #include <vector>
 #include <string>
 #include "Camera.hpp"
-
-#define PI 3.14159265
 
 class ProjectileWeapon: public Weapon{
 public:
