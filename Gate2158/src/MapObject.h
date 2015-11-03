@@ -14,6 +14,7 @@
 class MapObject {
 public:
 	MapObject();
+	~MapObject();
 	MapObject::MapObject(int renderLayer);
 	MapObject(int renderLayer, drawable* drawables);
 	MapObject(int renderLayer, drawable* drawables, Convex* hitbox);

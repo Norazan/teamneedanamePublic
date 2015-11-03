@@ -20,7 +20,7 @@ UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawabl
 	input.setToggleKey(sf::Keyboard::D);
 	input.setToggleKey(sf::Keyboard::R);
 
-	pistol = new ProjectileWeapon("pistol", isFriendly);
+	pistol = new ProjectileWeapon("shotgun", isFriendly);
 
 	if (!tFont.loadFromFile("../../Gate2158/media/Another_America.ttf")){
 		//Error handeling
@@ -140,9 +140,6 @@ void UserCharacter::collisionDetected(MapObject & mo){
 	move(-velocity);
 	canRotate = false;
 	rotate(previousRotation);
-	if (mo.isFriend()){
-		move(velocity);
-	}
 }
 
 void UserCharacter::makeUserInterface(){

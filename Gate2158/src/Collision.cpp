@@ -13,6 +13,22 @@ struct line {
 };
 
 float Collision::checkCollision(MapObject & obj1, MapObject & obj2){
+	sf::Vector2f sizeObj1 = obj1.getSize();
+	sf::Vector2f sizeObj2 = obj2.getSize();
+	sf::Vector2f posObj1 = obj1.getPosition();
+	sf::Vector2f posObj2 = obj2.getPosition();
+
+	float lenghtObj1 = sqrt(pow(sizeObj1.x/2, 2) + pow(sizeObj1.y/2, 2));
+	float lenghtObj2 = sqrt(pow(sizeObj2.x/2, 2) + pow(sizeObj2.y/2, 2));
+	float length = lenghtObj1 + lenghtObj2;
+	sf::Vector2f posDiff;
+	posDiff.x = abs(posObj1.x - posObj2.x);
+	posDiff.y = abs(posObj1.y - posObj2.y);
+	float diffDistance = sqrt(pow(posDiff.x, 2) + pow(posDiff.y, 2));
+	if (diffDistance > length){
+		return 0;
+	}
+
 	std::vector<line> axes_obj1 = getAxes(obj1);
 	std::vector<line> axes_obj2 = getAxes(obj2);
 	// loop over the axes1
