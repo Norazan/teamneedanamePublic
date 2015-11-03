@@ -63,3 +63,20 @@ void Map::loadFromFile(const std::string filename){
     }
 
 }
+
+std::vector<MapObject *> *Map::getMapObjectsInRegion(sf::Vector2f topLeft, sf::Vector2f bottomRight){
+    std::vector<MapObject *> *objectsInRegion = new std::vector<MapObject *>;
+    for(auto obj : mapObjects){
+        sf::Vector2f position = obj->getPosition();
+        if(
+                position.x >= topLeft.x &&
+                position.x <= bottomRight.x &&
+                position.y >= topLeft.y &&
+                position.y <= bottomRight.y
+                ){
+            objectsInRegion->push_back(obj);
+        }
+
+    }
+    return objectsInRegion;
+}
