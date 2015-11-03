@@ -39,7 +39,7 @@ private:
 	drawable* drawObject;
 	Convex* Hitbox = nullptr;
 	int renderLayer;
-	int expointOnHit = 0;
+	int expointOnHit = 1000;
 
 protected:
 	sf::Vector2f position;
