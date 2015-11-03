@@ -9,19 +9,24 @@ MapObject::MapObject(){
 	
 }
 
-MapObject::MapObject(int renderLayer, drawable* drawable) :
-	renderLayer{ renderLayer },
-	drawObject{ drawable }
+MapObject::MapObject(int renderLayer, drawable *drawable, sf::Vector2f position):
+	renderLayer{renderLayer},
+	drawObject{ drawable },
+	position{ position }
 {
 	
 }
 
-MapObject::MapObject(int renderLayer, drawable* drawable, Convex * hitbox) :
+MapObject::MapObject(int renderLayer, drawable* drawable, sf::Vector2f position, Convex * hitbox) :
 	renderLayer{ renderLayer },
 	drawObject{ drawable },
+	position{ position },
 	Hitbox{hitbox}
 {
-
+	sf::Vector2f size = hitbox->getSize();
+	position.x += ((size.x - 90) / 10) * -5;
+	position.y += ((size.y - 50) / 10) * -5;
+	setPosition(position);
 }
 
 void MapObject::rotate(float rotation) {
@@ -37,14 +42,11 @@ float MapObject::getRotation() {
 
 
 void MapObject::setPosition(sf::Vector2f pos){
-	if (Hitbox != nullptr){
-		Hitbox->setPosition(pos);
-	}
-	drawObject->setPosition(pos);
+	position = pos;
 }
 
 sf::Vector2f MapObject::getPosition(){
-	return drawObject->getPosition();
+	return position;
 }
 
 void MapObject::setRenderLayer(int renderLayer){
@@ -52,20 +54,20 @@ void MapObject::setRenderLayer(int renderLayer){
 }
 
 int MapObject::getRenderLayer(){
-	return renderLayer;
+	return this->renderLayer;
 }
 
 std::vector<sf::Vector2f> MapObject::getConvexPoints(){
 	if (Hitbox != nullptr){
 		std::vector<sf::Vector2f> points = Hitbox->getPoints();
 		for (auto & point : points){
-			point = Hitbox->getPosition() + point;
+			point = position + point;
 		}
 		//Add rotation to ConvexPoints
 		float rotationAngle = getRotation();
 
 		std::vector<sf::Vector2f> rotatedPoints;
-		sf::Vector2f origin = Hitbox->getOrigin() + Hitbox->getPosition();
+		sf::Vector2f origin = Hitbox->getOrigin() + position;
 
 		for (auto &p : points){
 
@@ -110,9 +112,9 @@ std::vector<sf::Vector2f> MapObject::getConvexPoints(){
 
 void MapObject::draw(sf::RenderWindow & window){
 	if (Hitbox != nullptr){
-		Hitbox->draw(window);
+		Hitbox->draw(window, position);
 	}
-	drawObject->draw(window);
+	drawObject->draw(window, position);
 }
 sf::Vector2f MapObject::getSize(){
 	return drawObject->getSize();

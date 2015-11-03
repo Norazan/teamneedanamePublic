@@ -13,8 +13,8 @@ struct line {
 };
 
 float Collision::checkCollision(MapObject & obj1, MapObject & obj2){
-	std::vector<line> &lines_obj1 = getLines(obj1);
-	std::vector<line> &lines_obj2 = getLines(obj2);
+	const std::vector<line> &lines_obj1 = getLines(obj1);
+	const std::vector<line> &lines_obj2 = getLines(obj2);
 	std::vector<line> axes_obj1 = getAxes(lines_obj1);
 	std::vector<line> axes_obj2 = getAxes(lines_obj2);
 	// loop over the axes1
@@ -65,7 +65,7 @@ float Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 }
 
 std::vector<Collision::line> Collision::getLines(MapObject & mo){
-	std::vector<sf::Vector2f> &points = mo.getConvexPoints();
+	const std::vector<sf::Vector2f> &points = mo.getConvexPoints();
 	std::vector<line> lines;
 	int size = points.size();
 	for (int i = 0; i < size; i++){
@@ -74,7 +74,7 @@ std::vector<Collision::line> Collision::getLines(MapObject & mo){
 		if (i < (size - 1)){
 			newline = { points[i], points[i + 1] };
 		}
-		// make line from last point and first point.
+			// make line from last point and first point.
 		else {
 			newline = { points[i], points[0] };
 		}
@@ -83,14 +83,14 @@ std::vector<Collision::line> Collision::getLines(MapObject & mo){
 	return lines;
 }
 
-std::vector<Collision::line> Collision::getAxes(std::vector<line> & lines){
+std::vector<Collision::line> Collision::getAxes(const std::vector<line> & lines){
 	std::vector<line> axes;
 	for (auto & l : lines){
-		// axes is perpendicular to the line, 
+		// axes is perpendicular to the line,
 		// simples way to do this is by swapping x and y and make y negative ( -y, x ).
-		line newAxes = { 
-			sf::Vector2f{ -l.position_1.y, l.position_1.x },
-			sf::Vector2f{ -l.position_2.y, l.position_2.x } 
+		line newAxes = {
+				sf::Vector2f{ -l.position_1.y, l.position_1.x },
+				sf::Vector2f{ -l.position_2.y, l.position_2.x }
 		};
 		axes.push_back(newAxes);
 	}
@@ -98,8 +98,8 @@ std::vector<Collision::line> Collision::getAxes(std::vector<line> & lines){
 }
 
 float Collision::getOverlapOnAxes(line axes, MapObject & obj1, MapObject & obj2){
-	std::vector<sf::Vector2f> &convexPointsObj1 = obj1.getConvexPoints();
-	std::vector<sf::Vector2f> &convexPointsObj2 = obj2.getConvexPoints();
+	const std::vector<sf::Vector2f> &convexPointsObj1 = obj1.getConvexPoints();
+	const std::vector<sf::Vector2f> &convexPointsObj2 = obj2.getConvexPoints();
 	// there is no convex.
 	if (convexPointsObj1.size() == 0 || convexPointsObj2.size() == 0){
 		return 0;
@@ -119,7 +119,7 @@ float Collision::getOverlapOnAxes(line axes, MapObject & obj1, MapObject & obj2)
 		projectionObj2.position_1.x > projectionObj1.position_2.x){
 		return 0;
 	}
-	// if overlap, what is the overlap?
+		// if overlap, what is the overlap?
 	else if (projectionObj1.position_2.x >= projectionObj2.position_2.x){
 		overlap = projectionObj2.position_2.x - projectionObj1.position_1.x;
 	}
@@ -159,7 +159,7 @@ Collision::line Collision::getProjection(float a, MapObject & mo, std::vector<sf
 				x = p.x;
 			}
 		}
-		// save the smallest and the biggest values in projection 
+		// save the smallest and the biggest values in projection
 		if (projection.position_1.x > x || projection.position_1.x == 0) {
 			projection.position_1.x = x;
 		}

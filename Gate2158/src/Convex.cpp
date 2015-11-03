@@ -6,7 +6,6 @@
 #include <iostream>
 
 Convex::Convex(std::vector<sf::Vector2f> points, sf::Vector2f position) : 
-	drawable{ position },
 	points(points)
 {
 	int count = 0;
@@ -17,7 +16,6 @@ Convex::Convex(std::vector<sf::Vector2f> points, sf::Vector2f position) :
 }
 
 Convex::Convex(std::vector<sf::Vector2f> points, sf::Vector2f position, sf::Vector2f center) :
-	drawable{ position },
 	points(points)
 {
 	int count = 0;
@@ -27,23 +25,20 @@ Convex::Convex(std::vector<sf::Vector2f> points, sf::Vector2f position, sf::Vect
 		convex.setPoint(count++, point);
 	}
 	convex.setFillColor(sf::Color::Transparent);
-
+/*
 	sf::Vector2f size = getSize();
 	position.x += ((size.x - 90) / 10) * -5;
 	position.y += ((size.y - 50) / 10) * -5;
-	setPosition(position);
+	setPosition(position);*/
 }
 
 std::vector<sf::Vector2f>& Convex::getPoints(){
 	return points;
 }
 
-void Convex::setPostion(sf::Vector2f pos){
-	convex.setPosition(pos);
-}
 
-void Convex::draw(sf::RenderWindow & window){
-	convex.setPosition(drawable::getPosition());
+void Convex::draw(sf::RenderWindow & window, sf::Vector2f &position){
+	convex.setPosition(position);
 	window.draw(Convex::convex);
 }
 

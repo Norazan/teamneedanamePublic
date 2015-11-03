@@ -14,7 +14,7 @@ class Map {
 public:
     Map();
 	Map(int layers);
-    void addMapObject(MapObject *mapObject);
+    void addMapObject(MapObject *object);
 	std::vector<MapObject*>& getAllMapObjects();
 	int getLayers();
 	void setLayers(int layers);
@@ -22,6 +22,7 @@ public:
 private:
 	int layers;
 	std::vector<MapObject*> mapObjects;
+
 };
 
 

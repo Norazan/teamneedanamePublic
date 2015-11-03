@@ -13,10 +13,12 @@
 class MapObject {
 public:
 	MapObject();
-	MapObject(int renderLayer, drawable* drawables);
-	MapObject(int renderLayer, drawable* drawables, Convex* hitbox);
+	MapObject(int renderLayer, drawable* drawable, sf::Vector2f position);
+	MapObject(int renderLayer, drawable* drawables, sf::Vector2f position, Convex* hitbox);
 	void rotate(float rotation);
     float getRotation();
+	void setAngle(float angle);
+    float getAngle();
 	void setPosition(sf::Vector2f pos);
 	sf::Vector2f getPosition();
 	void setRenderLayer(int renderLayer);
@@ -24,20 +26,19 @@ public:
 	sf::Vector2f getSize();
 	std::vector<sf::Vector2f> getConvexPoints();
 	sf::Vector2f getOrigin();
-
 	virtual void draw(sf::RenderWindow & window);
-
 	void setHitbox(Convex *Hitbox);
 	Convex* getHitbox();
 	virtual void collisionDetected(MapObject & mo);
 
 private:
-	drawable* drawObject;
 	Convex* Hitbox = nullptr;
-    unsigned int colorCode;
     bool isSolid;
     float angle;
+protected:
+	drawable *drawObject;
 	int renderLayer;
+	sf::Vector2f position;
 };
 
 

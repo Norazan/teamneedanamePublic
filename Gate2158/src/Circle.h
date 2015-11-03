@@ -10,8 +10,8 @@
 
 class Circle : public drawable {
 public:
-	Circle(sf::Vector2f pos, float radius, sf::Color color);
-	void draw(sf::RenderWindow &window) override;
+	Circle(float radius, sf::Color color);
+	void draw(sf::RenderWindow &window, sf::Vector2f position);
 	sf::Vector2f getSize() override;
 	float getRotation() override;
 	void setRotation(float rotation) override;
