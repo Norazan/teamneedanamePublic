@@ -62,5 +62,6 @@ void Bullet::collisionDetected(MapObject &mo){
 	if (!mo.isFriend()){
 		hasCollision = true;
 		weapon->setExpoints(damage);
+		std::cout << damage << "\n";
 	}
 }

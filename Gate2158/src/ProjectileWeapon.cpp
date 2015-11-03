@@ -2,6 +2,7 @@
 #include "Circle.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <stdlib.h>
 
 ProjectileWeapon::ProjectileWeapon(std::string weaponType, bool isFriendly) :
 	weaponType( weaponType ),
@@ -82,7 +83,8 @@ void ProjectileWeapon::setAmmoInMagazine(double ammo){
 }
 
 int ProjectileWeapon::calculateDamage(){
-	return int(currentGun.baseDamage + ((currentGun.baseDamage / 10)* currentGun.weaponTier));
+	double randomDamage = rand() % int((currentGun.baseDamage/2)+5) + currentGun.baseDamage;
+	return int(currentGun.baseDamage + ((randomDamage / 10)* currentGun.weaponTier));
 }
 
 std::string ProjectileWeapon::switchWeapon(){
@@ -137,6 +139,7 @@ void ProjectileWeapon::setExpoints(int expoints){
 			++currentGun.amountOfBullets;
 			currentGun.spread -= float(currentGun.spread * 0.2);
 		}
+		std::cout << "level up !\n";
 	}
 }
 
