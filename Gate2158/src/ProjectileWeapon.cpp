@@ -4,7 +4,7 @@
 #include <iostream>
 
 ProjectileWeapon::ProjectileWeapon(std::string weaponType, bool isFriendly) :
-	weaponType{ weaponType },
+	weaponType( weaponType ),
 	isFriendly{isFriendly}
 {
 	pistol.name = "pistol";
