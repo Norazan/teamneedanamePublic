@@ -50,8 +50,8 @@ int main()
     sf::RenderWindow window(sf::VideoMode(width, height), "Gate2158");
 	//UserCharacter player = UserCharacter({ 25, 25 }, {200, 200}, sf::Color::Magenta);
 	//player.draw(window);
-	Menu menuScreen(window);
 	UserInput userInputKey;
+	Menu menuScreen(window, true);
 
 	//Rectangle rec0(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 30.0, 30.0 }, sf::Color::Blue);
 	//Rectangle rec1(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 40.0, 40.0 }, sf::Color::Red);
@@ -163,10 +163,14 @@ int main()
 		}
 		*/
         window.clear();
-		//userCamera.draw();
-		//player.draw(window);
-		menuScreen.show(true);
-		//userCharacter.draw(window);
+		if (menuScreen.getShowingMenu()){
+			menuScreen.draw();
+		}
+		else{
+			//userCamera.draw();
+			//player.draw(window);
+			//userCharacter.draw(window);
+		}
         window.display();
     }
     return 0;
