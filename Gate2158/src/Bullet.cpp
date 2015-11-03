@@ -61,5 +61,6 @@ void Bullet::setCamera(Camera * a){
 void Bullet::collisionDetected(MapObject &mo){
 	if (!mo.isFriend()){
 		hasCollision = true;
+		weapon->setExpoints(mo.getExpoints());
 	}
 }

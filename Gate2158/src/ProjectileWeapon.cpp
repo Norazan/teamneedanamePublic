@@ -115,3 +115,7 @@ int ProjectileWeapon::getExpoints(){
 	return currentGun.expoints;
 }
 
+void ProjectileWeapon::setExpoints(int expoints){
+	currentGun.expoints += expoints;
+}
+

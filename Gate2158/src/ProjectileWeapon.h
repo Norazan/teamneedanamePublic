@@ -41,6 +41,7 @@ public:
 	void setCamera(Camera *c);
 	std::string switchWeapon();
 	int getExpoints();
+	void setExpoints(int expoints) override;
 private:
 	std::string weaponType;
 	bool isFriendly;
