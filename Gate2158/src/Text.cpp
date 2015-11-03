@@ -23,14 +23,13 @@ drawable(pos)
 }
 
 Text::Text(
-	sf::String t,
+	std::string t,
 	sf::Vector2f pos,
 	sf::Text::Style style,
 	sf::Color color,
 	int size,
 	sf::Font *font
 	) :drawable(pos){
-
 	text.setString(t);
 	text.setPosition(pos);
 	text.setStyle(style);

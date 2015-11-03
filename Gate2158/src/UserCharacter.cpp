@@ -9,6 +9,8 @@
 #include <cmath>
 #include <math.h>
 #include <iostream>
+#include <string>
+
 
 UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawable, Convex* convex) :
 	Character(maxHealth, renderLayer, drawable, convex)
@@ -19,10 +21,11 @@ UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawabl
 	input.setToggleKey(sf::Keyboard::S);
 	input.setToggleKey(sf::Keyboard::D);
 	input.setToggleKey(sf::Keyboard::R);
+	input.setToggleKey(sf::Keyboard::Q);
 
-	pistol = new ProjectileWeapon("shotgun", isFriendly);
-
-	if (!tFont.loadFromFile("../../Gate2158/media/Another_America.ttf")){
+	pistol = new ProjectileWeapon("pistol", isFriendly);
+	
+	if (!tFont.loadFromFile("../../Gate2158/media/Starjedi.ttf")){
 		//Error handeling
 		std::cout << "can't load font";
 	}
@@ -33,7 +36,6 @@ void UserCharacter::draw(sf::RenderWindow & window) {
 	input.updateToggleKey();
 	processKeys();
 	processMouse(window);
-	drawUserInterface(window);
 	MapObject::draw(window);
 }
 
@@ -65,8 +67,16 @@ void UserCharacter::processKeys(){
 		velocity.x += speed;
 		canRotate = true;
 	}
-	if (input.isKeyHold(sf::Keyboard::R)){
+	if (input.isKeyPressed(sf::Keyboard::R)){
 		pistol->reload();
+	}
+	if (input.isKeyPressed(sf::Keyboard::Q)){
+		std::string name = pistol->switchWeapon();
+		for (auto & ui : userInterface){
+			if (ui.name == "gunName"){
+				ui.t.setText("Gun: " + name);
+			}
+		}
 	}
 	// move userCharacter with the velocity that has been set.
 	setVelocity(velocity);
@@ -136,36 +146,68 @@ float UserCharacter::calculateRotation(sf::Vector2i mousePosition){
 }
 
 void UserCharacter::collisionDetected(MapObject & mo){
-	sf::Vector2f velocity = getVelocity();
-	move(-velocity);
-	canRotate = false;
-	rotate(previousRotation);
+	if (!mo.isFriend()){
+		sf::Vector2f velocity = getVelocity();
+		move(-velocity);
+		canRotate = false;
+		rotate(previousRotation);
+	}
 }
 
 void UserCharacter::makeUserInterface(){
 	Text ammoInMagazine(
-		std::to_string(pistol->getAmmoInMagazine()),
-		sf::Vector2f(500, 50), 
+		("Magazine: " + std::to_string(pistol->getAmmoInMagazine())),
+		sf::Vector2f(150, 650), 
 		sf::Text::Style::Regular, 
 		sf::Color::Red, 
 		30, 
 		&tFont
 	);
 	Text currentAmmo(
-		std::to_string(pistol->getAmmo()),
-		sf::Vector2f(550, 50),
+		("Ammo: " + std::to_string(pistol->getAmmo())),
+		sf::Vector2f(150, 680),
 		sf::Text::Style::Regular,
 		sf::Color::Red,
 		30,
 		&tFont
 	);
-	std::cout << std::to_string(pistol->getAmmo());
-	userInterface.push_back(ammoInMagazine);
-	userInterface.push_back(currentAmmo);
+	Text gunName(
+		("Gun: pistol"),
+		sf::Vector2f(150, 590),
+		sf::Text::Style::Regular,
+		sf::Color::Red,
+		30,
+		&tFont
+	);
+	Text expoints(
+		("Expoints: " + std::to_string(pistol->getExpoints())),
+		sf::Vector2f(150, 620),
+		sf::Text::Style::Regular,
+		sf::Color::Red,
+		30,
+		&tFont
+	);
+	text one{ ammoInMagazine, "ammoInMagazine" };
+	text two{ currentAmmo, "currentAmmo" };
+	text three{ gunName, "gunName" };
+	text four{ expoints, "expoints" };
+	userInterface.push_back(one);
+	userInterface.push_back(two);
+	userInterface.push_back(three);
+	userInterface.push_back(four);
 }
 
 void UserCharacter::drawUserInterface(sf::RenderWindow & window){
 	for (auto & ui : userInterface){
-		ui.draw(window);
+		if (ui.name == "ammoInMagazine"){
+			ui.t.setText(("Magazine: " + std::to_string(pistol->getAmmoInMagazine())));
+		}
+		else if(ui.name == "currentAmmo") {
+			ui.t.setText(("Ammo: " + std::to_string(pistol->getAmmo())));
+		}
+		else if (ui.name == "expoints"){
+			ui.t.setText("Expoints: " + std::to_string(pistol->getExpoints()));
+		}
+		ui.t.draw(window);
 	}
 }

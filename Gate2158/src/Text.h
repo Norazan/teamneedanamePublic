@@ -20,7 +20,7 @@ public:
 		std::string font = "SF Electrotome.ttf"
 	);
 	Text(
-		sf::String t,
+		std::string t,
 		sf::Vector2f pos,
 		sf::Text::Style style,
 		sf::Color color,

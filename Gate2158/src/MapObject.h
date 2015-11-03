@@ -14,7 +14,6 @@
 class MapObject {
 public:
 	MapObject();
-	~MapObject();
 	MapObject::MapObject(int renderLayer);
 	MapObject(int renderLayer, drawable* drawables);
 	MapObject(int renderLayer, drawable* drawables, Convex* hitbox);
@@ -28,6 +27,7 @@ public:
 	std::vector<sf::Vector2f> getConvexPoints();
 	sf::Vector2f getOrigin();
 	bool isFriend();
+	virtual int getExpoints();
 
 	virtual void draw(sf::RenderWindow & window);
 
@@ -39,6 +39,7 @@ private:
 	drawable* drawObject;
 	Convex* Hitbox = nullptr;
 	int renderLayer;
+	int expointOnHit = 10;
 
 protected:
 	sf::Vector2f position;

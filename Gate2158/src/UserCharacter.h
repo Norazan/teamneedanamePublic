@@ -18,6 +18,12 @@
 #define angleOfLeft 180.0;
 #define angleOfRight 0.0;
 
+
+struct text{
+	Text t;
+	std::string name;
+};
+
 class UserCharacter : public Character {
 public:
 	//! Constructor
@@ -34,6 +40,8 @@ public:
 
 	void setCamera(Camera * c); 
 	void collisionDetected(MapObject & mo) override;
+
+	void drawUserInterface(sf::RenderWindow & window);
 
 private:
 	//! Function move
@@ -64,8 +72,6 @@ private:
 
 	void makeUserInterface();
 
-	void drawUserInterface(sf::RenderWindow & window);
-
 	//! input, to check the keys.
 	UserInput input;
 
@@ -84,7 +90,7 @@ private:
 
 	sf::Font tFont;
 
-	std::vector<Text> userInterface;
+	std::vector<text> userInterface;
 };
 
 #endif //GATE2158_USERCHARACTER_H

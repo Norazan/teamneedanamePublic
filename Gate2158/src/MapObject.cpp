@@ -12,11 +12,6 @@ MapObject::MapObject(){
 	
 }
 
-MapObject::~MapObject(){
-	drawObject->~drawable();
-	Hitbox->~Convex();
-}
-
 MapObject::MapObject(int renderLayer, drawable* drawable) :
 	renderLayer{ renderLayer },
 	drawObject{ drawable }
@@ -177,4 +172,8 @@ bool MapObject::isFriend(){
 
 void MapObject::collisionDetected(MapObject & mos){
 
+}
+
+int MapObject::getExpoints(){
+	return expointOnHit;
 }

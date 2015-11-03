@@ -10,6 +10,23 @@
 #include <string>
 #include "Camera.hpp"
 
+struct gun{
+	std::string name;
+	int attackSpeed = 1;
+	int maxAmmo = 1;
+	int currentAmmo = 1;
+	int ammoInMagazine = 1;
+	int maxAmmoInMagazine = 1;
+	int baseDamage = 1;
+	int weaponTier = 1;
+	int projectileVelocity = 1;
+	int reloadTime = 1000;
+	int expoints = 0;
+	int nextLevelExpoints = 1;
+	float spread = 0;
+	float amountOfBullets = 1;
+};
+
 class ProjectileWeapon: public Weapon{
 public:
 	ProjectileWeapon(std::string weaponType, bool isFriendly);
@@ -22,24 +39,18 @@ public:
 	int calculateDamage();
 	void reload();
 	void setCamera(Camera *c);
+	std::string switchWeapon();
+	int getExpoints();
 private:
 	std::string weaponType;
-	int attackSpeed;
-	int maxAmmo;
-	int currentAmmo;
-	int ammoInMagazine;
-	int maxAmmoInMagazine;
-	int baseDamage;
-	int weaponTier;
-	int projectileVelocity;
-	int reloadTime;
-	float spread;
-	float amountOfBullets;
 	bool isFriendly;
 	clock_t currentClock;
 	clock_t previousClock = clock();
 	clock_t reloadClock = clock();
 	Camera * camera;
+	gun pistol;
+	gun shotgun;
+	gun currentGun;
 };
 
 #endif

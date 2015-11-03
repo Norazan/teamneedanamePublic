@@ -124,6 +124,7 @@ int main()
 
         window.clear();
 		userCamera.draw();
+		con2.drawUserInterface(window);
 		menuScreen.show(true);
 
         window.display();
