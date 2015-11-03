@@ -7,9 +7,6 @@ class Menu{
 public:
 	Menu(sf::RenderWindow &windowRef);
 	void show(bool showMenu);
-	int getCurrentSelection();
-	void setCurrentSelection(int selection);
-	void skipSplashScreen();
 
 protected:
 	sf::RenderWindow &window;

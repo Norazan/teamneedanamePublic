@@ -4,30 +4,28 @@ Menu::Menu(sf::RenderWindow &windowRef)
 : window(windowRef),
  showingMenu(false),
  currentSelection(1),
- splashScreen(false)
+ splashScreen(true)
 {
 
 }
 
 void Menu::show(bool showMenu){
-	if (!splashScreen){
-		//sf::Texture logoTexture;
-		//if (!logoTexture.loadFromFile("path")){
-
-		//}
-		//sf::Sprite logo;
-		//logo.setTexture(logoTexture);
-		//logo.setPosition(sf::Vector2f(1280 / 2 - 500 / 2, 720 / 2 - 380 / 2));
-		//window.draw(logo);
+	if (splashScreen){
+		sf::Texture logoTexture;
+		if (!logoTexture.loadFromFile("../../Gate2158/media/TEAMNEEDSANAME.png")){
+		}
+		sf::Sprite logo;
+		logo.setTexture(logoTexture);
+		logo.setPosition(sf::Vector2f(1280 / 2 - 500 / 2, 720 / 2 - 380 / 2));
+		window.draw(logo);
 	}
-	else if (splashScreen){
-		//sf::Texture logoTexture;
-		//if (!logoTexture.loadFromFile("path")){
-
-		//}
-		//sf::Sprite logo;
-		//logo.setTexture(logoTexture);
-		//logo.setPosition(sf::Vector2f(1280 / 2 - 500 / 2, 0));
+	else{
+		sf::Texture logoTexture;
+		if (!logoTexture.loadFromFile("../../Gate2158/media/TEAMNEEDSANAME.png")){
+		}
+		sf::Sprite logo;
+		logo.setTexture(logoTexture);
+		logo.setPosition(sf::Vector2f(1280 / 2 - 500 / 2, 0));
 
 		sf::RectangleShape choiceOne(sf::Vector2f(200, 100));
 		choiceOne.setPosition(1280 / 2 - 200 / 2, 400);
@@ -48,20 +46,10 @@ void Menu::show(bool showMenu){
 			select2.setPosition(1280 / 2 + 150, 575);
 		}
 
-		//window.draw(logo);
+		window.draw(logo);
 		window.draw(choiceOne);
 		window.draw(choiceTwo);
 		window.draw(select1);
 		window.draw(select2);
 	}
-}
-
-int Menu::getCurrentSelection(){
-	return currentSelection;
-}
-void Menu::setCurrentSelection(int selection){
-		currentSelection = selection;
-}
-void Menu::skipSplashScreen(){
-	splashScreen = true;
 }

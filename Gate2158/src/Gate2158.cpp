@@ -53,18 +53,18 @@ int main()
 	Menu menuScreen(window);
 	UserInput userInputKey;
 
-	Rectangle rec0(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 30.0, 30.0 }, sf::Color::Blue);
-	Rectangle rec1(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 40.0, 40.0 }, sf::Color::Red);
-	Sprite testSprite(sf::Vector2f{ 200.0, 100.0 }, "../../Gate2158/media/download.jpg");
+	//Rectangle rec0(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 30.0, 30.0 }, sf::Color::Blue);
+	//Rectangle rec1(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 40.0, 40.0 }, sf::Color::Red);
+	//Sprite testSprite(sf::Vector2f{ 200.0, 100.0 }, "../../Gate2158/media/download.jpg");
 	//Sprite characterNormal(sf::Vector2f{ 200.0, 100.0 }, "../../Gate2158/media/character_normal.png");
-	Sprite characterGun(sf::Vector2f{ 300.0, 100.0 }, "../../Gate2158/media/character_gun.png");
+	//Sprite characterGun(sf::Vector2f{ 300.0, 100.0 }, "../../Gate2158/media/character_gun.png");
 	//Sprite characterShotgun(sf::Vector2f{ 200.0, 200.0 }, "../../Gate2158/media/character_shotgun.png");
 	//Sprite characterMachineGun(sf::Vector2f{ 300.0, 200.0 }, "../../Gate2158/media/character_machinegun.png");
 	//Circle circle(sf::Vector2f{ 100.0, 300.0 }, 30, sf::Color::Blue);
 	
 	//Character character(100, 0, &rec0);
 	//UserCharacter userCharacter0(100, 3, &characterNormal);
-	UserCharacter userCharacter1(100, 3, &characterGun);
+	//UserCharacter userCharacter1(100, 3, &characterGun);
 	//UserCharacter userCharacter2(100, 3, &characterMachineGun);
 	//UserCharacter userCharacter3(100, 3, &characterShotgun);
 
@@ -78,30 +78,30 @@ int main()
 	//Always pass the font by reference, they are heavy elements! 
 	//Passing nby value will give a C++ exception error
 	//Loading font should be a function in the Text object, maybe load minimal amount of fonts on game startup?
-	Text testText(ttString, sf::Vector2f(200, 200), sf::Text::Style::Regular, sf::Color::Red, 30, &tFont);
+	//Text testText(ttString, sf::Vector2f(200, 200), sf::Text::Style::Regular, sf::Color::Red, 30, &tFont);
 
 	//MapObject picture(3, &testSprite);
 	//MapObject rectangle0(0, &rec0);
-	MapObject rectangle1(1, &rec1);
+	//MapObject rectangle1(1, &rec1);
 	//MapObject text(2, &testText);
 	//MapObject circle0(2, &circle);
 
 
-	Map testMap(3);
+	//Map testMap(3);
     
 	//testMap.addMapObject(character);
 	//testMap.addMapObject(rectangle1);
 	//testMap.addMapObject(&userCharacter0);
-	testMap.addMapObject(&userCharacter1);
+	//testMap.addMapObject(&userCharacter1);
 	//testMap.addMapObject(&userCharacter2);
 	//testMap.addMapObject(&userCharacter3);
 	//testMap.addMapObject(text);
 	//testMap.addMapObject(circle0);
 
-	World Gate2158;
-	Gate2158.addMap(testMap);
-	Map &currentMap = Gate2158.getCurrentMap();
-	Camera userCamera(window, currentMap);
+	//World Gate2158;
+	//Gate2158.addMap(testMap);
+	//Map &currentMap = Gate2158.getCurrentMap();
+	//Camera userCamera(window, currentMap);
 
     window.setVerticalSyncEnabled(true);
 
@@ -163,9 +163,9 @@ int main()
 		}
 		*/
         window.clear();
-		userCamera.draw();
+		//userCamera.draw();
 		//player.draw(window);
-		//menuScreen.show(true);
+		menuScreen.show(true);
 		//userCharacter.draw(window);
         window.display();
     }
