@@ -10,16 +10,16 @@ ProjectileWeapon::ProjectileWeapon(std::string weaponType, bool isFriendly) :
 	pistol.name = "pistol";
 	pistol.attackSpeed = 200;
 	pistol.maxAmmo = 100;
-	pistol.baseDamage = 15;
+	pistol.baseDamage = 25;
 	pistol.maxAmmoInMagazine = 10;
 
 	shotgun.name = "shotgun";
-	shotgun.attackSpeed = 200;
-	shotgun.maxAmmo = 40;
-	shotgun.baseDamage = 35;
-	shotgun.maxAmmoInMagazine = 2;
-	shotgun.amountOfBullets = 3;
-	shotgun.spread = 0.09f;
+	shotgun.attackSpeed = 500;
+	shotgun.maxAmmo = 36;
+	shotgun.baseDamage = 10;
+	shotgun.maxAmmoInMagazine = 6;
+	shotgun.amountOfBullets = 5;
+	shotgun.spread = 0.05f;
 	shotgun.reloadTime = 800;
 
 	shotgun.currentAmmo = shotgun.maxAmmo;
