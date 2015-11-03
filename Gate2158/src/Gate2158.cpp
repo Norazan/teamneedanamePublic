@@ -21,8 +21,9 @@ int main()
 	int width= 1280;
 	int height = 720;
     sf::RenderWindow window(sf::VideoMode(width, height), "Gate2158");
-	Menu menuScreen(window);
+
 	UserInput userInputKey;
+	Menu menuScreen(window, true);
 
 	Rectangle rec0(sf::Vector2f{ 300, 250.0 }, sf::Vector2f{ 200, 200 }, sf::Color::Blue);
 	Rectangle rec1(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 50, 50 }, sf::Color::Red);
@@ -44,7 +45,6 @@ int main()
 	//Text testText(ttString, sf::Vector2f(200, 200), sf::Text::Style::Regular, sf::Color::Red, 30, &tFont);
 
 	MapObject rectangle1(1, &rec1);
-
 	std::vector<sf::Vector2f> points{ 
 		sf::Vector2f{ 0, 0 },
 		sf::Vector2f{ 200, 0 },
@@ -123,10 +123,13 @@ int main()
 		userInputKey.updateToggleKey();
 
         window.clear();
-		userCamera.draw();
-		con2.drawUserInterface(window);
-		menuScreen.show(true);
-
+		if (menuScreen.getShowingMenu()){
+			menuScreen.draw();
+		}
+		else{
+			userCamera.draw();
+			con2.drawUserInterface(window);
+		}
         window.display();
     }
     return 0;
