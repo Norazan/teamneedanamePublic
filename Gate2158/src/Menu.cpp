@@ -15,23 +15,32 @@ splashScreen(true)
 void Menu::draw(){
 	input.updateToggleKey();
 	showingMenu = true;
+	sf::Texture gameLogoTexture;
 	sf::Texture logoTexture;
+	sf::Texture startTexture;
+	sf::Texture quitTexture;
 	if (!logoTexture.loadFromFile("../../Gate2158/media/TEAMNEEDSANAME.png")){
+	}
+	if (!startTexture.loadFromFile("../../Gate2158/media/GameStart.png")){
+	}
+	if (!quitTexture.loadFromFile("../../Gate2158/media/GameStop.png")){
+	}
+	if (!gameLogoTexture.loadFromFile("../../Gate2158/media/GameLogo.png")){
 	}
 	sf::Sprite splashLogo;
 	splashLogo.setTexture(logoTexture);
 	splashLogo.setPosition(sf::Vector2f(1280 / 2 - 500 / 2, 720 / 2 - 380 / 2));
 
-	sf::Sprite logo;
-	logo.setTexture(logoTexture);
-	logo.setPosition(sf::Vector2f(1280 / 2 - 500 / 2, 0));
+	sf::Sprite gameLogo;
+	gameLogo.setTexture(gameLogoTexture);
+	gameLogo.setPosition(sf::Vector2f(1280 / 2 - 500 / 2, 0));
 
-	sf::RectangleShape choiceOne(sf::Vector2f(200, 100));
-	choiceOne.setPosition(startLocation);
-	choiceOne.setFillColor(sf::Color::Blue);
-	sf::RectangleShape choiceTwo(sf::Vector2f(200, 100));
-	choiceTwo.setPosition(quitLocation);
-	choiceTwo.setFillColor(sf::Color::Magenta);
+	sf::Sprite start;
+	start.setTexture(startTexture);
+	start.setPosition(startLocation);
+	sf::Sprite quit;
+	quit.setTexture(quitTexture);
+	quit.setPosition(quitLocation);
 	sf::CircleShape select1(20);
 	sf::CircleShape select2(20);
 	select1.setFillColor(sf::Color::White);
@@ -50,9 +59,9 @@ void Menu::draw(){
 			window.draw(splashLogo);
 		}
 		else{
-			window.draw(logo);
-			window.draw(choiceOne);
-			window.draw(choiceTwo);
+			window.draw(gameLogo);
+			window.draw(start);
+			window.draw(quit);
 			window.draw(select1);
 			window.draw(select2);
 		}
