@@ -41,13 +41,13 @@ void Map::loadFromFile(const std::string filename){
     std::cout << "Loading map with size" << "(" << dimensions.x << "," << dimensions.y << ")" << std::endl;
 
     const int size = 32;
-    drawable *draw;
-    MapObject *obj;
+   // drawable *draw;
+   // MapObject *obj;
     sf::Vector2f position;
-    for(int i = 0; i < dimensions.y; ++i){
-        for(int j = 0; j < dimensions.x; ++j){
-            position.y = i*size;
-            position.x = j*size;
+    for(unsigned int i = 0; i < dimensions.y; ++i){
+        for(unsigned int j = 0; j < dimensions.x; ++j){
+            position.y = (float) i*size;
+            position.x = (float) j*size;
             sf::Color color = mapImage.getPixel(j, i);
             if(color.r == 0x00){ //Wall-type objecct, can be a wall, a fence etc
                 if(color.g == 0x00){ //Regular solid wall
