@@ -98,7 +98,7 @@ std::string ProjectileWeapon::switchWeapon(){
 }
 
 void ProjectileWeapon::reload(){
-	if (currentGun.ammoInMagazine < currentGun.maxAmmoInMagazine){
+	if (currentGun.ammoInMagazine < currentGun.maxAmmoInMagazine && currentGun.currentAmmo != 0){
 		if (currentGun.currentAmmo >= currentGun.maxAmmoInMagazine){
 			currentGun.ammoInMagazine = currentGun.maxAmmoInMagazine;
 			currentGun.currentAmmo -= currentGun.maxAmmoInMagazine;
