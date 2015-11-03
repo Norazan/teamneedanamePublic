@@ -5,18 +5,31 @@
 #include "UserCharacter.h"
 #include "UserInput.h"
 #include "Collision.h"
+#include "Text.h"
 #include <cmath>
 #include <math.h>
 #include <iostream>
+#include <string>
+
 
 UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawable, sf::Vector2f position, Convex* convex) :
 	Character(maxHealth, renderLayer, drawable, position, convex)
 {
+	isFriendly = true;
 	input.setToggleKey(sf::Keyboard::W);
 	input.setToggleKey(sf::Keyboard::A);
 	input.setToggleKey(sf::Keyboard::S);
 	input.setToggleKey(sf::Keyboard::D);
-	weapon = new ProjectileWeapon(2, 10, 5, 100, 20, 10);
+	input.setToggleKey(sf::Keyboard::R);
+	input.setToggleKey(sf::Keyboard::Q);
+
+	pistol = new ProjectileWeapon("pistol", isFriendly);
+	
+	if (!tFont.loadFromFile("../../Gate2158/media/Starjedi.ttf")){
+		//Error handeling
+		std::cout << "can't load font";
+	}
+	makeUserInterface();
 }
 
 void UserCharacter::draw(sf::RenderWindow & window) {
@@ -26,13 +39,18 @@ void UserCharacter::draw(sf::RenderWindow & window) {
 	MapObject::draw(window);
 }
 
+void UserCharacter::setCamera(Camera * c){
+	pistol->setCamera(c);
+}
+
 void UserCharacter::move(sf::Vector2f dir){
-	setPosition(getPosition() + dir);
+	position += dir;
 }
 
 void UserCharacter::processKeys(){
 	sf::Vector2f velocity{ 0.0, 0.0 };
 	// check if key is hold and set velocity
+
 	if (input.isKeyHold(sf::Keyboard::W)){
 		velocity.y -= speed;
 		canRotate = true;
@@ -49,6 +67,17 @@ void UserCharacter::processKeys(){
 		velocity.x += speed;
 		canRotate = true;
 	}
+	if (input.isKeyPressed(sf::Keyboard::R)){
+		pistol->reload();
+	}
+	if (input.isKeyPressed(sf::Keyboard::Q)){
+		std::string name = pistol->switchWeapon();
+		for (auto & ui : userInterface){
+			if (ui.name == "gunName"){
+				ui.t.setText("Gun: " + name);
+			}
+		}
+	}
 	// move userCharacter with the velocity that has been set.
 	setVelocity(velocity);
 	move(velocity);
@@ -63,13 +92,12 @@ void UserCharacter::processMouse(sf::RenderWindow & window){
 		rotate(currentRotation);
 	}
 	if (input.getMousePress(sf::Mouse::Button::Left)){
-		weapon->shoot(getPosition(), currentRotation);
+		pistol->shoot(getPosition(), calculateRotation(mousePosition));
 	}
 }
 
 float UserCharacter::calculateRotation(sf::Vector2i mousePosition){
 	sf::Vector2f pos = getPosition();
-	//std::cout << "ojbect = (" << pos.x << "," << pos.y << ")  mouse = (" << mousePosition.x << "," << mousePosition.y << ")\n";
 	// Make vector with the difference between the two vectors, position of character and position of the mouse.
 	sf::Vector2f difference{ (pos.x - mousePosition.x), (pos.y - mousePosition.y) };
 
@@ -118,8 +146,68 @@ float UserCharacter::calculateRotation(sf::Vector2i mousePosition){
 }
 
 void UserCharacter::collisionDetected(MapObject & mo){
-	sf::Vector2f velocity = getVelocity();
-	move(-velocity);
-	canRotate = false;
-	rotate(previousRotation);
+	if (!mo.isFriend()){
+		sf::Vector2f velocity = getVelocity();
+		move(-velocity);
+		canRotate = false;
+		rotate(previousRotation);
+	}
+}
+
+void UserCharacter::makeUserInterface(){
+	Text ammoInMagazine(
+		("Magazine: " + std::to_string(pistol->getAmmoInMagazine())),
+		sf::Vector2f(150, 650), 
+		sf::Text::Style::Regular, 
+		sf::Color::Red, 
+		30, 
+		&tFont
+	);
+	Text currentAmmo(
+		("Ammo: " + std::to_string(pistol->getAmmo())),
+		sf::Vector2f(150, 680),
+		sf::Text::Style::Regular,
+		sf::Color::Red,
+		30,
+		&tFont
+	);
+	Text gunName(
+		("Gun: pistol"),
+		sf::Vector2f(150, 590),
+		sf::Text::Style::Regular,
+		sf::Color::Red,
+		30,
+		&tFont
+	);
+	Text expoints(
+		("Expoints: " + std::to_string(pistol->getExpoints())),
+		sf::Vector2f(150, 620),
+		sf::Text::Style::Regular,
+		sf::Color::Red,
+		30,
+		&tFont
+	);
+	text one{ ammoInMagazine, "ammoInMagazine", sf::Vector2f(150, 650) };
+	text two{ currentAmmo, "currentAmmo", sf::Vector2f(150, 680) };
+	text three{ gunName, "gunName", sf::Vector2f(150, 590) };
+	text four{ expoints, "expoints", sf::Vector2f(150, 620) };
+	userInterface.push_back(one);
+	userInterface.push_back(two);
+	userInterface.push_back(three);
+	userInterface.push_back(four);
+}
+
+void UserCharacter::drawUserInterface(sf::RenderWindow & window){
+	for (auto & ui : userInterface){
+		if (ui.name == "ammoInMagazine"){
+			ui.t.setText(("Magazine: " + std::to_string(pistol->getAmmoInMagazine())));
+		}
+		else if(ui.name == "currentAmmo") {
+			ui.t.setText(("Ammo: " + std::to_string(pistol->getAmmo())));
+		}
+		else if (ui.name == "expoints"){
+			ui.t.setText("Expoints: " + std::to_string(pistol->getExpoints()));
+		}
+		ui.t.draw(window, ui.position);
+	}
 }

@@ -23,6 +23,7 @@ public:
 	//! Draws the drawable
 	virtual void draw(sf::RenderWindow & window) override;
 
+protected:
 	//! Function getHealth
 	//
 	//! Returns health
@@ -37,7 +38,6 @@ public:
 
 	virtual void collisionDetected(MapObject & mo) override;
 
-private:
     float health;
     float maxHealth;
 };

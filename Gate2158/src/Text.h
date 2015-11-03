@@ -19,7 +19,8 @@ public:
 		std::string font = "SF Electrotome.ttf"
 	);
 	Text(
-		sf::String t,
+		std::string t,
+		sf::Vector2f pos,
 		sf::Text::Style style,
 		sf::Color color,
 		int size,
@@ -29,6 +30,8 @@ public:
 	float getRotation() override;
 	void setRotation(float rotation) override;
 	void draw(sf::RenderWindow &window, sf::Vector2f &position);
+	void setText(std::string s);
+
 private:
 	sf::Text text;
 };

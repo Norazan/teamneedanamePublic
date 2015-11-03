@@ -23,19 +23,22 @@ Text::Text(std::string t, sf::Text::Style style, sf::Color color, int size, std:
 }
 
 Text::Text(
-	sf::String t,
+	std::string t,
+	sf::Vector2f pos,
 	sf::Text::Style style,
 	sf::Color color,
 	int size,
 	sf::Font *font
-	){
-
+){
 	text.setString(t);
 	text.setStyle(style);
 	text.setColor(color);
 	text.setCharacterSize(size);
 	text.setFont(*font);
-	
+
+	sf::Vector2f s = getSize();
+	sf::Vector2f center{ s.x / 2, s.y / 2 };
+	text.setOrigin(center);
 }
 
 void Text::draw(sf::RenderWindow &window, sf::Vector2f &position){
@@ -56,4 +59,8 @@ float Text::getRotation(){
 
 void Text::setRotation(float rotation){
 	text.setRotation(rotation);
+}
+
+void Text::setText(std::string s){
+	text.setString(s);
 }

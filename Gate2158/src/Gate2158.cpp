@@ -16,30 +16,31 @@
 #include "Convex.h"
 #include <iostream>
 
-
 int main()
 {
-
 	int width= 1280;
 	int height = 720;
     sf::RenderWindow window(sf::VideoMode(width, height), "Gate2158");
-	Menu menuScreen(window);
+
 	UserInput userInputKey;
+	Menu menuScreen(window, true);
 
 
-	sf::Font tFont;
+	//sf::Font tFont;
 
-	if (!tFont.loadFromFile("../../Gate2158/media/Another_America.ttf")){
+	//if (!tFont.loadFromFile("../../Gate2158/media/Another_America.ttf")){
 		//Error handeling
-	}
+	//}
 
-	sf::String ttString("Test string");
+	//sf::String ttString("Test string");
 	//Always pass the font by reference, they are heavy elements! 
 	//Passing nby value will give a C++ exception error
 	//Loading font should be a function in the Text object, maybe load minimal amount of fonts on game startup?
-	drawable *testText = new Text(ttString,  sf::Text::Style::Regular, sf::Color::Red, 30, &tFont);
+	//drawable *testText = new Text(ttString,  sf::Text::Style::Regular, sf::Color::Red, 30, &tFont);
 
-	MapObject text(2, testText, sf::Vector2f{ 50.0, 0.0 });
+	//MapObject text(2, testText, sf::Vector2f{ 50.0, 0.0 });
+
+	//Text testText(ttString, sf::Vector2f(200, 200), sf::Text::Style::Regular, sf::Color::Red, 30, &tFont);
 
 	std::vector<sf::Vector2f> points{ 
 		sf::Vector2f{ 0, 0 },
@@ -81,8 +82,6 @@ int main()
 	Convex convex4(squarePointsss, sf::Vector2f(200, 300), sf::Vector2f(30, 30));
 	Convex userHit(userHitbox, sf::Vector2f(300, 100), sf::Vector2f(45,25));
 
-
-
 	drawable *rec0 = new Rectangle(sf::Vector2f{ 200, 200 }, sf::Color::Blue);
 	drawable *rec1 = new Rectangle(sf::Vector2f{ 50, 50 }, sf::Color::Red);
 	drawable *rec2 = new Rectangle(sf::Vector2f{ 40, 40 }, sf::Color::Red);
@@ -108,7 +107,9 @@ int main()
 	Gate2158.addMap(testMap);
 	Map &currentMap = Gate2158.getCurrentMap();
 	Camera userCamera(window, currentMap);
-
+	
+	// add camera to usercharacter for bullet. need to do this before drawing character.
+	con2.setCamera(&userCamera);
     window.setVerticalSyncEnabled(true);
 
 
@@ -127,10 +128,13 @@ int main()
 		userInputKey.updateToggleKey();
 
         window.clear();
-
-		userCamera.draw();
-		menuScreen.show(true);
-
+		if (menuScreen.getShowingMenu()){
+			menuScreen.draw();
+		}
+		else{
+			userCamera.draw();
+			con2.drawUserInterface(window);
+		}
         window.display();
     }
     return 0;

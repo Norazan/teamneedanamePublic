@@ -23,11 +23,16 @@ public:
 	//! Drawed all the MapObjects 
 	void draw();
 
+	void addMapObjectToCurrentMap(MapObject *mo);
+	void revmoveMapObjectOnCurrentMap(MapObject *mo);
 	void checkCollision();
 
 private:
 	sf::RenderWindow &window;
+	std::vector<MapObject*> removeObjects;
+	std::vector<MapObject*> addObjects;
 	Map &currentMap;
+	bool canCheckCollision = true;
 };
 
 

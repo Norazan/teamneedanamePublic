@@ -7,14 +7,23 @@
 
 #include "Character.h"
 #include "UserInput.h"
+#include "Text.h"
 #include <SFML/Graphics.hpp>
 #include "ProjectileWeapon.h"
+#include "Camera.hpp"
 
 #define PI 3.14159265
 #define angleOfAbove 270.0;
 #define angleOfUnder 90.0;
 #define angleOfLeft 180.0;
 #define angleOfRight 0.0;
+
+
+struct text{
+	Text t;
+	std::string name;
+	sf::Vector2f position;
+};
 
 class UserCharacter : public Character {
 public:
@@ -30,7 +39,10 @@ public:
 	//! draws the drawable of the UserCharacter.
 	void draw(sf::RenderWindow & window) override;
 
+	void setCamera(Camera * c); 
 	void collisionDetected(MapObject & mo) override;
+
+	void drawUserInterface(sf::RenderWindow & window);
 
 private:
 	//! Function move
@@ -59,12 +71,15 @@ private:
 	//! And returns the value of the rotation.
 	float calculateRotation(sf::Vector2i mousePosition);
 
+	void makeUserInterface();
+
 	//! input, to check the keys.
 	UserInput input;
 
 	//! the speed of the character in pixels.
 	int speed = 10;
 
+	ProjectileWeapon* pistol;
 	//! the current rotation of the character in degrees.
 	float currentRotation;
 	
@@ -74,7 +89,9 @@ private:
 	//! boolean canRotate
 	bool canRotate = true;
 
-	ProjectileWeapon* weapon;
+	sf::Font tFont;
+
+	std::vector<text> userInterface;
 };
 
 #endif //GATE2158_USERCHARACTER_H
