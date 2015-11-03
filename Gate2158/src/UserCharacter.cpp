@@ -173,9 +173,9 @@ void UserCharacter::makeUserInterface(){
 	);
 	Text gunName(
 		("Gun: pistol"),
-		sf::Vector2f(150, 590),
+		sf::Vector2f(150, 560),
 		sf::Text::Style::Regular,
-		sf::Color::Red,
+		sf::Color::Blue,
 		30,
 		&tFont
 	);
@@ -187,14 +187,24 @@ void UserCharacter::makeUserInterface(){
 		30,
 		&tFont
 	);
+	Text tier(
+		("Tier: " + std::to_string(pistol->getTier())),
+		sf::Vector2f(150, 590),
+		sf::Text::Style::Regular,
+		sf::Color::Red,
+		30,
+		&tFont
+	);
 	text one{ ammoInMagazine, "ammoInMagazine", sf::Vector2f(150, 650) };
 	text two{ currentAmmo, "currentAmmo", sf::Vector2f(150, 680) };
-	text three{ gunName, "gunName", sf::Vector2f(150, 590) };
+	text three{ gunName, "gunName", sf::Vector2f(150, 560) };
 	text four{ expoints, "expoints", sf::Vector2f(150, 620) };
+	text five{ tier, "tier", sf::Vector2f(150, 590) };
 	userInterface.push_back(one);
 	userInterface.push_back(two);
 	userInterface.push_back(three);
 	userInterface.push_back(four);
+	userInterface.push_back(five);
 }
 
 void UserCharacter::drawUserInterface(sf::RenderWindow & window){
@@ -207,6 +217,9 @@ void UserCharacter::drawUserInterface(sf::RenderWindow & window){
 		}
 		else if (ui.name == "expoints"){
 			ui.t.setText("Expoints: " + std::to_string(pistol->getExpoints()));
+		}
+		else if (ui.name == "tier"){
+			ui.t.setText("Tier: " + std::to_string(pistol->getTier()));
 		}
 		ui.t.draw(window, ui.position);
 	}

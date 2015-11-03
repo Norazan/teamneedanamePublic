@@ -8,17 +8,17 @@ ProjectileWeapon::ProjectileWeapon(std::string weaponType, bool isFriendly) :
 	isFriendly{isFriendly}
 {
 	pistol.name = "pistol";
-	pistol.attackSpeed = 200;
+	pistol.attackSpeed = 300;
 	pistol.maxAmmo = 100;
 	pistol.baseDamage = 25;
 	pistol.maxAmmoInMagazine = 10;
 
 	shotgun.name = "shotgun";
-	shotgun.attackSpeed = 500;
+	shotgun.attackSpeed = 600;
 	shotgun.maxAmmo = 36;
 	shotgun.baseDamage = 10;
 	shotgun.maxAmmoInMagazine = 6;
-	shotgun.amountOfBullets = 5;
+	shotgun.amountOfBullets = 3;
 	shotgun.spread = 0.05f;
 	shotgun.reloadTime = 800;
 
@@ -66,23 +66,23 @@ void ProjectileWeapon::setCamera(Camera * c){
 }
 
 int ProjectileWeapon::getAmmo(){
-	return currentGun.currentAmmo;
+	return int(currentGun.currentAmmo);
 }
 
 int ProjectileWeapon::getAmmoInMagazine(){
-	return currentGun.ammoInMagazine;
+	return int(currentGun.ammoInMagazine);
 }
 
 void ProjectileWeapon::setAmmo(int ammo){
 	currentGun.currentAmmo = ammo;
 }
 
-void ProjectileWeapon::setAmmoInMagazine(int ammo){
+void ProjectileWeapon::setAmmoInMagazine(double ammo){
 	currentGun.ammoInMagazine = ammo;
 }
 
 int ProjectileWeapon::calculateDamage(){
-	return currentGun.baseDamage + ((currentGun.baseDamage / 10)* currentGun.weaponTier);
+	return int(currentGun.baseDamage + ((currentGun.baseDamage / 10)* currentGun.weaponTier));
 }
 
 std::string ProjectileWeapon::switchWeapon(){
@@ -115,7 +115,28 @@ int ProjectileWeapon::getExpoints(){
 	return currentGun.expoints;
 }
 
+int ProjectileWeapon::getTier(){
+	return int(currentGun.weaponTier);
+}
+
 void ProjectileWeapon::setExpoints(int expoints){
 	currentGun.expoints += expoints;
+	// check if curren gun has achieved next tier.
+	if (currentGun.expoints >= currentGun.nextLevelExpoints){
+		++currentGun.weaponTier;
+		currentGun.nextLevelExpoints = currentGun.nextLevelExpoints * 2;
+		// upgrade ammo
+		currentGun.maxAmmo += currentGun.maxAmmo * 0.1;
+		currentGun.currentAmmo = currentGun.maxAmmo;
+		currentGun.maxAmmoInMagazine += currentGun.maxAmmoInMagazine * 0.1;
+		// upgrade speed
+		currentGun.reloadTime -= currentGun.reloadTime * 0.1;
+		currentGun.projectileVelocity += currentGun.projectileVelocity * 0.2;
+		currentGun.attackSpeed -= currentGun.attackSpeed * 0.1;
+		if (currentGun.name == "shotgun"){
+			++currentGun.amountOfBullets;
+			currentGun.spread -= float(currentGun.spread * 0.2);
+		}
+	}
 }
 

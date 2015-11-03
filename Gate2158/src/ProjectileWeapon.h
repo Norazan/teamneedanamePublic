@@ -12,17 +12,17 @@
 
 struct gun{
 	std::string name;
-	int attackSpeed = 1;
-	int maxAmmo = 1;
-	int currentAmmo = 1;
-	int ammoInMagazine = 1;
-	int maxAmmoInMagazine = 1;
-	int baseDamage = 1;
-	int weaponTier = 1;
-	int projectileVelocity = 1;
-	int reloadTime = 1000;
+	double attackSpeed = 1;
+	double maxAmmo = 1;
+	double currentAmmo = 1;
+	double ammoInMagazine = 1;
+	double maxAmmoInMagazine = 1;
+	double baseDamage = 1;
+	double weaponTier = 1;
+	double projectileVelocity = 1;
+	double reloadTime = 1000;
 	int expoints = 0;
-	int nextLevelExpoints = 1;
+	int nextLevelExpoints = 100;
 	float spread = 0;
 	float amountOfBullets = 1;
 };
@@ -31,17 +31,18 @@ class ProjectileWeapon: public Weapon{
 public:
 	ProjectileWeapon(std::string weaponType, bool isFriendly);
 	ProjectileWeapon();
-	void shoot(sf::Vector2f location, float angle);
-	int getAmmo();
+	void shoot(sf::Vector2f location, float angle) override;
+	int getAmmo() override;
 	int getAmmoInMagazine();
-	void setAmmo(int ammo);
-	void setAmmoInMagazine(int ammo);
-	int calculateDamage();
+	void setAmmo(int ammo) override;
+	void setAmmoInMagazine(double ammo);
+	int calculateDamage() override;
 	void reload();
 	void setCamera(Camera *c);
 	std::string switchWeapon();
 	int getExpoints();
 	void setExpoints(int expoints) override;
+	int getTier();
 private:
 	std::string weaponType;
 	bool isFriendly;
