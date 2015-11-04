@@ -2,7 +2,6 @@
 //
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
 #include "UserInput.h"
 #include "Menu.h"
 #include "World.h"
@@ -20,16 +19,6 @@
 
 int main()
 {
-
-	sf::Music backgroundMusic;
-	
-	if (!backgroundMusic.openFromFile("../../Gate2158/media/audio/Analog_Boys_2.wav")){
-		return -1;
-	}
-	backgroundMusic.setLoop(true);
-
-	backgroundMusic.play();
-
 	int width= 1280;
 	int height = 720;
     sf::RenderWindow window(sf::VideoMode(width, height), "Gate2158");
