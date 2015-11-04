@@ -103,7 +103,7 @@ int main()
 	drawable *rec2 = new Rectangle(sf::Vector2f{ 40, 40 }, sf::Color::Red);
 	drawable *rec3 = new Rectangle(sf::Vector2f{ 60, 60 }, sf::Color::Yellow);
 
-	MapObject con1(1, rec0, sf::Vector2f{300,250});
+	//MapObject con1(1, rec0, sf::Vector2f{300,250});
 	MapObject con3(1, rec1, sf::Vector2f{50,50},&convex2);
 	MapObject con5(1, rec3, sf::Vector2f{ 200, 300 }, &convex4);
 	Sprite characterGun("../../Gate2158/media/character_gun.png");
@@ -114,7 +114,7 @@ int main()
 	Enemy enemy4(sf::Vector2f{ 600, 500 }, &con2, "shotgun", 400, 1, &enemyHit4, &enemy);
 
 	Map testMap(3);
-	testMap.addMapObject(&con1);
+	//testMap.addMapObject(&con1);
 	testMap.addMapObject(&con2);
 	testMap.addMapObject(&con3);
 	testMap.addMapObject(&con5);
