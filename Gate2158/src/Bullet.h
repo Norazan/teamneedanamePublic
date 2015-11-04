@@ -1,11 +1,11 @@
 #ifndef GATE2158_BULLET_H
 #define GATE2158_BULLET_H
 
-#include "Camera.h"
+#include "Camera.hpp"
 #include <SFML/Graphics.hpp>
 #include "MapObject.h"
 #include "Weapon.h"
-
+class Camera;
 class Bullet : public MapObject {
 public:
 	Bullet(	

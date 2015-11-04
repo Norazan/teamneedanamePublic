@@ -10,7 +10,7 @@
 #include "Text.h"
 #include <SFML/Graphics.hpp>
 #include "ProjectileWeapon.h"
-#include "Camera.h"
+#include "Camera.hpp"
 
 #define PI 3.14159265
 #define angleOfAbove 270.0;
@@ -18,13 +18,13 @@
 #define angleOfLeft 180.0;
 #define angleOfRight 0.0;
 
-
 struct text{
 	Text t;
 	std::string name;
 	sf::Vector2f position;
 };
 
+class ProjectileWeapon;
 class UserCharacter : public Character {
 public:
 	//! Constructor

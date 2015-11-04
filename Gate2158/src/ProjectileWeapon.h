@@ -8,8 +8,8 @@
 #include "Bullet.h"
 #include <vector>
 #include <string>
-#include "Camera.h"
-
+#include "Camera.hpp"
+class Camera;
 struct gun{
 	std::string name;
 	double attackSpeed = 1;

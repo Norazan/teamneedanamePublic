@@ -7,7 +7,7 @@
 #include "Menu.h"
 #include "World.h"
 #include "Map.h"
-#include "Camera.h"
+#include "Camera.hpp"
 #include "Rectangle.h"
 #include "Sprite.h"
 #include "Text.h"
