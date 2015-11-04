@@ -8,6 +8,7 @@ public:
 	virtual int getAmmo() = 0;
 	virtual void setAmmo(int ammo) = 0;
 	virtual int calculateDamage()= 0;
+	virtual void setExpoints(int expoints) = 0;
 };
 
 

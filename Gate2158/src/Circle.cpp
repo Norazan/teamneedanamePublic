@@ -4,8 +4,7 @@
 
 #include "Circle.h"
 
-Circle::Circle(sf::Vector2f pos, float radius, sf::Color color) :
-	drawable(pos)
+Circle::Circle(float radius, sf::Color color)
 {
 	circle.setRadius(radius);
 	circle.setFillColor(color);
@@ -14,8 +13,8 @@ Circle::Circle(sf::Vector2f pos, float radius, sf::Color color) :
 	circle.setOrigin(center);
 }
 
-void Circle::draw(sf::RenderWindow &window){
-	circle.setPosition(getPosition());
+void Circle::draw(sf::RenderWindow &window, sf::Vector2f position){
+	circle.setPosition(position);
 	window.draw(circle);
 }
 

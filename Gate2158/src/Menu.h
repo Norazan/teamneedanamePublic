@@ -2,20 +2,22 @@
 #define GATE2158_MENU_H
 
 #include <SFML/Graphics.hpp>
+#include "UserInput.h"
 
 class Menu{
 public:
-	Menu(sf::RenderWindow &windowRef);
-	void show(bool showMenu);
-	int getCurrentSelection();
-	void setCurrentSelection(int selection);
-	void skipSplashScreen();
-
-protected:
+	Menu(sf::RenderWindow &windowRef, bool showMenu);
+	void draw();
+	void processKeys();
+	bool getShowingMenu();
+private:
 	sf::RenderWindow &window;
 	bool showingMenu;
 	int currentSelection;
 	bool splashScreen;
+	UserInput input;
+	sf::Vector2f startLocation{ 1280 / 2 - 200 / 2, 400 };
+	sf::Vector2f quitLocation{ 1280 / 2 - 200 / 2, 550 };
 };
 
 

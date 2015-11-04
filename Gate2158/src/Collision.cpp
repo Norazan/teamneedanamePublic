@@ -99,7 +99,7 @@ std::vector<Collision::line> Collision::getAxes(MapObject & mo){
 				sf::Vector2f{ -points[i+1].y, points[i+1].x }
 			};
 		}
-		// make line from last point and first point.
+			// make line from last point and first point.
 		else {
 			newAxes = {
 				sf::Vector2f{ -points[i].y, points[i].x },
@@ -112,8 +112,8 @@ std::vector<Collision::line> Collision::getAxes(MapObject & mo){
 }
 
 float Collision::getOverlapOnAxes(line axes, MapObject & obj1, MapObject & obj2){
-	std::vector<sf::Vector2f> &convexPointsObj1 = obj1.getConvexPoints();
-	std::vector<sf::Vector2f> &convexPointsObj2 = obj2.getConvexPoints();
+	const std::vector<sf::Vector2f> &convexPointsObj1 = obj1.getConvexPoints();
+	const std::vector<sf::Vector2f> &convexPointsObj2 = obj2.getConvexPoints();
 	// there is no convex.
 	if (convexPointsObj1.size() == 0 || convexPointsObj2.size() == 0){
 		return 0;
@@ -175,7 +175,7 @@ Collision::line Collision::getProjection(float a, MapObject & mo, std::vector<sf
 				x = p.x;
 			}
 		}
-		// save the smallest and the biggest values in projection 
+		// save the smallest and the biggest values in projection
 		if (projection.position_1.x > x || projection.position_1.x == 0) {
 			projection.position_1.x = x;
 		}

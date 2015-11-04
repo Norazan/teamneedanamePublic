@@ -12,20 +12,21 @@ MapObject::MapObject(){
 	
 }
 
-MapObject::MapObject(int renderLayer, drawable* drawable) :
-	renderLayer{ renderLayer },
-	drawObject{ drawable }
+MapObject::MapObject(int renderLayer, drawable *drawable, sf::Vector2f position):
+	renderLayer{renderLayer},
+	drawObject{ drawable },
+	position{ position }
 {
 	position = sf::Vector2f{ 0, 0 };
 	isFriendly = false;
 }
 
-MapObject::MapObject(int renderLayer, drawable* drawable, Convex * hitbox) :
+MapObject::MapObject(int renderLayer, drawable* drawable, sf::Vector2f position, Convex * hitbox) :
 	renderLayer{ renderLayer },
 	drawObject{ drawable },
+	position{ position },
 	Hitbox{hitbox}
 {
-	position = sf::Vector2f{ 0, 0 };
 	isFriendly = false;
 }
 
@@ -56,19 +57,10 @@ float MapObject::getRotation() {
 
 
 void MapObject::setPosition(sf::Vector2f pos){
-	if (Hitbox != nullptr){
-		Hitbox->setPosition(pos);
-	}
-	if (drawObject != nullptr){
-		drawObject->setPosition(pos);
-	}
-	position = pos;
+	
 }
 
 sf::Vector2f MapObject::getPosition(){
-	if (drawObject != nullptr){
-		 position = drawObject->getPosition();
-	}
 	return position;
 }
 
@@ -77,20 +69,26 @@ void MapObject::setRenderLayer(int renderLayer){
 }
 
 int MapObject::getRenderLayer(){
-	return renderLayer;
+	return this->renderLayer;
 }
 
 std::vector<sf::Vector2f> MapObject::getConvexPoints(){
 	if (Hitbox != nullptr){
+
+		sf::Vector2f size = Hitbox->getSize();
+		sf::Vector2f pos = position;
+		pos.x += ((size.x - 90) / 10) * -5;
+		pos.y += ((size.y - 50) / 10) * -5;
+
 		std::vector<sf::Vector2f> points = Hitbox->getPoints();
 		for (auto & point : points){
-			point = Hitbox->getPosition() + point;
+			point = pos + point;
 		}
 		//Add rotation to ConvexPoints
 		float rotationAngle = getRotation();
 
 		std::vector<sf::Vector2f> rotatedPoints;
-		sf::Vector2f origin = Hitbox->getOrigin() + Hitbox->getPosition();
+		sf::Vector2f origin = Hitbox->getOrigin() + pos;
 
 		for (auto &p : points){
 
@@ -141,9 +139,9 @@ std::vector<sf::Vector2f> MapObject::getConvexPoints(){
 
 void MapObject::draw(sf::RenderWindow & window){
 	if (Hitbox != nullptr){
-		Hitbox->draw(window);
+		Hitbox->draw(window, position);
 	}
-	drawObject->draw(window);
+	drawObject->draw(window, position);
 }
 sf::Vector2f MapObject::getSize(){
 	if (drawObject != nullptr){
@@ -172,4 +170,8 @@ bool MapObject::isFriend(){
 
 void MapObject::collisionDetected(MapObject & mos){
 
+}
+
+int MapObject::getExpoints(){
+	return expointOnHit;
 }

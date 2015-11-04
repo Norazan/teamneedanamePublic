@@ -21,15 +21,10 @@ int main()
 	int width= 1280;
 	int height = 720;
     sf::RenderWindow window(sf::VideoMode(width, height), "Gate2158");
-	Menu menuScreen(window);
-	UserInput userInputKey;
 
-	Rectangle rec0(sf::Vector2f{ 300, 250.0 }, sf::Vector2f{ 200, 200 }, sf::Color::Blue);
-	Rectangle rec1(sf::Vector2f{ 50.0, 50.0 }, sf::Vector2f{ 50, 50 }, sf::Color::Red);
-	Rectangle rec2(sf::Vector2f{ 400.0, 400 }, sf::Vector2f{ 40, 40 }, sf::Color::Red);
-	Rectangle rec3(sf::Vector2f{ 200, 300 }, sf::Vector2f{ 60, 60 }, sf::Color::Yellow);
-	Sprite testSprite(sf::Vector2f{ 200.0, 100.0 }, "../../Gate2158/media/download.jpg");
-	Sprite characterGun(sf::Vector2f{ 300.0, 100.0 }, "../../Gate2158/media/character_gun.png");
+	UserInput userInputKey;
+	Menu menuScreen(window, true);
+
 
 	//sf::Font tFont;
 
@@ -41,9 +36,11 @@ int main()
 	//Always pass the font by reference, they are heavy elements! 
 	//Passing nby value will give a C++ exception error
 	//Loading font should be a function in the Text object, maybe load minimal amount of fonts on game startup?
-	//Text testText(ttString, sf::Vector2f(200, 200), sf::Text::Style::Regular, sf::Color::Red, 30, &tFont);
+	//drawable *testText = new Text(ttString,  sf::Text::Style::Regular, sf::Color::Red, 30, &tFont);
 
-	MapObject rectangle1(1, &rec1);
+	//MapObject text(2, testText, sf::Vector2f{ 50.0, 0.0 });
+
+	//Text testText(ttString, sf::Vector2f(200, 200), sf::Text::Style::Regular, sf::Color::Red, 30, &tFont);
 
 	std::vector<sf::Vector2f> points{ 
 		sf::Vector2f{ 0, 0 },
@@ -85,11 +82,17 @@ int main()
 	Convex convex4(squarePointsss, sf::Vector2f(200, 300), sf::Vector2f(30, 30));
 	Convex userHit(userHitbox, sf::Vector2f(300, 100), sf::Vector2f(45,25));
 
-	MapObject con1(2, &rec0, &convex);
-	MapObject con3(2, &rec1, &convex2);
-	MapObject con4(2, &rec2, &convex3);
-	MapObject con5(2, &rec3, &convex4);
-	UserCharacter con2(100, 0, &characterGun, &userHit);
+	drawable *rec0 = new Rectangle(sf::Vector2f{ 200, 200 }, sf::Color::Blue);
+	drawable *rec1 = new Rectangle(sf::Vector2f{ 50, 50 }, sf::Color::Red);
+	drawable *rec2 = new Rectangle(sf::Vector2f{ 40, 40 }, sf::Color::Red);
+	drawable *rec3 = new Rectangle(sf::Vector2f{ 60, 60 }, sf::Color::Yellow);
+
+	MapObject con1(1, rec0, sf::Vector2f{300,250},&convex);
+	MapObject con3(1, rec1, sf::Vector2f{50,50},&convex2);
+	MapObject con4(1, rec2, sf::Vector2f{400,400},&convex3);
+	MapObject con5(1, rec3, sf::Vector2f{200,300},&convex4);
+	Sprite characterGun("../../Gate2158/media/character_gun.png");
+	UserCharacter con2(100, 0, &characterGun, sf::Vector2f{300,500},&userHit);
 
 	Map testMap(3);
 	testMap.addMapObject(&con1);
@@ -97,6 +100,8 @@ int main()
 	testMap.addMapObject(&con3);
 	testMap.addMapObject(&con4);
 	testMap.addMapObject(&con5);
+
+//   	testMap.loadFromFile("../../Gate2158/media/maps/checkerboard.png");
 
 	World Gate2158;
 	Gate2158.addMap(testMap);
@@ -123,9 +128,13 @@ int main()
 		userInputKey.updateToggleKey();
 
         window.clear();
-		userCamera.draw();
-		menuScreen.show(true);
-
+		if (menuScreen.getShowingMenu()){
+			menuScreen.draw();
+		}
+		else{
+			userCamera.draw();
+			con2.drawUserInterface(window);
+		}
         window.display();
     }
     return 0;

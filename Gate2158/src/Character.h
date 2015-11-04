@@ -15,7 +15,7 @@ public:
 	//! @parameter maxHealth
 	//! @parameter renderLayer
 	//! @parameter drawable
-	Character(float maxHealth, int renderLayer, drawable* drawable, Convex* convex);
+	Character(float maxHealth, int renderLayer, drawable* drawable, sf::Vector2f position, Convex* convex);
 
 	//! Function draw
 	//

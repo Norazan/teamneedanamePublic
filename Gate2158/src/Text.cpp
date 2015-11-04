@@ -4,8 +4,8 @@
 
 #include "Text.h"
 
-Text::Text(std::string t, sf::Vector2f pos, sf::Text::Style style, sf::Color color, int size, std::string f) :
-drawable(pos)
+Text::Text(std::string t, sf::Text::Style style, sf::Color color, int size, std::string f)
+
 {
 	text.setString(t);
 	text.setStyle(style);
@@ -23,28 +23,22 @@ drawable(pos)
 }
 
 Text::Text(
-	sf::String t,
+	std::string t,
 	sf::Vector2f pos,
 	sf::Text::Style style,
 	sf::Color color,
 	int size,
 	sf::Font *font
-	) :drawable(pos){
-
+){
 	text.setString(t);
-	text.setPosition(pos);
 	text.setStyle(style);
 	text.setColor(color);
 	text.setCharacterSize(size);
 	text.setFont(*font);
-
-	sf::Vector2f s = getSize();
-	sf::Vector2f center{ s.x / 2, s.y / 2 };
-	text.setOrigin(center);
 }
 
-void Text::draw(sf::RenderWindow &window){
-	text.setPosition(getPosition());
+void Text::draw(sf::RenderWindow &window, sf::Vector2f &position){
+	text.setPosition(position);
 	window.draw(text);
 }
 
