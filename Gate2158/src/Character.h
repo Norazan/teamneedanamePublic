@@ -25,7 +25,7 @@ public:
 
 	virtual void act(sf::RenderWindow & window) override;
 
-	virtual int getExpoints() override;
+	virtual int getExpoints(int damage) override;
 
 protected:
 	//! Function getHealth

@@ -36,6 +36,6 @@ void Character::act(sf::RenderWindow & window){
 
 }
 
-int Character::getExpoints(float damage){
+int Character::getExpoints(int damage){
 	return totalExpoints / (health / damage);
 }
