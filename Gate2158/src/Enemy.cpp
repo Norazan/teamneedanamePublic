@@ -1,4 +1,5 @@
 #include "Enemy.h"
+#include <iostream>
 
 Enemy::Enemy(
 	sf::Vector2f position,
@@ -13,6 +14,7 @@ Enemy::Enemy(
 	user{ user }
 {
 	isFriendly = 2;
+	totalExpoints = 100;
 	this->weapon = new ProjectileWeapon(weapon, 2);
 }
 void Enemy::draw(sf::RenderWindow & window, sf::Vector2f drawPosition){
@@ -21,6 +23,7 @@ void Enemy::draw(sf::RenderWindow & window, sf::Vector2f drawPosition){
 void Enemy::collisionDetected(MapObject & mo){
 	sf::Vector2f velocity = getVelocity();
 	move(-velocity);
+
 }
 
 void Enemy::act(sf::RenderWindow & window){
@@ -82,4 +85,12 @@ float Enemy::calculateRotation(sf::Vector2f userPosition){
 		rotation = 90 - angle;
 	}
 	return rotation;
+}
+
+void Enemy::setDamage(int damage){
+	health -= damage;
+	if (health < 0){
+		Camera *camera = Camera::getInstance();
+		camera->revmoveMapObjectOnCurrentMap(this);
+	}
 }

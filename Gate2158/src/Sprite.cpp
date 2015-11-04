@@ -23,8 +23,8 @@ void Sprite::draw(sf::RenderWindow &window, sf::Vector2f &position){
 
 sf::Vector2f Sprite::getSize(){
 	sf::Vector2f size;
-	size.x = sprite.getLocalBounds().width;
-	size.y = sprite.getLocalBounds().height;
+	size.x = sprite.getGlobalBounds().width;
+	size.y = sprite.getGlobalBounds().height;
 	return size;
 }
 

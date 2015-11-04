@@ -2,6 +2,7 @@
 #define GATE2158_ENEMY_H
 
 #include "Character.h"
+#include "Camera.hpp"
 #include "ProjectileWeapon.h"
 
 #define PI 3.14159265
@@ -24,6 +25,7 @@ public:
 	void draw(sf::RenderWindow & window, sf::Vector2f drawPosition) override;
 	void collisionDetected(MapObject & mo) override;
 	void act(sf::RenderWindow & window) override;
+	void setDamage(int damage) override;
 private:
 	void move(sf::Vector2f dir);
 	float calculateRotation(sf::Vector2f userPosition);

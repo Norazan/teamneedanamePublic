@@ -31,6 +31,7 @@ public:
 	void setCurrentMap(Map & currentMap);
 	void setCurrentPlayer(MapObject *currentPlayer);
 
+	sf::RenderWindow *window;
 private:
 	//! Constructor of Camera
 	//
@@ -40,7 +41,6 @@ private:
 
 	Camera();
 	static Camera *camera;
-	sf::RenderWindow *window;
 	Map *currentMap;
 	MapObject *currentPlayer;
 	bool canCheckCollision = true;

@@ -16,6 +16,8 @@ public:
 	virtual void draw(sf::RenderWindow & window, sf::Vector2f drawPosition) override;
 	virtual void collisionDetected(MapObject & mo) override;
 	virtual void act(sf::RenderWindow & window) override;
+	virtual int getExpoints(int damage) override;
+	virtual void setDamage(int damage) override;
 
 private:
     sf::Vector2f velocity;

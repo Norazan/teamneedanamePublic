@@ -96,29 +96,29 @@ int main()
 	Convex userHit(userHitbox, sf::Vector2f(300, 100), sf::Vector2f(45, 25));
 	Convex enemyHit(userHitbox, sf::Vector2f(500, 500), sf::Vector2f(45, 25));
 
-	drawable *rec0 = new Rectangle(sf::Vector2f{ 200, 200 }, sf::Color::Blue);
+	drawable *rec0 = new Rectangle(sf::Vector2f{ 200, 300 }, sf::Color::Blue);
 	drawable *rec1 = new Rectangle(sf::Vector2f{ 50, 50 }, sf::Color::Red);
 	drawable *rec2 = new Rectangle(sf::Vector2f{ 40, 40 }, sf::Color::Red);
 	drawable *rec3 = new Rectangle(sf::Vector2f{ 60, 60 }, sf::Color::Yellow);
 
-	MapObject con1(1, rec0, sf::Vector2f{300,250},&convex);
+	MapObject con1(1, rec0, sf::Vector2f{300,250});
 	MapObject con3(1, rec1, sf::Vector2f{50,50},&convex2);
-
-
 	MapObject con5(1, rec3, sf::Vector2f{ 200, 300 }, &convex4);
 	Sprite characterGun("../../Gate2158/media/character_gun.png");
 	Sprite enemy("../../Gate2158/media/character_machinegun.png");
-	UserCharacter con2(100, 0, &characterGun, sf::Vector2f{ 400,400 }, &userHit);
-	Enemy enemy2(sf::Vector2f{ 500, 500 }, &con2, "pistol", 100, 0, &enemyHit, &enemy);
-	
+	UserCharacter con2(1000, 0, &characterGun, sf::Vector2f{ 300, 500 }, &userHit);
+	Enemy enemy2(sf::Vector2f{ 500, 500 }, &con2, "pistol", 250, 0, &enemyHit, &enemy);
+	Enemy enemy3(sf::Vector2f{ 100, 500 }, &con2, "pistol", 250, 0, &enemyHit, &enemy);
+	Enemy enemy4(sf::Vector2f{ 800, 500 }, &con2, "shotgun", 250, 0, &enemyHit, &enemy);
 
 	Map testMap(3);
 	testMap.addMapObject(&con1);
 	testMap.addMapObject(&con2);
 	testMap.addMapObject(&con3);
-	//testMap.addMapObject(&con4);
 	testMap.addMapObject(&con5);
 	testMap.addMapObject(&enemy2);
+	testMap.addMapObject(&enemy3);
+	testMap.addMapObject(&enemy4);
 
 //   	testMap.loadFromFile("../../Gate2158/media/maps/checkerboard.png");
 

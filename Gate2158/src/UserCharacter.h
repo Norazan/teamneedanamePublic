@@ -43,6 +43,7 @@ public:
 
 	void drawUserInterface(sf::RenderWindow & window);
 	void act(sf::RenderWindow & window) override;
+	void setDamage(int damage) override;
 
 private:
 	//! Function move

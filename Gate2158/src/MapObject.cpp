@@ -127,12 +127,19 @@ std::vector<sf::Vector2f> MapObject::getConvexPoints(){
 	else {
 		std::vector<sf::Vector2f> points;
 		sf::Vector2f pos = position;
-		pos.x += ((10 - 90) / 10) * -5; 
-		pos.y += ((10 - 50) / 10) * -5;
+		sf::Vector2f size;
+		if (drawObject != nullptr){
+			size = drawObject->getSize();
+		}
+		else {
+			size = sf::Vector2f{ 10, 10 };
+		}
+		pos.x += ((size.x - 90) / 10) * -5; 
+		pos.y += ((size.y - 50) / 10) * -5;
 		points.push_back(sf::Vector2f{ pos.x, pos.y });
-		points.push_back(sf::Vector2f{ pos.x + 10, pos.y });
-		points.push_back(sf::Vector2f{ pos.x + 10, pos.y + 10 });
-		points.push_back(sf::Vector2f{ pos.x, pos.y + 10 });
+		points.push_back(sf::Vector2f{ pos.x + size.x, pos.y });
+		points.push_back(sf::Vector2f{ pos.x + size.x, pos.y + size.y });
+		points.push_back(sf::Vector2f{ pos.x, pos.y + size.y });
 		return points;
 	}
 }
@@ -172,10 +179,14 @@ void MapObject::collisionDetected(MapObject & mos){
 
 }
 
-int MapObject::getExpoints(){
-	return expointOnHit;
+int MapObject::getExpoints(int damage){
+	return totalExpoints;
 }
 
 void MapObject::act(sf::RenderWindow & window){
+
+}
+
+void MapObject::setDamage(int damage){
 
 }
