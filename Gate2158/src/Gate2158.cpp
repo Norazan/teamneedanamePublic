@@ -132,6 +132,14 @@ int main()
 	
     window.setVerticalSyncEnabled(true);
 
+	sf::Music gameMusic;
+	if (!gameMusic.openFromFile("../../Gate2158/media/audio/bensound-scifi.wav")){
+		return -1;
+	}
+	gameMusic.setLoop(true);
+	
+
+
 	while(window.isOpen()){
         sf::Event event;
         while(window.pollEvent(event)){
@@ -151,6 +159,9 @@ int main()
 			menuScreen.draw();
 		}
 		else{
+			if (gameMusic.getStatus() != sf::SoundSource::Status::Playing){
+				gameMusic.play();
+			}
 			userCamera->draw();
 			con2.drawUserInterface(window);
 		}

@@ -90,6 +90,7 @@ private:
 	bool canRotate = true;
 
 	sf::Font tFont;
+	sf::Font gunFont;
 
 	std::vector<text> userInterface;
 };

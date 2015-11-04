@@ -29,6 +29,12 @@ UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawabl
 		//Error handeling
 		std::cout << "can't load font";
 	}
+
+	if (!gunFont.loadFromFile("../../Gate2158/media/Guns1.ttf")){
+		//Error handeling
+		std::cout << "can't load font";
+	}
+
 	makeUserInterface();
 }
 
