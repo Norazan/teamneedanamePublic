@@ -34,17 +34,18 @@ Bullet::Bullet(
 	this->angle = angle;
 
 	bullet.setRotation(angle);
-	MapObject(1);
+	MapObject(2);
 
 }
 
-void Bullet::draw(sf::RenderWindow & window, sf::Vector2f drawPosition){
+void Bullet::draw(sf::RenderWindow & window, sf::Vector2f drawPos){
 	if (outOfBound(window) || hasCollision){
 		c->revmoveMapObjectOnCurrentMap(this);
 	}
 	else {
+		drawPosition = drawPos;
 		location = sf::Vector2f(location.x + velocity.x*bSpeed, location.y - velocity.y*bSpeed);
-		bullet.setPosition(location);
+		bullet.setPosition(drawPos);
 		position = location;
 		window.draw(bullet);
 	}

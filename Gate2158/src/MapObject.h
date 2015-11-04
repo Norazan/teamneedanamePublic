@@ -34,6 +34,8 @@ public:
 	void setHitbox(Convex *Hitbox);
 	Convex* getHitbox();
 	virtual void collisionDetected(MapObject & mo);
+	void setDrawPosition(sf::Vector2f drawPos);
+	sf::Vector2f getDrawPosition();
 
 private:
 	Convex* Hitbox = nullptr;
@@ -45,7 +47,9 @@ protected:
 	int renderLayer;
 	int totalExpoints = 1;
 	sf::Vector2f position;
+	sf::Vector2f drawPosition;
 	int isFriendly = 0;
+
 };
 
 

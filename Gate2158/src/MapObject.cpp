@@ -76,7 +76,7 @@ std::vector<sf::Vector2f> MapObject::getConvexPoints(){
 	if (Hitbox != nullptr){
 
 		sf::Vector2f size = Hitbox->getSize();
-		sf::Vector2f pos = position;
+		sf::Vector2f pos = drawPosition;
 		pos.x += ((size.x - 90) / 10) * -5;
 		pos.y += ((size.y - 50) / 10) * -5;
 
@@ -126,7 +126,7 @@ std::vector<sf::Vector2f> MapObject::getConvexPoints(){
 	}
 	else {
 		std::vector<sf::Vector2f> points;
-		sf::Vector2f pos = position;
+		sf::Vector2f pos = drawPosition;
 		sf::Vector2f size;
 		if (drawObject != nullptr){
 			size = drawObject->getSize();
@@ -189,4 +189,11 @@ void MapObject::act(sf::RenderWindow & window){
 
 void MapObject::setDamage(int damage){
 
+}
+
+void MapObject::setDrawPosition(sf::Vector2f drawPos){
+	drawPosition = drawPos;
+}
+sf::Vector2f MapObject::getDrawPosition(){
+	return drawPosition;
 }

@@ -24,17 +24,24 @@ Camera * Camera::getInstance(){
 void Camera::draw(){
 	sf::Vector2f drawPosition;
 	sf::Vector2f cameraBeginPosition;
+	float oldRotation = 0, newRotation = 0;
 	//int playerOutsideCameraLengthX, playerOutsideCameraLengthY;
 	cameraBeginPosition.x = currentPlayer->getPosition().x - ((float)window->getSize().x / 2);
 	cameraBeginPosition.y = currentPlayer->getPosition().y - ((float)window->getSize().y / 2);
 	checkCollision();
 	for (int i = currentMap->getLayers(); i >= 0; i--){
-		for (auto mo : *getObjectsAroundPlayer()){
-			drawPosition.x = mo->getPosition().x - cameraBeginPosition.x;
-			drawPosition.y = mo->getPosition().y - cameraBeginPosition.y;
+		for (auto &mo : *getObjectsAroundPlayer()){
 			if (mo->getRenderLayer() == i){
-				mo->act(*window);
+				drawPosition.x = mo->getPosition().x - cameraBeginPosition.x;
+				drawPosition.y = mo->getPosition().y - cameraBeginPosition.y;
 				mo->draw(*window, drawPosition);
+				mo->setDrawPosition(drawPosition);
+				if (mo->getRenderLayer() == 2){
+					mo->rotate(oldRotation);
+					newRotation = mo->getRotation();
+					oldRotation = newRotation;
+				}
+				mo->act(*window);
 			}
 		}
 	}
@@ -71,7 +78,7 @@ void Camera::checkCollision(){
 		if (mo->getRenderLayer() == 0){
 			// check if character has collision with objects
 			for (auto &object : currentMap->getAllMapObjects()){
-				if (object != mo && mo->getRenderLayer() != 1){
+				if (object != mo && mo->getRenderLayer() != 2){
 					// do nothing with overlap
 					(void)collision.checkCollision(*mo, *object);
 				}

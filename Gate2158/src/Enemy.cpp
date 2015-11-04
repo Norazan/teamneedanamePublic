@@ -17,8 +17,10 @@ Enemy::Enemy(
 	totalExpoints = 100;
 	this->weapon = new ProjectileWeapon(weapon, 2);
 }
-void Enemy::draw(sf::RenderWindow & window, sf::Vector2f drawPosition){
-	MapObject::draw(window, drawPosition);
+void Enemy::draw(sf::RenderWindow & window, sf::Vector2f drawPos){
+	rotate(calculateRotation(user->getDrawPosition()));
+	MapObject::draw(window, drawPos);
+
 }
 void Enemy::collisionDetected(MapObject & mo){
 	sf::Vector2f velocity = getVelocity();
@@ -27,8 +29,7 @@ void Enemy::collisionDetected(MapObject & mo){
 }
 
 void Enemy::act(sf::RenderWindow & window){
-	rotate(calculateRotation(user->getPosition()));
-	weapon->shoot(position, calculateRotation(user->getPosition()));
+	//weapon->shoot(position, calculateRotation(user->getDrawPosition()));
 	if (weapon->getAmmoInMagazine() == 0){
 		weapon->reload();
 		weapon->setAmmo(weapon->getMaxAmmo());
@@ -39,7 +40,7 @@ void Enemy::move(sf::Vector2f dir){
 }
 
 float Enemy::calculateRotation(sf::Vector2f userPosition){
-	sf::Vector2f pos = getPosition();
+	sf::Vector2f pos = getDrawPosition();
 	// Make vector with the difference between the two vectors, position of character and position of the mouse.
 	sf::Vector2f difference{ (pos.x - userPosition.x), (pos.y - userPosition.y) };
 

@@ -39,14 +39,12 @@ UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawabl
 }
 
 void UserCharacter::draw(sf::RenderWindow & window, sf::Vector2f drawPosition) {
-	input.updateToggleKey();
-	processKeys();
-	processMouse(window);
 	MapObject::draw(window, drawPosition);
 }
 
 void UserCharacter::move(sf::Vector2f dir){
 	position += dir;
+	drawPosition += dir;
 }
 
 void UserCharacter::processKeys(){
@@ -94,12 +92,12 @@ void UserCharacter::processMouse(sf::RenderWindow & window){
 		rotate(currentRotation);
 	}
 	if (input.getMousePress(sf::Mouse::Button::Left)){
-		pistol->shoot(getPosition(), calculateRotation(mousePosition));
+		pistol->shoot(drawPosition, calculateRotation(mousePosition));
 	}
 }
 
 float UserCharacter::calculateRotation(sf::Vector2i mousePosition){
-	sf::Vector2f pos = getPosition();
+	sf::Vector2f pos = getDrawPosition();
 	// Make vector with the difference between the two vectors, position of character and position of the mouse.
 	sf::Vector2f difference{ (pos.x - mousePosition.x), (pos.y - mousePosition.y) };
 
@@ -148,7 +146,7 @@ float UserCharacter::calculateRotation(sf::Vector2i mousePosition){
 }
 
 void UserCharacter::collisionDetected(MapObject & mo){
-	if (!mo.isFriend()){
+	if (mo.isFriend() != isFriend()){
 		sf::Vector2f velocity = getVelocity();
 		move(-velocity);
 		canRotate = false;
