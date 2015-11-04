@@ -30,3 +30,7 @@ void MovableMapObject::collisionDetected(MapObject & mo){
 void MovableMapObject::act(sf::RenderWindow & window){
 
 }
+
+int MovableMapObject::getExpoints(){
+	return 0;
+}

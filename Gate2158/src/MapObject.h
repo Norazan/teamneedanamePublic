@@ -44,7 +44,7 @@ private:
 protected:
 	drawable *drawObject;
 	int renderLayer;
-	int expointOnHit = 1000;
+	int totalExpoints = 0;
 	sf::Vector2f position;
 	int isFriendly = 0;
 };

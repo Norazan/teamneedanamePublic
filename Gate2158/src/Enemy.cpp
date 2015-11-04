@@ -21,6 +21,7 @@ void Enemy::draw(sf::RenderWindow & window){
 void Enemy::collisionDetected(MapObject & mo){
 	sf::Vector2f velocity = getVelocity();
 	move(-velocity);
+
 }
 
 void Enemy::act(sf::RenderWindow & window){

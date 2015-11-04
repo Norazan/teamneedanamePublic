@@ -35,3 +35,7 @@ void Character::collisionDetected(MapObject & mo){
 void Character::act(sf::RenderWindow & window){
 
 }
+
+int Character::getExpoints(float damage){
+	return totalExpoints / (health / damage);
+}

@@ -18,7 +18,12 @@ Bullet::Bullet(
 
 	float size = 10;
 	bullet.setRadius(size);
-	bullet.setFillColor(sf::Color{ 0, 255, 0 });
+	if (isFriend == 1){
+		bullet.setFillColor(sf::Color{ 0, 255, 0 });
+	}
+	if (isFriend == 2){
+		bullet.setFillColor(sf::Color{ 255, 0, 0 });
+	}
 	bullet.setOrigin(sf::Vector2f{ -18, 13 });
 	bullet.setPosition(startingLocation);
 
@@ -58,7 +63,6 @@ bool Bullet::outOfBound(sf::RenderWindow & window){
 void Bullet::collisionDetected(MapObject &mo){
 	if (mo.isFriend() != isFriend()){
 		hasCollision = true;
-		weapon->setExpoints(damage);
-		std::cout << damage << "\n";
+		weapon->setExpoints(mo.getExpoints());
 	}
 }
