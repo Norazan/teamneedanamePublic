@@ -5,6 +5,8 @@
 #include "Camera.hpp"
 #include "Collision.h"
 #include <iostream>
+#include "MapObject.h"
+#include <SFML/Graphics.hpp>
 
 Camera * Camera::camera = NULL;
 
@@ -20,12 +22,19 @@ Camera * Camera::getInstance(){
 }
 
 void Camera::draw(){
+	sf::Vector2f drawPosition;
+	sf::Vector2f cameraBeginPosition;
+	//int playerOutsideCameraLengthX, playerOutsideCameraLengthY;
+	cameraBeginPosition.x = currentPlayer->getPosition().x - ((float)window->getSize().x / 2);
+	cameraBeginPosition.y = currentPlayer->getPosition().y - ((float)window->getSize().y / 2);
 	checkCollision();
 	for (int i = currentMap->getLayers(); i >= 0; i--){
-		for (auto &mo : currentMap->getAllMapObjects()){
+		for (auto mo : *getObjectsAroundPlayer()){
+			drawPosition.x = mo->getPosition().x - cameraBeginPosition.x;
+			drawPosition.y = mo->getPosition().y - cameraBeginPosition.y;
 			if (mo->getRenderLayer() == i){
 				mo->act(*window);
-				mo->draw(*window);
+				mo->draw(*window, drawPosition);
 			}
 		}
 	}
@@ -43,6 +52,16 @@ void Camera::addMapObjectToCurrentMap(MapObject *mo){
 
 void Camera::revmoveMapObjectOnCurrentMap(MapObject *mo){
 	removeObjects.push_back(mo);
+}
+
+std::vector<MapObject*> *Camera::getObjectsAroundPlayer(){
+	sf::Vector2f regionX;
+	sf::Vector2f regionY;
+	regionX.x = currentPlayer->getPosition().x - ((float)window->getSize().x / 2 + 100);
+	regionX.y = currentPlayer->getPosition().y - ((float)window->getSize().y / 2 + 100);
+	regionY.x = currentPlayer->getPosition().x + ((float)window->getSize().x / 2 + 100);
+	regionY.y = currentPlayer->getPosition().y + ((float)window->getSize().y / 2 + 100);
+	return currentMap->getMapObjectsInRegion(regionX, regionY);
 }
 
 void Camera::checkCollision(){
@@ -66,4 +85,7 @@ void Camera::setWindow(sf::RenderWindow &window){
 }
 void Camera::setCurrentMap(Map & currentMap){
 	this->currentMap = &currentMap;
+}
+void Camera::setCurrentPlayer(MapObject *currentUser){
+	this->currentPlayer = currentUser;
 }

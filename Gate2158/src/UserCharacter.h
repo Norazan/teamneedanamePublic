@@ -10,7 +10,7 @@
 #include "Text.h"
 #include <SFML/Graphics.hpp>
 #include "ProjectileWeapon.h"
-#include "Camera.hpp"
+#include "Camera.h"
 
 #define PI 3.14159265
 #define angleOfAbove 270.0;
@@ -37,7 +37,7 @@ public:
 	//! Function draw
 	//
 	//! draws the drawable of the UserCharacter.
-	void draw(sf::RenderWindow & window) override;
+	void draw(sf::RenderWindow & window, sf::Vector2f drawPosition) override;
 
 	void collisionDetected(MapObject & mo) override;
 

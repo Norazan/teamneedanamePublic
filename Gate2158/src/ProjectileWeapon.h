@@ -8,7 +8,7 @@
 #include "Bullet.h"
 #include <vector>
 #include <string>
-#include "Camera.hpp"
+#include "Camera.h"
 
 struct gun{
 	std::string name;

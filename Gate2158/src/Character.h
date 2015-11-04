@@ -21,7 +21,7 @@ public:
 	//
 	//! @parameter window
 	//! Draws the drawable
-	virtual void draw(sf::RenderWindow & window) override;
+	virtual void draw(sf::RenderWindow & window, sf::Vector2f drawPosition) override;
 
 	virtual void act(sf::RenderWindow & window) override;
 

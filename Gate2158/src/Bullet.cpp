@@ -12,7 +12,7 @@ Bullet::Bullet(
 	int isFriend
 ) :
 	weapon{ weapon },
-	camera{ Camera::getInstance() }
+	c{ Camera::getInstance() }
 {
 	isFriendly = isFriend;
 
@@ -33,9 +33,9 @@ Bullet::Bullet(
 
 }
 
-void Bullet::draw(sf::RenderWindow & window){
+void Bullet::draw(sf::RenderWindow & window, sf::Vector2f drawPosition){
 	if (outOfBound(window) || hasCollision){
-		camera->revmoveMapObjectOnCurrentMap(this);
+		c->revmoveMapObjectOnCurrentMap(this);
 	}
 	else {
 		location = sf::Vector2f(location.x + velocity.x*bSpeed, location.y - velocity.y*bSpeed);

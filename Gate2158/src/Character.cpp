@@ -11,8 +11,8 @@ Character::Character(float maxHealth, int renderLayer, drawable* drawable, sf::V
 
 }
 
-void Character::draw(sf::RenderWindow & window){
-	MapObject::draw(window);
+void Character::draw(sf::RenderWindow & window, sf::Vector2f drawPosition){
+	MapObject::draw(window, drawPosition);
 }
 
 float Character::getHealth(void) {
