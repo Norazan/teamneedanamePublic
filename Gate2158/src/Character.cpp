@@ -3,10 +3,12 @@
 //
 
 #include "Character.h"
+#include <iostream>
 
 Character::Character(float maxHealth, int renderLayer, drawable* drawable, sf::Vector2f position, Convex* convex) :
 	MovableMapObject(renderLayer, drawable, position, convex),
-	maxHealth{maxHealth}
+	maxHealth{ maxHealth },
+	health{maxHealth}
 {
 
 }
@@ -37,5 +39,13 @@ void Character::act(sf::RenderWindow & window){
 }
 
 int Character::getExpoints(int damage){
-	return totalExpoints / (health / damage);
+	if (totalExpoints == 0){
+		totalExpoints = 1;
+	}
+	int expoints = int(totalExpoints / float((int(maxHealth) / damage)));
+	return expoints;
+}
+
+void Character::setDamage(int damage){
+	health -= damage;
 }

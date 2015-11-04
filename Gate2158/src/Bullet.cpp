@@ -63,6 +63,7 @@ bool Bullet::outOfBound(sf::RenderWindow & window){
 void Bullet::collisionDetected(MapObject &mo){
 	if (mo.isFriend() != isFriend()){
 		hasCollision = true;
-		weapon->setExpoints(mo.getExpoints());
+		weapon->setExpoints(mo.getExpoints(damage));
+		mo.setDamage(damage);
 	}
 }

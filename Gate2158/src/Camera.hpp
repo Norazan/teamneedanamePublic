@@ -26,6 +26,7 @@ public:
 	void setWindow(sf::RenderWindow &window);
 	void setCurrentMap(Map & currentMap);
 
+	sf::RenderWindow *window;
 private:
 	//! Constructor of Camera
 	//
@@ -36,7 +37,6 @@ private:
 	Camera();
 	static Camera *camera;
 
-	sf::RenderWindow *window;
 	std::vector<MapObject*> removeObjects;
 	std::vector<MapObject*> addObjects;
 	Map *currentMap;

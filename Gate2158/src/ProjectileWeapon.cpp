@@ -130,7 +130,6 @@ void ProjectileWeapon::setExpoints(int expoints){
 			++currentGun.amountOfBullets;
 			currentGun.spread -= float(currentGun.spread * 0.2);
 		}
-		std::cout << "level up !\n";
 	}
 }
 

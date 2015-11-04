@@ -29,7 +29,8 @@ public:
 	std::vector<sf::Vector2f> getConvexPoints();
 	sf::Vector2f getOrigin();
 	int isFriend();
-	virtual int getExpoints();
+	virtual int getExpoints(int damage);
+	virtual void setDamage(int damage);
 	virtual void act(sf::RenderWindow & window);
 	virtual void draw(sf::RenderWindow & window);
 	void setHitbox(Convex *Hitbox);
@@ -44,7 +45,7 @@ private:
 protected:
 	drawable *drawObject;
 	int renderLayer;
-	int totalExpoints = 0;
+	int totalExpoints = 1;
 	sf::Vector2f position;
 	int isFriendly = 0;
 };
