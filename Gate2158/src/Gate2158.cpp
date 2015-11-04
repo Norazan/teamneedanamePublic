@@ -21,14 +21,14 @@
 int main()
 {
 
-	sf::Music backgroundMusic;
+	/*sf::Music backgroundMusic;
 	
 	if (!backgroundMusic.openFromFile("../../Gate2158/media/audio/Analog_Boys_2.wav")){
 		return -1;
 	}
 	backgroundMusic.setLoop(true);
 
-	backgroundMusic.play();
+	backgroundMusic.play();*/
 
 	int width= 1280;
 	int height = 720;

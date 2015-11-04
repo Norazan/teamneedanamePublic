@@ -10,23 +10,31 @@ splashScreen(true)
 	input.setToggleKey(sf::Keyboard::Down);
 	input.setToggleKey(sf::Keyboard::Space);
 	input.setToggleKey(sf::Keyboard::Return);
+
+	if (!logoTexture.loadFromFile("../../Gate2158/media/TEAMNEEDSANAME.png")){
+		return;
+	}
+	if (!startTexture.loadFromFile("../../Gate2158/media/GameStart.png")){
+		return;
+	}
+	if (!quitTexture.loadFromFile("../../Gate2158/media/GameStop.png")){
+		return;
+	}
+	if (!gameLogoTexture.loadFromFile("../../Gate2158/media/GameLogo.png")){
+		return;
+	}
+	if (!menuBackgroundMusic.openFromFile("../../Gate2158/media/audio/Analog_Boys_2.wav")){
+		return;
+	}
+	menuBackgroundMusic.setLoop(true);
+	menuBackgroundMusic.play();
 }
 
 void Menu::draw(){
 	input.updateToggleKey();
 	showingMenu = true;
-	sf::Texture gameLogoTexture;
-	sf::Texture logoTexture;
-	sf::Texture startTexture;
-	sf::Texture quitTexture;
-	if (!logoTexture.loadFromFile("../../Gate2158/media/TEAMNEEDSANAME.png")){
-	}
-	if (!startTexture.loadFromFile("../../Gate2158/media/GameStart.png")){
-	}
-	if (!quitTexture.loadFromFile("../../Gate2158/media/GameStop.png")){
-	}
-	if (!gameLogoTexture.loadFromFile("../../Gate2158/media/GameLogo.png")){
-	}
+	
+	
 	sf::Sprite splashLogo;
 	splashLogo.setTexture(logoTexture);
 	splashLogo.setPosition(sf::Vector2f(1280 / 2 - 500 / 2, 720 / 2 - 380 / 2));
@@ -84,6 +92,7 @@ void Menu::processKeys(){
 			std::cout << "down";
 		}
 		else if (input.isKeyHold(sf::Keyboard::Return)){
+			menuBackgroundMusic.stop();
 			if (currentSelection == 0){
 				showingMenu = false;
 			}

@@ -2,6 +2,7 @@
 #define GATE2158_MENU_H
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "UserInput.h"
 
 class Menu{
@@ -18,6 +19,11 @@ private:
 	UserInput input;
 	sf::Vector2f startLocation{ 1280 / 2 - 200 / 2, 400 };
 	sf::Vector2f quitLocation{ 1280 / 2 - 200 / 2, 550 };
+	sf::Texture gameLogoTexture;
+	sf::Texture logoTexture;
+	sf::Texture startTexture;
+	sf::Texture quitTexture;
+	sf::Music menuBackgroundMusic;
 };
 
 
