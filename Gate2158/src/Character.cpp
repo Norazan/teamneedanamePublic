@@ -31,3 +31,7 @@ void Character::setHealth(float h) {
 void Character::collisionDetected(MapObject & mo){
 
 }
+
+void Character::act(sf::RenderWindow & window){
+
+}

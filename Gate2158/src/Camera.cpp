@@ -17,6 +17,7 @@ void Camera::draw(){
 	for (int i = currentMap.getLayers(); i >= 0; i--){
 		for (auto &mo : currentMap.getAllMapObjects()){
 			if (mo->getRenderLayer() == i){
+				mo->act(window);
 				mo->draw(window);
 			}
 		}

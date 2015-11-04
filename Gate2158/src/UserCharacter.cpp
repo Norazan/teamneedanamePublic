@@ -33,9 +33,6 @@ UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawabl
 }
 
 void UserCharacter::draw(sf::RenderWindow & window) {
-	input.updateToggleKey();
-	processKeys();
-	processMouse(window);
 	MapObject::draw(window);
 }
 
@@ -223,4 +220,10 @@ void UserCharacter::drawUserInterface(sf::RenderWindow & window){
 		}
 		ui.t.draw(window, ui.position);
 	}
+}
+
+void UserCharacter::act(sf::RenderWindow & window){
+	input.updateToggleKey();
+	processKeys();
+	processMouse(window);
 }

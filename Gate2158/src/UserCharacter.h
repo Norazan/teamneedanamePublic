@@ -43,6 +43,7 @@ public:
 	void collisionDetected(MapObject & mo) override;
 
 	void drawUserInterface(sf::RenderWindow & window);
+	void act(sf::RenderWindow & window) override;
 
 private:
 	//! Function move

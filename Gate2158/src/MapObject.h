@@ -30,7 +30,7 @@ public:
 	sf::Vector2f getOrigin();
 	bool isFriend();
 	virtual int getExpoints();
-
+	virtual void act(sf::RenderWindow & window);
 	virtual void draw(sf::RenderWindow & window);
 	void setHitbox(Convex *Hitbox);
 	Convex* getHitbox();

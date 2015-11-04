@@ -175,3 +175,7 @@ void MapObject::collisionDetected(MapObject & mos){
 int MapObject::getExpoints(){
 	return expointOnHit;
 }
+
+void MapObject::act(sf::RenderWindow & window){
+
+}
