@@ -29,7 +29,7 @@ struct gun{
 
 class ProjectileWeapon: public Weapon{
 public:
-	ProjectileWeapon(std::string weaponType, bool isFriendly);
+	ProjectileWeapon(std::string weaponType, int isFriendly);
 	ProjectileWeapon();
 	void shoot(sf::Vector2f location, float angle) override;
 	int getAmmo() override;
@@ -38,18 +38,18 @@ public:
 	void setAmmoInMagazine(double ammo);
 	int calculateDamage() override;
 	void reload();
-	void setCamera(Camera *c);
 	std::string switchWeapon();
 	int getExpoints();
 	void setExpoints(int expoints) override;
 	int getTier();
+	int getMaxAmmo();
 private:
 	std::string weaponType;
-	bool isFriendly;
+	int isFriendly;
 	clock_t currentClock;
 	clock_t previousClock = clock();
 	clock_t reloadClock = clock();
-	Camera * camera;
+	Camera *camera;
 	gun pistol;
 	gun shotgun;
 	gun currentGun;

@@ -9,9 +9,10 @@ Bullet::Bullet(
 	sf::Vector2f startingVelocity, 
 	float angle, 
 	Weapon * weapon,
-	bool isFriend
+	int isFriend
 ) :
-	weapon{ weapon }
+	weapon{ weapon },
+	camera{ Camera::getInstance() }
 {
 	isFriendly = isFriend;
 
@@ -54,12 +55,8 @@ bool Bullet::outOfBound(sf::RenderWindow & window){
 	return false;
 }
 
-void Bullet::setCamera(Camera * a){
-	camera = a;
-}
-
 void Bullet::collisionDetected(MapObject &mo){
-	if (!mo.isFriend()){
+	if (mo.isFriend() != isFriend()){
 		hasCollision = true;
 		weapon->setExpoints(damage);
 		std::cout << damage << "\n";

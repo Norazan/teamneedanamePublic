@@ -28,7 +28,7 @@ public:
 	sf::Vector2f getSize();
 	std::vector<sf::Vector2f> getConvexPoints();
 	sf::Vector2f getOrigin();
-	bool isFriend();
+	int isFriend();
 	virtual int getExpoints();
 	virtual void act(sf::RenderWindow & window);
 	virtual void draw(sf::RenderWindow & window);
@@ -46,7 +46,7 @@ protected:
 	int renderLayer;
 	int expointOnHit = 1000;
 	sf::Vector2f position;
-	bool isFriendly = false;
+	int isFriendly = 0;
 };
 
 

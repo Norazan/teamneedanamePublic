@@ -164,7 +164,7 @@ sf::Vector2f MapObject::getOrigin(){
 	return Hitbox->getOrigin();
 }
 
-bool MapObject::isFriend(){
+int MapObject::isFriend(){
 	return isFriendly;
 }
 

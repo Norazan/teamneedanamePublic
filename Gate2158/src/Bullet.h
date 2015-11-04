@@ -14,11 +14,10 @@ public:
 		sf::Vector2f startingVelocity, 
 		float angle, 
 		Weapon* weapon,
-		bool isFriend
+		int isFriend
 	);
 	void draw(sf::RenderWindow & window) override;
 	bool outOfBound(sf::RenderWindow & window);
-	void setCamera(Camera *c);
 	void collisionDetected(MapObject &mo) override;
 private:
 	sf::CircleShape bullet;
@@ -28,7 +27,7 @@ private:
 	sf::Vector2f velocity;
 	float bSpeed = 10;
 	float angle = 0;
-	Camera* camera;
+	Camera *camera;
 	bool hasCollision = false;
 };
 
