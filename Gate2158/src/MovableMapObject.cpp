@@ -26,3 +26,7 @@ void MovableMapObject::draw(sf::RenderWindow & window){
 void MovableMapObject::collisionDetected(MapObject & mo){
 
 }
+
+void MovableMapObject::act(sf::RenderWindow & window){
+
+}

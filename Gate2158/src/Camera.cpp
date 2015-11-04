@@ -6,25 +6,33 @@
 #include "Collision.h"
 #include <iostream>
 
-Camera::Camera(sf::RenderWindow &window, Map &currentMap) :
-	window{ window },
-	currentMap{ currentMap }
-{
+Camera * Camera::camera = NULL;
+
+Camera::Camera(){
+	//Do init
+}
+
+Camera * Camera::getInstance(){
+	if (camera == NULL){
+		camera = new Camera();
+	}
+	return camera;
 }
 
 void Camera::draw(){
 	checkCollision();
-	for (int i = currentMap.getLayers(); i >= 0; i--){
-		for (auto &mo : currentMap.getAllMapObjects()){
+	for (int i = currentMap->getLayers(); i >= 0; i--){
+		for (auto &mo : currentMap->getAllMapObjects()){
 			if (mo->getRenderLayer() == i){
-				mo->draw(window);
+				mo->act(*window);
+				mo->draw(*window);
 			}
 		}
 	}
-	currentMap.removeMapObject(removeObjects);
+	currentMap->removeMapObject(removeObjects);
 	removeObjects.clear();
 	for (auto & addObject : addObjects){
-		currentMap.addMapObject(addObject);
+		currentMap->addMapObject(addObject);
 	}
 	addObjects.clear();
 }
@@ -40,10 +48,10 @@ void Camera::revmoveMapObjectOnCurrentMap(MapObject *mo){
 void Camera::checkCollision(){
 	Collision collision;
 	// get all playable objects
-	for (auto &mo : currentMap.getAllMapObjects()){
+	for (auto &mo : currentMap->getAllMapObjects()){
 		if (mo->getRenderLayer() == 0){
 			// check if character has collision with objects
-			for (auto &object : currentMap.getAllMapObjects()){
+			for (auto &object : currentMap->getAllMapObjects()){
 				if (object != mo && mo->getRenderLayer() != 1){
 					// do nothing with overlap
 					(void)collision.checkCollision(*mo, *object);
@@ -51,4 +59,11 @@ void Camera::checkCollision(){
 			}
 		}
 	}
+}
+
+void Camera::setWindow(sf::RenderWindow &window){
+	this->window = &window;
+}
+void Camera::setCurrentMap(Map & currentMap){
+	this->currentMap = &currentMap;
 }

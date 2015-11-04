@@ -15,7 +15,7 @@
 UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawable, sf::Vector2f position, Convex* convex) :
 	Character(maxHealth, renderLayer, drawable, position, convex)
 {
-	isFriendly = true;
+	isFriendly = 1;
 	input.setToggleKey(sf::Keyboard::W);
 	input.setToggleKey(sf::Keyboard::A);
 	input.setToggleKey(sf::Keyboard::S);
@@ -33,14 +33,7 @@ UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawabl
 }
 
 void UserCharacter::draw(sf::RenderWindow & window) {
-	input.updateToggleKey();
-	processKeys();
-	processMouse(window);
 	MapObject::draw(window);
-}
-
-void UserCharacter::setCamera(Camera * c){
-	pistol->setCamera(c);
 }
 
 void UserCharacter::move(sf::Vector2f dir){
@@ -223,4 +216,10 @@ void UserCharacter::drawUserInterface(sf::RenderWindow & window){
 		}
 		ui.t.draw(window, ui.position);
 	}
+}
+
+void UserCharacter::act(sf::RenderWindow & window){
+	input.updateToggleKey();
+	processKeys();
+	processMouse(window);
 }

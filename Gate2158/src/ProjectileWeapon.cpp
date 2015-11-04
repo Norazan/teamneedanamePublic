@@ -4,18 +4,19 @@
 #include <iostream>
 #include <stdlib.h>
 
-ProjectileWeapon::ProjectileWeapon(std::string weaponType, bool isFriendly) :
+ProjectileWeapon::ProjectileWeapon(std::string weaponType, int isFriendly) :
 	weaponType( weaponType ),
-	isFriendly{isFriendly}
+	isFriendly{ isFriendly },
+	camera{ Camera::getInstance() }
 {
 	pistol.name = "pistol";
-	pistol.attackSpeed = 300;
+	pistol.attackSpeed = 800;
 	pistol.maxAmmo = 100;
 	pistol.baseDamage = 25;
 	pistol.maxAmmoInMagazine = 10;
 
 	shotgun.name = "shotgun";
-	shotgun.attackSpeed = 600;
+	shotgun.attackSpeed = 1200;
 	shotgun.maxAmmo = 36;
 	shotgun.baseDamage = 10;
 	shotgun.maxAmmoInMagazine = 6;
@@ -36,17 +37,12 @@ ProjectileWeapon::ProjectileWeapon(std::string weaponType, bool isFriendly) :
 	}
 }
 
-ProjectileWeapon::ProjectileWeapon(){
-
-}
-
 void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
 	currentClock = clock();
 	double shootDiffTicks = currentClock - previousClock;
 	double reloadDiffTicks = currentClock - reloadClock;
 	double shootDiffMS = shootDiffTicks / (CLOCKS_PER_SEC / 1000);
 	double reloadDiffMS = reloadDiffTicks / (CLOCKS_PER_SEC / 1000);
-
 	if (currentGun.ammoInMagazine > 0 && shootDiffMS > currentGun.attackSpeed && reloadDiffMS > currentGun.reloadTime){
 		float radian = (angle + 90) * ((float)PI / (float)180);
 
@@ -54,16 +50,11 @@ void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
 			float bulletSpread = (currentGun.amountOfBullets / 2) * currentGun.spread * i;
 			sf::Vector2f startingVelocity{ sin(radian + bulletSpread), cos(radian + bulletSpread) };
 			Bullet *bullet = new Bullet(calculateDamage(), location, startingVelocity, angle, this, isFriendly);
-			bullet->setCamera(camera);
 			camera->addMapObjectToCurrentMap(bullet);
 		}
 		currentGun.ammoInMagazine -= 1;
 		previousClock = currentClock;
 	}
-}
-
-void ProjectileWeapon::setCamera(Camera * c){
-	camera = c;
 }
 
 int ProjectileWeapon::getAmmo(){
@@ -141,5 +132,9 @@ void ProjectileWeapon::setExpoints(int expoints){
 		}
 		std::cout << "level up !\n";
 	}
+}
+
+int ProjectileWeapon::getMaxAmmo(){
+	return int(currentGun.maxAmmo);
 }
 

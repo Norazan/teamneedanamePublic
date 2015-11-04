@@ -23,6 +23,8 @@ public:
 	//! Draws the drawable
 	virtual void draw(sf::RenderWindow & window) override;
 
+	virtual void act(sf::RenderWindow & window) override;
+
 protected:
 	//! Function getHealth
 	//

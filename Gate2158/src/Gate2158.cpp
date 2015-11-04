@@ -15,6 +15,7 @@
 #include "Character.h"
 #include "UserCharacter.h"
 #include "Convex.h"
+#include "Enemy.h"
 #include <iostream>
 
 int main()
@@ -33,6 +34,7 @@ int main()
 	int height = 720;
     sf::RenderWindow window(sf::VideoMode(width, height), "Gate2158");
 
+	Camera *userCamera = Camera::getInstance();
 	UserInput userInputKey;
 	Menu menuScreen(window, true);
 
@@ -91,7 +93,8 @@ int main()
 	Convex convex2(squarePoints, sf::Vector2f(50, 50), sf::Vector2f(25, 25));
 	Convex convex3(squarePointss, sf::Vector2f(400, 400), sf::Vector2f(20, 20));
 	Convex convex4(squarePointsss, sf::Vector2f(200, 300), sf::Vector2f(30, 30));
-	Convex userHit(userHitbox, sf::Vector2f(300, 100), sf::Vector2f(45,25));
+	Convex userHit(userHitbox, sf::Vector2f(300, 100), sf::Vector2f(45, 25));
+	Convex enemyHit(userHitbox, sf::Vector2f(500, 500), sf::Vector2f(45, 25));
 
 	drawable *rec0 = new Rectangle(sf::Vector2f{ 200, 200 }, sf::Color::Blue);
 	drawable *rec1 = new Rectangle(sf::Vector2f{ 50, 50 }, sf::Color::Red);
@@ -101,9 +104,11 @@ int main()
 	MapObject con1(1, rec0, sf::Vector2f{300,250},&convex);
 	MapObject con3(1, rec1, sf::Vector2f{50,50},&convex2);
 	MapObject con4(1, rec2, sf::Vector2f{400,400},&convex3);
-	MapObject con5(1, rec3, sf::Vector2f{200,300},&convex4);
+	MapObject con5(1, rec3, sf::Vector2f{ 200, 300 }, &convex4);
 	Sprite characterGun("../../Gate2158/media/character_gun.png");
-	UserCharacter con2(100, 0, &characterGun, sf::Vector2f{300,500},&userHit);
+	Sprite enemy("../../Gate2158/media/character_machinegun.png");
+	UserCharacter con2(100, 0, &characterGun, sf::Vector2f{ 300, 500 }, &userHit);
+	Enemy enemy2(sf::Vector2f{ 500, 500 }, &con2, "pistol", 100, 0, &enemyHit, &enemy);
 
 	Map testMap(3);
 	testMap.addMapObject(&con1);
@@ -111,16 +116,16 @@ int main()
 	testMap.addMapObject(&con3);
 	testMap.addMapObject(&con4);
 	testMap.addMapObject(&con5);
+	testMap.addMapObject(&enemy2);
 
 //   	testMap.loadFromFile("../../Gate2158/media/maps/checkerboard.png");
 
 	World Gate2158;
 	Gate2158.addMap(testMap);
 	Map &currentMap = Gate2158.getCurrentMap();
-	Camera userCamera(window, currentMap);
+	userCamera->setCurrentMap(currentMap);
+	userCamera->setWindow(window);
 	
-	// add camera to usercharacter for bullet. need to do this before drawing character.
-	con2.setCamera(&userCamera);
     window.setVerticalSyncEnabled(true);
 
 
@@ -143,7 +148,7 @@ int main()
 			menuScreen.draw();
 		}
 		else{
-			userCamera.draw();
+			userCamera->draw();
 			con2.drawUserInterface(window);
 		}
         window.display();

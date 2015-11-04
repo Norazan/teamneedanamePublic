@@ -164,7 +164,7 @@ sf::Vector2f MapObject::getOrigin(){
 	return Hitbox->getOrigin();
 }
 
-bool MapObject::isFriend(){
+int MapObject::isFriend(){
 	return isFriendly;
 }
 
@@ -174,4 +174,8 @@ void MapObject::collisionDetected(MapObject & mos){
 
 int MapObject::getExpoints(){
 	return expointOnHit;
+}
+
+void MapObject::act(sf::RenderWindow & window){
+
 }
