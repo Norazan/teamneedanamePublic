@@ -77,7 +77,7 @@ int main()
 	};
 	Convex convex(points, sf::Vector2f(300, 250), sf::Vector2f(100, 100));
 	Convex convex2(squarePoints, sf::Vector2f(50, 50), sf::Vector2f(25, 25));
-	Convex convex3(squarePointss, sf::Vector2f(400, 400), sf::Vector2f(20, 20));
+	//Convex convex3(squarePointss, sf::Vector2f(400, 400), sf::Vector2f(20, 20));
 	Convex convex4(squarePointsss, sf::Vector2f(200, 300), sf::Vector2f(30, 30));
 	Convex userHit(userHitbox, sf::Vector2f(300, 100), sf::Vector2f(45,25));
 
@@ -90,16 +90,16 @@ int main()
 
 	MapObject con1(1, rec0, sf::Vector2f{300,250},&convex);
 	MapObject con3(1, rec1, sf::Vector2f{50,50},&convex2);
-	MapObject con4(1, rec2, sf::Vector2f{400,400},&convex3);
+	//MapObject con4(1, rec2, sf::Vector2f{400,400},&convex3);
 	MapObject con5(1, rec3, sf::Vector2f{200,300},&convex4);
 	Sprite characterGun("../../Gate2158/media/character_gun.png");
-	UserCharacter con2(100, 0, &characterGun, sf::Vector2f{300,500},&userHit);
+	UserCharacter con2(100, 0, &characterGun, sf::Vector2f{400,400},&userHit);
 
 	Map testMap(3);
 	testMap.addMapObject(&con1);
 	testMap.addMapObject(&con2);
 	testMap.addMapObject(&con3);
-	testMap.addMapObject(&con4);
+	//testMap.addMapObject(&con4);
 	testMap.addMapObject(&con5);
 
 //   	testMap.loadFromFile("../../Gate2158/media/maps/checkerboard.png");
@@ -107,7 +107,7 @@ int main()
 	World Gate2158;
 	Gate2158.addMap(testMap);
 	Map &currentMap = Gate2158.getCurrentMap();
-	Camera userCamera(window, currentMap);
+	Camera userCamera(window, currentMap, &con2);
 
     window.setVerticalSyncEnabled(true);
 

@@ -13,7 +13,7 @@ public:
 	MovableMapObject(int renderLayer, drawable* drawable, sf::Vector2f position, Convex* convex);
 	void setVelocity(sf::Vector2f v);
     sf::Vector2f getVelocity();
-	virtual void draw(sf::RenderWindow & window) override;
+	virtual void draw(sf::RenderWindow & window, sf::Vector2f drawPosition) override;
 	virtual void collisionDetected(MapObject & mo) override;
 
 private:

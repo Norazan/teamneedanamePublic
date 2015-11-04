@@ -19,11 +19,11 @@ UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawabl
 	weapon = new ProjectileWeapon(2, 10, 5, 100, 20, 10);
 }
 
-void UserCharacter::draw(sf::RenderWindow & window) {
+void UserCharacter::draw(sf::RenderWindow & window, sf::Vector2f drawPosition) {
 	input.updateToggleKey();
 	processKeys();
 	processMouse(window);
-	MapObject::draw(window);
+	MapObject::draw(window, drawPosition);
 }
 
 void UserCharacter::move(sf::Vector2f dir){

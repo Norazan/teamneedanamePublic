@@ -26,7 +26,7 @@ public:
 	sf::Vector2f getSize();
 	std::vector<sf::Vector2f> getConvexPoints();
 	sf::Vector2f getOrigin();
-	virtual void draw(sf::RenderWindow & window);
+	virtual void draw(sf::RenderWindow & window, sf::Vector2f position);
 	void setHitbox(Convex *Hitbox);
 	Convex* getHitbox();
 	virtual void collisionDetected(MapObject & mo);

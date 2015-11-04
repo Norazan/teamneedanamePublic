@@ -110,11 +110,11 @@ std::vector<sf::Vector2f> MapObject::getConvexPoints(){
 	}
 }
 
-void MapObject::draw(sf::RenderWindow & window){
+void MapObject::draw(sf::RenderWindow & window, sf::Vector2f drawPosition){
 	if (Hitbox != nullptr){
-		Hitbox->draw(window, position);
+		Hitbox->draw(window, drawPosition);
 	}
-	drawObject->draw(window, position);
+	drawObject->draw(window, drawPosition);
 }
 sf::Vector2f MapObject::getSize(){
 	return drawObject->getSize();

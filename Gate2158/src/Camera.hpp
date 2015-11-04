@@ -8,6 +8,7 @@
 #include <SFML/Graphics.hpp>
 #include "MapObject.h"
 #include "Map.h"
+#include "UserCharacter.h"
 
 
 class Camera {
@@ -16,18 +17,21 @@ public:
 	//
 	//! @parameter window
 	//! @parameter currenMap
-	Camera(sf::RenderWindow &window, Map &currentMap);
+	Camera(sf::RenderWindow &window, Map &currentMap, MapObject *player);
 
 	//! Draw function
 	//
 	//! Drawed all the MapObjects 
 	void draw();
 
+	std::vector<MapObject*> *getObjectsAroundPlayer();
+
 	void checkCollision();
 
 private:
 	sf::RenderWindow &window;
 	Map &currentMap;
+	MapObject *currentPlayer;
 };
 
 

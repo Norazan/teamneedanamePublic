@@ -28,7 +28,7 @@ public:
 	//! Function draw
 	//
 	//! draws the drawable of the UserCharacter.
-	void draw(sf::RenderWindow & window) override;
+	void draw(sf::RenderWindow & window, sf::Vector2f drawPosition) override;
 
 	void collisionDetected(MapObject & mo) override;
 

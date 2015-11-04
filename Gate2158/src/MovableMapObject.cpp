@@ -19,7 +19,7 @@ sf::Vector2f MovableMapObject::getVelocity() {
 }
 
 
-void MovableMapObject::draw(sf::RenderWindow & window){
+void MovableMapObject::draw(sf::RenderWindow & window, sf::Vector2f drawPosition){
 
 }
 
