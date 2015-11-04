@@ -1,11 +1,11 @@
 #ifndef GATE2158_BULLET_H
 #define GATE2158_BULLET_H
 
+#include "Camera.hpp"
 #include <SFML/Graphics.hpp>
 #include "MapObject.h"
-#include "Camera.hpp"
 #include "Weapon.h"
-
+class Camera;
 class Bullet : public MapObject {
 public:
 	Bullet(	
@@ -16,7 +16,7 @@ public:
 		Weapon* weapon,
 		int isFriend
 	);
-	void draw(sf::RenderWindow & window) override;
+	void draw(sf::RenderWindow & window, sf::Vector2f drawPosition) override;
 	bool outOfBound(sf::RenderWindow & window);
 	void collisionDetected(MapObject &mo) override;
 private:
@@ -27,8 +27,8 @@ private:
 	sf::Vector2f velocity;
 	float bSpeed = 10;
 	float angle = 0;
-	Camera *camera;
 	bool hasCollision = false;
+	Camera* c;
 };
 
 #endif

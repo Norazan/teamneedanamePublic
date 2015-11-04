@@ -32,8 +32,11 @@ UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawabl
 	makeUserInterface();
 }
 
-void UserCharacter::draw(sf::RenderWindow & window) {
-	MapObject::draw(window);
+void UserCharacter::draw(sf::RenderWindow & window, sf::Vector2f drawPosition) {
+	input.updateToggleKey();
+	processKeys();
+	processMouse(window);
+	MapObject::draw(window, drawPosition);
 }
 
 void UserCharacter::move(sf::Vector2f dir){

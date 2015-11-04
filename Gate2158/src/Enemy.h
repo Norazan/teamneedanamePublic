@@ -21,7 +21,7 @@ public:
 		Convex* convex, 
 		drawable* drawable
 	);
-	void draw(sf::RenderWindow & window) override;
+	void draw(sf::RenderWindow & window, sf::Vector2f drawPosition) override;
 	void collisionDetected(MapObject & mo) override;
 	void act(sf::RenderWindow & window) override;
 private:

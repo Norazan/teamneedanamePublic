@@ -19,8 +19,6 @@ public:
 	MapObject::MapObject(int renderLayer);
 	void rotate(float rotation);
     float getRotation();
-	void setAngle(float angle);
-    float getAngle();
 	void setPosition(sf::Vector2f pos);
 	sf::Vector2f getPosition();
 	void setRenderLayer(int renderLayer);
@@ -31,7 +29,7 @@ public:
 	int isFriend();
 	virtual int getExpoints();
 	virtual void act(sf::RenderWindow & window);
-	virtual void draw(sf::RenderWindow & window);
+	virtual void draw(sf::RenderWindow & window, sf::Vector2f drawPosition);
 	void setHitbox(Convex *Hitbox);
 	Convex* getHitbox();
 	virtual void collisionDetected(MapObject & mo);

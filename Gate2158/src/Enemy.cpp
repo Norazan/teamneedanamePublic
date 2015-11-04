@@ -15,8 +15,8 @@ Enemy::Enemy(
 	isFriendly = 2;
 	this->weapon = new ProjectileWeapon(weapon, 2);
 }
-void Enemy::draw(sf::RenderWindow & window){
-	MapObject::draw(window);
+void Enemy::draw(sf::RenderWindow & window, sf::Vector2f drawPosition){
+	MapObject::draw(window, drawPosition);
 }
 void Enemy::collisionDetected(MapObject & mo){
 	sf::Vector2f velocity = getVelocity();

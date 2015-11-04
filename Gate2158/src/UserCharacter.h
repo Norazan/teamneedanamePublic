@@ -18,13 +18,13 @@
 #define angleOfLeft 180.0;
 #define angleOfRight 0.0;
 
-
 struct text{
 	Text t;
 	std::string name;
 	sf::Vector2f position;
 };
 
+class ProjectileWeapon;
 class UserCharacter : public Character {
 public:
 	//! Constructor
@@ -37,7 +37,7 @@ public:
 	//! Function draw
 	//
 	//! draws the drawable of the UserCharacter.
-	void draw(sf::RenderWindow & window) override;
+	void draw(sf::RenderWindow & window, sf::Vector2f drawPosition) override;
 
 	void collisionDetected(MapObject & mo) override;
 
