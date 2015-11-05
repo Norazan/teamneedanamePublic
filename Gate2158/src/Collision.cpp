@@ -15,8 +15,8 @@ struct line {
 float Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 	sf::Vector2f sizeObj1 = obj1.getSize();
 	sf::Vector2f sizeObj2 = obj2.getSize();
-	sf::Vector2f posObj1 = obj1.getPosition();
-	sf::Vector2f posObj2 = obj2.getPosition();
+	sf::Vector2f posObj1 = obj1.getDrawPosition();
+	sf::Vector2f posObj2 = obj2.getDrawPosition();
 
 	float lenghtObj1 = sqrt(pow(sizeObj1.x/2, 2) + pow(sizeObj1.y/2, 2));
 	float lenghtObj2 = sqrt(pow(sizeObj2.x/2, 2) + pow(sizeObj2.y/2, 2));

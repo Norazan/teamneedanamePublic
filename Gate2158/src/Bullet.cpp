@@ -26,6 +26,7 @@ Bullet::Bullet(
 	}
 	bullet.setOrigin(sf::Vector2f{ -18, 13 });
 	bullet.setPosition(startingLocation);
+	position = startingLocation;
 
 	damage = bulletDamage;
 	location = startingLocation;
@@ -35,7 +36,7 @@ Bullet::Bullet(
 
 	bullet.setRotation(angle);
 	MapObject(2);
-
+	renderLayer = 2;
 }
 
 void Bullet::draw(sf::RenderWindow & window, sf::Vector2f drawPos){
@@ -43,10 +44,10 @@ void Bullet::draw(sf::RenderWindow & window, sf::Vector2f drawPos){
 		c->revmoveMapObjectOnCurrentMap(this);
 	}
 	else {
-		drawPosition = drawPos;
 		location = sf::Vector2f(location.x + velocity.x*bSpeed, location.y - velocity.y*bSpeed);
-		bullet.setPosition(drawPos);
+		bullet.setPosition(position);
 		position = location;
+		drawPosition = position;
 		window.draw(bullet);
 	}
 }

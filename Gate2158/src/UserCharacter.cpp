@@ -147,7 +147,7 @@ float UserCharacter::calculateRotation(sf::Vector2i mousePosition){
 }
 
 void UserCharacter::collisionDetected(MapObject & mo){
-	if (mo.isFriend() != isFriend()){
+	if (mo.getRenderLayer() == 3){
 		sf::Vector2f velocity = getVelocity();
 		move(-velocity);
 		canRotate = false;
@@ -196,16 +196,26 @@ void UserCharacter::makeUserInterface(){
 		30,
 		&tFont
 	);
+	Text health(
+		("Health: " + std::to_string(health) + "(" + std::to_string(maxHealth) + ")"),
+		sf::Vector2f(0, 0),
+		sf::Text::Style::Regular,
+		sf::Color::Red,
+		30,
+		&tFont
+	);
 	text one{ ammoInMagazine, "ammoInMagazine", sf::Vector2f(150, 650) };
 	text two{ currentAmmo, "currentAmmo", sf::Vector2f(150, 680) };
 	text three{ gunName, "gunName", sf::Vector2f(150, 560) };
 	text four{ expoints, "expoints", sf::Vector2f(150, 620) };
 	text five{ tier, "tier", sf::Vector2f(150, 590) };
+	text six{ health, "health", sf::Vector2f(0, 0) };
 	userInterface.push_back(one);
 	userInterface.push_back(two);
 	userInterface.push_back(three);
 	userInterface.push_back(four);
 	userInterface.push_back(five);
+	userInterface.push_back(six);
 }
 
 void UserCharacter::drawUserInterface(sf::RenderWindow & window){
@@ -221,6 +231,9 @@ void UserCharacter::drawUserInterface(sf::RenderWindow & window){
 		}
 		else if (ui.name == "tier"){
 			ui.t.setText("Tier: " + std::to_string(pistol->getTier()));
+		}
+		else if (ui.name == "health"){
+			ui.t.setText("Health: " + std::to_string(int(health)) + "(" + std::to_string(int(maxHealth)) + ")");
 		}
 		ui.t.draw(window, ui.position);
 	}

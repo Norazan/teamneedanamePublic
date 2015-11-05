@@ -54,6 +54,7 @@ private:
 	Convex *convexEnemy;
 	Rectangle *recEnemy;
 	Rectangle *recCharacter;
+	Rectangle *recWall;
 	//Sprite *enemySprite;
 	//Sprite *characterGunSprite;
 };

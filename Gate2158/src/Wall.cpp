@@ -15,5 +15,6 @@ Wall::Wall(int lay, sf::Vector2f pos)
     renderLayer = lay;
     position = pos;
     drawObject = wallSprite;
+	isFriendly = 4;
 
 }

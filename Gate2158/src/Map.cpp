@@ -66,6 +66,7 @@ void Map::loadFromFile(const std::string filename){
 
 	//enemySprite = new Sprite("../../Gate2158/media/character_gun.png");
 	recEnemy = new Rectangle(sf::Vector2f{ 50,50 }, sf::Color::Red);
+	recWall = new Rectangle(sf::Vector2f{ 32,32 }, sf::Color::Magenta);
 
     const int size = 32;
 	sf::Vector2f position = sf::Vector2f{0,0};
@@ -78,7 +79,7 @@ void Map::loadFromFile(const std::string filename){
             position.x = (float) j*size;
             sf::Color color = mapImage.getPixel(j, i);
 			if(color.r == 0x00 && color.g == 0x00 && color.b == 0x00){
-				MapObject *obj = new Wall(3, position);
+				MapObject *obj = new MapObject(3, recWall, position, convexWall);
 				addMapObject(obj);
 			}
 			if(color.r == 0x00 && color.g == 0x00 && color.b == 0xFF){
@@ -121,6 +122,9 @@ std::vector<MapObject *> *Map::getMapObjectsInRegion(sf::Vector2f topLeft, sf::V
                 ){
             objectsInRegion->push_back(obj);
         }
+		else if (obj->getRenderLayer() == 2){
+			objectsInRegion->push_back(obj);
+		}
 
     }
     return objectsInRegion;

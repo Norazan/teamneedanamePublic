@@ -34,8 +34,8 @@ void Camera::draw(){
 			if (mo->getRenderLayer() == i){
 				drawPosition.x = mo->getPosition().x - cameraBeginPosition.x;
 				drawPosition.y = mo->getPosition().y - cameraBeginPosition.y;
-				mo->draw(*window, drawPosition);
 				mo->setDrawPosition(drawPosition);
+				mo->draw(*window, drawPosition);
 				if (mo->getRenderLayer() == 2){
 					mo->rotate(oldRotation);
 					newRotation = mo->getRotation();
@@ -74,11 +74,11 @@ std::vector<MapObject*> *Camera::getObjectsAroundPlayer(){
 void Camera::checkCollision(){
 	Collision collision;
 	// get all playable objects
-	for (auto &mo : currentMap->getAllMapObjects()){
-		if (mo->getRenderLayer() == 0){
+	for (auto &mo : *getObjectsAroundPlayer()){
+		if (mo->getRenderLayer() < 3){
 			// check if character has collision with objects
-			for (auto &object : currentMap->getAllMapObjects()){
-				if (object != mo && mo->getRenderLayer() != 2){
+			for (auto &object : *getObjectsAroundPlayer()){
+				if (object != mo){
 					// do nothing with overlap
 					(void)collision.checkCollision(*mo, *object);
 				}

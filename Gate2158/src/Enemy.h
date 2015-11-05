@@ -26,11 +26,13 @@ public:
 	void collisionDetected(MapObject & mo) override;
 	void act(sf::RenderWindow & window) override;
 	void setDamage(int damage) override;
+	void walk();
 private:
 	void move(sf::Vector2f dir);
 	float calculateRotation(sf::Vector2f userPosition);
 	ProjectileWeapon *weapon;
 	MapObject *user;
+	bool collisionDetectedBool;
 };
 
 #endif
