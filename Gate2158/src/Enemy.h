@@ -34,7 +34,13 @@ private:
 	float calculateRotation(sf::Vector2f userPosition);
 	ProjectileWeapon *weapon;
 	MapObject *user;
-	bool collisionDetectedBool;
+
+	//! the current rotation of the enemy in degrees.
+	float currentRotation;
+	//! the previous rotation of the enemy in degrees.
+	float previousRotation;
+	//! boolean canRotate
+	bool canRotate = true;
 };
 
 #endif

@@ -12,16 +12,6 @@
 
 int main()
 {
-
-	/*sf::Music backgroundMusic;
-	
-	if (!backgroundMusic.openFromFile("../../Gate2158/media/audio/Analog_Boys_2.wav")){
-		return -1;
-	}
-	backgroundMusic.setLoop(true);
-
-	backgroundMusic.play();*/
-
 	int width= 1280;
 	int height = 720;
     sf::RenderWindow window(sf::VideoMode(width, height), "Gate2158");
@@ -31,8 +21,9 @@ int main()
 	Menu menuScreen(window, true);
 
 
+	Sprite backgroundSprite("../../Gate2158/media/textures/background.jpeg");
 
- 	Map testMap(3);
+ 	Map testMap(20);
 	testMap.loadFromFile("../../Gate2158/media/maps/mainmap.png");
 
 	World Gate2158;
@@ -75,6 +66,7 @@ int main()
 			if (gameMusic.getStatus() != sf::SoundSource::Status::Playing){
 				gameMusic.play();
 			}
+			backgroundSprite.draw(window, sf::Vector2f{ 640, 360 });
 			userCamera->draw();
 		}
 
