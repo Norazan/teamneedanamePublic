@@ -7,7 +7,7 @@
 #include <SFML/Graphics.hpp>
 
 Wall::Wall(int lay, sf::Vector2f pos, drawable *drawable) :
-MapObject{lay,}
+MapObject{lay}
 {
     renderLayer = lay;
     position = pos;

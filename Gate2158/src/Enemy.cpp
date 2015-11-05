@@ -19,15 +19,16 @@ Enemy::Enemy(
 	this->weapon = new ProjectileWeapon(weapon, 2);
 }
 void Enemy::draw(sf::RenderWindow & window, sf::Vector2f drawPos){
-	walk();
-	rotate(calculateRotation(user->getDrawPosition()));
 	MapObject::draw(window, drawPos);
 }
 void Enemy::collisionDetected(MapObject & mo){
 	sf::Vector2f velocity = getVelocity();
-	move(-velocity);
 	setVelocity(-velocity);
-	collisionDetectedBool = true;
+	velocity.x = velocity.x * 3;
+	velocity.y = velocity.y * 3;
+	move(-velocity);
+	rotate(previousRotation);
+	canRotate = false;
 
 }
 
@@ -37,9 +38,12 @@ void Enemy::act(sf::RenderWindow & window){
 		weapon->reload();
 		weapon->setAmmo(weapon->getMaxAmmo());
 	}
-	if (!collisionDetectedBool){
-		walk();
+	if (canRotate){
+		previousRotation = currentRotation;
+		currentRotation = calculateRotation(user->getDrawPosition());
+		rotate(currentRotation);
 	}
+	walk();
 	if (health < 0){
 		Camera *camera = Camera::getInstance();
 		camera->revmoveMapObjectOnCurrentMap(this);
@@ -48,20 +52,15 @@ void Enemy::act(sf::RenderWindow & window){
 
 void Enemy::walk(){
 	sf::Vector2f velocity = getVelocity();
-	if(drawPosition.x < 50){
-		setVelocity(sf::Vector2f{ 10, 0 });
+	if (drawPosition.x > 1200){
+		velocity = sf::Vector2f{ -10, 0 };
 	}
-	else if(drawPosition.x > 1200){
-		setVelocity(sf::Vector2f{ -10, 0 });
+	else if (drawPosition.x < 50){
+		velocity = sf::Vector2f{ 10, 0 };
 	}
-	if(drawPosition.y < 0){
-		setVelocity(sf::Vector2f{ 0, 10 });
-	}
-	else if(drawPosition.y > 700){
-		setVelocity(sf::Vector2f{ 0, -10 });
-	}
-	collisionDetectedBool = false;
-	position += velocity;
+	move(velocity);
+	setVelocity(velocity);
+	canRotate = true;
 }
 
 void Enemy::move(sf::Vector2f dir){
