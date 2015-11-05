@@ -34,6 +34,7 @@ private:
 	//Convex convex3(squarePointss, sf::Vector2f(400, 400), sf::Vector2f(20, 20));
 	Convex *convexEnemy;
 	Sprite *enemySprite;
+	Sprite *enemyShotgun;
 	Sprite *characterGunSprite;
 	Sprite *wallSprite;
 };
