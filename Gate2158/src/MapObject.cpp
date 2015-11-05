@@ -18,7 +18,7 @@ MapObject::MapObject(int renderLayer, drawable *drawable, sf::Vector2f position)
 	position{ position }
 {
 	position = sf::Vector2f{ 0, 0 };
-	isFriendly = false;
+	isFriendly = 5;
 }
 
 MapObject::MapObject(int renderLayer, drawable* drawable, sf::Vector2f position, Convex * hitbox) :
@@ -27,14 +27,16 @@ MapObject::MapObject(int renderLayer, drawable* drawable, sf::Vector2f position,
 	position{ position },
 	Hitbox{hitbox}
 {
-	isFriendly = false;
+	isFriendly = 5;
+	totalExpoints = 0;
 }
 
 MapObject::MapObject(int renderLayer) :
 	renderLayer{ renderLayer }
 {
 	position = sf::Vector2f{ 0, 0 };
-	isFriendly = false;
+	isFriendly = 5;
+	this->renderLayer = 2;
 }
 
 void MapObject::rotate(float rotation) {

@@ -36,7 +36,7 @@ Bullet::Bullet(
 
 	bullet.setRotation(angle);
 	MapObject(2);
-
+	renderLayer = 2;
 }
 
 void Bullet::draw(sf::RenderWindow & window, sf::Vector2f drawPos){
