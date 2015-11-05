@@ -2,13 +2,12 @@
 // Created by martijn on 9/28/15.
 //
 
-#include <iostream>
 #include "Map.h"
-#include "Rectangle.h"
-#include "MapObject.h"
 #include "Wall.h"
 #include "UserCharacter.h"
 #include "Enemy.h"
+#include <iostream>
+#include <string>
 
 Map::Map(){
 
@@ -76,14 +75,13 @@ void Map::loadFromFile(const std::string filename){
 	convexEnemy = new Convex(enemyHit, sf::Vector2f(0, 0), sf::Vector2f(25, 25));
 	convexWall = new Convex(wall, sf::Vector2f(0, 0), sf::Vector2f(16, 16));
 
-	//enemySprite = new Sprite("../../Gate2158/media/character_gun.png");
-	recEnemy = new Rectangle(sf::Vector2f{ 50,50 }, sf::Color::Red);
-	recWall = new Rectangle(sf::Vector2f{ 32,32 }, sf::Color::Magenta);
+	enemySprite = new Sprite("../../Gate2158/media/textures/Enemy_BIG.png");
+	wallSprite = new Sprite("../../Gate2158/media/textures/m-001.png");
+	characterGunSprite = new Sprite("../../Gate2158/media/textures/Player_BIG.png");
 
     const int size = 32;
 	sf::Vector2f position = sf::Vector2f{0,0};
 
-	searchPlayerInLoadedMap(position, dimensions, size, mapImage);
 
     for(unsigned int i = 0; i < dimensions.y; ++i){
         for(unsigned int j = 0; j < dimensions.x; ++j){
@@ -91,35 +89,23 @@ void Map::loadFromFile(const std::string filename){
             position.x = (float) j*size;
             sf::Color color = mapImage.getPixel(j, i);
 			if(color.r == 0x00 && color.g == 0x00 && color.b == 0x00){
-				MapObject *obj = new MapObject(3, recWall, position, convexWall);
+				MapObject *obj = new MapObject(3, wallSprite, position, convexWall);
 				addMapObject(obj);
 			}
 			if(color.r == 0x00 && color.g == 0x00 && color.b == 0xFF){
-				MapObject *enemy = new Enemy(position, currentPlayer, "pistol", 250, 1, convexEnemy, recEnemy);
+				MapObject *enemy = new Enemy(position, currentPlayer, "pistol", 250, 1, convexEnemy, enemySprite);
 				addMapObject(enemy);
 			}
 			if(color.r == 0x00 && color.g == 0xFF && color.b == 0x00){
-				MapObject *enemy2 = new Enemy(position, currentPlayer, "shotgun", 400, 1, convexEnemy, recEnemy);
+				MapObject *enemy2 = new Enemy(position, currentPlayer, "shotgun", 400, 1, convexEnemy, enemySprite);
 				addMapObject(enemy2);
+			}
+			if (color.r == 0xFF && color.g == 0x00 && color.b == 0x00){
+				currentPlayer = new UserCharacter(1000, 0, characterGunSprite, sf::Vector2f{ 300, 500 }, convexUser);
+				addMapObject(currentPlayer);
 			}
         }
     }
-}
-
-void Map::searchPlayerInLoadedMap(sf::Vector2f position, sf::Vector2u dimensions, const int size, sf::Image mapImage){
-	//characterGunSprite = new Sprite("../../Gate2158/media/character_machinegun.png");
-	recCharacter = new Rectangle(sf::Vector2f{ 50,50 }, sf::Color::Green);
-	for(unsigned int i = 0; i < dimensions.y; ++i){
-		for(unsigned int j = 0; j < dimensions.x; ++j){
-			position.y = (float)i*size;
-			position.x = (float)j*size;
-			sf::Color color = mapImage.getPixel(j, i);
-			if(color.r == 0xFF && color.g == 0x00 && color.b == 0x00){
-				currentPlayer = new UserCharacter(1000, 0, recCharacter, sf::Vector2f{ 300, 500 }, convexUser);
-				addMapObject(currentPlayer);
-			}
-		}
-	}
 }
 
 std::vector<MapObject *> *Map::getMapObjectsInRegion(sf::Vector2f topLeft, sf::Vector2f bottomRight){

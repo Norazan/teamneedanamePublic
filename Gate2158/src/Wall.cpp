@@ -3,18 +3,15 @@
 //
 
 #include "Wall.h"
+#include "Sprite.h"
 #include <SFML/Graphics.hpp>
-#include <iostream>
 
-Wall::Wall(int lay, sf::Vector2f pos)
+Wall::Wall(int lay, sf::Vector2f pos, drawable *drawable) :
+MapObject{lay,}
 {
-    static drawable *wallSprite;
-    if(!wallSprite){
-        wallSprite = new Sprite("../../Gate2158/media/textures/m-001.png");
-    }
     renderLayer = lay;
     position = pos;
-    drawObject = wallSprite;
+    drawObject = drawable;
 	isFriendly = 4;
 
 }

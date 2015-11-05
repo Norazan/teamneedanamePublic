@@ -197,5 +197,8 @@ void MapObject::setDrawPosition(sf::Vector2f drawPos){
 	drawPosition = drawPos;
 }
 sf::Vector2f MapObject::getDrawPosition(){
-	return drawPosition;
+	if (this != nullptr){
+		return drawPosition;
+	}
+	return sf::Vector2f{ 0, 0 };
 }

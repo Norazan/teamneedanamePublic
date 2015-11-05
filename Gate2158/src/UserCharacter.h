@@ -10,7 +10,6 @@
 #include "Text.h"
 #include <SFML/Graphics.hpp>
 #include "ProjectileWeapon.h"
-#include "Camera.hpp"
 
 #define PI 3.14159265
 #define angleOfAbove 270.0;

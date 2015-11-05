@@ -3,12 +3,10 @@
 //
 
 #include "UserCharacter.h"
-#include "UserInput.h"
 #include "Collision.h"
-#include "Text.h"
+#include "Camera.hpp"
 #include <cmath>
 #include <math.h>
-#include <iostream>
 #include <string>
 
 
@@ -149,6 +147,8 @@ float UserCharacter::calculateRotation(sf::Vector2i mousePosition){
 void UserCharacter::collisionDetected(MapObject & mo){
 	if (mo.getRenderLayer() == 3){
 		sf::Vector2f velocity = getVelocity();
+		velocity.x = velocity.x * float(1.2);
+		velocity.y = velocity.y * float(1.2);
 		move(-velocity);
 		canRotate = false;
 		rotate(previousRotation);

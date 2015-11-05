@@ -8,14 +8,6 @@
 #include "World.h"
 #include "Map.h"
 #include "Camera.hpp"
-#include "Rectangle.h"
-#include "Sprite.h"
-#include "Text.h"
-#include "Circle.h"
-#include "Character.h"
-#include "UserCharacter.h"
-#include "Convex.h"
-#include "Enemy.h"
 #include <iostream>
 
 int main()

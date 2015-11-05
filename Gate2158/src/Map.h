@@ -5,12 +5,11 @@
 #ifndef GATE2158_MAP_H
 #define GATE2158_MAP_H
 
+#include "Sprite.h"
 #include "Rectangle.h"
 #include "MapObject.h"
 #include <vector>
-#include <string>
 
-class Rectangle;
 class Map {
 public:
     Map();
@@ -24,7 +23,6 @@ public:
 	void loadFromFile(std::string filename);
 	MapObject *getCurrentPlayer();
 private:
-	void searchPlayerInLoadedMap(sf::Vector2f position, sf::Vector2u dimensions, const int size, sf::Image mapImage);
 	int layers;
 	std::vector<MapObject*> mapObjects;
 	MapObject *currentPlayer;
@@ -35,11 +33,9 @@ private:
 	Convex *convexUser;
 	//Convex convex3(squarePointss, sf::Vector2f(400, 400), sf::Vector2f(20, 20));
 	Convex *convexEnemy;
-	Rectangle *recEnemy;
-	Rectangle *recCharacter;
-	Rectangle *recWall;
-	//Sprite *enemySprite;
-	//Sprite *characterGunSprite;
+	Sprite *enemySprite;
+	Sprite *characterGunSprite;
+	Sprite *wallSprite;
 };
 
 

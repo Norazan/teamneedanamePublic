@@ -7,7 +7,6 @@
 
 
 #include <SFML/Graphics.hpp>
-#include <SFML/System/Vector2.hpp>
 #include "drawable.h"
 #include "Convex.h"
 

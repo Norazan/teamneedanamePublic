@@ -7,12 +7,11 @@
 
 
 #include "MapObject.h"
-#include "Sprite.h"
 #include "drawable.h"
 
 class Wall : public MapObject{
 public:
-    Wall(int renderLayer, sf::Vector2f position);
+    Wall(int renderLayer, sf::Vector2f position, drawable *drawable);
 
 private:
     //static drawable *wallSprite;

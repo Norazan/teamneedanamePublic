@@ -19,7 +19,7 @@ struct gun{
 	double maxAmmoInMagazine = 1;
 	double baseDamage = 1;
 	double weaponTier = 1;
-	double projectileVelocity = 1;
+	double projectileVelocity = 0.5;
 	double reloadTime = 1000;
 	int expoints = 0;
 	int nextLevelExpoints = 100;

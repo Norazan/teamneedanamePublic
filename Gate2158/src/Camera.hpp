@@ -10,6 +10,7 @@
 #include "Map.h"
 #include "UserCharacter.h"
 
+class Map;
 
 class Camera {
 public:	

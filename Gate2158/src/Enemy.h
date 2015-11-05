@@ -11,6 +11,8 @@
 #define angleOfLeft 180.0;
 #define angleOfRight 0.0;
 
+class ProjectileWeapon;
+
 class Enemy : public Character {
 public:
 	Enemy(
