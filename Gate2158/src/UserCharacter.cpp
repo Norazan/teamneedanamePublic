@@ -39,6 +39,7 @@ UserCharacter::UserCharacter(float maxHealth, int renderLayer, drawable* drawabl
 }
 
 void UserCharacter::draw(sf::RenderWindow & window, sf::Vector2f drawPosition) {
+	drawUserInterface(window);
 	MapObject::draw(window, drawPosition);
 }
 

@@ -7,6 +7,8 @@
 #include "Rectangle.h"
 #include "MapObject.h"
 #include "Wall.h"
+#include "UserCharacter.h"
+#include "Enemy.h"
 
 Map::Map(){
 
@@ -58,28 +60,53 @@ void Map::loadFromFile(const std::string filename){
 
     std::cout << "Loading map with size" << "(" << dimensions.x << "," << dimensions.y << ")" << std::endl;
 
+	convexUser = new Convex(userHitbox, sf::Vector2f(0, 0), sf::Vector2f(25, 25));
+	convexEnemy = new Convex(enemyHit, sf::Vector2f(0, 0), sf::Vector2f(25, 25));
+	convexWall = new Convex(wall, sf::Vector2f(0, 0), sf::Vector2f(16, 16));
+
+	//enemySprite = new Sprite("../../Gate2158/media/character_gun.png");
+	recEnemy = new Rectangle(sf::Vector2f{ 50,50 }, sf::Color::Red);
+
     const int size = 32;
-   // drawable *draw;
-   // MapObject *obj;
-    sf::Vector2f position;
+	sf::Vector2f position = sf::Vector2f{0,0};
+
+	searchPlayerInLoadedMap(position, dimensions, size, mapImage);
+
     for(unsigned int i = 0; i < dimensions.y; ++i){
         for(unsigned int j = 0; j < dimensions.x; ++j){
             position.y = (float) i*size;
             position.x = (float) j*size;
             sf::Color color = mapImage.getPixel(j, i);
-            if(color.r == 0x00){ //Wall-type objecct, can be a wall, a fence etc
-                if(color.g == 0x00){ //Regular solid wall
-                    if(color.b == 0x00){//default wall
-                        MapObject *obj = new Wall(0, position);
-                        addMapObject(obj);
-                    }
-                }
-
-            }
-
+			if(color.r == 0x00 && color.g == 0x00 && color.b == 0x00){
+				MapObject *obj = new Wall(3, position);
+				addMapObject(obj);
+			}
+			if(color.r == 0x00 && color.g == 0x00 && color.b == 0xFF){
+				MapObject *enemy = new Enemy(position, currentPlayer, "pistol", 250, 1, convexEnemy, recEnemy);
+				addMapObject(enemy);
+			}
+			if(color.r == 0x00 && color.g == 0xFF && color.b == 0x00){
+				MapObject *enemy2 = new Enemy(position, currentPlayer, "shotgun", 400, 1, convexEnemy, recEnemy);
+				addMapObject(enemy2);
+			}
         }
     }
+}
 
+void Map::searchPlayerInLoadedMap(sf::Vector2f position, sf::Vector2u dimensions, const int size, sf::Image mapImage){
+	//characterGunSprite = new Sprite("../../Gate2158/media/character_machinegun.png");
+	recCharacter = new Rectangle(sf::Vector2f{ 50,50 }, sf::Color::Green);
+	for(unsigned int i = 0; i < dimensions.y; ++i){
+		for(unsigned int j = 0; j < dimensions.x; ++j){
+			position.y = (float)i*size;
+			position.x = (float)j*size;
+			sf::Color color = mapImage.getPixel(j, i);
+			if(color.r == 0xFF && color.g == 0x00 && color.b == 0x00){
+				currentPlayer = new UserCharacter(1000, 0, recCharacter, sf::Vector2f{ 300, 500 }, convexUser);
+				addMapObject(currentPlayer);
+			}
+		}
+	}
 }
 
 std::vector<MapObject *> *Map::getMapObjectsInRegion(sf::Vector2f topLeft, sf::Vector2f bottomRight){
@@ -97,4 +124,8 @@ std::vector<MapObject *> *Map::getMapObjectsInRegion(sf::Vector2f topLeft, sf::V
 
     }
     return objectsInRegion;
+}
+
+MapObject *Map::getCurrentPlayer(){
+	return currentPlayer;
 }
