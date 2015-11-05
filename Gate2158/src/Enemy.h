@@ -32,6 +32,7 @@ private:
 	float calculateRotation(sf::Vector2f userPosition);
 	ProjectileWeapon *weapon;
 	MapObject *user;
+	bool collisionDetectedBool;
 };
 
 #endif

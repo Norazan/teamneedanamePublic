@@ -5,11 +5,12 @@
 #ifndef GATE2158_MAP_H
 #define GATE2158_MAP_H
 
-
+#include "Rectangle.h"
 #include "MapObject.h"
 #include <vector>
 #include <string>
 
+class Rectangle;
 class Map {
 public:
     Map();
@@ -21,10 +22,24 @@ public:
 	int getLayers();
 	void setLayers(int layers);
 	void loadFromFile(std::string filename);
+	MapObject *getCurrentPlayer();
 private:
+	void searchPlayerInLoadedMap(sf::Vector2f position, sf::Vector2u dimensions, const int size, sf::Image mapImage);
 	int layers;
 	std::vector<MapObject*> mapObjects;
-
+	MapObject *currentPlayer;
+	std::vector<sf::Vector2f> wall;
+	std::vector<sf::Vector2f> enemyHit;
+	std::vector<sf::Vector2f> userHitbox;
+	Convex *convexWall;
+	Convex *convexUser;
+	//Convex convex3(squarePointss, sf::Vector2f(400, 400), sf::Vector2f(20, 20));
+	Convex *convexEnemy;
+	Rectangle *recEnemy;
+	Rectangle *recCharacter;
+	Rectangle *recWall;
+	//Sprite *enemySprite;
+	//Sprite *characterGunSprite;
 };
 
 
