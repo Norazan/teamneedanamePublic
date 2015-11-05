@@ -21,7 +21,7 @@ int main()
 	Menu menuScreen(window, true);
 
 
-	Sprite backgroundSprite("../../Gate2158/media/textures/background.jpeg");
+	Sprite backgroundSprite("../../Gate2158/media/textures/Background_new.png");
 
  	Map testMap(20);
 	testMap.loadFromFile("../../Gate2158/media/maps/mainmap.png");
