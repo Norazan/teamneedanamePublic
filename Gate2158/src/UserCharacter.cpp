@@ -147,7 +147,7 @@ float UserCharacter::calculateRotation(sf::Vector2i mousePosition){
 }
 
 void UserCharacter::collisionDetected(MapObject & mo){
-	if (mo.isFriend() != isFriend() || mo.getRenderLayer() == 2 ){
+	if (mo.getRenderLayer() == 3){
 		sf::Vector2f velocity = getVelocity();
 		move(-velocity);
 		canRotate = false;
