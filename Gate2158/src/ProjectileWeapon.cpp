@@ -5,15 +5,30 @@
 #include <stdlib.h>
 
 ProjectileWeapon::ProjectileWeapon(std::string weaponType, int isFriendly) :
-	weaponType( weaponType ),
-	isFriendly{ isFriendly },
-	camera{ Camera::getInstance() }
+weaponType(weaponType),
+isFriendly{ isFriendly },
+camera{ Camera::getInstance() }
 {
+	sf::Texture loadTexture;
+	
+	if (isFriendly == 1){
+		if (!loadTexture.loadFromFile("../../Gate2158/media/textures/BulletGreen.png")){
+			return;
+		}
+	}
+	else{
+		if (!loadTexture.loadFromFile("../../Gate2158/media/textures/BulletRed.png")){
+			return;
+		}
+	}
+
 	pistol.name = "pistol";
 	pistol.attackSpeed = 800;
 	pistol.maxAmmo = 100;
 	pistol.baseDamage = 25;
 	pistol.maxAmmoInMagazine = 10;
+	pistol.gunTexture = loadTexture;
+
 
 	shotgun.name = "shotgun";
 	shotgun.attackSpeed = 1200;
@@ -23,7 +38,7 @@ ProjectileWeapon::ProjectileWeapon(std::string weaponType, int isFriendly) :
 	shotgun.amountOfBullets = 3;
 	shotgun.spread = 0.05f;
 	shotgun.reloadTime = 800;
-
+	shotgun.gunTexture = loadTexture;
 	shotgun.currentAmmo = shotgun.maxAmmo;
 	shotgun.ammoInMagazine = shotgun.maxAmmoInMagazine;
 	pistol.currentAmmo = pistol.maxAmmo;
@@ -49,7 +64,7 @@ void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
 		for (float i = currentGun.amountOfBullets / 2 - currentGun.amountOfBullets; i < currentGun.amountOfBullets / 2; i++){
 			float bulletSpread = (currentGun.amountOfBullets / 2) * currentGun.spread * i;
 			sf::Vector2f startingVelocity{ sin(radian + bulletSpread), cos(radian + bulletSpread) };
-			Bullet *bullet = new Bullet(calculateDamage(), location, startingVelocity, angle, this, isFriendly);
+			Bullet *bullet = new Bullet(calculateDamage(), location, startingVelocity, angle, this, isFriendly, currentGun.gunTexture);
 			camera->addMapObjectToCurrentMap(bullet);
 		}
 		currentGun.ammoInMagazine -= 1;

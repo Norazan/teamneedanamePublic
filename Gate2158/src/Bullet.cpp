@@ -9,20 +9,22 @@ Bullet::Bullet(
 	sf::Vector2f startingVelocity, 
 	float angle, 
 	Weapon * weapon,
-	int isFriend
+	int isFriend,
+	sf::Texture & gunTexture
 ) :
 	weapon{ weapon },
 	c{ Camera::getInstance() }
 {
 	isFriendly = isFriend;
 
-	float size = 10;
+	float size = 20;
+	bullet.setTexture(&gunTexture);
 	bullet.setRadius(size);
 	if (isFriend == 1){
-		bullet.setFillColor(sf::Color{ 0, 255, 0 });
+		bullet.setFillColor(sf::Color{255, 255, 255 , 255});
 	}
 	if (isFriend == 2){
-		bullet.setFillColor(sf::Color{ 255, 0, 0 });
+		bullet.setFillColor(sf::Color{ 150, 0, 0 , 255});
 	}
 	bullet.setOrigin(sf::Vector2f{ -18, 13 });
 	bullet.setPosition(startingLocation);
