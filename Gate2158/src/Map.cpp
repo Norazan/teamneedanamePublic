@@ -91,7 +91,7 @@ std::vector<MapObject *> *Map::getMapObjectsInRegion(sf::Vector2f topLeft, sf::V
                 position.x <= bottomRight.x &&
                 position.y >= topLeft.y &&
                 position.y <= bottomRight.y
-                ){
+        ){
             objectsInRegion->push_back(obj);
         }
 		else if (obj->getRenderLayer() == 2){

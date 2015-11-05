@@ -112,6 +112,7 @@ int main()
 	Enemy enemy2(sf::Vector2f{ 700, 500 }, &con2, "pistol", 200, 1, &enemyHit2, &enemy);
 	Enemy enemy3(sf::Vector2f{ 300, 600 }, &con2, "pistol", 300, 1, &enemyHit3, &enemy);
 	Enemy enemy4(sf::Vector2f{ 600, 500 }, &con2, "shotgun", 400, 1, &enemyHit4, &enemy);
+	Enemy enemy5(sf::Vector2f{ 800, 500 }, &con2, "shotgun", 400, 1, &enemyHit4, &enemy);
 
 	Map testMap(3);
 	testMap.addMapObject(&con1);
@@ -120,7 +121,8 @@ int main()
 	testMap.addMapObject(&con5);
 	testMap.addMapObject(&enemy2);
 	testMap.addMapObject(&enemy3);
-	//testMap.addMapObject(&enemy4);
+	testMap.addMapObject(&enemy4);
+	testMap.addMapObject(&enemy5);
 
 //   	testMap.loadFromFile("../../Gate2158/media/maps/checkerboard.png");
 

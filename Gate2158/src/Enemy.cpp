@@ -31,12 +31,16 @@ void Enemy::collisionDetected(MapObject & mo){
 }
 
 void Enemy::act(sf::RenderWindow & window){
-	weapon->shoot(drawPosition, calculateRotation(user->getDrawPosition()));
+	//weapon->shoot(position, calculateRotation(user->getDrawPosition()));
 	if (weapon->getAmmoInMagazine() == 0){
 		weapon->reload();
 		weapon->setAmmo(weapon->getMaxAmmo());
 	}
 	walk();
+	if (health < 0){
+		Camera *camera = Camera::getInstance();
+		camera->revmoveMapObjectOnCurrentMap(this);
+	}
 }
 void Enemy::walk(){
 	sf::Vector2f velocity = getVelocity();
@@ -111,8 +115,4 @@ float Enemy::calculateRotation(sf::Vector2f userPosition){
 
 void Enemy::setDamage(int damage){
 	health -= damage;
-	if (health < 0){
-		Camera *camera = Camera::getInstance();
-		camera->revmoveMapObjectOnCurrentMap(this);
-	}
 }

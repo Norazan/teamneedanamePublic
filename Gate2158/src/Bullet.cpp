@@ -45,18 +45,18 @@ void Bullet::draw(sf::RenderWindow & window, sf::Vector2f drawPos){
 	}
 	else {
 		location = sf::Vector2f(location.x + velocity.x*bSpeed, location.y - velocity.y*bSpeed);
-		bullet.setPosition(position);
+		bullet.setPosition(drawPosition);
 		position = location;
-		drawPosition = position;
+		drawPosition = drawPos;
 		window.draw(bullet);
 	}
 }
 
 bool Bullet::outOfBound(sf::RenderWindow & window){
-	if (bullet.getPosition().x > window.getSize().x || bullet.getPosition().x < 0){
+	if (drawPosition.x > window.getSize().x || drawPosition.x < 0){
 		return true;
 	}
-	else if (bullet.getPosition().y > window.getSize().y || bullet.getPosition().y < 0){
+	else if (drawPosition.y > window.getSize().y || drawPosition.y < 0){
 		return true;
 	}
 	return false;
