@@ -28,9 +28,10 @@ void Camera::draw(){
 	//int playerOutsideCameraLengthX, playerOutsideCameraLengthY;
 	cameraBeginPosition.x = currentPlayer->getPosition().x - ((float)window->getSize().x / 2);
 	cameraBeginPosition.y = currentPlayer->getPosition().y - ((float)window->getSize().y / 2);
+	objectsAroundPlayer = getObjectsAroundPlayer();
 	checkCollision();
 	for (int i = currentMap->getLayers(); i >= 0; i--){
-		for (auto &mo : *getObjectsAroundPlayer()){
+		for (auto &mo : *objectsAroundPlayer){
 			if (mo->getRenderLayer() == i){
 				drawPosition.x = mo->getPosition().x - cameraBeginPosition.x;
 				drawPosition.y = mo->getPosition().y - cameraBeginPosition.y;
@@ -74,10 +75,10 @@ std::vector<MapObject*> *Camera::getObjectsAroundPlayer(){
 void Camera::checkCollision(){
 	Collision collision;
 	// get all playable objects
-	for (auto &mo : *getObjectsAroundPlayer()){
+	for (auto &mo : *objectsAroundPlayer){
 		if (mo->getRenderLayer() < 3){
 			// check if character has collision with objects
-			for (auto &object : *getObjectsAroundPlayer()){
+			for (auto &object : *objectsAroundPlayer){
 				if (object != mo){
 					// do nothing with overlap
 					(void)collision.checkCollision(*mo, *object);

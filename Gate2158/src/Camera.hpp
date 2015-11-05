@@ -43,9 +43,9 @@ private:
 	static Camera *camera;
 	Map *currentMap;
 	MapObject *currentPlayer;
-	bool canCheckCollision = true;
 	std::vector<MapObject*> removeObjects;
 	std::vector<MapObject*> addObjects;
+	std::vector<MapObject*> *objectsAroundPlayer;
 };
 
 #endif //GATE2158_CAMERA_HPP

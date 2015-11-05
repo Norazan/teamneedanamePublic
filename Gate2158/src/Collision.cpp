@@ -29,8 +29,54 @@ float Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 		return 0;
 	}
 
-	std::vector<line> axes_obj1 = getAxes(obj1);
-	std::vector<line> axes_obj2 = getAxes(obj2);
+	//std::vector<line> axes_obj1 = getAxes(obj1);
+	std::vector<sf::Vector2f> &pointsObj1 = obj1.getConvexPoints();
+	int size = pointsObj1.size();
+	line axes_obj1[10];
+	for (int i = 0; i < size; i++){
+		line newAxes;
+		// make line from current point and next point
+		// and make from the line, an axes that is perpendicular to the line, 
+		// simples way to do this is by swapping x and y and make y negative ( -y, x ).
+		if (i < (size - 1)){
+			newAxes = {
+				sf::Vector2f{ -pointsObj1[i].y, pointsObj1[i].x },
+				sf::Vector2f{ -pointsObj1[i + 1].y, pointsObj1[i + 1].x }
+			};
+		}
+		// make line from last point and first point.
+		else {
+			newAxes = {
+				sf::Vector2f{ -pointsObj1[i].y, pointsObj1[i].x },
+				sf::Vector2f{ -pointsObj1[0].y, pointsObj1[0].x }
+			};
+		}
+		axes_obj1[i] = newAxes;
+	}
+	//std::vector<line> axes_obj2 = getAxes(obj2);
+	std::vector<sf::Vector2f> &pointsObj2 = obj2.getConvexPoints();
+	size = pointsObj1.size();
+	line axes_obj2[10];
+	for (int i = 0; i < size; i++){
+		line newAxes;
+		// make line from current point and next point
+		// and make from the line, an axes that is perpendicular to the line, 
+		// simples way to do this is by swapping x and y and make y negative ( -y, x ).
+		if (i < (size - 1)){
+			newAxes = {
+				sf::Vector2f{ -pointsObj1[i].y, pointsObj1[i].x },
+				sf::Vector2f{ -pointsObj1[i + 1].y, pointsObj1[i + 1].x }
+			};
+		}
+		// make line from last point and first point.
+		else {
+			newAxes = {
+				sf::Vector2f{ -pointsObj1[i].y, pointsObj1[i].x },
+				sf::Vector2f{ -pointsObj1[0].y, pointsObj1[0].x }
+			};
+		}
+		axes_obj2[i] = newAxes;
+	}
 	// loop over the axes1
 	//float smallest_overlap = 500;
 	//int smalles_overlap_on_axes_obj1 = 0, smalles_overlap_on_axes_obj2 = 0, axesCount = 0;
