@@ -124,7 +124,7 @@ void Map::searchPlayerInLoadedMap(sf::Vector2f position, sf::Vector2u dimensions
 
 std::vector<MapObject *> *Map::getMapObjectsInRegion(sf::Vector2f topLeft, sf::Vector2f bottomRight){
     std::vector<MapObject *> *objectsInRegion = new std::vector<MapObject *>;
-    for(auto obj : mapObjects){
+    for(const auto & obj : mapObjects){
         sf::Vector2f position = obj->getPosition();
         if(
                 position.x >= topLeft.x &&
