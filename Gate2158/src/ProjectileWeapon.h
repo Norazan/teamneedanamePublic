@@ -9,6 +9,7 @@
 #include <vector>
 #include <string>
 #include "Camera.hpp"
+
 class Camera;
 struct gun{
 	std::string name;
@@ -25,6 +26,7 @@ struct gun{
 	int nextLevelExpoints = 100;
 	float spread = 0;
 	float amountOfBullets = 1;
+	sf::Texture gunTexture;
 };
 
 class ProjectileWeapon: public Weapon{

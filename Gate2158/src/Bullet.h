@@ -8,13 +8,14 @@
 class Camera;
 class Bullet : public MapObject {
 public:
-	Bullet(	
-		int bulletDamage, 
-		sf::Vector2f startingLocation, 
-		sf::Vector2f startingVelocity, 
-		float angle, 
+	Bullet(
+		int bulletDamage,
+		sf::Vector2f startingLocation,
+		sf::Vector2f startingVelocity,
+		float angle,
 		Weapon* weapon,
-		int isFriend
+		int isFriend,
+		sf::Texture & gunTexture
 	);
 	void draw(sf::RenderWindow & window, sf::Vector2f drawPosition) override;
 	bool outOfBound(sf::RenderWindow & window);
