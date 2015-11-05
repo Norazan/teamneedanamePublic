@@ -58,6 +58,12 @@ void Enemy::walk(){
 	else if (drawPosition.x < 50){
 		velocity = sf::Vector2f{ 10, 0 };
 	}
+	if (drawPosition.y < 50){
+		velocity = sf::Vector2f{ 0, 10 };
+	}
+	else if (drawPosition.y > 650){
+		velocity = sf::Vector2f{ 0, -10 };
+	}
 	move(velocity);
 	setVelocity(velocity);
 	canRotate = true;
