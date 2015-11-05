@@ -147,8 +147,6 @@ float UserCharacter::calculateRotation(sf::Vector2i mousePosition){
 void UserCharacter::collisionDetected(MapObject & mo){
 	if (mo.getRenderLayer() == 3){
 		sf::Vector2f velocity = getVelocity();
-		velocity.x = velocity.x * float(1.2);
-		velocity.y = velocity.y * float(1.2);
 		move(-velocity);
 		canRotate = false;
 		rotate(previousRotation);

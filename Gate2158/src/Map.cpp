@@ -77,6 +77,7 @@ void Map::loadFromFile(const std::string filename){
 
 	enemySprite = new Sprite("../../Gate2158/media/textures/Enemy_BIG.png");
 	enemyShotgun = new Sprite("../../Gate2158/media/textures/Enemy_Shotgun.png");
+	enemyPistol = new Sprite("../../Gate2158/media/textures/Enemy_Pistol.png");
 
 	wallSprite = new Sprite("../../Gate2158/media/textures/m-001.png");
 	characterGunSprite = new Sprite("../../Gate2158/media/textures/Player_BIG.png");
@@ -95,7 +96,7 @@ void Map::loadFromFile(const std::string filename){
 				addMapObject(obj);
 			}
 			if(color.r == 0x00 && color.g == 0x00 && color.b == 0xFF){
-				MapObject *enemy = new Enemy(position, currentPlayer, "pistol", 250, 1, convexEnemy, enemySprite);
+				MapObject *enemy = new Enemy(position, currentPlayer, "pistol", 250, 1, convexEnemy, enemyPistol);
 				addMapObject(enemy);
 			}
 			if(color.r == 0x00 && color.g == 0xFF && color.b == 0x00){

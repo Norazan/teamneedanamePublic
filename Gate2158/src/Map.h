@@ -35,6 +35,7 @@ private:
 	Convex *convexEnemy;
 	Sprite *enemySprite;
 	Sprite *enemyShotgun;
+	Sprite *enemyPistol;
 	Sprite *characterGunSprite;
 	Sprite *wallSprite;
 };
