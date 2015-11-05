@@ -22,14 +22,15 @@ void Enemy::draw(sf::RenderWindow & window, sf::Vector2f drawPos){
 	MapObject::draw(window, drawPos);
 }
 void Enemy::collisionDetected(MapObject & mo){
-	sf::Vector2f velocity = getVelocity();
-	setVelocity(-velocity);
-	velocity.x = velocity.x * 3;
-	velocity.y = velocity.y * 3;
-	move(-velocity);
-	rotate(previousRotation);
-	canRotate = false;
-
+	if (mo.getRenderLayer() == 3){
+		sf::Vector2f velocity = getVelocity();
+		setVelocity(-velocity);
+		velocity.x = velocity.x * 2;
+		velocity.y = velocity.y * 2;
+		move(-velocity);
+		rotate(previousRotation);
+		canRotate = false;
+	}
 }
 
 void Enemy::act(sf::RenderWindow & window){
@@ -52,16 +53,16 @@ void Enemy::act(sf::RenderWindow & window){
 
 void Enemy::walk(){
 	sf::Vector2f velocity = getVelocity();
-	if (drawPosition.x > 1200){
+	if (drawPosition.x > 1240){
 		velocity = sf::Vector2f{ -10, 0 };
 	}
-	else if (drawPosition.x < 50){
+	else if (drawPosition.x < 0){
 		velocity = sf::Vector2f{ 10, 0 };
 	}
-	if (drawPosition.y < 50){
+	else if (drawPosition.y < 0){
 		velocity = sf::Vector2f{ 0, 10 };
 	}
-	else if (drawPosition.y > 650){
+	else if (drawPosition.y > 720){
 		velocity = sf::Vector2f{ 0, -10 };
 	}
 	move(velocity);

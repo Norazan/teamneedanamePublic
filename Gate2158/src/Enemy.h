@@ -41,6 +41,7 @@ private:
 	float previousRotation;
 	//! boolean canRotate
 	bool canRotate = true;
+	bool collisionIsDetected = false;
 };
 
 #endif
