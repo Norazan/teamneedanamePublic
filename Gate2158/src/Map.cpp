@@ -65,11 +65,11 @@ int Map::getLayers(){
 }
 
 void Map::loadFromFile(const std::string filename){
-    sf::Image mapImage;
-    mapImage.loadFromFile(filename);
-    sf::Vector2u dimensions = mapImage.getSize();
+	sf::Image mapImage;
+	mapImage.loadFromFile(filename);
+	sf::Vector2u dimensions = mapImage.getSize();
 
-    std::cout << "Loading map with size" << "(" << dimensions.x << "," << dimensions.y << ")" << std::endl;
+	std::cout << "Loading map with size" << "(" << dimensions.x << "," << dimensions.y << ")" << std::endl;
 
 	convexUser = new Convex(userHitbox, sf::Vector2f(0, 0), sf::Vector2f(25, 25));
 	convexEnemy = new Convex(enemyHit, sf::Vector2f(0, 0), sf::Vector2f(25, 25));
@@ -79,33 +79,33 @@ void Map::loadFromFile(const std::string filename){
 	wallSprite = new Sprite("../../Gate2158/media/textures/m-001.png");
 	characterGunSprite = new Sprite("../../Gate2158/media/textures/Player_BIG.png");
 
-    const int size = 32;
-	sf::Vector2f position = sf::Vector2f{0,0};
+	const int size = 32;
+	sf::Vector2f position = sf::Vector2f{ 0, 0 };
 
 
-    for(unsigned int i = 0; i < dimensions.y; ++i){
-        for(unsigned int j = 0; j < dimensions.x; ++j){
-            position.y = (float) i*size;
-            position.x = (float) j*size;
-            sf::Color color = mapImage.getPixel(j, i);
-			if(color.r == 0x00 && color.g == 0x00 && color.b == 0x00){
+	for (unsigned int i = 0; i < dimensions.y; ++i){
+		for (unsigned int j = 0; j < dimensions.x; ++j){
+			position.y = (float)i*size;
+			position.x = (float)j*size;
+			sf::Color color = mapImage.getPixel(j, i);
+			if (color.r == 0x00 && color.g == 0x00 && color.b == 0x00){
 				MapObject *obj = new MapObject(3, wallSprite, position, convexWall);
 				addMapObject(obj);
 			}
-			if(color.r == 0x00 && color.g == 0x00 && color.b == 0xFF){
+			else if (color.r == 0x00 && color.g == 0x00 && color.b == 0xFF){
 				MapObject *enemy = new Enemy(position, currentPlayer, "pistol", 250, 1, convexEnemy, enemySprite);
 				addMapObject(enemy);
 			}
-			if(color.r == 0x00 && color.g == 0xFF && color.b == 0x00){
+			else if (color.r == 0x00 && color.g == 0xFF && color.b == 0x00){
 				MapObject *enemy2 = new Enemy(position, currentPlayer, "shotgun", 400, 1, convexEnemy, enemySprite);
 				addMapObject(enemy2);
 			}
-			if (color.r == 0xFF && color.g == 0x00 && color.b == 0x00){
+			else if (color.r == 0xFF && color.g == 0x00 && color.b == 0x00){
 				currentPlayer = new UserCharacter(1000, 0, characterGunSprite, sf::Vector2f{ 300, 500 }, convexUser);
 				addMapObject(currentPlayer);
 			}
-        }
-    }
+		}
+	}
 }
 
 std::vector<MapObject *> *Map::getMapObjectsInRegion(sf::Vector2f topLeft, sf::Vector2f bottomRight){

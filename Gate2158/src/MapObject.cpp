@@ -17,7 +17,6 @@ MapObject::MapObject(int renderLayer, drawable *drawable, sf::Vector2f position)
 	drawObject{ drawable },
 	position{ position }
 {
-	position = sf::Vector2f{ 0, 0 };
 	isFriendly = 5;
 }
 
