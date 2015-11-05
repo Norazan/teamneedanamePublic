@@ -9,20 +9,28 @@ ProjectileWeapon::ProjectileWeapon(std::string weaponType, int isFriendly) :
 	isFriendly{ isFriendly },
 	camera{ Camera::getInstance() }
 {
+	if (isFriendly == 2){
+		pistol.attackSpeed = 1500;
+		pistol.reloadTime = 1500;
+		shotgun.attackSpeed = 1700;
+	}
+	else {
+		pistol.attackSpeed = 600;
+		shotgun.attackSpeed = 1200;
+		shotgun.reloadTime = 800;
+	}
+
 	pistol.name = "pistol";
-	pistol.attackSpeed = 800;
 	pistol.maxAmmo = 100;
 	pistol.baseDamage = 25;
 	pistol.maxAmmoInMagazine = 10;
 
 	shotgun.name = "shotgun";
-	shotgun.attackSpeed = 1200;
 	shotgun.maxAmmo = 36;
 	shotgun.baseDamage = 10;
 	shotgun.maxAmmoInMagazine = 6;
 	shotgun.amountOfBullets = 3;
 	shotgun.spread = 0.05f;
-	shotgun.reloadTime = 800;
 
 	shotgun.currentAmmo = shotgun.maxAmmo;
 	shotgun.ammoInMagazine = shotgun.maxAmmoInMagazine;
