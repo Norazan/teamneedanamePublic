@@ -103,9 +103,9 @@ int main()
 	drawable *rec2 = new Rectangle(sf::Vector2f{ 40, 40 }, sf::Color::Red);
 	drawable *rec3 = new Rectangle(sf::Vector2f{ 60, 60 }, sf::Color::Yellow);
 
-	MapObject con1(1, rec0, sf::Vector2f{300,250}, &convex);
-	MapObject con3(1, rec1, sf::Vector2f{50,50},&convex2);
-	MapObject con5(1, rec3, sf::Vector2f{ 200, 300 }, &convex4);
+	MapObject con1(3, rec0, sf::Vector2f{300,250}, &convex);
+	MapObject con3(3, rec1, sf::Vector2f{50,50},&convex2);
+	MapObject con5(3, rec3, sf::Vector2f{ 200, 300 }, &convex4);
 	Sprite characterGun("../../Gate2158/media/character_gun.png");
 	Sprite enemy("../../Gate2158/media/character_machinegun.png");
 	UserCharacter con2(1000, 0, &characterGun, sf::Vector2f{ 300, 500 }, &userHit);

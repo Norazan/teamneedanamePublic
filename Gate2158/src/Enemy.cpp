@@ -31,7 +31,7 @@ void Enemy::collisionDetected(MapObject & mo){
 }
 
 void Enemy::act(sf::RenderWindow & window){
-	//    weapon->shoot(drawPosition, calculateRotation(user->getDrawPosition()));
+	weapon->shoot(drawPosition, calculateRotation(user->getDrawPosition()));
 	if (weapon->getAmmoInMagazine() == 0){
 		weapon->reload();
 		weapon->setAmmo(weapon->getMaxAmmo());
