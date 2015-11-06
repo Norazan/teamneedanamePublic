@@ -5,7 +5,7 @@
 * @version 1.0
 *
 * The Camera class draws everything on the screen
-* THE CAMERA CLASS IS A SINGLETON CLASS, so there can only be one camera.
+* THE CAMERA CLASS IS A SINGLETON CLASS, so there can be only one camera.
 */
 
 #ifndef GATE2158_CAMERA_H
