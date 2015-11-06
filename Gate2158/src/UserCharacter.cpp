@@ -246,20 +246,14 @@ void UserCharacter::act(sf::RenderWindow & window){
 void UserCharacter::setDamage(int damage){
 	health -= damage;
 	if (health < 0){
-		/*
 		Camera *camera = Camera::getInstance();
-		sf::RenderWindow *window = camera->window;
-		Text GameOver(
-			"GAME OVER !",
-			sf::Vector2f(500, 500),
-			sf::Text::Style::Regular,
-			sf::Color::Red,
-			30,
-			&tFont
-		);
-		GameOver.draw(*window, sf::Vector2f(600, 300));
-		*/
-		sf::sleep(sf::seconds(5));
-		exit(0);
+		camera->endGame = true;
 	}
+}
+
+std::vector<int> UserCharacter::getWeaponTiers(){
+	return pistol->getTiers();
+}
+void UserCharacter::setWeaponTiers(std::vector<int> tiers){
+	pistol->setTiers(tiers);
 }

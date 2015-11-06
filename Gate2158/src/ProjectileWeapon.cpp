@@ -162,3 +162,21 @@ int ProjectileWeapon::getMaxAmmo(){
 	return int(currentGun.maxAmmo);
 }
 
+std::vector<int> ProjectileWeapon::getTiers(){
+	if (currentGun.name == "pistol"){
+		pistol = currentGun;
+	}
+	else {
+		shotgun = currentGun;
+	}
+	std::vector<int> tiers;
+	tiers.push_back(int(pistol.weaponTier));
+	tiers.push_back(int(shotgun.weaponTier));
+	return tiers;
+}
+void ProjectileWeapon::setTiers(std::vector<int> tiers){
+	pistol.weaponTier = tiers[0];
+	shotgun.weaponTier = tiers[1];
+	setExpoints(1);
+}
+

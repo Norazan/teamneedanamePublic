@@ -10,9 +10,13 @@ World::World(float worldSeed){
 }
 
 Map& World::getCurrentMap(){
-	return currentMap;
+	return maps[currentMap];
 }
 
-void World::addMap(Map m){
-	currentMap = m;
+void World::addMap(Map &m){
+	maps[mapCount++] = m;
+}
+
+void World::nextMap(){
+	++currentMap;
 }

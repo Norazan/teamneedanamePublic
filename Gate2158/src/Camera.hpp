@@ -83,6 +83,14 @@ public:
 	* The window where the camera will draw 
 	*/
 	sf::RenderWindow *window;
+	/**
+	* Boolean if game is ended
+	*/
+	bool endGame = false;
+	/**
+	* Boolean if next level
+	*/
+	bool nextLevel = false;
 private:
 	/**
 	* Constructor of Camera

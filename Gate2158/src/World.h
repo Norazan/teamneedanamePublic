@@ -8,10 +8,12 @@ class World {
 public:
 	World(float worldSeed = 0.0);
 	Map& getCurrentMap();
-	void addMap(Map m);
+	void addMap(Map &m);
+	void nextMap();
 private:
-	Map currentMap;
+	int currentMap = 0;
 	Map maps[10];
+	int mapCount = 0;
 	float worldSeed;
 };
 

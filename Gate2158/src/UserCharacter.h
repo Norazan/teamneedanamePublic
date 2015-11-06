@@ -43,6 +43,8 @@ public:
 	void drawUserInterface(sf::RenderWindow & window);
 	void act(sf::RenderWindow & window) override;
 	void setDamage(int damage) override;
+	std::vector<int> getWeaponTiers();
+	void setWeaponTiers(std::vector<int> tiers);
 
 private:
 	//! Function move

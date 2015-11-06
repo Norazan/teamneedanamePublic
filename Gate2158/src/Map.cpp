@@ -6,6 +6,7 @@
 #include "Wall.h"
 #include "UserCharacter.h"
 #include "Enemy.h"
+#include "Finish.h"
 #include <iostream>
 #include <string>
 
@@ -28,6 +29,24 @@ Map::Map(int layers) :
 	userHitbox.push_back(sf::Vector2f{ 50, 0 });
 	userHitbox.push_back(sf::Vector2f{ 50, 50 });
 	userHitbox.push_back(sf::Vector2f{ 0, 50 });
+	finishHitbox.push_back(sf::Vector2f{ 0, 0 });
+	finishHitbox.push_back(sf::Vector2f{ 100, 0 });
+	finishHitbox.push_back(sf::Vector2f{ 100, 100 });
+	finishHitbox.push_back(sf::Vector2f{ 0, 100 });
+}
+
+Map::~Map(){
+	for (auto & mo : mapObjects){
+		delete mo;
+	}
+	delete convexWall;
+	delete convexUser;
+	delete convexEnemy;
+	delete enemySprite;
+	delete enemyShotgun;
+	delete enemyPistol;
+	delete characterGunSprite;
+	delete wallSprite;
 }
 
 void Map::addMapObject(MapObject *object) {
@@ -74,13 +93,14 @@ void Map::loadFromFile(const std::string filename){
 	convexUser = new Convex(userHitbox, sf::Vector2f(0, 0), sf::Vector2f(25, 25));
 	convexEnemy = new Convex(enemyHit, sf::Vector2f(0, 0), sf::Vector2f(25, 25));
 	convexWall = new Convex(wall, sf::Vector2f(0, 0), sf::Vector2f(16, 16));
+	convexFinish = new Convex(finishHitbox, sf::Vector2f(0, 0), sf::Vector2f(50, 50));
 
 	enemySprite = new Sprite("../../Gate2158/media/textures/Enemy_BIG.png");
 	enemyShotgun = new Sprite("../../Gate2158/media/textures/Enemy_Shotgun.png");
 	enemyPistol = new Sprite("../../Gate2158/media/textures/Enemy_Pistol.png");
-
 	wallSprite = new Sprite("../../Gate2158/media/textures/m-001.png");
 	characterGunSprite = new Sprite("../../Gate2158/media/textures/Player_BIG.png");
+	finishSprite = new Sprite("../../Gate2158/media/textures/finish.png");
 
 	const int size = 32;
 	sf::Vector2f position = sf::Vector2f{ 0, 0 };
@@ -95,17 +115,22 @@ void Map::loadFromFile(const std::string filename){
 				MapObject *obj = new MapObject(3, wallSprite, position, convexWall);
 				addMapObject(obj);
 			}
-			if(color.r == 0x00 && color.g == 0x00 && color.b == 0xFF){
+			else if(color.r == 0x00 && color.g == 0x00 && color.b == 0xFF){
 				MapObject *enemy = new Enemy(position, currentPlayer, "pistol", 250, 1, convexEnemy, enemyPistol);
 				addMapObject(enemy);
 			}
-			if(color.r == 0x00 && color.g == 0xFF && color.b == 0x00){
+			else if(color.r == 0x00 && color.g == 0xFF && color.b == 0x00){
 				MapObject *enemy2 = new Enemy(position, currentPlayer, "shotgun", 400, 1, convexEnemy, enemyShotgun);
 				addMapObject(enemy2);
 			}
 			else if (color.r == 0xFF && color.g == 0x00 && color.b == 0x00){
-				currentPlayer = new UserCharacter(1000, 0, characterGunSprite, sf::Vector2f{ 300, 500 }, convexUser);
+				player = new UserCharacter(1000, 0, characterGunSprite, sf::Vector2f{ 300, 500 }, convexUser);
+				currentPlayer = player;
 				addMapObject(currentPlayer);
+			}
+			else if (color.r == 0x64 && color.g == 0x64 && color.b == 0x64){
+				MapObject *finish = new Finish(1, finishSprite, position, convexFinish);
+				addMapObject(finish);
 			}
 		}
 	}

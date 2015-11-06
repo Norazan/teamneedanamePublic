@@ -93,6 +93,9 @@ void Camera::setWindow(sf::RenderWindow &window){
 }
 void Camera::setCurrentMap(Map & currentMap){
 	this->currentMap = &currentMap;
+	addObjects.clear();
+	removeObjects.clear();
+	nextLevel = false;
 }
 void Camera::setCurrentPlayer(MapObject *currentUser){
 	this->currentPlayer = currentUser;

@@ -8,12 +8,16 @@
 #include "Sprite.h"
 #include "Rectangle.h"
 #include "MapObject.h"
+#include "UserCharacter.h"
 #include <vector>
+
+class UserCharacter;
 
 class Map {
 public:
     Map();
 	Map(int layers);
+	~Map();
     void addMapObject(MapObject *object);
 	void removeMapObject(std::vector<MapObject*> removeObject);
 	std::vector<MapObject*>& getAllMapObjects();
@@ -22,6 +26,7 @@ public:
 	void setLayers(int layers);
 	void loadFromFile(std::string filename);
 	MapObject *getCurrentPlayer();
+	UserCharacter *player;
 private:
 	int layers;
 	std::vector<MapObject*> mapObjects;
@@ -29,15 +34,17 @@ private:
 	std::vector<sf::Vector2f> wall;
 	std::vector<sf::Vector2f> enemyHit;
 	std::vector<sf::Vector2f> userHitbox;
+	std::vector<sf::Vector2f> finishHitbox;
 	Convex *convexWall;
 	Convex *convexUser;
-	//Convex convex3(squarePointss, sf::Vector2f(400, 400), sf::Vector2f(20, 20));
 	Convex *convexEnemy;
+	Convex *convexFinish;
 	Sprite *enemySprite;
 	Sprite *enemyShotgun;
 	Sprite *enemyPistol;
 	Sprite *characterGunSprite;
 	Sprite *wallSprite;
+	Sprite *finishSprite;
 };
 
 
