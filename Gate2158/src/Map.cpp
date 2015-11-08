@@ -36,20 +36,6 @@ Map::Map(int layers) :
 	finishHitbox.push_back(sf::Vector2f{ 0, 100 });
 }
 
-Map::~Map(){
-	/*for (auto & mo : mapObjects){
-		delete mo;
-	}
-	delete convexWall;
-	delete convexUser;
-	delete convexEnemy;
-	delete enemySprite;
-	delete enemyShotgun;
-	delete enemyPistol;
-	delete characterGunSprite;
-	delete wallSprite;*/
-}
-
 void Map::addMapObject(MapObject *object) {
 	mapObjects.push_back(object);
 }
@@ -91,12 +77,11 @@ void Map::loadFromFile(const std::string filename){
 
 	std::cout << "Loading map with size" << "(" << dimensions.x << "," << dimensions.y << ")" << std::endl;
 
-	convexUser = new Convex(userHitbox, sf::Vector2f(0, 0), sf::Vector2f(25, 25));
-	convexEnemy = new Convex(enemyHit, sf::Vector2f(0, 0), sf::Vector2f(25, 25));
-	convexWall = new Convex(wall, sf::Vector2f(0, 0), sf::Vector2f(16, 16));
-	convexFinish = new Convex(finishHitbox, sf::Vector2f(0, 0), sf::Vector2f(50, 50));
+	convexUser = new Convex(userHitbox, sf::Vector2f(25, 25));
+	convexEnemy = new Convex(enemyHit, sf::Vector2f(25, 25));
+	convexWall = new Convex(wall, sf::Vector2f(16, 16));
+	convexFinish = new Convex(finishHitbox, sf::Vector2f(50, 50));
 
-	enemySprite = new Sprite("../../Gate2158/media/textures/Enemy_BIG.png");
 	enemyShotgun = new Sprite("../../Gate2158/media/textures/Enemy_Shotgun.png");
 	enemyPistol = new Sprite("../../Gate2158/media/textures/Enemy_Pistol.png");
 	wallSprite = new Sprite("../../Gate2158/media/textures/m-001.png");

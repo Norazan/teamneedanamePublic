@@ -1,10 +1,11 @@
 #include "Menu.h"
 #include <iostream>
-Menu::Menu(sf::RenderWindow &windowRef, bool showMenu)
-: window(windowRef),
-showingMenu(showMenu),
-currentSelection(0),
-splashScreen(true)
+
+Menu::Menu(sf::RenderWindow &windowRef, bool showMenu) :
+	window(windowRef),
+	showingMenu(showMenu),
+	currentSelection(0),
+	splashScreen(true)
 {
 	input.setToggleKey(sf::Keyboard::Up);
 	input.setToggleKey(sf::Keyboard::Down);
@@ -85,11 +86,9 @@ void Menu::processKeys(){
 	else{
 		if (input.isKeyHold(sf::Keyboard::Up)){
 			currentSelection = 0;
-			std::cout << "Up";
 		}
 		else if (input.isKeyHold(sf::Keyboard::Down)){
 			currentSelection = 1;
-			std::cout << "down";
 		}
 		else if (input.isKeyHold(sf::Keyboard::Return)){
 			menuBackgroundMusic.stop();
@@ -102,11 +101,9 @@ void Menu::processKeys(){
 		}
 
 		else if (input.getMousePress(sf::Mouse::Left)){
-			std::cout << "x: " << input.getMousePosition(window).x << " y:" << input.getMousePosition(window).y << "\n";
 			if (input.getMousePosition(window).x >= startLocation.x && input.getMousePosition(window).x <= startLocation.x + 200 &&
 				input.getMousePosition(window).y >= startLocation.y && input.getMousePosition(window).y <= startLocation.y + 100){
 				showingMenu = false;
-				std::cout << "false";
 			}
 			else if (input.getMousePosition(window).x >= quitLocation.x && input.getMousePosition(window).x <= quitLocation.x + 200 &&
 				input.getMousePosition(window).y >= quitLocation.y && input.getMousePosition(window).y <= quitLocation.y + 100){
