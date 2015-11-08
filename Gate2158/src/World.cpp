@@ -20,3 +20,7 @@ void World::addMap(Map &m){
 void World::nextMap(){
 	++currentMap;
 }
+
+int World::getCurrentMapCount(){
+	return currentMap;
+}

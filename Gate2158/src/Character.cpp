@@ -49,3 +49,7 @@ int Character::getExpoints(int damage){
 void Character::setDamage(int damage){
 	health -= damage;
 }
+
+void Character::setMaxHealth(){
+	health = maxHealth;
+}

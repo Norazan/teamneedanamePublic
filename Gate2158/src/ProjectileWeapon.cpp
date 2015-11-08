@@ -140,7 +140,7 @@ int ProjectileWeapon::getTier(){
 void ProjectileWeapon::setExpoints(int expoints){
 	currentGun.expoints += expoints;
 	// check if curren gun has achieved next tier.
-	if (currentGun.expoints >= currentGun.nextLevelExpoints){
+	while (currentGun.expoints >= currentGun.nextLevelExpoints){
 		++currentGun.weaponTier;
 		currentGun.nextLevelExpoints = currentGun.nextLevelExpoints * 2;
 		// upgrade ammo
@@ -162,7 +162,7 @@ int ProjectileWeapon::getMaxAmmo(){
 	return int(currentGun.maxAmmo);
 }
 
-std::vector<int> ProjectileWeapon::getTiers(){
+std::vector<int> ProjectileWeapon::getWeaponExpoints(){
 	if (currentGun.name == "pistol"){
 		pistol = currentGun;
 	}
@@ -170,13 +170,13 @@ std::vector<int> ProjectileWeapon::getTiers(){
 		shotgun = currentGun;
 	}
 	std::vector<int> tiers;
-	tiers.push_back(int(pistol.weaponTier));
-	tiers.push_back(int(shotgun.weaponTier));
+	tiers.push_back(int(pistol.expoints));
+	tiers.push_back(int(shotgun.expoints));
 	return tiers;
 }
-void ProjectileWeapon::setTiers(std::vector<int> tiers){
-	pistol.weaponTier = tiers[0];
-	shotgun.weaponTier = tiers[1];
+void ProjectileWeapon::setWeaponExpoints(std::vector<int> tiers){
+	pistol.expoints = tiers[0];
+	shotgun.expoints = tiers[1];
 	setExpoints(1);
 }
 

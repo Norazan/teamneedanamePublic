@@ -18,7 +18,7 @@ public:
 	virtual void act(sf::RenderWindow & window) override;
 	virtual int getExpoints(int damage) override;
 	virtual void setDamage(int damage) override;
-
+	virtual void setMaxHealth() override;
 private:
     sf::Vector2f velocity;
 };

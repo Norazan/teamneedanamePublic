@@ -38,3 +38,7 @@ int MovableMapObject::getExpoints(int damage){
 void MovableMapObject::setDamage(int damage){
 
 }
+
+void MovableMapObject::setMaxHealth(){
+
+}

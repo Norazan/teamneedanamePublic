@@ -35,7 +35,7 @@ public:
 	virtual void collisionDetected(MapObject & mo);
 	void setDrawPosition(sf::Vector2f drawPos);
 	sf::Vector2f getDrawPosition();
-
+	virtual void setMaxHealth();
 private:
 	Convex* Hitbox = nullptr;
     bool isSolid;

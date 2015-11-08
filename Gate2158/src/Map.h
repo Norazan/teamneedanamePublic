@@ -45,6 +45,7 @@ private:
 	Sprite *characterGunSprite;
 	Sprite *wallSprite;
 	Sprite *finishSprite;
+	Sprite *healthSprite;
 };
 
 

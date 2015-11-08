@@ -7,6 +7,7 @@
 #include "UserCharacter.h"
 #include "Enemy.h"
 #include "Finish.h"
+#include "HealthPotion.h"
 #include <iostream>
 #include <string>
 
@@ -36,7 +37,7 @@ Map::Map(int layers) :
 }
 
 Map::~Map(){
-	for (auto & mo : mapObjects){
+	/*for (auto & mo : mapObjects){
 		delete mo;
 	}
 	delete convexWall;
@@ -46,7 +47,7 @@ Map::~Map(){
 	delete enemyShotgun;
 	delete enemyPistol;
 	delete characterGunSprite;
-	delete wallSprite;
+	delete wallSprite;*/
 }
 
 void Map::addMapObject(MapObject *object) {
@@ -101,6 +102,7 @@ void Map::loadFromFile(const std::string filename){
 	wallSprite = new Sprite("../../Gate2158/media/textures/m-001.png");
 	characterGunSprite = new Sprite("../../Gate2158/media/textures/Player_BIG.png");
 	finishSprite = new Sprite("../../Gate2158/media/textures/finish.png");
+	healthSprite = new Sprite("../../Gate2158/media/textures/healthPotion.png");
 
 	const int size = 32;
 	sf::Vector2f position = sf::Vector2f{ 0, 0 };
@@ -131,6 +133,10 @@ void Map::loadFromFile(const std::string filename){
 			else if (color.r == 0x64 && color.g == 0x64 && color.b == 0x64){
 				MapObject *finish = new Finish(1, finishSprite, position, convexFinish);
 				addMapObject(finish);
+			}
+			else if (color.r == 0xFF && color.g == 0xF2 && color.b == 0x0){
+				MapObject *healthPotion = new HealthPotion(1, healthSprite, position, convexWall);
+				addMapObject(healthPotion);
 			}
 		}
 	}

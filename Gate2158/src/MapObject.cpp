@@ -201,3 +201,7 @@ sf::Vector2f MapObject::getDrawPosition(){
 	}
 	return sf::Vector2f{ 0, 0 };
 }
+
+void MapObject::setMaxHealth(){
+
+}

@@ -62,7 +62,10 @@ public:
 	*		The number of damage the bullet has
 	*/
 	virtual void setDamage(int damage) override;
-
+	/**
+	* Sets the health of the character to the max health
+	*/
+	void setMaxHealth() override;
 protected:
 	/**
 	* Returns the health of the character

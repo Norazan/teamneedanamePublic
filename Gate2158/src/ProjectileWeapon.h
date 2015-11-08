@@ -45,8 +45,8 @@ public:
 	void setExpoints(int expoints) override;
 	int getTier();
 	int getMaxAmmo();
-	std::vector<int> getTiers();
-	void setTiers(std::vector<int> tiers);
+	std::vector<int> getWeaponExpoints();
+	void setWeaponExpoints(std::vector<int> tiers);
 private:
 	std::string weaponType;
 	int isFriendly;

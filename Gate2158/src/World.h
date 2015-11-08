@@ -10,6 +10,7 @@ public:
 	Map& getCurrentMap();
 	void addMap(Map &m);
 	void nextMap();
+	int getCurrentMapCount();
 private:
 	int currentMap = 0;
 	Map maps[10];

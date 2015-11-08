@@ -30,7 +30,7 @@ public:
 	* @param weapon 
 	*		The weapon that shoots the bullet
 	* @param isFriend
-	*		A number that shows which character has shoot, so it don't collide 	
+	*		A number that shows which character has shot, so it does not collide 	
 	* @param gunTexture
 	*		The texture of the bullet
 	*/

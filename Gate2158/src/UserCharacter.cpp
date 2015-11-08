@@ -251,9 +251,9 @@ void UserCharacter::setDamage(int damage){
 	}
 }
 
-std::vector<int> UserCharacter::getWeaponTiers(){
-	return pistol->getTiers();
+std::vector<int> UserCharacter::getWeaponExpoints(){
+	return pistol->getWeaponExpoints();
 }
-void UserCharacter::setWeaponTiers(std::vector<int> tiers){
-	pistol->setTiers(tiers);
+void UserCharacter::setWeaponExpoints(std::vector<int> tiers){
+	pistol->setWeaponExpoints(tiers);
 }

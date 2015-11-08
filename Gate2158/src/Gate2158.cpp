@@ -32,9 +32,14 @@ int main()
 	Map level2(5);
 	level2.loadFromFile("../../Gate2158/media/maps/lvl2.png");
 
+	Map level3(5);
+	level3.loadFromFile("../../Gate2158/media/maps/lvl3.png");
+
 	World Gate2158;
 	Gate2158.addMap(testMap);
 	Gate2158.addMap(level2);
+	Gate2158.addMap(level3);
+	int totalMaps = 3;
 	Map &currentMap = Gate2158.getCurrentMap();
 	
 	userCamera->setCurrentMap(currentMap);
@@ -90,22 +95,37 @@ int main()
 			exit(0);
 		}
 		if (userCamera->nextLevel){
-			Text nextLevel(
-				"next level",
-				sf::Vector2f(0, 0),
-				sf::Text::Regular,
-				sf::Color::Red,
-				90,
-				&tFont
-				);
-			nextLevel.draw(window, sf::Vector2f(400, 360));
-			sf::sleep(sf::seconds(2));
+			std::vector<int> tiers = currentMap.player->getWeaponExpoints();
 			Gate2158.nextMap();
-			std::vector<int> tiers = currentMap.player->getWeaponTiers();
 			currentMap = Gate2158.getCurrentMap();
-			currentMap.player->setWeaponTiers(tiers);
-			userCamera->setCurrentMap(Gate2158.getCurrentMap());
-			userCamera->setCurrentPlayer(currentMap.getCurrentPlayer());
+			if (Gate2158.getCurrentMapCount() == totalMaps){
+				Text GameFinish(
+					"game completed",
+					sf::Vector2f(0, 0),
+					sf::Text::Regular,
+					sf::Color::Red,
+					90,
+					&tFont
+					);
+				GameFinish.draw(window, sf::Vector2f(250, 360));
+				window.display();
+				sf::sleep(sf::seconds(5));
+				exit(1);
+			}
+			else {
+				Text nextLevel(
+					"next level",
+					sf::Vector2f(0, 0),
+					sf::Text::Regular,
+					sf::Color::Red,
+					90,
+					&tFont
+					);
+				nextLevel.draw(window, sf::Vector2f(400, 360));
+				currentMap.player->setWeaponExpoints(tiers);
+				userCamera->setCurrentMap(Gate2158.getCurrentMap());
+				userCamera->setCurrentPlayer(currentMap.getCurrentPlayer());
+			}
 		}
         window.display();
     }
