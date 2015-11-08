@@ -194,8 +194,8 @@ void UserCharacter::makeUserInterface(){
 		30,
 		&tFont
 	);
-	Text health(
-		("Health: " + std::to_string(health) + "(" + std::to_string(maxHealth) + ")"),
+	Text healthText(
+ 		("Health: " + std::to_string(health) + "(" + std::to_string(maxHealth) + ")"),
 		sf::Vector2f(0, 0),
 		sf::Text::Style::Regular,
 		sf::Color::Red,
@@ -207,7 +207,7 @@ void UserCharacter::makeUserInterface(){
 	text three{ gunName, "gunName", sf::Vector2f(150, 560) };
 	text four{ expoints, "expoints", sf::Vector2f(150, 620) };
 	text five{ tier, "tier", sf::Vector2f(150, 590) };
-	text six{ health, "health", sf::Vector2f(0, 0) };
+	text six{ healthText, "health", sf::Vector2f(0, 0) };
 	userInterface.push_back(one);
 	userInterface.push_back(two);
 	userInterface.push_back(three);

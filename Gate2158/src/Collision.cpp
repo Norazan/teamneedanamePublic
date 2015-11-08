@@ -30,7 +30,7 @@ float Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 	}
 
 	//std::vector<line> axes_obj1 = getAxes(obj1);
-	std::vector<sf::Vector2f> &pointsObj1 = obj1.getConvexPoints();
+	std::vector<sf::Vector2f> pointsObj1 = obj1.getConvexPoints();
 	int size = pointsObj1.size();
 	line axes_obj1[10];
 	for (int i = 0; i < size; i++){
@@ -54,7 +54,7 @@ float Collision::checkCollision(MapObject & obj1, MapObject & obj2){
 		axes_obj1[i] = newAxes;
 	}
 	//std::vector<line> axes_obj2 = getAxes(obj2);
-	std::vector<sf::Vector2f> &pointsObj2 = obj2.getConvexPoints();
+	std::vector<sf::Vector2f> pointsObj2 = obj2.getConvexPoints();
 	size = pointsObj1.size();
 	line axes_obj2[10];
 	for (int i = 0; i < size; i++){

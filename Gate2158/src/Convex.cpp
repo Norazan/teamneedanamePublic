@@ -39,7 +39,7 @@ std::vector<sf::Vector2f>& Convex::getPoints(){
 
 void Convex::draw(sf::RenderWindow & window, sf::Vector2f &position){
 	convex.setPosition(position);
-	window.draw(Convex::convex);
+	window.draw(convex);
 }
 
 float Convex::getRotation(){

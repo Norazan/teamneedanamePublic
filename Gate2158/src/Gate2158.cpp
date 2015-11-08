@@ -78,7 +78,8 @@ int main()
 			if (gameMusic.getStatus() != sf::SoundSource::Status::Playing){
 				gameMusic.play();
 			}
-			backgroundSprite.draw(window, sf::Vector2f{ 640, 360 });
+			sf::Vector2f backgroundSpritePos(640,360);
+			backgroundSprite.draw(window, backgroundSpritePos);
 			userCamera->draw();
 		}
 		if (userCamera->endGame){
@@ -90,7 +91,8 @@ int main()
 				90,
 				&tFont
 			);
-			gameover.draw(window, sf::Vector2f(400, 360));
+			sf::Vector2f gameOverPos(400,360);
+			gameover.draw(window, gameOverPos);
 			sf::sleep(sf::seconds(5));
 			exit(0);
 		}
@@ -107,7 +109,8 @@ int main()
 					90,
 					&tFont
 					);
-				GameFinish.draw(window, sf::Vector2f(250, 360));
+				sf::Vector2f gameFinishPos(250, 360);
+				GameFinish.draw(window, gameFinishPos);
 				window.display();
 				sf::sleep(sf::seconds(5));
 				exit(1);
@@ -121,7 +124,8 @@ int main()
 					90,
 					&tFont
 					);
-				nextLevel.draw(window, sf::Vector2f(400, 360));
+				sf::Vector2f nextLevelPos(400,360);
+				nextLevel.draw(window, nextLevelPos);
 				currentMap.player->setWeaponExpoints(tiers);
 				userCamera->setCurrentMap(Gate2158.getCurrentMap());
 				userCamera->setCurrentPlayer(currentMap.getCurrentPlayer());
