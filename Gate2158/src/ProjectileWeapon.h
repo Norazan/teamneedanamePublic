@@ -20,7 +20,7 @@
 #include "Camera.hpp"
 
 class Camera;
-/** Struct gun */
+/** Struct gun, with all the data of the gun */
 struct gun{
 	std::string name;
 	double attackSpeed = 1;

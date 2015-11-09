@@ -103,7 +103,7 @@ public:
 	sf::Vector2f getSize();
 	/**
 	* Calculate the rotated points of the hitbox, and returns them.
-	* If there is no hitbox, it will make a square one of the drawable (without rotation).
+	* If there is't a hitbox, it will make a square one of the drawable (without rotation).
 	*
 	* @return
 	*		The rotatated points of the hitbox
@@ -159,7 +159,7 @@ public:
 	* Returns the hitbox of the MapObject
 	*
 	* @return
-	*		The hibox of the MapObject
+	*		The hitbox of the MapObject
 	*/
 	Convex* getHitbox();
 	/**
