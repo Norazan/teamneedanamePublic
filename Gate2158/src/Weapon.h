@@ -20,8 +20,10 @@ public:
 	*		The start location of the bullet
 	* @param angle
 	*		The angle of the bullet
+	* @param drawPosition
+	*		The draw position of the bullet
 	*/
-	virtual void shoot(sf::Vector2f location, float angle) = 0;
+	virtual void shoot(sf::Vector2f location, float angle, sf::Vector2f drawPosition) = 0;
 	/**
 	* Returns the ammo
 	*

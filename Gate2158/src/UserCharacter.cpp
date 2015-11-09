@@ -86,7 +86,7 @@ void UserCharacter::processMouse(sf::RenderWindow & window){
 		rotate(currentRotation);
 	}
 	if (input.getMousePress(sf::Mouse::Button::Left)){
-		pistol->shoot(position, calculateRotation(mousePosition));
+		pistol->shoot(position, calculateRotation(mousePosition), drawPosition);
 	}
 }
 

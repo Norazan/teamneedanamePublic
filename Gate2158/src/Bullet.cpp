@@ -7,6 +7,7 @@ Bullet::Bullet(
 	int bulletDamage, 
 	sf::Vector2f startingLocation, 
 	sf::Vector2f startingVelocity, 
+	sf::Vector2f drawLocation,
 	float angle, 
 	Weapon * weapon,
 	int isFriend,
@@ -29,7 +30,7 @@ Bullet::Bullet(
 	bullet.setOrigin(sf::Vector2f{ -18, 13 });
 	bullet.setPosition(startingLocation);
 	position = startingLocation;
-
+	drawPosition = drawLocation;
 	damage = bulletDamage;
 	location = startingLocation;
 	velocity = startingVelocity;

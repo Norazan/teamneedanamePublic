@@ -61,7 +61,7 @@ camera{ Camera::getInstance() }
 	}
 }
 
-void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
+void ProjectileWeapon::shoot(sf::Vector2f location, float angle, sf::Vector2f drawPosition){
 	currentClock = clock();
 	double shootDiffTicks = currentClock - previousClock;
 	double reloadDiffTicks = currentClock - reloadClock;
@@ -73,7 +73,7 @@ void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
 		for (float i = currentGun.amountOfBullets / 2 - currentGun.amountOfBullets; i < currentGun.amountOfBullets / 2; i++){
 			float bulletSpread = (currentGun.amountOfBullets / 2) * currentGun.spread * i;
 			sf::Vector2f startingVelocity{ sin(radian + bulletSpread), cos(radian + bulletSpread) };
-			Bullet *bullet = new Bullet(calculateDamage(), location, startingVelocity, angle, this, isFriendly, currentGun.gunTexture);
+			Bullet *bullet = new Bullet(calculateDamage(), location, startingVelocity, drawPosition, angle, this, isFriendly, currentGun.gunTexture);
 			camera->addMapObjectToCurrentMap(bullet);
 		}
 		currentGun.ammoInMagazine -= 1;

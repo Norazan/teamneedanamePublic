@@ -91,6 +91,7 @@ int main()
 				&tFont
 			);
 			gameover.draw(window, sf::Vector2f(400, 360));
+			window.display();
 			sf::sleep(sf::seconds(5));
 			exit(0);
 		}
