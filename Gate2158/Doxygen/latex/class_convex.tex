@@ -1,0 +1,165 @@
+\hypertarget{class_convex}{}\section{Convex Class Reference}
+\label{class_convex}\index{Convex@{Convex}}
+Inheritance diagram for Convex\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_convex}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_convex_a6ba007564e3b0ec3c2f2225216ec3c81}{Convex} (std\+::vector$<$ sf\+::\+Vector2f $>$ points)
+\item 
+\hyperlink{class_convex_a8378010f4b593bba640df7ff58f8202a}{Convex} (std\+::vector$<$ sf\+::\+Vector2f $>$ points, sf\+::\+Vector2f center)
+\item 
+void \hyperlink{class_convex_aa1a2defc4f990dbcebd1bd9bdf87925a}{draw} (sf\+::\+Render\+Window \&window, sf\+::\+Vector2f \&position)
+\item 
+float \hyperlink{class_convex_a0b658f1b28a486ba028f2a6e14e64352}{get\+Rotation} () override
+\item 
+void \hyperlink{class_convex_ab6bd9c18b63399fc18e208ca0fc5e943}{set\+Rotation} (float rotation) override
+\item 
+sf\+::\+Vector2f \hyperlink{class_convex_a13fa15392ab8ec02f950ed1aeeb2889c}{get\+Size} () override
+\item 
+std\+::vector$<$ sf\+::\+Vector2f $>$ \& \hyperlink{class_convex_a92fee8fa7cf838677f8b0c655b702270}{get\+Points} ()
+\item 
+sf\+::\+Vector2f \hyperlink{class_convex_ac96333ab900c9955b33a71179e7cecdd}{get\+Origin} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_convex_a6ba007564e3b0ec3c2f2225216ec3c81}{}\index{Convex@{Convex}!Convex@{Convex}}
+\index{Convex@{Convex}!Convex@{Convex}}
+\subsubsection[{Convex}]{\setlength{\rightskip}{0pt plus 5cm}Convex\+::\+Convex (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ sf\+::\+Vector2f $>$}]{points}
+\end{DoxyParamCaption}
+)}\label{class_convex_a6ba007564e3b0ec3c2f2225216ec3c81}
+Constructor set the points of the convex, used for making a white convex\+Shape
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & The points of the convex \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_convex_a8378010f4b593bba640df7ff58f8202a}{}\index{Convex@{Convex}!Convex@{Convex}}
+\index{Convex@{Convex}!Convex@{Convex}}
+\subsubsection[{Convex}]{\setlength{\rightskip}{0pt plus 5cm}Convex\+::\+Convex (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ sf\+::\+Vector2f $>$}]{points, }
+\item[{sf\+::\+Vector2f}]{center}
+\end{DoxyParamCaption}
+)}\label{class_convex_a8378010f4b593bba640df7ff58f8202a}
+Constructor set the points of the convex, used for making a transparant convex\+Shape. It also sets the origin to the center of the convex.
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & The points of the convex \\
+\hline
+{\em center} & The center of the convex \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_convex_aa1a2defc4f990dbcebd1bd9bdf87925a}{}\index{Convex@{Convex}!draw@{draw}}
+\index{draw@{draw}!Convex@{Convex}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}void Convex\+::draw (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Render\+Window \&}]{window, }
+\item[{sf\+::\+Vector2f \&}]{position}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_convex_aa1a2defc4f990dbcebd1bd9bdf87925a}
+Draws the convex on the screen
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The window where the circle will be drawed \\
+\hline
+{\em position} & The position on the screen where the circle will be drawed \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classdrawable_a3d748f25a3515876da0dee2abcb8ff3f}{drawable}.
+
+\hypertarget{class_convex_ac96333ab900c9955b33a71179e7cecdd}{}\index{Convex@{Convex}!get\+Origin@{get\+Origin}}
+\index{get\+Origin@{get\+Origin}!Convex@{Convex}}
+\subsubsection[{get\+Origin}]{\setlength{\rightskip}{0pt plus 5cm}sf\+::\+Vector2f Convex\+::get\+Origin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_convex_ac96333ab900c9955b33a71179e7cecdd}
+Returns the origin of the convex
+
+\begin{DoxyReturn}{Returns}
+The center of the convex 
+\end{DoxyReturn}
+\hypertarget{class_convex_a92fee8fa7cf838677f8b0c655b702270}{}\index{Convex@{Convex}!get\+Points@{get\+Points}}
+\index{get\+Points@{get\+Points}!Convex@{Convex}}
+\subsubsection[{get\+Points}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ sf\+::\+Vector2f $>$ \& Convex\+::get\+Points (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_convex_a92fee8fa7cf838677f8b0c655b702270}
+Returns the points of the convex without rotation, because S\+F\+M\+L don\textquotesingle{}t returns the rotated points.
+
+\begin{DoxyReturn}{Returns}
+The points of the convex 
+\end{DoxyReturn}
+\hypertarget{class_convex_a0b658f1b28a486ba028f2a6e14e64352}{}\index{Convex@{Convex}!get\+Rotation@{get\+Rotation}}
+\index{get\+Rotation@{get\+Rotation}!Convex@{Convex}}
+\subsubsection[{get\+Rotation}]{\setlength{\rightskip}{0pt plus 5cm}float Convex\+::get\+Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_convex_a0b658f1b28a486ba028f2a6e14e64352}
+Returns the rotation of the convex
+
+\begin{DoxyReturn}{Returns}
+The rotation of the convex 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classdrawable_a424f2ed79ef592d15e71ada7c85debf6}{drawable}.
+
+\hypertarget{class_convex_a13fa15392ab8ec02f950ed1aeeb2889c}{}\index{Convex@{Convex}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Convex@{Convex}}
+\subsubsection[{get\+Size}]{\setlength{\rightskip}{0pt plus 5cm}sf\+::\+Vector2f Convex\+::get\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_convex_a13fa15392ab8ec02f950ed1aeeb2889c}
+Returns the size of the convex
+
+\begin{DoxyReturn}{Returns}
+The size of the convex 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classdrawable_aa9b67302060e7ac4ec9b2bd4720cf5ba}{drawable}.
+
+\hypertarget{class_convex_ab6bd9c18b63399fc18e208ca0fc5e943}{}\index{Convex@{Convex}!set\+Rotation@{set\+Rotation}}
+\index{set\+Rotation@{set\+Rotation}!Convex@{Convex}}
+\subsubsection[{set\+Rotation}]{\setlength{\rightskip}{0pt plus 5cm}void Convex\+::set\+Rotation (
+\begin{DoxyParamCaption}
+\item[{float}]{rotation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_convex_ab6bd9c18b63399fc18e208ca0fc5e943}
+Sets the rotation of the convex
+
+
+\begin{DoxyParams}{Parameters}
+{\em rotation} & The rotation that will be set \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classdrawable_a3aa9ac09447cf2b5b2e0907f3b2630e6}{drawable}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Convex.\+h\item 
+Convex.\+cpp\end{DoxyCompactItemize}

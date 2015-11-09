@@ -1,0 +1,121 @@
+\hypertarget{class_weapon}{}\section{Weapon Class Reference}
+\label{class_weapon}\index{Weapon@{Weapon}}
+Inheritance diagram for Weapon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_weapon}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_weapon_a4773536e15b1bb29177e6e8859ced786}{shoot} (sf\+::\+Vector2f location, float angle, sf\+::\+Vector2f draw\+Position)=0
+\item 
+virtual int \hyperlink{class_weapon_a27e4ab9f55e9cb7cd86023491fb075e2}{get\+Ammo} ()=0
+\item 
+virtual void \hyperlink{class_weapon_a61f8e299bd267adcace01cc112b206cb}{set\+Ammo} (int ammo)=0
+\item 
+virtual int \hyperlink{class_weapon_ad506de2783bf136aca73e424d126b7fc}{calculate\+Damage} ()=0
+\item 
+virtual void \hyperlink{class_weapon_aaf48d117da25a8cd633661d02f1dd868}{set\+Expoints} (int expoints)=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_weapon_ad506de2783bf136aca73e424d126b7fc}{}\index{Weapon@{Weapon}!calculate\+Damage@{calculate\+Damage}}
+\index{calculate\+Damage@{calculate\+Damage}!Weapon@{Weapon}}
+\subsubsection[{calculate\+Damage}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Weapon\+::calculate\+Damage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_weapon_ad506de2783bf136aca73e424d126b7fc}
+Calculates the damage of the bullet
+
+\begin{DoxyReturn}{Returns}
+The damage 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_projectile_weapon_ac22fc52f32322606f406da802effadf0}{Projectile\+Weapon}.
+
+\hypertarget{class_weapon_a27e4ab9f55e9cb7cd86023491fb075e2}{}\index{Weapon@{Weapon}!get\+Ammo@{get\+Ammo}}
+\index{get\+Ammo@{get\+Ammo}!Weapon@{Weapon}}
+\subsubsection[{get\+Ammo}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Weapon\+::get\+Ammo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_weapon_a27e4ab9f55e9cb7cd86023491fb075e2}
+Returns the ammo
+
+\begin{DoxyReturn}{Returns}
+The ammo 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_projectile_weapon_ac2f5b5c83f10c8276d55b2ccb7ecb20d}{Projectile\+Weapon}.
+
+\hypertarget{class_weapon_a61f8e299bd267adcace01cc112b206cb}{}\index{Weapon@{Weapon}!set\+Ammo@{set\+Ammo}}
+\index{set\+Ammo@{set\+Ammo}!Weapon@{Weapon}}
+\subsubsection[{set\+Ammo}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Weapon\+::set\+Ammo (
+\begin{DoxyParamCaption}
+\item[{int}]{ammo}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_weapon_a61f8e299bd267adcace01cc112b206cb}
+Sets the ammo
+
+
+\begin{DoxyParams}{Parameters}
+{\em ammo} & The ammo that will be set \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_projectile_weapon_a8de598f1c4d7a6855122bcf5275eef22}{Projectile\+Weapon}.
+
+\hypertarget{class_weapon_aaf48d117da25a8cd633661d02f1dd868}{}\index{Weapon@{Weapon}!set\+Expoints@{set\+Expoints}}
+\index{set\+Expoints@{set\+Expoints}!Weapon@{Weapon}}
+\subsubsection[{set\+Expoints}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Weapon\+::set\+Expoints (
+\begin{DoxyParamCaption}
+\item[{int}]{expoints}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_weapon_aaf48d117da25a8cd633661d02f1dd868}
+Sets the expoints of the current gun, and checked if the gun has leveled.
+
+
+\begin{DoxyParams}{Parameters}
+{\em expoints} & The expoints that will be set \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_projectile_weapon_ac2051c4518fcc9c04ee6b44adeffb0c2}{Projectile\+Weapon}.
+
+\hypertarget{class_weapon_a4773536e15b1bb29177e6e8859ced786}{}\index{Weapon@{Weapon}!shoot@{shoot}}
+\index{shoot@{shoot}!Weapon@{Weapon}}
+\subsubsection[{shoot}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Weapon\+::shoot (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Vector2f}]{location, }
+\item[{float}]{angle, }
+\item[{sf\+::\+Vector2f}]{draw\+Position}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_weapon_a4773536e15b1bb29177e6e8859ced786}
+Used to shoot a bullet
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & The start location of the bullet \\
+\hline
+{\em angle} & The angle of the bullet \\
+\hline
+{\em draw\+Position} & The draw position of the bullet \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_projectile_weapon_a3b8ac3bc8d558c0463bdc7646f8536dd}{Projectile\+Weapon}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_weapon_8h}{Weapon.\+h}\end{DoxyCompactItemize}

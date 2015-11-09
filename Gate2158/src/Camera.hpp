@@ -54,8 +54,8 @@ public:
 	*/
 	std::vector<MapObject*> *getObjectsAroundPlayer();
 	/**
-	* Checked for all object around the player if they collide
-	* If they collide, the collisonDetected funtion of the MapObjects will be called
+	* Checked for all object around the player if they collide. 
+	* If they are colliding, the collisonDetected funtion of the MapObjects will be called.
 	*/
 	void checkCollision();
 	/**

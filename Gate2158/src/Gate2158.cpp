@@ -93,6 +93,7 @@ int main()
 			);
 			sf::Vector2f gameOverPos(400,360);
 			gameover.draw(window, gameOverPos);
+			window.display();
 			sf::sleep(sf::seconds(5));
 			exit(0);
 		}

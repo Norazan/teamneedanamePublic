@@ -34,7 +34,7 @@ void Enemy::collisionDetected(MapObject & mo){
 }
 
 void Enemy::act(sf::RenderWindow & window){
-	weapon->shoot(position, calculateRotation(user->getDrawPosition()));
+	weapon->shoot(position, calculateRotation(user->getDrawPosition()), drawPosition);
 	if (weapon->getAmmoInMagazine() == 0){
 		weapon->reload();
 		weapon->setAmmo(weapon->getMaxAmmo());
@@ -72,6 +72,7 @@ void Enemy::walk(){
 
 void Enemy::move(sf::Vector2f dir){
 	position += dir;
+	drawPosition += dir;
 }
 
 float Enemy::calculateRotation(sf::Vector2f userPosition){

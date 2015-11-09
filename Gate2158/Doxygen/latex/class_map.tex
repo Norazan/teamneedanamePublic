@@ -1,0 +1,181 @@
+\hypertarget{class_map}{}\section{Map Class Reference}
+\label{class_map}\index{Map@{Map}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_map_a0f5ad0fd4563497b4214038cbca8b582}{Map} ()
+\item 
+\hyperlink{class_map_a9ff514eeb87534e6c4b3f993f3e9f406}{Map} (int layers)
+\item 
+void \hyperlink{class_map_a1b71cceb2a9e0b9f8986af2ecfb3bc16}{add\+Map\+Object} (\hyperlink{class_map_object}{Map\+Object} $\ast$object)
+\item 
+void \hyperlink{class_map_a130762c32398c6c2cdbbda936ff29fbe}{remove\+Map\+Object} (std\+::vector$<$ \hyperlink{class_map_object}{Map\+Object} $\ast$ $>$ remove\+Object)
+\item 
+std\+::vector$<$ \hyperlink{class_map_object}{Map\+Object} $\ast$ $>$ \& \hyperlink{class_map_aa10784ffe8226c88f658ffc755ff16f4}{get\+All\+Map\+Objects} ()
+\item 
+std\+::vector$<$ \hyperlink{class_map_object}{Map\+Object} $\ast$ $>$ $\ast$ \hyperlink{class_map_aa1099238d0a12b1626cc9d3811da2758}{get\+Map\+Objects\+In\+Region} (sf\+::\+Vector2f point\+A, sf\+::\+Vector2f point\+B)
+\item 
+int \hyperlink{class_map_aeb97cfc6eee55b83a85cf5cac587b6b0}{get\+Layers} ()
+\item 
+void \hyperlink{class_map_a1dc321d249a76abf38b6ddad21dd7a06}{set\+Layers} (int layers)
+\item 
+void \hyperlink{class_map_a3ea1555ffb08652c7c14844dc819d749}{load\+From\+File} (std\+::string filename)
+\item 
+\hyperlink{class_map_object}{Map\+Object} $\ast$ \hyperlink{class_map_abbffcadef89a43b12ae55d74d5546875}{get\+Current\+Player} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_user_character}{User\+Character} $\ast$ \hyperlink{class_map_a95c3519f88d1414392aec57a2294ea41}{player}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_map_a0f5ad0fd4563497b4214038cbca8b582}{}\index{Map@{Map}!Map@{Map}}
+\index{Map@{Map}!Map@{Map}}
+\subsubsection[{Map}]{\setlength{\rightskip}{0pt plus 5cm}Map\+::\+Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_map_a0f5ad0fd4563497b4214038cbca8b582}
+Constructor that makes a empty map \hypertarget{class_map_a9ff514eeb87534e6c4b3f993f3e9f406}{}\index{Map@{Map}!Map@{Map}}
+\index{Map@{Map}!Map@{Map}}
+\subsubsection[{Map}]{\setlength{\rightskip}{0pt plus 5cm}Map\+::\+Map (
+\begin{DoxyParamCaption}
+\item[{int}]{layers}
+\end{DoxyParamCaption}
+)}\label{class_map_a9ff514eeb87534e6c4b3f993f3e9f406}
+Constructor makes a empty map and makes the hitbox points
+
+
+\begin{DoxyParams}{Parameters}
+{\em layers} & The number of layers in the map \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_map_a1b71cceb2a9e0b9f8986af2ecfb3bc16}{}\index{Map@{Map}!add\+Map\+Object@{add\+Map\+Object}}
+\index{add\+Map\+Object@{add\+Map\+Object}!Map@{Map}}
+\subsubsection[{add\+Map\+Object}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+::add\+Map\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf Map\+Object} $\ast$}]{object}
+\end{DoxyParamCaption}
+)}\label{class_map_a1b71cceb2a9e0b9f8986af2ecfb3bc16}
+Adds a \hyperlink{class_map_object}{Map\+Object} to the map
+
+
+\begin{DoxyParams}{Parameters}
+{\em object} & The \hyperlink{class_map_object}{Map\+Object} that will be added to the map \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_map_aa10784ffe8226c88f658ffc755ff16f4}{}\index{Map@{Map}!get\+All\+Map\+Objects@{get\+All\+Map\+Objects}}
+\index{get\+All\+Map\+Objects@{get\+All\+Map\+Objects}!Map@{Map}}
+\subsubsection[{get\+All\+Map\+Objects}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Map\+Object} $\ast$ $>$ \& Map\+::get\+All\+Map\+Objects (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_map_aa10784ffe8226c88f658ffc755ff16f4}
+Returns all \hyperlink{class_map_object}{Map\+Object} of the map
+
+\begin{DoxyReturn}{Returns}
+A list of all Map\+Objects of the map 
+\end{DoxyReturn}
+\hypertarget{class_map_abbffcadef89a43b12ae55d74d5546875}{}\index{Map@{Map}!get\+Current\+Player@{get\+Current\+Player}}
+\index{get\+Current\+Player@{get\+Current\+Player}!Map@{Map}}
+\subsubsection[{get\+Current\+Player}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Map\+Object} $\ast$ Map\+::get\+Current\+Player (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_map_abbffcadef89a43b12ae55d74d5546875}
+Returns the current player on the map
+
+\begin{DoxyReturn}{Returns}
+The current player 
+\end{DoxyReturn}
+\hypertarget{class_map_aeb97cfc6eee55b83a85cf5cac587b6b0}{}\index{Map@{Map}!get\+Layers@{get\+Layers}}
+\index{get\+Layers@{get\+Layers}!Map@{Map}}
+\subsubsection[{get\+Layers}]{\setlength{\rightskip}{0pt plus 5cm}int Map\+::get\+Layers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_map_aeb97cfc6eee55b83a85cf5cac587b6b0}
+Returns the number of layers of the map
+
+\begin{DoxyReturn}{Returns}
+The number of layers 
+\end{DoxyReturn}
+\hypertarget{class_map_aa1099238d0a12b1626cc9d3811da2758}{}\index{Map@{Map}!get\+Map\+Objects\+In\+Region@{get\+Map\+Objects\+In\+Region}}
+\index{get\+Map\+Objects\+In\+Region@{get\+Map\+Objects\+In\+Region}!Map@{Map}}
+\subsubsection[{get\+Map\+Objects\+In\+Region}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Map\+Object} $\ast$ $>$ $\ast$ Map\+::get\+Map\+Objects\+In\+Region (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Vector2f}]{point\+A, }
+\item[{sf\+::\+Vector2f}]{point\+B}
+\end{DoxyParamCaption}
+)}\label{class_map_aa1099238d0a12b1626cc9d3811da2758}
+Returns all \hyperlink{class_map_object}{Map\+Object} around the player
+
+
+\begin{DoxyParams}{Parameters}
+{\em point\+A} & The top left corner of the window \\
+\hline
+{\em point\+B} & The bottom right corner of the window \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of all Map\+Objects around the player 
+\end{DoxyReturn}
+\hypertarget{class_map_a3ea1555ffb08652c7c14844dc819d749}{}\index{Map@{Map}!load\+From\+File@{load\+From\+File}}
+\index{load\+From\+File@{load\+From\+File}!Map@{Map}}
+\subsubsection[{load\+From\+File}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+::load\+From\+File (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{filename}
+\end{DoxyParamCaption}
+)}\label{class_map_a3ea1555ffb08652c7c14844dc819d749}
+Loads the map by making Map\+Objects
+
+
+\begin{DoxyParams}{Parameters}
+{\em filname} & The path to the file \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_map_a130762c32398c6c2cdbbda936ff29fbe}{}\index{Map@{Map}!remove\+Map\+Object@{remove\+Map\+Object}}
+\index{remove\+Map\+Object@{remove\+Map\+Object}!Map@{Map}}
+\subsubsection[{remove\+Map\+Object}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+::remove\+Map\+Object (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Map\+Object} $\ast$ $>$}]{remove\+Object}
+\end{DoxyParamCaption}
+)}\label{class_map_a130762c32398c6c2cdbbda936ff29fbe}
+Will remove a list Map\+Objects of the map
+
+
+\begin{DoxyParams}{Parameters}
+{\em remove\+Object} & A list of objects that will be removed \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_map_a1dc321d249a76abf38b6ddad21dd7a06}{}\index{Map@{Map}!set\+Layers@{set\+Layers}}
+\index{set\+Layers@{set\+Layers}!Map@{Map}}
+\subsubsection[{set\+Layers}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+::set\+Layers (
+\begin{DoxyParamCaption}
+\item[{int}]{layers}
+\end{DoxyParamCaption}
+)}\label{class_map_a1dc321d249a76abf38b6ddad21dd7a06}
+Sets the number of layers of the map
+
+
+\begin{DoxyParams}{Parameters}
+{\em layers} & The number of layers \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_map_a95c3519f88d1414392aec57a2294ea41}{}\index{Map@{Map}!player@{player}}
+\index{player@{player}!Map@{Map}}
+\subsubsection[{player}]{\setlength{\rightskip}{0pt plus 5cm}{\bf User\+Character}$\ast$ Map\+::player}\label{class_map_a95c3519f88d1414392aec57a2294ea41}
+The player on the map as \hyperlink{class_user_character}{User\+Character} 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_map_8h}{Map.\+h}\item 
+Map.\+cpp\end{DoxyCompactItemize}

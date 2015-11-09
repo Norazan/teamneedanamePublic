@@ -25,6 +25,8 @@ public:
 	*		The location on the map
 	* @param startingVelocity 
 	*		The velocity of the bullet
+	* @param drawLoctation 
+	*		The location where the bullet has to be drawed
 	* @param angle 
 	*		The angle of the bullet in degrees
 	* @param weapon 
@@ -38,6 +40,7 @@ public:
 		int bulletDamage,
 		sf::Vector2f startingLocation,
 		sf::Vector2f startingVelocity,
+		sf::Vector2f drawLoctation,
 		float angle,
 		Weapon* weapon,
 		int isFriend,

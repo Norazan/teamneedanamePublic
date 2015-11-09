@@ -33,9 +33,12 @@ public:
 	float checkCollision(MapObject & ob1, MapObject & ob2);
 
 private:
+	/**
+	* Struct line, to make a line between two points.
+	*/
 	struct line {
-		sf::Vector2f position_1; /**< struct value position_1 of line */
-		sf::Vector2f position_2; /**< struct value position_2 of line */
+		sf::Vector2f position_1; /**< struct value position 1 of line */
+		sf::Vector2f position_2; /**< struct value position 2 of line */
 	};
 	/**
 	* Returns the overlap between two MapObjects on a axes

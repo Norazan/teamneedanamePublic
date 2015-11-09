@@ -5,7 +5,6 @@
 #include <stdlib.h>
 
 ProjectileWeapon::ProjectileWeapon(std::string weaponType, int isFriendly) :
-weaponType(weaponType),
 isFriendly{ isFriendly },
 camera{ Camera::getInstance() }
 {
@@ -62,14 +61,14 @@ camera{ Camera::getInstance() }
 	}
 }
 
-void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
+void ProjectileWeapon::shoot(sf::Vector2f location, float angle, sf::Vector2f drawPosition){
 	if (currentGun.ammoInMagazine > 0 && shootClock.getElapsedTime() > currentGun.attackSpeed && reloadClock.getElapsedTime() > currentGun.reloadTime){
 		float radian = (angle + 90) * ((float)PI / (float)180);
 
 		for (float i = currentGun.amountOfBullets / 2 - currentGun.amountOfBullets; i < currentGun.amountOfBullets / 2; i++){
 			float bulletSpread = (currentGun.amountOfBullets / 2) * currentGun.spread * i;
 			sf::Vector2f startingVelocity{ sin(radian + bulletSpread), cos(radian + bulletSpread) };
-			Bullet *bullet = new Bullet(calculateDamage(), location, startingVelocity, angle, this, isFriendly, currentGun.gunTexture);
+			Bullet *bullet = new Bullet(calculateDamage(), location, startingVelocity, drawPosition, angle, this, isFriendly, currentGun.gunTexture);
 			camera->addMapObjectToCurrentMap(bullet);
 		}
 		currentGun.ammoInMagazine -= 1;
@@ -170,9 +169,9 @@ std::vector<int> ProjectileWeapon::getWeaponExpoints(){
 	tiers.push_back(int(shotgun.expoints));
 	return tiers;
 }
-void ProjectileWeapon::setWeaponExpoints(std::vector<int> tiers){
-	pistol.expoints = tiers[0];
-	shotgun.expoints = tiers[1];
+void ProjectileWeapon::setWeaponExpoints(std::vector<int> expoints){
+	pistol.expoints = expoints[0];
+	shotgun.expoints = expoints[1];
 	setExpoints(1);
 }
 

@@ -1,6 +1,11 @@
-//
-// Created by Thijs on 9/29/15.
-//
+/**
+* @file UserCharacter.h
+* @author Thijs
+* @date 9/29/15
+* @version 1.0
+*
+* The UserCharacter class to make a player.
+*/
 
 #ifndef GATE2158_USERCHARACTER_H
 #define GATE2158_USERCHARACTER_H
@@ -26,75 +31,113 @@ struct text{
 class ProjectileWeapon;
 class UserCharacter : public Character {
 public:
-	//! Constructor
-	//
-	//! @parameter maxHealth
-	//! @parameter renderLayer
-	//! @parameter drawable
+	/**
+	* Constructor that sets the variable of the Text.
+	*
+	* @param maxHealth
+	*		The maximum health of the userCharacter
+	* @param renderLayer
+	*		The layer where the userCharacter will be drawed
+	* @param drawable
+	*		The drawable that will be drawed
+	* @param position
+	*		The position of the userCharacter
+	* @param convex
+	*		The hitbox of the userCharacter
+	*/
 	UserCharacter(float maxHealth, int renderLayer, drawable* drawable, sf::Vector2f position, Convex* convex);
-
-	//! Function draw
-	//
-	//! draws the drawable of the UserCharacter.
+	/**
+	* Draws the userCharacter on the screen
+	*
+	* @param window
+	*		The window where the userCharacter will be drawed
+	* @param postion
+	*		The position on the screen where the userCharacter will be drawed
+	*/
 	void draw(sf::RenderWindow & window, sf::Vector2f drawPosition) override;
-
+	/**
+	* Sets the UserCharacter back to its previous position and sets the boolean canRotate to false
+	*
+	* @param mo
+	*		The MapObject where the userCharacter has collide with.
+	*/
 	void collisionDetected(MapObject & mo) override;
-
+	/**
+	* Drawed the userInput, (the health, ammo, ammoInMagazine, expoints and the tier).
+	*
+	* @param window
+	*		The window where the userinput will be drawed.
+	*/
 	void drawUserInterface(sf::RenderWindow & window);
+	/**
+	* Calls the funtions processKeys and processMouse.
+	*
+	* @param window
+	*		The window where the activities take place
+	*/
 	void act(sf::RenderWindow & window) override;
+	/**
+	* Sets the damage on the userCharacter
+	*
+	* @param damage
+	*		The number of damage the bullet has
+	*/
 	void setDamage(int damage) override;
+	/**
+	* Returns a list of the expoints of the guns
+	*
+	* @return
+	*		The a list of the expoints of the guns
+	*/
 	std::vector<int> getWeaponExpoints();
+	/**
+	* Sets all expoints of the guns.
+	*
+	* @param tiers
+	*		A list of expoints of the guns
+	*/
 	void setWeaponExpoints(std::vector<int> tiers);
 
 private:
-	//! Function move
-	//
-	//! @parameter dir is de direction and speed of movement
-	//! Adds the direction to the position.
+	/**
+	* Adds the velocity to the position
+	*
+	* @param dir
+	*		The velocity that will be added to the position
+	*/
 	void move(sf::Vector2f dir);
-
-	//! Funcion processKeys
-	//
-	//! Check of one of the keys is pressed.
-	//! And use function move to change the position of the character.
+	/**
+	* Check of one of the keys is pressed.
+	* And use function move to change the position of the character.
+	*/
 	void processKeys();
-
-	//! Function processMous
-	//
-	//! @parameter window
-	//! Checks where the mouse is.
-	//! Calls the function calculateRotation and sets the rotation.
+	/**
+	* Checks where the mouse is, calls the function calculateRotation and sets the rotation.
+	*
+	* @param window
+	*		The window to check where the mouse is
+	*/
 	void processMouse(sf::RenderWindow & window);
-
-	//! Function calculateRotation
-	//
-	//! @parameter mousePosition
-	//! Calculate the rotation, so the character rotate to the mouse.
-	//! And returns the value of the rotation.
+	/**
+	* Calculate the rotation, so the character rotate to the mouse.
+	*
+	* @return
+	*		The rotation in degrees
+	*/
 	float calculateRotation(sf::Vector2i mousePosition);
-
+	/**
+	* Makes the userInterface
+	*/
 	void makeUserInterface();
 
-	//! input, to check the keys.
-	UserInput input;
-
-	//! the speed of the character in pixels.
-	int speed = 10;
-
-	ProjectileWeapon* pistol;
-	//! the current rotation of the character in degrees.
-	float currentRotation;
-	
-	//! the previous rotation of the character in degrees.
-	float previousRotation;
-
-	//! boolean canRotate
-	bool canRotate = true;
-
-	sf::Font tFont;
-	sf::Font gunFont;
-
-	std::vector<text> userInterface;
+	UserInput input;					/** Input, to check the keys. */
+	int speed = 10;						/** The speed of the character in pixels. */
+	ProjectileWeapon* pistol;			/** The weapon of the userCharacter */
+	float currentRotation;				/** The current rotation of the userCharacter in degrees */
+	float previousRotation;				/** The previous rotation of the userCharacter in degrees */
+	bool canRotate = true;				/** A boolean if the userCharacter can rotate */
+	sf::Font tFont;						/** The font of the userInterface */
+	std::vector<text> userInterface;	/** A list of texts for userInterface */
 };
 
 #endif //GATE2158_USERCHARACTER_H

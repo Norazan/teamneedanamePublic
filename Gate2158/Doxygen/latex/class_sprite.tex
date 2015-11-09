@@ -1,0 +1,118 @@
+\hypertarget{class_sprite}{}\section{Sprite Class Reference}
+\label{class_sprite}\index{Sprite@{Sprite}}
+Inheritance diagram for Sprite\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sprite}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_sprite_afa69a3818cc509b21434292a099bfffb}{Sprite} (std\+::string name)
+\item 
+void \hyperlink{class_sprite_aada670af4fce03663d1e8247ad481a14}{draw} (sf\+::\+Render\+Window \&window, sf\+::\+Vector2f \&position)
+\item 
+sf\+::\+Vector2f \hyperlink{class_sprite_a91e9399078e212b00a63b0049dcb9b0f}{get\+Size} () override
+\item 
+float \hyperlink{class_sprite_aed1211fe8c558211ac15e400cea4bd63}{get\+Rotation} () override
+\item 
+void \hyperlink{class_sprite_a943f5aa94fccc46930b978d291ff0cfe}{set\+Rotation} (float rotation) override
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_sprite_afa69a3818cc509b21434292a099bfffb}{}\index{Sprite@{Sprite}!Sprite@{Sprite}}
+\index{Sprite@{Sprite}!Sprite@{Sprite}}
+\subsubsection[{Sprite}]{\setlength{\rightskip}{0pt plus 5cm}Sprite\+::\+Sprite (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{name}
+\end{DoxyParamCaption}
+)}\label{class_sprite_afa69a3818cc509b21434292a099bfffb}
+Constructor that sets the variable of the \hyperlink{class_sprite}{Sprite} and sets the origin to the center.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The path to the image \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_sprite_aada670af4fce03663d1e8247ad481a14}{}\index{Sprite@{Sprite}!draw@{draw}}
+\index{draw@{draw}!Sprite@{Sprite}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}void Sprite\+::draw (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Render\+Window \&}]{window, }
+\item[{sf\+::\+Vector2f \&}]{position}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_sprite_aada670af4fce03663d1e8247ad481a14}
+Draws the sprtie on the screen
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The window where the sprite will be drawed \\
+\hline
+{\em postion} & The position on the screen where the sprite will be drawed \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classdrawable_a3d748f25a3515876da0dee2abcb8ff3f}{drawable}.
+
+\hypertarget{class_sprite_aed1211fe8c558211ac15e400cea4bd63}{}\index{Sprite@{Sprite}!get\+Rotation@{get\+Rotation}}
+\index{get\+Rotation@{get\+Rotation}!Sprite@{Sprite}}
+\subsubsection[{get\+Rotation}]{\setlength{\rightskip}{0pt plus 5cm}float Sprite\+::get\+Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_sprite_aed1211fe8c558211ac15e400cea4bd63}
+Returns the rotation of the sprite
+
+\begin{DoxyReturn}{Returns}
+The rotation of the sprite 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classdrawable_a424f2ed79ef592d15e71ada7c85debf6}{drawable}.
+
+\hypertarget{class_sprite_a91e9399078e212b00a63b0049dcb9b0f}{}\index{Sprite@{Sprite}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Sprite@{Sprite}}
+\subsubsection[{get\+Size}]{\setlength{\rightskip}{0pt plus 5cm}sf\+::\+Vector2f Sprite\+::get\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_sprite_a91e9399078e212b00a63b0049dcb9b0f}
+Returns the size of the sprite
+
+\begin{DoxyReturn}{Returns}
+The size of the sprite 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classdrawable_aa9b67302060e7ac4ec9b2bd4720cf5ba}{drawable}.
+
+\hypertarget{class_sprite_a943f5aa94fccc46930b978d291ff0cfe}{}\index{Sprite@{Sprite}!set\+Rotation@{set\+Rotation}}
+\index{set\+Rotation@{set\+Rotation}!Sprite@{Sprite}}
+\subsubsection[{set\+Rotation}]{\setlength{\rightskip}{0pt plus 5cm}void Sprite\+::set\+Rotation (
+\begin{DoxyParamCaption}
+\item[{float}]{rotation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_sprite_a943f5aa94fccc46930b978d291ff0cfe}
+Sets the rotation of the sprite
+
+
+\begin{DoxyParams}{Parameters}
+{\em rotation} & The rotation that will be set \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classdrawable_a3aa9ac09447cf2b5b2e0907f3b2630e6}{drawable}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sprite_8h}{Sprite.\+h}\item 
+Sprite.\+cpp\end{DoxyCompactItemize}

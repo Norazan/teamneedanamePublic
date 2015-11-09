@@ -1,0 +1,222 @@
+\hypertarget{class_movable_map_object}{}\section{Movable\+Map\+Object Class Reference}
+\label{class_movable_map_object}\index{Movable\+Map\+Object@{Movable\+Map\+Object}}
+Inheritance diagram for Movable\+Map\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_movable_map_object}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_movable_map_object_aa2969e8bb4201127cbd823f50969b25e}{Movable\+Map\+Object} (int \hyperlink{class_map_object_ac7431860a4ca955dc3db173926be3856}{render\+Layer}, \hyperlink{classdrawable}{drawable} $\ast$\hyperlink{classdrawable}{drawable}, sf\+::\+Vector2f \hyperlink{class_map_object_a00491cbf8e4cbc729ef37e11f3473860}{position}, \hyperlink{class_convex}{Convex} $\ast$convex)
+\item 
+void \hyperlink{class_movable_map_object_a7f65bdae85e8f0e86c1432c4dbe841a8}{set\+Velocity} (sf\+::\+Vector2f v)
+\item 
+sf\+::\+Vector2f \hyperlink{class_movable_map_object_a49a6370b16a5ba51b667d799f457f923}{get\+Velocity} ()
+\item 
+virtual void \hyperlink{class_movable_map_object_a37bfa95868c4c14a57a8f0b6c01baa50}{draw} (sf\+::\+Render\+Window \&window, sf\+::\+Vector2f \hyperlink{class_map_object_a3f383fa967b67989a1d30f8f9ff73936}{draw\+Position}) override
+\item 
+virtual void \hyperlink{class_movable_map_object_a741cf970a4938c9788a4847bd3efebf3}{collision\+Detected} (\hyperlink{class_map_object}{Map\+Object} \&mo) override
+\item 
+virtual void \hyperlink{class_movable_map_object_ac9b83a47e2711115e0c8a2b9e2e2180d}{act} (sf\+::\+Render\+Window \&window) override
+\item 
+virtual int \hyperlink{class_movable_map_object_aa03b3237424ff8af648e7ed3e12dfb59}{get\+Expoints} (int damage) override
+\item 
+virtual void \hyperlink{class_movable_map_object_a24bea2d5fcdea72edb4a262fe5cf5046}{set\+Damage} (int damage) override
+\item 
+virtual void \hyperlink{class_movable_map_object_ac767bcb318488552cc4e39088e677088}{set\+Max\+Health} () override
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_movable_map_object_aa2969e8bb4201127cbd823f50969b25e}{}\index{Movable\+Map\+Object@{Movable\+Map\+Object}!Movable\+Map\+Object@{Movable\+Map\+Object}}
+\index{Movable\+Map\+Object@{Movable\+Map\+Object}!Movable\+Map\+Object@{Movable\+Map\+Object}}
+\subsubsection[{Movable\+Map\+Object}]{\setlength{\rightskip}{0pt plus 5cm}Movable\+Map\+Object\+::\+Movable\+Map\+Object (
+\begin{DoxyParamCaption}
+\item[{int}]{render\+Layer, }
+\item[{{\bf drawable} $\ast$}]{drawable, }
+\item[{sf\+::\+Vector2f}]{position, }
+\item[{{\bf Convex} $\ast$}]{convex}
+\end{DoxyParamCaption}
+)}\label{class_movable_map_object_aa2969e8bb4201127cbd823f50969b25e}
+Constructor that sets the variable of the \hyperlink{class_movable_map_object}{Movable\+Map\+Object}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em render\+Layer} & The layer on where the \hyperlink{class_map_object}{Map\+Object} will be drawed \\
+\hline
+{\em drawable} & The drawable that will be drawed \\
+\hline
+{\em position} & The position on the map \\
+\hline
+{\em convex} & The hitbox of the \hyperlink{class_map_object}{Map\+Object} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_movable_map_object_ac9b83a47e2711115e0c8a2b9e2e2180d}{}\index{Movable\+Map\+Object@{Movable\+Map\+Object}!act@{act}}
+\index{act@{act}!Movable\+Map\+Object@{Movable\+Map\+Object}}
+\subsubsection[{act}]{\setlength{\rightskip}{0pt plus 5cm}void Movable\+Map\+Object\+::act (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Render\+Window \&}]{window}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_movable_map_object_ac9b83a47e2711115e0c8a2b9e2e2180d}
+All the activities that the \hyperlink{class_movable_map_object}{Movable\+Map\+Object} will do before drawing
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The window where the activities take place \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_map_object_a1063ae3e2974c932e2a09d9823d891ed}{Map\+Object}.
+
+
+
+Reimplemented in \hyperlink{class_enemy_a19c73a7553fe3cfc92f4b8aff03a403f}{Enemy}, \hyperlink{class_user_character_a66f52c77755d4486c2d5db4db57322f3}{User\+Character}, and \hyperlink{class_character_aa7b139d1bb46168b3d09656da13ef6a4}{Character}.
+
+\hypertarget{class_movable_map_object_a741cf970a4938c9788a4847bd3efebf3}{}\index{Movable\+Map\+Object@{Movable\+Map\+Object}!collision\+Detected@{collision\+Detected}}
+\index{collision\+Detected@{collision\+Detected}!Movable\+Map\+Object@{Movable\+Map\+Object}}
+\subsubsection[{collision\+Detected}]{\setlength{\rightskip}{0pt plus 5cm}void Movable\+Map\+Object\+::collision\+Detected (
+\begin{DoxyParamCaption}
+\item[{{\bf Map\+Object} \&}]{mo}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_movable_map_object_a741cf970a4938c9788a4847bd3efebf3}
+What to do when a \hyperlink{class_movable_map_object}{Movable\+Map\+Object} collide is described in the other classes
+
+
+\begin{DoxyParams}{Parameters}
+{\em mo} & The \hyperlink{class_map_object}{Map\+Object} where the \hyperlink{class_movable_map_object}{Movable\+Map\+Object} has collide with. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_map_object_a577dfea7d356638ee0a5f673bbd83b79}{Map\+Object}.
+
+
+
+Reimplemented in \hyperlink{class_character_ab391b28d23a4aa53ed077b7383e87382}{Character}, \hyperlink{class_enemy_af173241ce46853b2e325202baee4647e}{Enemy}, and \hyperlink{class_user_character_a3685c26490ad8d6fb3eb94cc9aa7fb73}{User\+Character}.
+
+\hypertarget{class_movable_map_object_a37bfa95868c4c14a57a8f0b6c01baa50}{}\index{Movable\+Map\+Object@{Movable\+Map\+Object}!draw@{draw}}
+\index{draw@{draw}!Movable\+Map\+Object@{Movable\+Map\+Object}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}void Movable\+Map\+Object\+::draw (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Render\+Window \&}]{window, }
+\item[{sf\+::\+Vector2f}]{draw\+Position}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_movable_map_object_a37bfa95868c4c14a57a8f0b6c01baa50}
+Draws the \hyperlink{class_movable_map_object}{Movable\+Map\+Object} on the screen
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The window where the \hyperlink{class_movable_map_object}{Movable\+Map\+Object} will be drawed \\
+\hline
+{\em draw\+Position} & The position on the screen where the \hyperlink{class_movable_map_object}{Movable\+Map\+Object} will be drawed \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_map_object_acb5c1629356cd92042761748ed10fa28}{Map\+Object}.
+
+
+
+Reimplemented in \hyperlink{class_enemy_af43b53feca4cdac652261157aa83a6c1}{Enemy}, \hyperlink{class_user_character_a01378e81642b46751454d91a80f6c4e9}{User\+Character}, and \hyperlink{class_character_a1443dc3d6de5823c6a8905d638012a97}{Character}.
+
+\hypertarget{class_movable_map_object_aa03b3237424ff8af648e7ed3e12dfb59}{}\index{Movable\+Map\+Object@{Movable\+Map\+Object}!get\+Expoints@{get\+Expoints}}
+\index{get\+Expoints@{get\+Expoints}!Movable\+Map\+Object@{Movable\+Map\+Object}}
+\subsubsection[{get\+Expoints}]{\setlength{\rightskip}{0pt plus 5cm}int Movable\+Map\+Object\+::get\+Expoints (
+\begin{DoxyParamCaption}
+\item[{int}]{damage}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_movable_map_object_aa03b3237424ff8af648e7ed3e12dfb59}
+Returns the expoints based on how much damage is done (only useful on characters)
+
+
+\begin{DoxyParams}{Parameters}
+{\em damage} & The damage to calculate how much expoints are earned \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The earned expoints 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_map_object_a8d20d7a2a24f47f48c9200b5afc0ded1}{Map\+Object}.
+
+
+
+Reimplemented in \hyperlink{class_character_a47d34faad89aed2ea69959597f1d8a69}{Character}.
+
+\hypertarget{class_movable_map_object_a49a6370b16a5ba51b667d799f457f923}{}\index{Movable\+Map\+Object@{Movable\+Map\+Object}!get\+Velocity@{get\+Velocity}}
+\index{get\+Velocity@{get\+Velocity}!Movable\+Map\+Object@{Movable\+Map\+Object}}
+\subsubsection[{get\+Velocity}]{\setlength{\rightskip}{0pt plus 5cm}sf\+::\+Vector2f Movable\+Map\+Object\+::get\+Velocity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_movable_map_object_a49a6370b16a5ba51b667d799f457f923}
+returns the velocity
+
+\begin{DoxyReturn}{Returns}
+The velocity 
+\end{DoxyReturn}
+\hypertarget{class_movable_map_object_a24bea2d5fcdea72edb4a262fe5cf5046}{}\index{Movable\+Map\+Object@{Movable\+Map\+Object}!set\+Damage@{set\+Damage}}
+\index{set\+Damage@{set\+Damage}!Movable\+Map\+Object@{Movable\+Map\+Object}}
+\subsubsection[{set\+Damage}]{\setlength{\rightskip}{0pt plus 5cm}void Movable\+Map\+Object\+::set\+Damage (
+\begin{DoxyParamCaption}
+\item[{int}]{damage}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_movable_map_object_a24bea2d5fcdea72edb4a262fe5cf5046}
+Sets damage to the \hyperlink{class_movable_map_object}{Movable\+Map\+Object} (only useful on characters)
+
+
+\begin{DoxyParams}{Parameters}
+{\em damage} & The damage \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_map_object_a8aaf83927a9f0a59743dc405a36ae84d}{Map\+Object}.
+
+
+
+Reimplemented in \hyperlink{class_enemy_aeabdbc13e40d729992af9612c6b586be}{Enemy}, \hyperlink{class_user_character_a3f835836af228eb6ea2fbada0c84c493}{User\+Character}, and \hyperlink{class_character_a95dd6b34d63d6465dfaade4b76079d82}{Character}.
+
+\hypertarget{class_movable_map_object_ac767bcb318488552cc4e39088e677088}{}\index{Movable\+Map\+Object@{Movable\+Map\+Object}!set\+Max\+Health@{set\+Max\+Health}}
+\index{set\+Max\+Health@{set\+Max\+Health}!Movable\+Map\+Object@{Movable\+Map\+Object}}
+\subsubsection[{set\+Max\+Health}]{\setlength{\rightskip}{0pt plus 5cm}void Movable\+Map\+Object\+::set\+Max\+Health (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_movable_map_object_ac767bcb318488552cc4e39088e677088}
+Sets the maximum health of the \hyperlink{class_movable_map_object}{Movable\+Map\+Object} (only useful on characters) 
+
+Reimplemented from \hyperlink{class_map_object_a12ef2d2a5b6673a46e560353b2c44b1e}{Map\+Object}.
+
+
+
+Reimplemented in \hyperlink{class_character_a848517065963dc5762341834962833d4}{Character}.
+
+\hypertarget{class_movable_map_object_a7f65bdae85e8f0e86c1432c4dbe841a8}{}\index{Movable\+Map\+Object@{Movable\+Map\+Object}!set\+Velocity@{set\+Velocity}}
+\index{set\+Velocity@{set\+Velocity}!Movable\+Map\+Object@{Movable\+Map\+Object}}
+\subsubsection[{set\+Velocity}]{\setlength{\rightskip}{0pt plus 5cm}void Movable\+Map\+Object\+::set\+Velocity (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Vector2f}]{v}
+\end{DoxyParamCaption}
+)}\label{class_movable_map_object_a7f65bdae85e8f0e86c1432c4dbe841a8}
+Sets the velocity
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The velocity that will be set \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_movable_map_object_8h}{Movable\+Map\+Object.\+h}\item 
+Movable\+Map\+Object.\+cpp\end{DoxyCompactItemize}

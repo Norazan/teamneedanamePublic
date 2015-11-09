@@ -1,15 +1,22 @@
 #include "Menu.h"
+#include "Text.h"
 #include <iostream>
-Menu::Menu(sf::RenderWindow &windowRef, bool showMenu)
-: window(windowRef),
-showingMenu(showMenu),
-currentSelection(0),
-splashScreen(true)
+
+Menu::Menu(sf::RenderWindow &windowRef, bool showMenu) :
+	window(windowRef),
+	showingMenu(showMenu),
+	currentSelection(0),
+	splashScreen(true)
 {
 	input.setToggleKey(sf::Keyboard::Up);
 	input.setToggleKey(sf::Keyboard::Down);
 	input.setToggleKey(sf::Keyboard::Space);
 	input.setToggleKey(sf::Keyboard::Return);
+
+	if (!tFont.loadFromFile("../../Gate2158/media/Starjedi.ttf")){
+		//Error handeling
+		std::cout << "can't load font";
+	}
 
 	if (!logoTexture.loadFromFile("../../Gate2158/media/TEAMNEEDSANAME.png")){
 		return;
@@ -23,6 +30,9 @@ splashScreen(true)
 	if (!gameLogoTexture.loadFromFile("../../Gate2158/media/GameLogo.png")){
 		return;
 	}
+	if (!intstuctionTexture.loadFromFile("../../Gate2158/media/textures/Help.png")){
+		return;
+	}
 	if (!menuBackgroundMusic.openFromFile("../../Gate2158/media/audio/Analog_Boys_2.wav")){
 		return;
 	}
@@ -33,8 +43,20 @@ splashScreen(true)
 void Menu::draw(){
 	input.updateToggleKey();
 	showingMenu = true;
-	
-	
+
+	Text pressSpace(
+		("press Space"),
+		sf::Vector2f(150, 650),
+		sf::Text::Style::Regular,
+		sf::Color::White,
+		30,
+		&tFont
+	);
+
+	sf::Sprite instructions;
+	instructions.setTexture(intstuctionTexture);
+	instructions.setPosition(sf::Vector2f(1280 / 2 - 600 / 2, 0));
+
 	sf::Sprite splashLogo;
 	splashLogo.setTexture(logoTexture);
 	splashLogo.setPosition(sf::Vector2f(1280 / 2 - 500 / 2, 720 / 2 - 380 / 2));
@@ -65,6 +87,13 @@ void Menu::draw(){
 		}
 		if (splashScreen){
 			window.draw(splashLogo);
+			sf::Vector2f pressSpaceDrawPosition(520,650);
+			pressSpace.draw(window, pressSpaceDrawPosition);
+		}
+		else if (instructionScreen){
+			window.draw(instructions);
+			sf::Vector2f pressSpaceDrawPosition(520,650);
+			pressSpace.draw(window, pressSpaceDrawPosition);
 		}
 		else{
 			window.draw(gameLogo);
@@ -77,19 +106,23 @@ void Menu::draw(){
 }
 
 void Menu::processKeys(){
-	if (splashScreen){
-		if (input.isKeyHold(sf::Keyboard::Space)){
-			splashScreen = false;
+	if (splashScreen || instructionScreen){
+		if (input.isKeyPressed(sf::Keyboard::Space)){
+			if (splashScreen){
+				splashScreen = false;
+				instructionScreen = true;
+			}
+			else {
+				instructionScreen = false;
+			}
 		}
 	}
 	else{
 		if (input.isKeyHold(sf::Keyboard::Up)){
 			currentSelection = 0;
-			std::cout << "Up";
 		}
 		else if (input.isKeyHold(sf::Keyboard::Down)){
 			currentSelection = 1;
-			std::cout << "down";
 		}
 		else if (input.isKeyHold(sf::Keyboard::Return)){
 			menuBackgroundMusic.stop();
@@ -102,11 +135,9 @@ void Menu::processKeys(){
 		}
 
 		else if (input.getMousePress(sf::Mouse::Left)){
-			std::cout << "x: " << input.getMousePosition(window).x << " y:" << input.getMousePosition(window).y << "\n";
 			if (input.getMousePosition(window).x >= startLocation.x && input.getMousePosition(window).x <= startLocation.x + 200 &&
 				input.getMousePosition(window).y >= startLocation.y && input.getMousePosition(window).y <= startLocation.y + 100){
 				showingMenu = false;
-				std::cout << "false";
 			}
 			else if (input.getMousePosition(window).x >= quitLocation.x && input.getMousePosition(window).x <= quitLocation.x + 200 &&
 				input.getMousePosition(window).y >= quitLocation.y && input.getMousePosition(window).y <= quitLocation.y + 100){

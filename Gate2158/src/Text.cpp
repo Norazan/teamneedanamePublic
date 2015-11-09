@@ -4,24 +4,6 @@
 
 #include "Text.h"
 
-Text::Text(std::string t, sf::Text::Style style, sf::Color color, int size, std::string f)
-
-{
-	text.setString(t);
-	text.setStyle(style);
-	text.setColor(color);
-	text.setCharacterSize(size);
-	sf::Font font;
-	std::cout << "hallo\n";
-	if (!font.loadFromFile("../../Gate2158/media/Another_America.ttf")){
-		std::cout << "error: can't load the font.";
-	}
-	text.setFont(font);
-	sf::Vector2f s = getSize();
-	sf::Vector2f center{ s.x / 2, s.y / 2 };
-	text.setOrigin(center);
-}
-
 Text::Text(
 	std::string t,
 	sf::Vector2f pos,
