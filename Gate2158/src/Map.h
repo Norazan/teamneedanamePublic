@@ -17,7 +17,11 @@
 #include <vector>
 
 class UserCharacter;
-
+/**
+ * @brief This class is used to manage levels
+ * @details This class is used to load levels from the disk, and to maintain which objects and characters are on the map.
+ * @return [description]
+ */
 class Map {
 public:
 	/**

@@ -13,6 +13,10 @@
 #include <SFML/Graphics.hpp>
 #include "drawable.h"
 
+/**
+ * @brief A drawable class used to draw a rectangle on the screen
+ * 
+ */
 class Rectangle : public drawable {
 public:
 	/**

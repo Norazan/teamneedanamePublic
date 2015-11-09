@@ -11,7 +11,9 @@
 #define GATE2158_WORLD_HPP
 
 #include "Map.h"
-
+/**
+ * @brief The World class is used to save and load levelsaoeuua.
+ */
 class World {
 public:
 	/**

@@ -11,6 +11,10 @@
 #define GATE2158_WEAPON_H
 
 #include <SFML/Graphics.hpp>
+/**
+ * @brief This class is used to describe weapons and let the player and enemies shoot.
+ * 
+ */
 class Weapon{
 public:
 	/**

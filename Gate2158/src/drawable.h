@@ -12,6 +12,11 @@
 
 #include <SFML/Graphics.hpp>
 
+/**
+ * @brief Description of something that is drawable
+ * @details This class describes something that is drawable on the screen. It can be anything from a simple rectangle to a sprite.
+ * 
+ */
 class drawable {
 public:
 	/**

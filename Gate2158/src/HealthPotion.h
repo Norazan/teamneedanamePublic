@@ -12,6 +12,10 @@
 #ifndef GATE2158_HEALTHPOTION_H
 #define GATE2158_HEALTHPOTION_H
 
+/**
+ * @brief A bottle which restores health when the player walks over it.
+ * 
+ */
 class HealthPotion : public MapObject {
 public:
 	/**

@@ -66,8 +66,8 @@ public:
 	*
 	* @param window
 	*		The window where the text will be drawed
-	* @param postion
-	*		The position on the screen where the text will be drawed
+	* @param position
+	*		The position on the screen where the text will be drawn
 	*/
 	void draw(sf::RenderWindow &window, sf::Vector2f &position);
 	/**

@@ -22,10 +22,14 @@
 #define angleOfLeft 180.0;
 #define angleOfRight 0.0;
 
+/**
+ * @brief This struct is used to draw information relevant to the player on the screen.
+ * 
+ */
 struct text{
-	Text t;
-	std::string name;
-	sf::Vector2f position;
+	Text t; /** The text object to draw */
+	std::string name; /** The text to draw */
+	sf::Vector2f position; /** The position to draw the text at */
 };
 
 class ProjectileWeapon;
@@ -51,7 +55,7 @@ public:
 	*
 	* @param window
 	*		The window where the userCharacter will be drawed
-	* @param postion
+	* @param drawPosition
 	*		The position on the screen where the userCharacter will be drawed
 	*/
 	void draw(sf::RenderWindow & window, sf::Vector2f drawPosition) override;

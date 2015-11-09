@@ -14,6 +14,11 @@
 #include <SFML/Audio.hpp>
 #include "UserInput.h"
 
+/**
+ * @brief The main menu
+ * @details The menu that is displayed when the game is launched
+ * 
+ */
 class Menu{
 public:
 	/**

@@ -12,7 +12,10 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
-
+/**
+ * @brief This struct is used to track key statesS
+ * 
+ */
 struct MyToggleKey{
 	sf::Keyboard::Key key;
 	bool pressed;
@@ -21,6 +24,10 @@ struct MyToggleKey{
 	bool currentState;
 };
 
+/**
+ * @brief This class handles keyboard and mouse input
+ * 
+ */
 class UserInput{
 public:
 	/**
@@ -40,16 +47,16 @@ public:
 	* @return
 	*		A boolean if the key is pressed
 	*/
-	bool getPressed(sf::Keyboard::Key);
+	bool getPressed(sf::Keyboard::Key key);
 	/**
 	* Checks if a the mouse is pressed
 	*
-	* @param key
+	* @param mouseButton
 	*		The mouse key that will be checked
 	* @return
 	*		A boolean if the mouse key is pressed
 	*/
-	bool getMousePress(sf::Mouse::Button);
+	bool getMousePress(sf::Mouse::Button mouseButton);
 	/**
 	* Returns the mouse position
 	*
@@ -67,14 +74,14 @@ public:
 	* @return
 	*		A boolean if the key is present in the list
 	*/
-	bool getToggleKey(sf::Keyboard::Key);
+	bool getToggleKey(sf::Keyboard::Key key);
 	/**
 	* Sets a key to the ToggleKey list (used to checked also if the key is hold)
 	*
 	* @param key
 	*		The key that will be add
 	*/
-	void setToggleKey(sf::Keyboard::Key);
+	void setToggleKey(sf::Keyboard::Key key);
 	/**
 	* Check if key is pressed (key needs to be in the ToggleKey list)
 	*
@@ -83,7 +90,7 @@ public:
 	* @return
 	*		A boolean if the key is pressed
 	*/
-	bool isKeyPressed(sf::Keyboard::Key);
+	bool isKeyPressed(sf::Keyboard::Key key);
 	/**
 	* Check if key is hold (key needs to be in the ToggleKey list)
 	*
@@ -92,7 +99,7 @@ public:
 	* @return
 	*		A boolean if the key is hold
 	*/
-	bool isKeyHold(sf::Keyboard::Key);
+	bool isKeyHold(sf::Keyboard::Key key);
 	/**
 	* Update the ToggleKeys, by checking if the key is hold or released
 	*/
