@@ -23,14 +23,14 @@ camera{ Camera::getInstance() }
 		}
 	}
 	if (isFriendly == 2){
-		pistol.attackSpeed = 1500;
-		pistol.reloadTime = 1500;
-		shotgun.attackSpeed = 1700;
+		pistol.attackSpeed = sf::milliseconds(1500);//1500;
+		pistol.reloadTime = sf::milliseconds(1500);//1500;
+		shotgun.attackSpeed = sf::milliseconds(1700);//1700;
 	}
 	else {
-		pistol.attackSpeed = 600;
-		shotgun.attackSpeed = 1200;
-		shotgun.reloadTime = 800;
+		pistol.attackSpeed = sf::milliseconds(600);//600;
+		shotgun.attackSpeed = sf::milliseconds(1200);//1200;
+		shotgun.reloadTime = sf::milliseconds(800);//800;
 	}
 
 	pistol.name = "pistol";
@@ -63,12 +63,7 @@ camera{ Camera::getInstance() }
 }
 
 void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
-	currentClock = clock();
-	double shootDiffTicks = currentClock - previousClock;
-	double reloadDiffTicks = currentClock - reloadClock;
-	double shootDiffMS = shootDiffTicks / (CLOCKS_PER_SEC / 1000);
-	double reloadDiffMS = reloadDiffTicks / (CLOCKS_PER_SEC / 1000);
-	if (currentGun.ammoInMagazine > 0 && shootDiffMS > currentGun.attackSpeed && reloadDiffMS > currentGun.reloadTime){
+	if (currentGun.ammoInMagazine > 0 && shootClock.getElapsedTime() > currentGun.attackSpeed && reloadClock.getElapsedTime() > currentGun.reloadTime){
 		float radian = (angle + 90) * ((float)PI / (float)180);
 
 		for (float i = currentGun.amountOfBullets / 2 - currentGun.amountOfBullets; i < currentGun.amountOfBullets / 2; i++){
@@ -78,7 +73,7 @@ void ProjectileWeapon::shoot(sf::Vector2f location, float angle){
 			camera->addMapObjectToCurrentMap(bullet);
 		}
 		currentGun.ammoInMagazine -= 1;
-		previousClock = currentClock;
+		shootClock.restart();
 	}
 }
 
@@ -125,8 +120,9 @@ void ProjectileWeapon::reload(){
 			currentGun.ammoInMagazine = currentGun.currentAmmo;
 			currentGun.currentAmmo = 0;
 		}
+		reloadClock.restart();
 	}
-	reloadClock = clock();
+
 }
 
 int ProjectileWeapon::getExpoints(){
@@ -148,9 +144,9 @@ void ProjectileWeapon::setExpoints(int expoints){
 		currentGun.currentAmmo = currentGun.maxAmmo;
 		currentGun.maxAmmoInMagazine += currentGun.maxAmmoInMagazine * 0.1;
 		// upgrade speed
-		currentGun.reloadTime -= currentGun.reloadTime * 0.1;
+		currentGun.reloadTime -= sf::milliseconds(currentGun.reloadTime.asMilliseconds() * 0.1);
 		currentGun.projectileVelocity += currentGun.projectileVelocity * 0.2;
-		currentGun.attackSpeed -= currentGun.attackSpeed * 0.1;
+		currentGun.attackSpeed -= sf::milliseconds(currentGun.attackSpeed.asMilliseconds() * 0.1);
 		if (currentGun.name == "shotgun"){
 			++currentGun.amountOfBullets;
 			currentGun.spread -= float(currentGun.spread * 0.2);
