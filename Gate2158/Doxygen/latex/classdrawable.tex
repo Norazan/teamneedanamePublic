@@ -1,0 +1,98 @@
+\hypertarget{classdrawable}{}\section{drawable Class Reference}
+\label{classdrawable}\index{drawable@{drawable}}
+Inheritance diagram for drawable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classdrawable}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classdrawable_a3d748f25a3515876da0dee2abcb8ff3f}{draw} (sf\+::\+Render\+Window \&window, sf\+::\+Vector2f \&pos)=0
+\item 
+virtual sf\+::\+Vector2f \hyperlink{classdrawable_aa9b67302060e7ac4ec9b2bd4720cf5ba}{get\+Size} ()=0
+\item 
+virtual float \hyperlink{classdrawable_a424f2ed79ef592d15e71ada7c85debf6}{get\+Rotation} ()=0
+\item 
+virtual void \hyperlink{classdrawable_a3aa9ac09447cf2b5b2e0907f3b2630e6}{set\+Rotation} (float rotation)=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classdrawable_a3d748f25a3515876da0dee2abcb8ff3f}{}\index{drawable@{drawable}!draw@{draw}}
+\index{draw@{draw}!drawable@{drawable}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}virtual void drawable\+::draw (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Render\+Window \&}]{window, }
+\item[{sf\+::\+Vector2f \&}]{pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdrawable_a3d748f25a3515876da0dee2abcb8ff3f}
+Draws a object on the screen
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The window where the object will be drawed \\
+\hline
+{\em draw\+Position} & The position on the screen where the object will be drawed \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_text_a7ee53d98f60cef0ef1a5835820d1006e}{Text}, \hyperlink{class_convex_aa1a2defc4f990dbcebd1bd9bdf87925a}{Convex}, \hyperlink{class_rectangle_a11bb20a3478f4f049a9ada65b2bf3278}{Rectangle}, and \hyperlink{class_sprite_aada670af4fce03663d1e8247ad481a14}{Sprite}.
+
+\hypertarget{classdrawable_a424f2ed79ef592d15e71ada7c85debf6}{}\index{drawable@{drawable}!get\+Rotation@{get\+Rotation}}
+\index{get\+Rotation@{get\+Rotation}!drawable@{drawable}}
+\subsubsection[{get\+Rotation}]{\setlength{\rightskip}{0pt plus 5cm}virtual float drawable\+::get\+Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdrawable_a424f2ed79ef592d15e71ada7c85debf6}
+Returns the rotation of the object
+
+\begin{DoxyReturn}{Returns}
+The rotation of the ojbect 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_text_a331f5c4bca345d9a1eb7283a1179021b}{Text}, \hyperlink{class_convex_a0b658f1b28a486ba028f2a6e14e64352}{Convex}, \hyperlink{class_circle_a7cacfa4f61a942f6a1c280dad94a3b11}{Circle}, \hyperlink{class_rectangle_a44e3346f7655320ea0c07488a42a2781}{Rectangle}, and \hyperlink{class_sprite_aed1211fe8c558211ac15e400cea4bd63}{Sprite}.
+
+\hypertarget{classdrawable_aa9b67302060e7ac4ec9b2bd4720cf5ba}{}\index{drawable@{drawable}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!drawable@{drawable}}
+\subsubsection[{get\+Size}]{\setlength{\rightskip}{0pt plus 5cm}virtual sf\+::\+Vector2f drawable\+::get\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdrawable_aa9b67302060e7ac4ec9b2bd4720cf5ba}
+Returns the size of the ojbect
+
+\begin{DoxyReturn}{Returns}
+The size of the object 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_convex_a13fa15392ab8ec02f950ed1aeeb2889c}{Convex}, \hyperlink{class_text_a833febe6c2202d3de682019f980cbeac}{Text}, \hyperlink{class_circle_aac26e31a0616aa405b387a92261595bc}{Circle}, \hyperlink{class_rectangle_afac2e8bd6dd77ac1a349f9d3eda00420}{Rectangle}, and \hyperlink{class_sprite_a91e9399078e212b00a63b0049dcb9b0f}{Sprite}.
+
+\hypertarget{classdrawable_a3aa9ac09447cf2b5b2e0907f3b2630e6}{}\index{drawable@{drawable}!set\+Rotation@{set\+Rotation}}
+\index{set\+Rotation@{set\+Rotation}!drawable@{drawable}}
+\subsubsection[{set\+Rotation}]{\setlength{\rightskip}{0pt plus 5cm}virtual void drawable\+::set\+Rotation (
+\begin{DoxyParamCaption}
+\item[{float}]{rotation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classdrawable_a3aa9ac09447cf2b5b2e0907f3b2630e6}
+Sets the rotation of the object
+
+
+\begin{DoxyParams}{Parameters}
+{\em rotation} & The rotation that will be set \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_text_a303f69787c6e1e0adc98d56ca05082cb}{Text}, \hyperlink{class_convex_ab6bd9c18b63399fc18e208ca0fc5e943}{Convex}, \hyperlink{class_circle_a81dae3e1655b4c86abdf7d534438eeea}{Circle}, \hyperlink{class_rectangle_a15cc91ba4b6e9df8bde1e7d5a16cb766}{Rectangle}, and \hyperlink{class_sprite_a943f5aa94fccc46930b978d291ff0cfe}{Sprite}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{drawable_8h}{drawable.\+h}\end{DoxyCompactItemize}

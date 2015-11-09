@@ -1,0 +1,456 @@
+\hypertarget{class_map_object}{}\section{Map\+Object Class Reference}
+\label{class_map_object}\index{Map\+Object@{Map\+Object}}
+Inheritance diagram for Map\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.419847cm]{class_map_object}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_map_object_a568754515cc72ce0861d30c3040d26d2}{Map\+Object} ()
+\item 
+\hyperlink{class_map_object_a5d76c91462e7d408e31bae7e21b87384}{Map\+Object} (int \hyperlink{class_map_object_ac7431860a4ca955dc3db173926be3856}{render\+Layer})
+\item 
+\hyperlink{class_map_object_ad47fe6b8ac616573a504cb1f51fa567a}{Map\+Object} (int \hyperlink{class_map_object_ac7431860a4ca955dc3db173926be3856}{render\+Layer}, \hyperlink{classdrawable}{drawable} $\ast$\hyperlink{classdrawable}{drawable}, sf\+::\+Vector2f \hyperlink{class_map_object_a00491cbf8e4cbc729ef37e11f3473860}{position})
+\item 
+\hyperlink{class_map_object_a8708f12073b2fb345aa40a4d8780ef01}{Map\+Object} (int \hyperlink{class_map_object_ac7431860a4ca955dc3db173926be3856}{render\+Layer}, \hyperlink{classdrawable}{drawable} $\ast$drawables, sf\+::\+Vector2f \hyperlink{class_map_object_a00491cbf8e4cbc729ef37e11f3473860}{position}, \hyperlink{class_convex}{Convex} $\ast$hitbox)
+\item 
+void \hyperlink{class_map_object_a42beb1ad4f7eef28d82c3655dcecdad4}{rotate} (float rotation)
+\item 
+float \hyperlink{class_map_object_a0a682512b187bd372a2d62a277d2526c}{get\+Rotation} ()
+\item 
+void \hyperlink{class_map_object_a5f27e1a99b00925d5f04640cc88083f2}{set\+Position} (sf\+::\+Vector2f pos)
+\item 
+sf\+::\+Vector2f \hyperlink{class_map_object_a07d7b72ec87e0c58309c3539bdc79779}{get\+Position} ()
+\item 
+void \hyperlink{class_map_object_a0373284a30f47f85a33b9922042d8e25}{set\+Render\+Layer} (int \hyperlink{class_map_object_ac7431860a4ca955dc3db173926be3856}{render\+Layer})
+\item 
+int \hyperlink{class_map_object_a056a6d84523180e65cceda163fbf44d8}{get\+Render\+Layer} ()
+\item 
+sf\+::\+Vector2f \hyperlink{class_map_object_aae5aec063f4625f627a64065aa921495}{get\+Size} ()
+\item 
+std\+::vector$<$ sf\+::\+Vector2f $>$ \hyperlink{class_map_object_a54f4e0be03cf596ed4d3854ef212ca46}{get\+Convex\+Points} ()
+\item 
+sf\+::\+Vector2f \hyperlink{class_map_object_a37b6bc003f67eac65280c1630e40ecff}{get\+Origin} ()
+\item 
+virtual int \hyperlink{class_map_object_a8d20d7a2a24f47f48c9200b5afc0ded1}{get\+Expoints} (int damage)
+\item 
+virtual void \hyperlink{class_map_object_a8aaf83927a9f0a59743dc405a36ae84d}{set\+Damage} (int damage)
+\item 
+virtual void \hyperlink{class_map_object_a1063ae3e2974c932e2a09d9823d891ed}{act} (sf\+::\+Render\+Window \&window)
+\item 
+virtual void \hyperlink{class_map_object_acb5c1629356cd92042761748ed10fa28}{draw} (sf\+::\+Render\+Window \&window, sf\+::\+Vector2f \hyperlink{class_map_object_a3f383fa967b67989a1d30f8f9ff73936}{draw\+Position})
+\item 
+void \hyperlink{class_map_object_a6f039817967b63eef60a7079a24ff5b1}{set\+Hitbox} (\hyperlink{class_convex}{Convex} $\ast$Hitbox)
+\item 
+\hyperlink{class_convex}{Convex} $\ast$ \hyperlink{class_map_object_aba53d81e39da359ac51c2b391fb94dfe}{get\+Hitbox} ()
+\item 
+virtual void \hyperlink{class_map_object_a577dfea7d356638ee0a5f673bbd83b79}{collision\+Detected} (\hyperlink{class_map_object}{Map\+Object} \&mo)
+\item 
+void \hyperlink{class_map_object_a43131a930ae890950e2027340ffe6aca}{set\+Draw\+Position} (sf\+::\+Vector2f draw\+Pos)
+\item 
+sf\+::\+Vector2f \hyperlink{class_map_object_a8090ff0579451a195de674e23c9251e8}{get\+Draw\+Position} ()
+\item 
+virtual void \hyperlink{class_map_object_a12ef2d2a5b6673a46e560353b2c44b1e}{set\+Max\+Health} ()
+\item 
+int \hyperlink{class_map_object_ab2c08c54979e8457057f4d2dcdaae0fb}{is\+Friend} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdrawable}{drawable} $\ast$ \hyperlink{class_map_object_a1c65f2eeb4aa3ce941e5a91347441aa9}{draw\+Object}
+\item 
+int \hyperlink{class_map_object_ac7431860a4ca955dc3db173926be3856}{render\+Layer}
+\item 
+int \hyperlink{class_map_object_a93598b361b5c86637ae5779146e222da}{total\+Expoints} = 0
+\item 
+sf\+::\+Vector2f \hyperlink{class_map_object_a00491cbf8e4cbc729ef37e11f3473860}{position}
+\item 
+sf\+::\+Vector2f \hyperlink{class_map_object_a3f383fa967b67989a1d30f8f9ff73936}{draw\+Position}
+\item 
+int \hyperlink{class_map_object_a1788c8bf4e3c04bff8c2eba112e46d79}{is\+Friendly} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_map_object_a568754515cc72ce0861d30c3040d26d2}{}\index{Map\+Object@{Map\+Object}!Map\+Object@{Map\+Object}}
+\index{Map\+Object@{Map\+Object}!Map\+Object@{Map\+Object}}
+\subsubsection[{Map\+Object}]{\setlength{\rightskip}{0pt plus 5cm}Map\+Object\+::\+Map\+Object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_map_object_a568754515cc72ce0861d30c3040d26d2}
+Constructor that makes a empty \hyperlink{class_map_object}{Map\+Object} \hypertarget{class_map_object_a5d76c91462e7d408e31bae7e21b87384}{}\index{Map\+Object@{Map\+Object}!Map\+Object@{Map\+Object}}
+\index{Map\+Object@{Map\+Object}!Map\+Object@{Map\+Object}}
+\subsubsection[{Map\+Object}]{\setlength{\rightskip}{0pt plus 5cm}Map\+Object\+::\+Map\+Object (
+\begin{DoxyParamCaption}
+\item[{int}]{render\+Layer}
+\end{DoxyParamCaption}
+)}\label{class_map_object_a5d76c91462e7d408e31bae7e21b87384}
+Constructor that makes a empty \hyperlink{class_map_object}{Map\+Object} used to make bullets
+
+
+\begin{DoxyParams}{Parameters}
+{\em render\+Layer} & The layer where the \hyperlink{class_map_object}{Map\+Object} will be drawed \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_map_object_ad47fe6b8ac616573a504cb1f51fa567a}{}\index{Map\+Object@{Map\+Object}!Map\+Object@{Map\+Object}}
+\index{Map\+Object@{Map\+Object}!Map\+Object@{Map\+Object}}
+\subsubsection[{Map\+Object}]{\setlength{\rightskip}{0pt plus 5cm}Map\+Object\+::\+Map\+Object (
+\begin{DoxyParamCaption}
+\item[{int}]{render\+Layer, }
+\item[{{\bf drawable} $\ast$}]{drawable, }
+\item[{sf\+::\+Vector2f}]{position}
+\end{DoxyParamCaption}
+)}\label{class_map_object_ad47fe6b8ac616573a504cb1f51fa567a}
+Constructor that sets the variable of the \hyperlink{class_map_object}{Map\+Object}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em render\+Layer} & The layer on where the \hyperlink{class_map_object}{Map\+Object} will be drawed \\
+\hline
+{\em drawable} & The drawable that will be drawed \\
+\hline
+{\em position} & The position on the map \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_map_object_a8708f12073b2fb345aa40a4d8780ef01}{}\index{Map\+Object@{Map\+Object}!Map\+Object@{Map\+Object}}
+\index{Map\+Object@{Map\+Object}!Map\+Object@{Map\+Object}}
+\subsubsection[{Map\+Object}]{\setlength{\rightskip}{0pt plus 5cm}Map\+Object\+::\+Map\+Object (
+\begin{DoxyParamCaption}
+\item[{int}]{render\+Layer, }
+\item[{{\bf drawable} $\ast$}]{drawables, }
+\item[{sf\+::\+Vector2f}]{position, }
+\item[{{\bf Convex} $\ast$}]{hitbox}
+\end{DoxyParamCaption}
+)}\label{class_map_object_a8708f12073b2fb345aa40a4d8780ef01}
+Constructor that sets the variable of the \hyperlink{class_map_object}{Map\+Object}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em render\+Layer} & The layer on where the \hyperlink{class_map_object}{Map\+Object} will be drawed \\
+\hline
+{\em drawable} & The drawable that will be drawed \\
+\hline
+{\em position} & The position on the map \\
+\hline
+{\em convex} & The hitbox of the \hyperlink{class_map_object}{Map\+Object} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_map_object_a1063ae3e2974c932e2a09d9823d891ed}{}\index{Map\+Object@{Map\+Object}!act@{act}}
+\index{act@{act}!Map\+Object@{Map\+Object}}
+\subsubsection[{act}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+Object\+::act (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Render\+Window \&}]{window}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_map_object_a1063ae3e2974c932e2a09d9823d891ed}
+All the activities that the \hyperlink{class_map_object}{Map\+Object} will do before drawing
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The window where the activities take place \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_enemy_a19c73a7553fe3cfc92f4b8aff03a403f}{Enemy}, \hyperlink{class_user_character_a66f52c77755d4486c2d5db4db57322f3}{User\+Character}, \hyperlink{class_movable_map_object_ac9b83a47e2711115e0c8a2b9e2e2180d}{Movable\+Map\+Object}, and \hyperlink{class_character_aa7b139d1bb46168b3d09656da13ef6a4}{Character}.
+
+\hypertarget{class_map_object_a577dfea7d356638ee0a5f673bbd83b79}{}\index{Map\+Object@{Map\+Object}!collision\+Detected@{collision\+Detected}}
+\index{collision\+Detected@{collision\+Detected}!Map\+Object@{Map\+Object}}
+\subsubsection[{collision\+Detected}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+Object\+::collision\+Detected (
+\begin{DoxyParamCaption}
+\item[{{\bf Map\+Object} \&}]{mo}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_map_object_a577dfea7d356638ee0a5f673bbd83b79}
+What to do when a \hyperlink{class_map_object}{Map\+Object} collide is described in the other classes
+
+
+\begin{DoxyParams}{Parameters}
+{\em mo} & The \hyperlink{class_map_object}{Map\+Object} where the \hyperlink{class_map_object}{Map\+Object} has collide with. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_character_ab391b28d23a4aa53ed077b7383e87382}{Character}, \hyperlink{class_bullet_a96602619e212539b0b9b2ac4b159dc30}{Bullet}, \hyperlink{class_enemy_af173241ce46853b2e325202baee4647e}{Enemy}, \hyperlink{class_user_character_a3685c26490ad8d6fb3eb94cc9aa7fb73}{User\+Character}, \hyperlink{class_movable_map_object_a741cf970a4938c9788a4847bd3efebf3}{Movable\+Map\+Object}, \hyperlink{class_finish_add242b36d73b41b2cd8c2397365a11b0}{Finish}, and \hyperlink{class_health_potion_ac9f08cf54d715b5fe5cc71a9bf930fb7}{Health\+Potion}.
+
+\hypertarget{class_map_object_acb5c1629356cd92042761748ed10fa28}{}\index{Map\+Object@{Map\+Object}!draw@{draw}}
+\index{draw@{draw}!Map\+Object@{Map\+Object}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+Object\+::draw (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Render\+Window \&}]{window, }
+\item[{sf\+::\+Vector2f}]{draw\+Position}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_map_object_acb5c1629356cd92042761748ed10fa28}
+Draws the \hyperlink{class_map_object}{Map\+Object} on the screen
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The window where the \hyperlink{class_map_object}{Map\+Object} will be drawed \\
+\hline
+{\em draw\+Position} & The position on the screen where the \hyperlink{class_map_object}{Map\+Object} will be drawed \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_enemy_af43b53feca4cdac652261157aa83a6c1}{Enemy}, \hyperlink{class_user_character_a01378e81642b46751454d91a80f6c4e9}{User\+Character}, \hyperlink{class_bullet_a8bc85503a787fdf10896b595d4ef7c27}{Bullet}, \hyperlink{class_movable_map_object_a37bfa95868c4c14a57a8f0b6c01baa50}{Movable\+Map\+Object}, \hyperlink{class_character_a1443dc3d6de5823c6a8905d638012a97}{Character}, \hyperlink{class_finish_ae65e14b835ffefbb834e23f20cd06e2f}{Finish}, and \hyperlink{class_health_potion_a75088ab30fb862023ae5667fabad660c}{Health\+Potion}.
+
+\hypertarget{class_map_object_a54f4e0be03cf596ed4d3854ef212ca46}{}\index{Map\+Object@{Map\+Object}!get\+Convex\+Points@{get\+Convex\+Points}}
+\index{get\+Convex\+Points@{get\+Convex\+Points}!Map\+Object@{Map\+Object}}
+\subsubsection[{get\+Convex\+Points}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ sf\+::\+Vector2f $>$ Map\+Object\+::get\+Convex\+Points (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_map_object_a54f4e0be03cf596ed4d3854ef212ca46}
+Calculate the rotated points of the hitbox, and returns them. If there is\textquotesingle{}t a hitbox, it will make a square one of the drawable (without rotation).
+
+\begin{DoxyReturn}{Returns}
+The rotatated points of the hitbox 
+\end{DoxyReturn}
+\hypertarget{class_map_object_a8090ff0579451a195de674e23c9251e8}{}\index{Map\+Object@{Map\+Object}!get\+Draw\+Position@{get\+Draw\+Position}}
+\index{get\+Draw\+Position@{get\+Draw\+Position}!Map\+Object@{Map\+Object}}
+\subsubsection[{get\+Draw\+Position}]{\setlength{\rightskip}{0pt plus 5cm}sf\+::\+Vector2f Map\+Object\+::get\+Draw\+Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_map_object_a8090ff0579451a195de674e23c9251e8}
+Returns the draw postion of the \hyperlink{class_map_object}{Map\+Object}
+
+\begin{DoxyReturn}{Returns}
+The draw position of the \hyperlink{class_map_object}{Map\+Object} 
+\end{DoxyReturn}
+\hypertarget{class_map_object_a8d20d7a2a24f47f48c9200b5afc0ded1}{}\index{Map\+Object@{Map\+Object}!get\+Expoints@{get\+Expoints}}
+\index{get\+Expoints@{get\+Expoints}!Map\+Object@{Map\+Object}}
+\subsubsection[{get\+Expoints}]{\setlength{\rightskip}{0pt plus 5cm}int Map\+Object\+::get\+Expoints (
+\begin{DoxyParamCaption}
+\item[{int}]{damage}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_map_object_a8d20d7a2a24f47f48c9200b5afc0ded1}
+Returns the earned expoints on hit
+
+
+\begin{DoxyParams}{Parameters}
+{\em damage} & The damage to calculate the earned expoints \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The earned expoints 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_movable_map_object_aa03b3237424ff8af648e7ed3e12dfb59}{Movable\+Map\+Object}, and \hyperlink{class_character_a47d34faad89aed2ea69959597f1d8a69}{Character}.
+
+\hypertarget{class_map_object_aba53d81e39da359ac51c2b391fb94dfe}{}\index{Map\+Object@{Map\+Object}!get\+Hitbox@{get\+Hitbox}}
+\index{get\+Hitbox@{get\+Hitbox}!Map\+Object@{Map\+Object}}
+\subsubsection[{get\+Hitbox}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Convex} $\ast$ Map\+Object\+::get\+Hitbox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_map_object_aba53d81e39da359ac51c2b391fb94dfe}
+Returns the hitbox of the \hyperlink{class_map_object}{Map\+Object}
+
+\begin{DoxyReturn}{Returns}
+The hitbox of the \hyperlink{class_map_object}{Map\+Object} 
+\end{DoxyReturn}
+\hypertarget{class_map_object_a37b6bc003f67eac65280c1630e40ecff}{}\index{Map\+Object@{Map\+Object}!get\+Origin@{get\+Origin}}
+\index{get\+Origin@{get\+Origin}!Map\+Object@{Map\+Object}}
+\subsubsection[{get\+Origin}]{\setlength{\rightskip}{0pt plus 5cm}sf\+::\+Vector2f Map\+Object\+::get\+Origin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_map_object_a37b6bc003f67eac65280c1630e40ecff}
+Returns the origin of the hitbox
+
+\begin{DoxyReturn}{Returns}
+The origin of the hitbox 
+\end{DoxyReturn}
+\hypertarget{class_map_object_a07d7b72ec87e0c58309c3539bdc79779}{}\index{Map\+Object@{Map\+Object}!get\+Position@{get\+Position}}
+\index{get\+Position@{get\+Position}!Map\+Object@{Map\+Object}}
+\subsubsection[{get\+Position}]{\setlength{\rightskip}{0pt plus 5cm}sf\+::\+Vector2f Map\+Object\+::get\+Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_map_object_a07d7b72ec87e0c58309c3539bdc79779}
+Returns the position of the \hyperlink{class_map_object}{Map\+Object} on the map
+
+\begin{DoxyReturn}{Returns}
+The position of the \hyperlink{class_map_object}{Map\+Object} on the map 
+\end{DoxyReturn}
+\hypertarget{class_map_object_a056a6d84523180e65cceda163fbf44d8}{}\index{Map\+Object@{Map\+Object}!get\+Render\+Layer@{get\+Render\+Layer}}
+\index{get\+Render\+Layer@{get\+Render\+Layer}!Map\+Object@{Map\+Object}}
+\subsubsection[{get\+Render\+Layer}]{\setlength{\rightskip}{0pt plus 5cm}int Map\+Object\+::get\+Render\+Layer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_map_object_a056a6d84523180e65cceda163fbf44d8}
+Returns the render\+Layer of the \hyperlink{class_map_object}{Map\+Object}
+
+\begin{DoxyReturn}{Returns}
+The render\+Layer of the \hyperlink{class_map_object}{Map\+Object} 
+\end{DoxyReturn}
+\hypertarget{class_map_object_a0a682512b187bd372a2d62a277d2526c}{}\index{Map\+Object@{Map\+Object}!get\+Rotation@{get\+Rotation}}
+\index{get\+Rotation@{get\+Rotation}!Map\+Object@{Map\+Object}}
+\subsubsection[{get\+Rotation}]{\setlength{\rightskip}{0pt plus 5cm}float Map\+Object\+::get\+Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_map_object_a0a682512b187bd372a2d62a277d2526c}
+Returns the roation of the drawable
+
+\begin{DoxyReturn}{Returns}
+The rotation where the drawable is rotated to in degrees 
+\end{DoxyReturn}
+\hypertarget{class_map_object_aae5aec063f4625f627a64065aa921495}{}\index{Map\+Object@{Map\+Object}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Map\+Object@{Map\+Object}}
+\subsubsection[{get\+Size}]{\setlength{\rightskip}{0pt plus 5cm}sf\+::\+Vector2f Map\+Object\+::get\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_map_object_aae5aec063f4625f627a64065aa921495}
+Returns the size of the drawable
+
+\begin{DoxyReturn}{Returns}
+The size of the drawable 
+\end{DoxyReturn}
+\hypertarget{class_map_object_ab2c08c54979e8457057f4d2dcdaae0fb}{}\index{Map\+Object@{Map\+Object}!is\+Friend@{is\+Friend}}
+\index{is\+Friend@{is\+Friend}!Map\+Object@{Map\+Object}}
+\subsubsection[{is\+Friend}]{\setlength{\rightskip}{0pt plus 5cm}int Map\+Object\+::is\+Friend (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_map_object_ab2c08c54979e8457057f4d2dcdaae0fb}
+Returns the friendly number
+
+\begin{DoxyReturn}{Returns}
+The friendly number of the \hyperlink{class_map_object}{Map\+Object} 
+\end{DoxyReturn}
+\hypertarget{class_map_object_a42beb1ad4f7eef28d82c3655dcecdad4}{}\index{Map\+Object@{Map\+Object}!rotate@{rotate}}
+\index{rotate@{rotate}!Map\+Object@{Map\+Object}}
+\subsubsection[{rotate}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+Object\+::rotate (
+\begin{DoxyParamCaption}
+\item[{float}]{rotation}
+\end{DoxyParamCaption}
+)}\label{class_map_object_a42beb1ad4f7eef28d82c3655dcecdad4}
+Will rotate the drawable of the \hyperlink{class_map_object}{Map\+Object}
+
+
+\begin{DoxyParams}{Parameters}
+{\em rotation} & The rotation where the drawable will rotate to in degrees \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_map_object_a8aaf83927a9f0a59743dc405a36ae84d}{}\index{Map\+Object@{Map\+Object}!set\+Damage@{set\+Damage}}
+\index{set\+Damage@{set\+Damage}!Map\+Object@{Map\+Object}}
+\subsubsection[{set\+Damage}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+Object\+::set\+Damage (
+\begin{DoxyParamCaption}
+\item[{int}]{damage}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_map_object_a8aaf83927a9f0a59743dc405a36ae84d}
+Sets damage to the \hyperlink{class_map_object}{Map\+Object}
+
+
+\begin{DoxyParams}{Parameters}
+{\em damage} & The damage \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_enemy_aeabdbc13e40d729992af9612c6b586be}{Enemy}, \hyperlink{class_user_character_a3f835836af228eb6ea2fbada0c84c493}{User\+Character}, \hyperlink{class_movable_map_object_a24bea2d5fcdea72edb4a262fe5cf5046}{Movable\+Map\+Object}, and \hyperlink{class_character_a95dd6b34d63d6465dfaade4b76079d82}{Character}.
+
+\hypertarget{class_map_object_a43131a930ae890950e2027340ffe6aca}{}\index{Map\+Object@{Map\+Object}!set\+Draw\+Position@{set\+Draw\+Position}}
+\index{set\+Draw\+Position@{set\+Draw\+Position}!Map\+Object@{Map\+Object}}
+\subsubsection[{set\+Draw\+Position}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+Object\+::set\+Draw\+Position (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Vector2f}]{draw\+Pos}
+\end{DoxyParamCaption}
+)}\label{class_map_object_a43131a930ae890950e2027340ffe6aca}
+Sets the draw postion of the \hyperlink{class_map_object}{Map\+Object}
+
+
+\begin{DoxyParams}{Parameters}
+{\em draw\+Pos} & The draw position that will be set \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_map_object_a6f039817967b63eef60a7079a24ff5b1}{}\index{Map\+Object@{Map\+Object}!set\+Hitbox@{set\+Hitbox}}
+\index{set\+Hitbox@{set\+Hitbox}!Map\+Object@{Map\+Object}}
+\subsubsection[{set\+Hitbox}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+Object\+::set\+Hitbox (
+\begin{DoxyParamCaption}
+\item[{{\bf Convex} $\ast$}]{Hitbox}
+\end{DoxyParamCaption}
+)}\label{class_map_object_a6f039817967b63eef60a7079a24ff5b1}
+Sets the hitbox of the \hyperlink{class_map_object}{Map\+Object}
+
+
+\begin{DoxyParams}{Parameters}
+{\em Hitbox} & The hibox that will be set \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_map_object_a12ef2d2a5b6673a46e560353b2c44b1e}{}\index{Map\+Object@{Map\+Object}!set\+Max\+Health@{set\+Max\+Health}}
+\index{set\+Max\+Health@{set\+Max\+Health}!Map\+Object@{Map\+Object}}
+\subsubsection[{set\+Max\+Health}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+Object\+::set\+Max\+Health (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_map_object_a12ef2d2a5b6673a46e560353b2c44b1e}
+Sets the maximum health of the \hyperlink{class_map_object}{Map\+Object} (only useful on characters) 
+
+Reimplemented in \hyperlink{class_movable_map_object_ac767bcb318488552cc4e39088e677088}{Movable\+Map\+Object}, and \hyperlink{class_character_a848517065963dc5762341834962833d4}{Character}.
+
+\hypertarget{class_map_object_a5f27e1a99b00925d5f04640cc88083f2}{}\index{Map\+Object@{Map\+Object}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!Map\+Object@{Map\+Object}}
+\subsubsection[{set\+Position}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+Object\+::set\+Position (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Vector2f}]{pos}
+\end{DoxyParamCaption}
+)}\label{class_map_object_a5f27e1a99b00925d5f04640cc88083f2}
+Sets the postion of the \hyperlink{class_map_object}{Map\+Object} on the map
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The position that will be set \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_map_object_a0373284a30f47f85a33b9922042d8e25}{}\index{Map\+Object@{Map\+Object}!set\+Render\+Layer@{set\+Render\+Layer}}
+\index{set\+Render\+Layer@{set\+Render\+Layer}!Map\+Object@{Map\+Object}}
+\subsubsection[{set\+Render\+Layer}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+Object\+::set\+Render\+Layer (
+\begin{DoxyParamCaption}
+\item[{int}]{render\+Layer}
+\end{DoxyParamCaption}
+)}\label{class_map_object_a0373284a30f47f85a33b9922042d8e25}
+Sets the render\+Layer of the \hyperlink{class_map_object}{Map\+Object}
+
+
+\begin{DoxyParams}{Parameters}
+{\em render\+Layer} & The render\+Layer that will be set \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_map_object_a1c65f2eeb4aa3ce941e5a91347441aa9}{}\index{Map\+Object@{Map\+Object}!draw\+Object@{draw\+Object}}
+\index{draw\+Object@{draw\+Object}!Map\+Object@{Map\+Object}}
+\subsubsection[{draw\+Object}]{\setlength{\rightskip}{0pt plus 5cm}{\bf drawable}$\ast$ Map\+Object\+::draw\+Object\hspace{0.3cm}{\ttfamily [protected]}}\label{class_map_object_a1c65f2eeb4aa3ce941e5a91347441aa9}
+The hitbox of the \hyperlink{class_map_object}{Map\+Object} \hypertarget{class_map_object_a3f383fa967b67989a1d30f8f9ff73936}{}\index{Map\+Object@{Map\+Object}!draw\+Position@{draw\+Position}}
+\index{draw\+Position@{draw\+Position}!Map\+Object@{Map\+Object}}
+\subsubsection[{draw\+Position}]{\setlength{\rightskip}{0pt plus 5cm}sf\+::\+Vector2f Map\+Object\+::draw\+Position\hspace{0.3cm}{\ttfamily [protected]}}\label{class_map_object_a3f383fa967b67989a1d30f8f9ff73936}
+The position of the \hyperlink{class_map_object}{Map\+Object} on the map \hypertarget{class_map_object_a1788c8bf4e3c04bff8c2eba112e46d79}{}\index{Map\+Object@{Map\+Object}!is\+Friendly@{is\+Friendly}}
+\index{is\+Friendly@{is\+Friendly}!Map\+Object@{Map\+Object}}
+\subsubsection[{is\+Friendly}]{\setlength{\rightskip}{0pt plus 5cm}int Map\+Object\+::is\+Friendly = 0\hspace{0.3cm}{\ttfamily [protected]}}\label{class_map_object_a1788c8bf4e3c04bff8c2eba112e46d79}
+The position of the \hyperlink{class_map_object}{Map\+Object} on the window \hypertarget{class_map_object_a00491cbf8e4cbc729ef37e11f3473860}{}\index{Map\+Object@{Map\+Object}!position@{position}}
+\index{position@{position}!Map\+Object@{Map\+Object}}
+\subsubsection[{position}]{\setlength{\rightskip}{0pt plus 5cm}sf\+::\+Vector2f Map\+Object\+::position\hspace{0.3cm}{\ttfamily [protected]}}\label{class_map_object_a00491cbf8e4cbc729ef37e11f3473860}
+The totale expoints of the \hyperlink{class_map}{Map} Object \hypertarget{class_map_object_ac7431860a4ca955dc3db173926be3856}{}\index{Map\+Object@{Map\+Object}!render\+Layer@{render\+Layer}}
+\index{render\+Layer@{render\+Layer}!Map\+Object@{Map\+Object}}
+\subsubsection[{render\+Layer}]{\setlength{\rightskip}{0pt plus 5cm}int Map\+Object\+::render\+Layer\hspace{0.3cm}{\ttfamily [protected]}}\label{class_map_object_ac7431860a4ca955dc3db173926be3856}
+The drawable of the \hyperlink{class_map_object}{Map\+Object} \hypertarget{class_map_object_a93598b361b5c86637ae5779146e222da}{}\index{Map\+Object@{Map\+Object}!total\+Expoints@{total\+Expoints}}
+\index{total\+Expoints@{total\+Expoints}!Map\+Object@{Map\+Object}}
+\subsubsection[{total\+Expoints}]{\setlength{\rightskip}{0pt plus 5cm}int Map\+Object\+::total\+Expoints = 0\hspace{0.3cm}{\ttfamily [protected]}}\label{class_map_object_a93598b361b5c86637ae5779146e222da}
+The render\+Layer of the \hyperlink{class_map_object}{Map\+Object} 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_map_object_8h}{Map\+Object.\+h}\item 
+Map\+Object.\+cpp\end{DoxyCompactItemize}

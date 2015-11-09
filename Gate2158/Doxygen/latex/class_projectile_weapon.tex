@@ -1,0 +1,266 @@
+\hypertarget{class_projectile_weapon}{}\section{Projectile\+Weapon Class Reference}
+\label{class_projectile_weapon}\index{Projectile\+Weapon@{Projectile\+Weapon}}
+Inheritance diagram for Projectile\+Weapon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_projectile_weapon}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_projectile_weapon_a81de964b3548d21ce421418c836382f7}{Projectile\+Weapon} (std\+::string weapon\+Type, int is\+Friendly)
+\item 
+void \hyperlink{class_projectile_weapon_a699846887ba66070f999db47057e0fc7}{shoot} (sf\+::\+Vector2f location, float angle) override
+\item 
+int \hyperlink{class_projectile_weapon_ac2f5b5c83f10c8276d55b2ccb7ecb20d}{get\+Ammo} () override
+\item 
+int \hyperlink{class_projectile_weapon_ae4f099c2cc68a8ce6730cdf7a6af9c2f}{get\+Ammo\+In\+Magazine} ()
+\item 
+void \hyperlink{class_projectile_weapon_a8de598f1c4d7a6855122bcf5275eef22}{set\+Ammo} (int ammo) override
+\item 
+void \hyperlink{class_projectile_weapon_a81ed9a87457b1d2bb981c3e6d2edb718}{set\+Ammo\+In\+Magazine} (double ammo)
+\item 
+int \hyperlink{class_projectile_weapon_ac22fc52f32322606f406da802effadf0}{calculate\+Damage} () override
+\item 
+void \hyperlink{class_projectile_weapon_ac3db103d22e626c9c768e558f4acc400}{reload} ()
+\item 
+std\+::string \hyperlink{class_projectile_weapon_a2340178be143bc55fa7f6f06ef734cdc}{switch\+Weapon} ()
+\item 
+int \hyperlink{class_projectile_weapon_a33ecba020d6cb082526de8d771c2e80f}{get\+Expoints} ()
+\item 
+void \hyperlink{class_projectile_weapon_ac2051c4518fcc9c04ee6b44adeffb0c2}{set\+Expoints} (int expoints) override
+\item 
+int \hyperlink{class_projectile_weapon_a527dc08d45143ff4e1aabef407bbcffa}{get\+Tier} ()
+\item 
+int \hyperlink{class_projectile_weapon_a3a9ecd0524dfd10e721b215a3650b865}{get\+Max\+Ammo} ()
+\item 
+std\+::vector$<$ int $>$ \hyperlink{class_projectile_weapon_a43212edcad2cf1f68f0137ce0fe6db92}{get\+Weapon\+Expoints} ()
+\item 
+void \hyperlink{class_projectile_weapon_a84ba268c474eccf700ecc9413bd6e18d}{set\+Weapon\+Expoints} (std\+::vector$<$ int $>$ expoints)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_projectile_weapon_a81de964b3548d21ce421418c836382f7}{}\index{Projectile\+Weapon@{Projectile\+Weapon}!Projectile\+Weapon@{Projectile\+Weapon}}
+\index{Projectile\+Weapon@{Projectile\+Weapon}!Projectile\+Weapon@{Projectile\+Weapon}}
+\subsubsection[{Projectile\+Weapon}]{\setlength{\rightskip}{0pt plus 5cm}Projectile\+Weapon\+::\+Projectile\+Weapon (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{weapon\+Type, }
+\item[{int}]{is\+Friendly}
+\end{DoxyParamCaption}
+)}\label{class_projectile_weapon_a81de964b3548d21ce421418c836382f7}
+Constructor that sets the variable of the \hyperlink{class_projectile_weapon}{Projectile\+Weapon}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em weapon\+Type} & A string, with the name of the weapon \\
+\hline
+{\em is\+Friendly} & A number to reference to the owner of the weapon \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_projectile_weapon_ac22fc52f32322606f406da802effadf0}{}\index{Projectile\+Weapon@{Projectile\+Weapon}!calculate\+Damage@{calculate\+Damage}}
+\index{calculate\+Damage@{calculate\+Damage}!Projectile\+Weapon@{Projectile\+Weapon}}
+\subsubsection[{calculate\+Damage}]{\setlength{\rightskip}{0pt plus 5cm}int Projectile\+Weapon\+::calculate\+Damage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_projectile_weapon_ac22fc52f32322606f406da802effadf0}
+Calculates the damage of the bullet
+
+\begin{DoxyReturn}{Returns}
+The damage 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_weapon_ad506de2783bf136aca73e424d126b7fc}{Weapon}.
+
+\hypertarget{class_projectile_weapon_ac2f5b5c83f10c8276d55b2ccb7ecb20d}{}\index{Projectile\+Weapon@{Projectile\+Weapon}!get\+Ammo@{get\+Ammo}}
+\index{get\+Ammo@{get\+Ammo}!Projectile\+Weapon@{Projectile\+Weapon}}
+\subsubsection[{get\+Ammo}]{\setlength{\rightskip}{0pt plus 5cm}int Projectile\+Weapon\+::get\+Ammo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_projectile_weapon_ac2f5b5c83f10c8276d55b2ccb7ecb20d}
+Returns the ammo of the current gun
+
+\begin{DoxyReturn}{Returns}
+The ammo of the current gun 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_weapon_a27e4ab9f55e9cb7cd86023491fb075e2}{Weapon}.
+
+\hypertarget{class_projectile_weapon_ae4f099c2cc68a8ce6730cdf7a6af9c2f}{}\index{Projectile\+Weapon@{Projectile\+Weapon}!get\+Ammo\+In\+Magazine@{get\+Ammo\+In\+Magazine}}
+\index{get\+Ammo\+In\+Magazine@{get\+Ammo\+In\+Magazine}!Projectile\+Weapon@{Projectile\+Weapon}}
+\subsubsection[{get\+Ammo\+In\+Magazine}]{\setlength{\rightskip}{0pt plus 5cm}int Projectile\+Weapon\+::get\+Ammo\+In\+Magazine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_projectile_weapon_ae4f099c2cc68a8ce6730cdf7a6af9c2f}
+Returns the ammo in the magazine of the current gun
+
+\begin{DoxyReturn}{Returns}
+The ammo in the magazine of the current gun 
+\end{DoxyReturn}
+\hypertarget{class_projectile_weapon_a33ecba020d6cb082526de8d771c2e80f}{}\index{Projectile\+Weapon@{Projectile\+Weapon}!get\+Expoints@{get\+Expoints}}
+\index{get\+Expoints@{get\+Expoints}!Projectile\+Weapon@{Projectile\+Weapon}}
+\subsubsection[{get\+Expoints}]{\setlength{\rightskip}{0pt plus 5cm}int Projectile\+Weapon\+::get\+Expoints (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_projectile_weapon_a33ecba020d6cb082526de8d771c2e80f}
+Returns the expoints of the current gun
+
+\begin{DoxyReturn}{Returns}
+The expoints of the current gun 
+\end{DoxyReturn}
+\hypertarget{class_projectile_weapon_a3a9ecd0524dfd10e721b215a3650b865}{}\index{Projectile\+Weapon@{Projectile\+Weapon}!get\+Max\+Ammo@{get\+Max\+Ammo}}
+\index{get\+Max\+Ammo@{get\+Max\+Ammo}!Projectile\+Weapon@{Projectile\+Weapon}}
+\subsubsection[{get\+Max\+Ammo}]{\setlength{\rightskip}{0pt plus 5cm}int Projectile\+Weapon\+::get\+Max\+Ammo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_projectile_weapon_a3a9ecd0524dfd10e721b215a3650b865}
+Returns the maximum ammo of the current gun
+
+\begin{DoxyReturn}{Returns}
+The maximum ammo of the current gun 
+\end{DoxyReturn}
+\hypertarget{class_projectile_weapon_a527dc08d45143ff4e1aabef407bbcffa}{}\index{Projectile\+Weapon@{Projectile\+Weapon}!get\+Tier@{get\+Tier}}
+\index{get\+Tier@{get\+Tier}!Projectile\+Weapon@{Projectile\+Weapon}}
+\subsubsection[{get\+Tier}]{\setlength{\rightskip}{0pt plus 5cm}int Projectile\+Weapon\+::get\+Tier (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_projectile_weapon_a527dc08d45143ff4e1aabef407bbcffa}
+Returns the tier of the current gun
+
+\begin{DoxyReturn}{Returns}
+The tier of the current gun 
+\end{DoxyReturn}
+\hypertarget{class_projectile_weapon_a43212edcad2cf1f68f0137ce0fe6db92}{}\index{Projectile\+Weapon@{Projectile\+Weapon}!get\+Weapon\+Expoints@{get\+Weapon\+Expoints}}
+\index{get\+Weapon\+Expoints@{get\+Weapon\+Expoints}!Projectile\+Weapon@{Projectile\+Weapon}}
+\subsubsection[{get\+Weapon\+Expoints}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ int $>$ Projectile\+Weapon\+::get\+Weapon\+Expoints (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_projectile_weapon_a43212edcad2cf1f68f0137ce0fe6db92}
+Returns a list of the expoints of the guns
+
+\begin{DoxyReturn}{Returns}
+The a list of the expoints of the guns 
+\end{DoxyReturn}
+\hypertarget{class_projectile_weapon_ac3db103d22e626c9c768e558f4acc400}{}\index{Projectile\+Weapon@{Projectile\+Weapon}!reload@{reload}}
+\index{reload@{reload}!Projectile\+Weapon@{Projectile\+Weapon}}
+\subsubsection[{reload}]{\setlength{\rightskip}{0pt plus 5cm}void Projectile\+Weapon\+::reload (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_projectile_weapon_ac3db103d22e626c9c768e558f4acc400}
+Sets the ammo in magazine to his max and reduced the ammo of the current gun \hypertarget{class_projectile_weapon_a8de598f1c4d7a6855122bcf5275eef22}{}\index{Projectile\+Weapon@{Projectile\+Weapon}!set\+Ammo@{set\+Ammo}}
+\index{set\+Ammo@{set\+Ammo}!Projectile\+Weapon@{Projectile\+Weapon}}
+\subsubsection[{set\+Ammo}]{\setlength{\rightskip}{0pt plus 5cm}void Projectile\+Weapon\+::set\+Ammo (
+\begin{DoxyParamCaption}
+\item[{int}]{ammo}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_projectile_weapon_a8de598f1c4d7a6855122bcf5275eef22}
+Sets the ammo of the current gun
+
+
+\begin{DoxyParams}{Parameters}
+{\em ammo} & The ammo that will be set \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_weapon_a61f8e299bd267adcace01cc112b206cb}{Weapon}.
+
+\hypertarget{class_projectile_weapon_a81ed9a87457b1d2bb981c3e6d2edb718}{}\index{Projectile\+Weapon@{Projectile\+Weapon}!set\+Ammo\+In\+Magazine@{set\+Ammo\+In\+Magazine}}
+\index{set\+Ammo\+In\+Magazine@{set\+Ammo\+In\+Magazine}!Projectile\+Weapon@{Projectile\+Weapon}}
+\subsubsection[{set\+Ammo\+In\+Magazine}]{\setlength{\rightskip}{0pt plus 5cm}void Projectile\+Weapon\+::set\+Ammo\+In\+Magazine (
+\begin{DoxyParamCaption}
+\item[{double}]{ammo}
+\end{DoxyParamCaption}
+)}\label{class_projectile_weapon_a81ed9a87457b1d2bb981c3e6d2edb718}
+Sets the ammo in the magazine of the current gun
+
+
+\begin{DoxyParams}{Parameters}
+{\em ammo} & The ammo that will be set \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_projectile_weapon_ac2051c4518fcc9c04ee6b44adeffb0c2}{}\index{Projectile\+Weapon@{Projectile\+Weapon}!set\+Expoints@{set\+Expoints}}
+\index{set\+Expoints@{set\+Expoints}!Projectile\+Weapon@{Projectile\+Weapon}}
+\subsubsection[{set\+Expoints}]{\setlength{\rightskip}{0pt plus 5cm}void Projectile\+Weapon\+::set\+Expoints (
+\begin{DoxyParamCaption}
+\item[{int}]{expoints}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_projectile_weapon_ac2051c4518fcc9c04ee6b44adeffb0c2}
+Sets the expoints of the current gun, and checked if the gun has leveled.
+
+
+\begin{DoxyParams}{Parameters}
+{\em expoints} & The expoints that will be set \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_weapon_aaf48d117da25a8cd633661d02f1dd868}{Weapon}.
+
+\hypertarget{class_projectile_weapon_a84ba268c474eccf700ecc9413bd6e18d}{}\index{Projectile\+Weapon@{Projectile\+Weapon}!set\+Weapon\+Expoints@{set\+Weapon\+Expoints}}
+\index{set\+Weapon\+Expoints@{set\+Weapon\+Expoints}!Projectile\+Weapon@{Projectile\+Weapon}}
+\subsubsection[{set\+Weapon\+Expoints}]{\setlength{\rightskip}{0pt plus 5cm}void Projectile\+Weapon\+::set\+Weapon\+Expoints (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ int $>$}]{expoints}
+\end{DoxyParamCaption}
+)}\label{class_projectile_weapon_a84ba268c474eccf700ecc9413bd6e18d}
+Sets all expoints of the guns.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tiers} & A list of expoints of the guns \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_projectile_weapon_a699846887ba66070f999db47057e0fc7}{}\index{Projectile\+Weapon@{Projectile\+Weapon}!shoot@{shoot}}
+\index{shoot@{shoot}!Projectile\+Weapon@{Projectile\+Weapon}}
+\subsubsection[{shoot}]{\setlength{\rightskip}{0pt plus 5cm}void Projectile\+Weapon\+::shoot (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Vector2f}]{location, }
+\item[{float}]{angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_projectile_weapon_a699846887ba66070f999db47057e0fc7}
+Checks first if the weapon is ready to shoot with attack\+Speed, If it\textquotesingle{}s ready to shoot, it wil make a bullet and add the bullet to the map.
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & The start location of the bullet \\
+\hline
+{\em angle} & The angle of the bullet \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_weapon_a56ab65d2be11c56256cc39b15f8f096b}{Weapon}.
+
+\hypertarget{class_projectile_weapon_a2340178be143bc55fa7f6f06ef734cdc}{}\index{Projectile\+Weapon@{Projectile\+Weapon}!switch\+Weapon@{switch\+Weapon}}
+\index{switch\+Weapon@{switch\+Weapon}!Projectile\+Weapon@{Projectile\+Weapon}}
+\subsubsection[{switch\+Weapon}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Projectile\+Weapon\+::switch\+Weapon (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_projectile_weapon_a2340178be143bc55fa7f6f06ef734cdc}
+Current gun is the next weapon, so you switch from weapon
+
+\begin{DoxyReturn}{Returns}
+The name of the new weapon 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_projectile_weapon_8h}{Projectile\+Weapon.\+h}\item 
+Projectile\+Weapon.\+cpp\end{DoxyCompactItemize}

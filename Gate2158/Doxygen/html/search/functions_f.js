@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['setammo',['setAmmo',['../class_projectile_weapon.html#a8de598f1c4d7a6855122bcf5275eef22',1,'ProjectileWeapon::setAmmo()'],['../class_weapon.html#a61f8e299bd267adcace01cc112b206cb',1,'Weapon::setAmmo()']]],
+  ['setammoinmagazine',['setAmmoInMagazine',['../class_projectile_weapon.html#a81ed9a87457b1d2bb981c3e6d2edb718',1,'ProjectileWeapon']]],
+  ['setcurrentmap',['setCurrentMap',['../class_camera.html#a107ef96b885884869016e0543c5539b9',1,'Camera']]],
+  ['setcurrentplayer',['setCurrentPlayer',['../class_camera.html#a216bafd8dd8327ce3e92f86a8ffeb2b8',1,'Camera']]],
+  ['setdamage',['setDamage',['../class_character.html#a95dd6b34d63d6465dfaade4b76079d82',1,'Character::setDamage()'],['../class_enemy.html#aeabdbc13e40d729992af9612c6b586be',1,'Enemy::setDamage()'],['../class_map_object.html#a8aaf83927a9f0a59743dc405a36ae84d',1,'MapObject::setDamage()'],['../class_movable_map_object.html#a24bea2d5fcdea72edb4a262fe5cf5046',1,'MovableMapObject::setDamage()'],['../class_user_character.html#a3f835836af228eb6ea2fbada0c84c493',1,'UserCharacter::setDamage()']]],
+  ['setdrawposition',['setDrawPosition',['../class_map_object.html#a43131a930ae890950e2027340ffe6aca',1,'MapObject']]],
+  ['setexpoints',['setExpoints',['../class_projectile_weapon.html#ac2051c4518fcc9c04ee6b44adeffb0c2',1,'ProjectileWeapon::setExpoints()'],['../class_weapon.html#aaf48d117da25a8cd633661d02f1dd868',1,'Weapon::setExpoints()']]],
+  ['sethealth',['setHealth',['../class_character.html#a4a91127160d334c5b5c8171466fe7544',1,'Character']]],
+  ['sethitbox',['setHitbox',['../class_map_object.html#a6f039817967b63eef60a7079a24ff5b1',1,'MapObject']]],
+  ['setlayers',['setLayers',['../class_map.html#a1dc321d249a76abf38b6ddad21dd7a06',1,'Map']]],
+  ['setmaxhealth',['setMaxHealth',['../class_character.html#a848517065963dc5762341834962833d4',1,'Character::setMaxHealth()'],['../class_map_object.html#a12ef2d2a5b6673a46e560353b2c44b1e',1,'MapObject::setMaxHealth()'],['../class_movable_map_object.html#ac767bcb318488552cc4e39088e677088',1,'MovableMapObject::setMaxHealth()']]],
+  ['setposition',['setPosition',['../class_map_object.html#a5f27e1a99b00925d5f04640cc88083f2',1,'MapObject']]],
+  ['setrenderlayer',['setRenderLayer',['../class_map_object.html#a0373284a30f47f85a33b9922042d8e25',1,'MapObject']]],
+  ['setrotation',['setRotation',['../class_circle.html#a81dae3e1655b4c86abdf7d534438eeea',1,'Circle::setRotation()'],['../class_convex.html#ab6bd9c18b63399fc18e208ca0fc5e943',1,'Convex::setRotation()'],['../classdrawable.html#a3aa9ac09447cf2b5b2e0907f3b2630e6',1,'drawable::setRotation()'],['../class_rectangle.html#a15cc91ba4b6e9df8bde1e7d5a16cb766',1,'Rectangle::setRotation()'],['../class_sprite.html#a943f5aa94fccc46930b978d291ff0cfe',1,'Sprite::setRotation()'],['../class_text.html#a303f69787c6e1e0adc98d56ca05082cb',1,'Text::setRotation()']]],
+  ['settext',['setText',['../class_text.html#a66a463eae132fb7f313a0890581042aa',1,'Text']]],
+  ['settogglekey',['setToggleKey',['../class_user_input.html#a5f58d64254edb41b9832343ae8744ea6',1,'UserInput']]],
+  ['setvelocity',['setVelocity',['../class_movable_map_object.html#a7f65bdae85e8f0e86c1432c4dbe841a8',1,'MovableMapObject']]],
+  ['setweaponexpoints',['setWeaponExpoints',['../class_projectile_weapon.html#a84ba268c474eccf700ecc9413bd6e18d',1,'ProjectileWeapon::setWeaponExpoints()'],['../class_user_character.html#a1cc878370f0610e79755989150f74705',1,'UserCharacter::setWeaponExpoints()']]],
+  ['setwindow',['setWindow',['../class_camera.html#a6f05dbc0ce5855ba2428cc0b8f8779f9',1,'Camera']]],
+  ['shoot',['shoot',['../class_projectile_weapon.html#a699846887ba66070f999db47057e0fc7',1,'ProjectileWeapon::shoot()'],['../class_weapon.html#a56ab65d2be11c56256cc39b15f8f096b',1,'Weapon::shoot()']]],
+  ['sprite',['Sprite',['../class_sprite.html#afa69a3818cc509b21434292a099bfffb',1,'Sprite']]],
+  ['switchweapon',['switchWeapon',['../class_projectile_weapon.html#a2340178be143bc55fa7f6f06ef734cdc',1,'ProjectileWeapon']]]
+];

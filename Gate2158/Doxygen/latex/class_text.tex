@@ -1,0 +1,142 @@
+\hypertarget{class_text}{}\section{Text Class Reference}
+\label{class_text}\index{Text@{Text}}
+Inheritance diagram for Text\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_text}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_text_a92fff9f98b861951a7e799e1ffb20321}{Text} (std\+::string t, sf\+::\+Vector2f pos, sf\+::\+Text\+::\+Style style, sf\+::\+Color color, int size, sf\+::\+Font $\ast$font)
+\item 
+sf\+::\+Vector2f \hyperlink{class_text_a833febe6c2202d3de682019f980cbeac}{get\+Size} () override
+\item 
+float \hyperlink{class_text_a331f5c4bca345d9a1eb7283a1179021b}{get\+Rotation} () override
+\item 
+void \hyperlink{class_text_a303f69787c6e1e0adc98d56ca05082cb}{set\+Rotation} (float rotation) override
+\item 
+void \hyperlink{class_text_a7ee53d98f60cef0ef1a5835820d1006e}{draw} (sf\+::\+Render\+Window \&window, sf\+::\+Vector2f \&position)
+\item 
+void \hyperlink{class_text_a66a463eae132fb7f313a0890581042aa}{set\+Text} (std\+::string s)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_text_a92fff9f98b861951a7e799e1ffb20321}{}\index{Text@{Text}!Text@{Text}}
+\index{Text@{Text}!Text@{Text}}
+\subsubsection[{Text}]{\setlength{\rightskip}{0pt plus 5cm}Text\+::\+Text (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{t, }
+\item[{sf\+::\+Vector2f}]{pos, }
+\item[{sf\+::\+Text\+::\+Style}]{style, }
+\item[{sf\+::\+Color}]{color, }
+\item[{int}]{size, }
+\item[{sf\+::\+Font $\ast$}]{font}
+\end{DoxyParamCaption}
+)}\label{class_text_a92fff9f98b861951a7e799e1ffb20321}
+Constructor that sets the variable of the \hyperlink{class_text}{Text}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The text that will be drawed \\
+\hline
+{\em pos} & The postition where the text will be drawed \\
+\hline
+{\em style} & The style of the text \\
+\hline
+{\em color} & The color of the text \\
+\hline
+{\em size} & The size of the text \\
+\hline
+{\em font} & The font of the text \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_text_a7ee53d98f60cef0ef1a5835820d1006e}{}\index{Text@{Text}!draw@{draw}}
+\index{draw@{draw}!Text@{Text}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+::draw (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Render\+Window \&}]{window, }
+\item[{sf\+::\+Vector2f \&}]{position}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_text_a7ee53d98f60cef0ef1a5835820d1006e}
+Draws the text on the screen
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The window where the text will be drawed \\
+\hline
+{\em postion} & The position on the screen where the text will be drawed \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classdrawable_a3d748f25a3515876da0dee2abcb8ff3f}{drawable}.
+
+\hypertarget{class_text_a331f5c4bca345d9a1eb7283a1179021b}{}\index{Text@{Text}!get\+Rotation@{get\+Rotation}}
+\index{get\+Rotation@{get\+Rotation}!Text@{Text}}
+\subsubsection[{get\+Rotation}]{\setlength{\rightskip}{0pt plus 5cm}float Text\+::get\+Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_text_a331f5c4bca345d9a1eb7283a1179021b}
+Returns the rotation of the text
+
+\begin{DoxyReturn}{Returns}
+The rotation of the text 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classdrawable_a424f2ed79ef592d15e71ada7c85debf6}{drawable}.
+
+\hypertarget{class_text_a833febe6c2202d3de682019f980cbeac}{}\index{Text@{Text}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Text@{Text}}
+\subsubsection[{get\+Size}]{\setlength{\rightskip}{0pt plus 5cm}sf\+::\+Vector2f Text\+::get\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_text_a833febe6c2202d3de682019f980cbeac}
+Returns the size of the text
+
+\begin{DoxyReturn}{Returns}
+The size of the text 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classdrawable_aa9b67302060e7ac4ec9b2bd4720cf5ba}{drawable}.
+
+\hypertarget{class_text_a303f69787c6e1e0adc98d56ca05082cb}{}\index{Text@{Text}!set\+Rotation@{set\+Rotation}}
+\index{set\+Rotation@{set\+Rotation}!Text@{Text}}
+\subsubsection[{set\+Rotation}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+::set\+Rotation (
+\begin{DoxyParamCaption}
+\item[{float}]{rotation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_text_a303f69787c6e1e0adc98d56ca05082cb}
+Sets the rotation of the text
+
+
+\begin{DoxyParams}{Parameters}
+{\em rotation} & The rotation that will be set \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classdrawable_a3aa9ac09447cf2b5b2e0907f3b2630e6}{drawable}.
+
+\hypertarget{class_text_a66a463eae132fb7f313a0890581042aa}{}\index{Text@{Text}!set\+Text@{set\+Text}}
+\index{set\+Text@{set\+Text}!Text@{Text}}
+\subsubsection[{set\+Text}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+::set\+Text (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{s}
+\end{DoxyParamCaption}
+)}\label{class_text_a66a463eae132fb7f313a0890581042aa}
+Sets a new text 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_text_8h}{Text.\+h}\item 
+Text.\+cpp\end{DoxyCompactItemize}

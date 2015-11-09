@@ -1,0 +1,117 @@
+\hypertarget{class_circle}{}\section{Circle Class Reference}
+\label{class_circle}\index{Circle@{Circle}}
+Inheritance diagram for Circle\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_circle}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_circle_a0fdd9a07ce7e22905bf32fd4d53a2489}{Circle} (float radius, sf\+::\+Color color)
+\item 
+void \hyperlink{class_circle_aabb7b15a09ded383d130fcd22a048599}{draw} (sf\+::\+Render\+Window \&window, sf\+::\+Vector2f position)
+\item 
+sf\+::\+Vector2f \hyperlink{class_circle_aac26e31a0616aa405b387a92261595bc}{get\+Size} () override
+\item 
+float \hyperlink{class_circle_a7cacfa4f61a942f6a1c280dad94a3b11}{get\+Rotation} () override
+\item 
+void \hyperlink{class_circle_a81dae3e1655b4c86abdf7d534438eeea}{set\+Rotation} (float rotation) override
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_circle_a0fdd9a07ce7e22905bf32fd4d53a2489}{}\index{Circle@{Circle}!Circle@{Circle}}
+\index{Circle@{Circle}!Circle@{Circle}}
+\subsubsection[{Circle}]{\setlength{\rightskip}{0pt plus 5cm}Circle\+::\+Circle (
+\begin{DoxyParamCaption}
+\item[{float}]{radius, }
+\item[{sf\+::\+Color}]{color}
+\end{DoxyParamCaption}
+)}\label{class_circle_a0fdd9a07ce7e22905bf32fd4d53a2489}
+Constructor that sets the variable of the \hyperlink{class_circle}{Circle} and sets the origin to the center.
+
+
+\begin{DoxyParams}{Parameters}
+{\em radius} & The radius of the circle \\
+\hline
+{\em color} & The color of the circle \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_circle_aabb7b15a09ded383d130fcd22a048599}{}\index{Circle@{Circle}!draw@{draw}}
+\index{draw@{draw}!Circle@{Circle}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}void Circle\+::draw (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Render\+Window \&}]{window, }
+\item[{sf\+::\+Vector2f}]{position}
+\end{DoxyParamCaption}
+)}\label{class_circle_aabb7b15a09ded383d130fcd22a048599}
+Draws the circle on the screen
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The window where the circle will be drawed \\
+\hline
+{\em draw\+Position} & The position on the screen where the circle will be drawed \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_circle_a7cacfa4f61a942f6a1c280dad94a3b11}{}\index{Circle@{Circle}!get\+Rotation@{get\+Rotation}}
+\index{get\+Rotation@{get\+Rotation}!Circle@{Circle}}
+\subsubsection[{get\+Rotation}]{\setlength{\rightskip}{0pt plus 5cm}float Circle\+::get\+Rotation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_circle_a7cacfa4f61a942f6a1c280dad94a3b11}
+Returns the rotation of the circle
+
+\begin{DoxyReturn}{Returns}
+The rotation of the circle 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classdrawable_a424f2ed79ef592d15e71ada7c85debf6}{drawable}.
+
+\hypertarget{class_circle_aac26e31a0616aa405b387a92261595bc}{}\index{Circle@{Circle}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Circle@{Circle}}
+\subsubsection[{get\+Size}]{\setlength{\rightskip}{0pt plus 5cm}sf\+::\+Vector2f Circle\+::get\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_circle_aac26e31a0616aa405b387a92261595bc}
+Returns the size of the circle
+
+\begin{DoxyReturn}{Returns}
+The size of the circle 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classdrawable_aa9b67302060e7ac4ec9b2bd4720cf5ba}{drawable}.
+
+\hypertarget{class_circle_a81dae3e1655b4c86abdf7d534438eeea}{}\index{Circle@{Circle}!set\+Rotation@{set\+Rotation}}
+\index{set\+Rotation@{set\+Rotation}!Circle@{Circle}}
+\subsubsection[{set\+Rotation}]{\setlength{\rightskip}{0pt plus 5cm}void Circle\+::set\+Rotation (
+\begin{DoxyParamCaption}
+\item[{float}]{rotation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_circle_a81dae3e1655b4c86abdf7d534438eeea}
+Sets the rotation of the circle
+
+
+\begin{DoxyParams}{Parameters}
+{\em rotation} & The rotation that will be set \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classdrawable_a3aa9ac09447cf2b5b2e0907f3b2630e6}{drawable}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_circle_8h}{Circle.\+h}\item 
+Circle.\+cpp\end{DoxyCompactItemize}
