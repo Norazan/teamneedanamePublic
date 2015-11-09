@@ -144,9 +144,9 @@ void ProjectileWeapon::setExpoints(int expoints){
 		currentGun.currentAmmo = currentGun.maxAmmo;
 		currentGun.maxAmmoInMagazine += currentGun.maxAmmoInMagazine * 0.1;
 		// upgrade speed
-		currentGun.reloadTime -= sf::milliseconds(currentGun.reloadTime.asMilliseconds() * 0.1);
+		currentGun.reloadTime -= sf::seconds(currentGun.reloadTime.asSeconds() * 0.1f);
 		currentGun.projectileVelocity += currentGun.projectileVelocity * 0.2;
-		currentGun.attackSpeed -= sf::milliseconds(currentGun.attackSpeed.asMilliseconds() * 0.1);
+		currentGun.attackSpeed -= sf::seconds(currentGun.attackSpeed.asSeconds() * 0.1f);
 		if (currentGun.name == "shotgun"){
 			++currentGun.amountOfBullets;
 			currentGun.spread -= float(currentGun.spread * 0.2);
