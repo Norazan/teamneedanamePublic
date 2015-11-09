@@ -92,25 +92,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_weapon.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_weapon.html">Weapon</a>{</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_weapon.html#a56ab65d2be11c56256cc39b15f8f096b">shoot</a>(sf::Vector2f location, <span class="keywordtype">float</span> angle) = 0;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="class_weapon.html#a27e4ab9f55e9cb7cd86023491fb075e2">getAmmo</a>() = 0;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_weapon.html#a61f8e299bd267adcace01cc112b206cb">setAmmo</a>(<span class="keywordtype">int</span> ammo) = 0;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="class_weapon.html#ad506de2783bf136aca73e424d126b7fc">calculateDamage</a>()= 0;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_weapon.html#aaf48d117da25a8cd633661d02f1dd868">setExpoints</a>(<span class="keywordtype">int</span> expoints) = 0;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_weapon.html#a4773536e15b1bb29177e6e8859ced786">shoot</a>(sf::Vector2f location, <span class="keywordtype">float</span> angle, sf::Vector2f drawPosition) = 0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="class_weapon.html#a27e4ab9f55e9cb7cd86023491fb075e2">getAmmo</a>() = 0;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_weapon.html#a61f8e299bd267adcace01cc112b206cb">setAmmo</a>(<span class="keywordtype">int</span> ammo) = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="class_weapon.html#ad506de2783bf136aca73e424d126b7fc">calculateDamage</a>()= 0;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_weapon.html#aaf48d117da25a8cd633661d02f1dd868">setExpoints</a>(<span class="keywordtype">int</span> expoints) = 0;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_weapon_html_a4773536e15b1bb29177e6e8859ced786"><div class="ttname"><a href="class_weapon.html#a4773536e15b1bb29177e6e8859ced786">Weapon::shoot</a></div><div class="ttdeci">virtual void shoot(sf::Vector2f location, float angle, sf::Vector2f drawPosition)=0</div></div>
 <div class="ttc" id="class_weapon_html"><div class="ttname"><a href="class_weapon.html">Weapon</a></div><div class="ttdef"><b>Definition:</b> Weapon.h:14</div></div>
 <div class="ttc" id="class_weapon_html_ad506de2783bf136aca73e424d126b7fc"><div class="ttname"><a href="class_weapon.html#ad506de2783bf136aca73e424d126b7fc">Weapon::calculateDamage</a></div><div class="ttdeci">virtual int calculateDamage()=0</div></div>
 <div class="ttc" id="class_weapon_html_a61f8e299bd267adcace01cc112b206cb"><div class="ttname"><a href="class_weapon.html#a61f8e299bd267adcace01cc112b206cb">Weapon::setAmmo</a></div><div class="ttdeci">virtual void setAmmo(int ammo)=0</div></div>
 <div class="ttc" id="class_weapon_html_aaf48d117da25a8cd633661d02f1dd868"><div class="ttname"><a href="class_weapon.html#aaf48d117da25a8cd633661d02f1dd868">Weapon::setExpoints</a></div><div class="ttdeci">virtual void setExpoints(int expoints)=0</div></div>
 <div class="ttc" id="class_weapon_html_a27e4ab9f55e9cb7cd86023491fb075e2"><div class="ttname"><a href="class_weapon.html#a27e4ab9f55e9cb7cd86023491fb075e2">Weapon::getAmmo</a></div><div class="ttdeci">virtual int getAmmo()=0</div></div>
-<div class="ttc" id="class_weapon_html_a56ab65d2be11c56256cc39b15f8f096b"><div class="ttname"><a href="class_weapon.html#a56ab65d2be11c56256cc39b15f8f096b">Weapon::shoot</a></div><div class="ttdeci">virtual void shoot(sf::Vector2f location, float angle)=0</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 9 2015 10:34:07 for Gate2158 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 9 2015 16:25:06 for Gate2158 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

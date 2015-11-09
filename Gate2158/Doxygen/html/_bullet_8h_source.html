@@ -96,34 +96,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">class </span><a class="code" href="class_camera.html">Camera</a>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_bullet.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_bullet.html">Bullet</a> : <span class="keyword">public</span> <a class="code" href="class_map_object.html">MapObject</a> {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_bullet.html#adc9ffce61bb50d8673bbfc31eab2157c">Bullet</a>(</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">int</span> bulletDamage,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        sf::Vector2f startingLocation,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        sf::Vector2f startingVelocity,</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">float</span> angle,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="class_weapon.html">Weapon</a>* weapon,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_map_object.html#ab2c08c54979e8457057f4d2dcdaae0fb">isFriend</a>,</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        sf::Texture &amp; gunTexture</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    );</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bullet.html#a8bc85503a787fdf10896b595d4ef7c27">draw</a>(sf::RenderWindow &amp; window, sf::Vector2f <a class="code" href="class_map_object.html#a3f383fa967b67989a1d30f8f9ff73936">drawPosition</a>) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_bullet.html#ab634595581e7f0d91302ff060775b87a">outOfBound</a>(sf::RenderWindow &amp; window);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bullet.html#a96602619e212539b0b9b2ac4b159dc30">collisionDetected</a>(<a class="code" href="class_map_object.html">MapObject</a> &amp;mo) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    sf::CircleShape bullet;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="class_weapon.html">Weapon</a>* weapon;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">int</span> damage;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    sf::Vector2f location;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    sf::Vector2f velocity;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">float</span> bSpeed = 10;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">float</span> angle = 0;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">bool</span> hasCollision = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="class_camera.html">Camera</a>* c;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;};</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="class_bullet_html_a8bc85503a787fdf10896b595d4ef7c27"><div class="ttname"><a href="class_bullet.html#a8bc85503a787fdf10896b595d4ef7c27">Bullet::draw</a></div><div class="ttdeci">void draw(sf::RenderWindow &amp;window, sf::Vector2f drawPosition) override</div><div class="ttdef"><b>Definition:</b> Bullet.cpp:44</div></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="class_bullet.html#a8d7b8700db2094c9dfbae2dba10f7757">Bullet</a>(</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">int</span> bulletDamage,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        sf::Vector2f startingLocation,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        sf::Vector2f startingVelocity,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        sf::Vector2f drawLoctation,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">float</span> angle,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="class_weapon.html">Weapon</a>* weapon,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_map_object.html#ab2c08c54979e8457057f4d2dcdaae0fb">isFriend</a>,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        sf::Texture &amp; gunTexture</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    );</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bullet.html#a8bc85503a787fdf10896b595d4ef7c27">draw</a>(sf::RenderWindow &amp; window, sf::Vector2f <a class="code" href="class_map_object.html#a3f383fa967b67989a1d30f8f9ff73936">drawPosition</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_bullet.html#ab634595581e7f0d91302ff060775b87a">outOfBound</a>(sf::RenderWindow &amp; window);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bullet.html#a96602619e212539b0b9b2ac4b159dc30">collisionDetected</a>(<a class="code" href="class_map_object.html">MapObject</a> &amp;mo) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    sf::CircleShape bullet;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="class_weapon.html">Weapon</a>* weapon;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">int</span> damage;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    sf::Vector2f location;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    sf::Vector2f velocity;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">float</span> bSpeed = 10;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">float</span> angle = 0;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">bool</span> hasCollision = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="class_camera.html">Camera</a>* c;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;};</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_bullet_html_a8bc85503a787fdf10896b595d4ef7c27"><div class="ttname"><a href="class_bullet.html#a8bc85503a787fdf10896b595d4ef7c27">Bullet::draw</a></div><div class="ttdeci">void draw(sf::RenderWindow &amp;window, sf::Vector2f drawPosition) override</div><div class="ttdef"><b>Definition:</b> Bullet.cpp:45</div></div>
+<div class="ttc" id="class_bullet_html_a8d7b8700db2094c9dfbae2dba10f7757"><div class="ttname"><a href="class_bullet.html#a8d7b8700db2094c9dfbae2dba10f7757">Bullet::Bullet</a></div><div class="ttdeci">Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, sf::Vector2f drawLoctation, float angle, Weapon *weapon, int isFriend, sf::Texture &amp;gunTexture)</div><div class="ttdef"><b>Definition:</b> Bullet.cpp:6</div></div>
 <div class="ttc" id="class_weapon_html"><div class="ttname"><a href="class_weapon.html">Weapon</a></div><div class="ttdef"><b>Definition:</b> Weapon.h:14</div></div>
-<div class="ttc" id="class_bullet_html_a96602619e212539b0b9b2ac4b159dc30"><div class="ttname"><a href="class_bullet.html#a96602619e212539b0b9b2ac4b159dc30">Bullet::collisionDetected</a></div><div class="ttdeci">void collisionDetected(MapObject &amp;mo) override</div><div class="ttdef"><b>Definition:</b> Bullet.cpp:67</div></div>
+<div class="ttc" id="class_bullet_html_a96602619e212539b0b9b2ac4b159dc30"><div class="ttname"><a href="class_bullet.html#a96602619e212539b0b9b2ac4b159dc30">Bullet::collisionDetected</a></div><div class="ttdeci">void collisionDetected(MapObject &amp;mo) override</div><div class="ttdef"><b>Definition:</b> Bullet.cpp:68</div></div>
 <div class="ttc" id="class_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> Camera.hpp:21</div></div>
 <div class="ttc" id="class_map_object_html_ab2c08c54979e8457057f4d2dcdaae0fb"><div class="ttname"><a href="class_map_object.html#ab2c08c54979e8457057f4d2dcdaae0fb">MapObject::isFriend</a></div><div class="ttdeci">int isFriend()</div><div class="ttdef"><b>Definition:</b> MapObject.cpp:175</div></div>
 <div class="ttc" id="_weapon_8h_html"><div class="ttname"><a href="_weapon_8h.html">Weapon.h</a></div></div>
@@ -131,13 +133,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="_map_object_8h_html"><div class="ttname"><a href="_map_object_8h.html">MapObject.h</a></div></div>
 <div class="ttc" id="class_map_object_html_a3f383fa967b67989a1d30f8f9ff73936"><div class="ttname"><a href="class_map_object.html#a3f383fa967b67989a1d30f8f9ff73936">MapObject::drawPosition</a></div><div class="ttdeci">sf::Vector2f drawPosition</div><div class="ttdef"><b>Definition:</b> MapObject.h:205</div></div>
 <div class="ttc" id="class_bullet_html"><div class="ttname"><a href="class_bullet.html">Bullet</a></div><div class="ttdef"><b>Definition:</b> Bullet.h:17</div></div>
-<div class="ttc" id="class_bullet_html_adc9ffce61bb50d8673bbfc31eab2157c"><div class="ttname"><a href="class_bullet.html#adc9ffce61bb50d8673bbfc31eab2157c">Bullet::Bullet</a></div><div class="ttdeci">Bullet(int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, float angle, Weapon *weapon, int isFriend, sf::Texture &amp;gunTexture)</div><div class="ttdef"><b>Definition:</b> Bullet.cpp:6</div></div>
-<div class="ttc" id="class_bullet_html_ab634595581e7f0d91302ff060775b87a"><div class="ttname"><a href="class_bullet.html#ab634595581e7f0d91302ff060775b87a">Bullet::outOfBound</a></div><div class="ttdeci">bool outOfBound(sf::RenderWindow &amp;window)</div><div class="ttdef"><b>Definition:</b> Bullet.cpp:57</div></div>
+<div class="ttc" id="class_bullet_html_ab634595581e7f0d91302ff060775b87a"><div class="ttname"><a href="class_bullet.html#ab634595581e7f0d91302ff060775b87a">Bullet::outOfBound</a></div><div class="ttdeci">bool outOfBound(sf::RenderWindow &amp;window)</div><div class="ttdef"><b>Definition:</b> Bullet.cpp:58</div></div>
 <div class="ttc" id="_camera_8hpp_html"><div class="ttname"><a href="_camera_8hpp.html">Camera.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 9 2015 10:34:07 for Gate2158 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 9 2015 16:25:06 for Gate2158 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

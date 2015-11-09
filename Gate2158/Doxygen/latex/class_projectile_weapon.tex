@@ -11,7 +11,7 @@ Inheritance diagram for Projectile\+Weapon\+:\begin{figure}[H]
 \item 
 \hyperlink{class_projectile_weapon_a81de964b3548d21ce421418c836382f7}{Projectile\+Weapon} (std\+::string weapon\+Type, int is\+Friendly)
 \item 
-void \hyperlink{class_projectile_weapon_a699846887ba66070f999db47057e0fc7}{shoot} (sf\+::\+Vector2f location, float angle) override
+void \hyperlink{class_projectile_weapon_a3b8ac3bc8d558c0463bdc7646f8536dd}{shoot} (sf\+::\+Vector2f location, float angle, sf\+::\+Vector2f draw\+Position) override
 \item 
 int \hyperlink{class_projectile_weapon_ac2f5b5c83f10c8276d55b2ccb7ecb20d}{get\+Ammo} () override
 \item 
@@ -225,14 +225,15 @@ Sets all expoints of the guns.
 {\em tiers} & A list of expoints of the guns \\
 \hline
 \end{DoxyParams}
-\hypertarget{class_projectile_weapon_a699846887ba66070f999db47057e0fc7}{}\index{Projectile\+Weapon@{Projectile\+Weapon}!shoot@{shoot}}
+\hypertarget{class_projectile_weapon_a3b8ac3bc8d558c0463bdc7646f8536dd}{}\index{Projectile\+Weapon@{Projectile\+Weapon}!shoot@{shoot}}
 \index{shoot@{shoot}!Projectile\+Weapon@{Projectile\+Weapon}}
 \subsubsection[{shoot}]{\setlength{\rightskip}{0pt plus 5cm}void Projectile\+Weapon\+::shoot (
 \begin{DoxyParamCaption}
 \item[{sf\+::\+Vector2f}]{location, }
-\item[{float}]{angle}
+\item[{float}]{angle, }
+\item[{sf\+::\+Vector2f}]{draw\+Position}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_projectile_weapon_a699846887ba66070f999db47057e0fc7}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{class_projectile_weapon_a3b8ac3bc8d558c0463bdc7646f8536dd}
 Checks first if the weapon is ready to shoot with attack\+Speed, If it\textquotesingle{}s ready to shoot, it wil make a bullet and add the bullet to the map.
 
 
@@ -241,10 +242,12 @@ Checks first if the weapon is ready to shoot with attack\+Speed, If it\textquote
 \hline
 {\em angle} & The angle of the bullet \\
 \hline
+{\em draw\+Position} & The draw position of the bullet \\
+\hline
 \end{DoxyParams}
 
 
-Implements \hyperlink{class_weapon_a56ab65d2be11c56256cc39b15f8f096b}{Weapon}.
+Implements \hyperlink{class_weapon_a4773536e15b1bb29177e6e8859ced786}{Weapon}.
 
 \hypertarget{class_projectile_weapon_a2340178be143bc55fa7f6f06ef734cdc}{}\index{Projectile\+Weapon@{Projectile\+Weapon}!switch\+Weapon@{switch\+Weapon}}
 \index{switch\+Weapon@{switch\+Weapon}!Projectile\+Weapon@{Projectile\+Weapon}}

@@ -103,8 +103,8 @@ Inheritance diagram for Bullet:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:adc9ffce61bb50d8673bbfc31eab2157c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bullet.html#adc9ffce61bb50d8673bbfc31eab2157c">Bullet</a> (int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, float angle, <a class="el" href="class_weapon.html">Weapon</a> *weapon, int <a class="el" href="class_map_object.html#ab2c08c54979e8457057f4d2dcdaae0fb">isFriend</a>, sf::Texture &amp;gunTexture)</td></tr>
-<tr class="separator:adc9ffce61bb50d8673bbfc31eab2157c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d7b8700db2094c9dfbae2dba10f7757"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bullet.html#a8d7b8700db2094c9dfbae2dba10f7757">Bullet</a> (int bulletDamage, sf::Vector2f startingLocation, sf::Vector2f startingVelocity, sf::Vector2f drawLoctation, float angle, <a class="el" href="class_weapon.html">Weapon</a> *weapon, int <a class="el" href="class_map_object.html#ab2c08c54979e8457057f4d2dcdaae0fb">isFriend</a>, sf::Texture &amp;gunTexture)</td></tr>
+<tr class="separator:a8d7b8700db2094c9dfbae2dba10f7757"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bc85503a787fdf10896b595d4ef7c27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bullet.html#a8bc85503a787fdf10896b595d4ef7c27">draw</a> (sf::RenderWindow &amp;window, sf::Vector2f <a class="el" href="class_map_object.html#a3f383fa967b67989a1d30f8f9ff73936">drawPosition</a>) override</td></tr>
 <tr class="separator:a8bc85503a787fdf10896b595d4ef7c27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab634595581e7f0d91302ff060775b87a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bullet.html#ab634595581e7f0d91302ff060775b87a">outOfBound</a> (sf::RenderWindow &amp;window)</td></tr>
@@ -174,7 +174,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a1788c8bf4e3c04bff8c2eba112e46d79 inherit pro_attribs_class_map_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="adc9ffce61bb50d8673bbfc31eab2157c"></a>
+<a class="anchor" id="a8d7b8700db2094c9dfbae2dba10f7757"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -195,6 +195,12 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
           <td class="paramtype">sf::Vector2f&#160;</td>
           <td class="paramname"><em>startingVelocity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Vector2f&#160;</td>
+          <td class="paramname"><em>drawLoctation</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -233,6 +239,7 @@ Additional Inherited Members</h2></td></tr>
     <tr><td class="paramname">bulletDamage</td><td>The damage of the bullet </td></tr>
     <tr><td class="paramname">startingLocation</td><td>The location on the map </td></tr>
     <tr><td class="paramname">startingVelocity</td><td>The velocity of the bullet </td></tr>
+    <tr><td class="paramname">drawLoctation</td><td>The location where the bullet has to be drawed </td></tr>
     <tr><td class="paramname">angle</td><td>The angle of the bullet in degrees </td></tr>
     <tr><td class="paramname">weapon</td><td>The weapon that shoots the bullet </td></tr>
     <tr><td class="paramname">isFriend</td><td>A number that shows which character has shot, so it does not collide </td></tr>
@@ -352,7 +359,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 9 2015 10:34:07 for Gate2158 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 9 2015 16:25:07 for Gate2158 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

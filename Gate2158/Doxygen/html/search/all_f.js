@@ -19,7 +19,7 @@ var searchData=
   ['setvelocity',['setVelocity',['../class_movable_map_object.html#a7f65bdae85e8f0e86c1432c4dbe841a8',1,'MovableMapObject']]],
   ['setweaponexpoints',['setWeaponExpoints',['../class_projectile_weapon.html#a84ba268c474eccf700ecc9413bd6e18d',1,'ProjectileWeapon::setWeaponExpoints()'],['../class_user_character.html#a1cc878370f0610e79755989150f74705',1,'UserCharacter::setWeaponExpoints()']]],
   ['setwindow',['setWindow',['../class_camera.html#a6f05dbc0ce5855ba2428cc0b8f8779f9',1,'Camera']]],
-  ['shoot',['shoot',['../class_projectile_weapon.html#a699846887ba66070f999db47057e0fc7',1,'ProjectileWeapon::shoot()'],['../class_weapon.html#a56ab65d2be11c56256cc39b15f8f096b',1,'Weapon::shoot()']]],
+  ['shoot',['shoot',['../class_projectile_weapon.html#a3b8ac3bc8d558c0463bdc7646f8536dd',1,'ProjectileWeapon::shoot()'],['../class_weapon.html#a4773536e15b1bb29177e6e8859ced786',1,'Weapon::shoot()']]],
   ['sprite',['Sprite',['../class_sprite.html',1,'Sprite'],['../class_sprite.html#afa69a3818cc509b21434292a099bfffb',1,'Sprite::Sprite()']]],
   ['sprite_2eh',['Sprite.h',['../_sprite_8h.html',1,'']]],
   ['switchweapon',['switchWeapon',['../class_projectile_weapon.html#a2340178be143bc55fa7f6f06ef734cdc',1,'ProjectileWeapon']]]

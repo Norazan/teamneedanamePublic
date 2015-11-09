@@ -104,29 +104,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">bool</span> showingMenu;                                       </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">int</span> currentSelection;                                   </div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">bool</span> splashScreen;                                      </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="class_user_input.html">UserInput</a> input;                                        </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    sf::Vector2f startLocation{ 1280 / 2 - 200 / 2, 400 };  </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    sf::Vector2f quitLocation{ 1280 / 2 - 200 / 2, 550 };   </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    sf::Texture gameLogoTexture;                            </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    sf::Texture logoTexture;                                </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    sf::Texture startTexture;                               </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    sf::Texture quitTexture;                                </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    sf::Music menuBackgroundMusic;                          </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">bool</span> instructionScreen = <span class="keyword">false</span>;                         </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="class_user_input.html">UserInput</a> input;                                        </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    sf::Vector2f startLocation{ 1280 / 2 - 200 / 2, 400 };  </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    sf::Vector2f quitLocation{ 1280 / 2 - 200 / 2, 550 };   </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    sf::Texture gameLogoTexture;                            </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    sf::Texture logoTexture;                                </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    sf::Texture startTexture;                               </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    sf::Texture quitTexture;                                </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    sf::Texture intstuctionTexture;                         </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    sf::Music menuBackgroundMusic;                          </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    sf::Font tFont;                                         </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="class_menu_html"><div class="ttname"><a href="class_menu.html">Menu</a></div><div class="ttdef"><b>Definition:</b> Menu.h:17</div></div>
-<div class="ttc" id="class_menu_html_a2cd7ab9901a8f42a3ae977d0774398a6"><div class="ttname"><a href="class_menu.html#a2cd7ab9901a8f42a3ae977d0774398a6">Menu::draw</a></div><div class="ttdeci">void draw()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:34</div></div>
-<div class="ttc" id="class_menu_html_abea32f6fe8bc36b70e53be81a5d68365"><div class="ttname"><a href="class_menu.html#abea32f6fe8bc36b70e53be81a5d68365">Menu::Menu</a></div><div class="ttdeci">Menu(sf::RenderWindow &amp;windowRef, bool showMenu)</div><div class="ttdef"><b>Definition:</b> Menu.cpp:4</div></div>
+<div class="ttc" id="class_menu_html_a2cd7ab9901a8f42a3ae977d0774398a6"><div class="ttname"><a href="class_menu.html#a2cd7ab9901a8f42a3ae977d0774398a6">Menu::draw</a></div><div class="ttdeci">void draw()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:43</div></div>
+<div class="ttc" id="class_menu_html_abea32f6fe8bc36b70e53be81a5d68365"><div class="ttname"><a href="class_menu.html#abea32f6fe8bc36b70e53be81a5d68365">Menu::Menu</a></div><div class="ttdeci">Menu(sf::RenderWindow &amp;windowRef, bool showMenu)</div><div class="ttdef"><b>Definition:</b> Menu.cpp:5</div></div>
 <div class="ttc" id="class_user_input_html"><div class="ttname"><a href="class_user_input.html">UserInput</a></div><div class="ttdef"><b>Definition:</b> UserInput.h:24</div></div>
 <div class="ttc" id="_user_input_8h_html"><div class="ttname"><a href="_user_input_8h.html">UserInput.h</a></div></div>
-<div class="ttc" id="class_menu_html_a69053c52d87f0b5f099e0b7fffce28a5"><div class="ttname"><a href="class_menu.html#a69053c52d87f0b5f099e0b7fffce28a5">Menu::getShowingMenu</a></div><div class="ttdeci">bool getShowingMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:116</div></div>
-<div class="ttc" id="class_menu_html_afd4a260926f9afcfbd8ce9c115cec6ed"><div class="ttname"><a href="class_menu.html#afd4a260926f9afcfbd8ce9c115cec6ed">Menu::processKeys</a></div><div class="ttdeci">void processKeys()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:80</div></div>
+<div class="ttc" id="class_menu_html_a69053c52d87f0b5f099e0b7fffce28a5"><div class="ttname"><a href="class_menu.html#a69053c52d87f0b5f099e0b7fffce28a5">Menu::getShowingMenu</a></div><div class="ttdeci">bool getShowingMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:148</div></div>
+<div class="ttc" id="class_menu_html_afd4a260926f9afcfbd8ce9c115cec6ed"><div class="ttname"><a href="class_menu.html#afd4a260926f9afcfbd8ce9c115cec6ed">Menu::processKeys</a></div><div class="ttdeci">void processKeys()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:106</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 9 2015 10:34:07 for Gate2158 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 9 2015 16:25:06 for Gate2158 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

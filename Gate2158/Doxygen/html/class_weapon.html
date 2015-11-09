@@ -103,8 +103,8 @@ Inheritance diagram for Weapon:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a56ab65d2be11c56256cc39b15f8f096b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon.html#a56ab65d2be11c56256cc39b15f8f096b">shoot</a> (sf::Vector2f location, float angle)=0</td></tr>
-<tr class="separator:a56ab65d2be11c56256cc39b15f8f096b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4773536e15b1bb29177e6e8859ced786"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon.html#a4773536e15b1bb29177e6e8859ced786">shoot</a> (sf::Vector2f location, float angle, sf::Vector2f drawPosition)=0</td></tr>
+<tr class="separator:a4773536e15b1bb29177e6e8859ced786"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27e4ab9f55e9cb7cd86023491fb075e2"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon.html#a27e4ab9f55e9cb7cd86023491fb075e2">getAmmo</a> ()=0</td></tr>
 <tr class="separator:a27e4ab9f55e9cb7cd86023491fb075e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61f8e299bd267adcace01cc112b206cb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon.html#a61f8e299bd267adcace01cc112b206cb">setAmmo</a> (int ammo)=0</td></tr>
@@ -235,7 +235,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a56ab65d2be11c56256cc39b15f8f096b"></a>
+<a class="anchor" id="a4773536e15b1bb29177e6e8859ced786"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -252,7 +252,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>angle</em>&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Vector2f&#160;</td>
+          <td class="paramname"><em>drawPosition</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -271,11 +277,12 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">location</td><td>The start location of the bullet </td></tr>
     <tr><td class="paramname">angle</td><td>The angle of the bullet </td></tr>
+    <tr><td class="paramname">drawPosition</td><td>The draw position of the bullet </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_projectile_weapon.html#a699846887ba66070f999db47057e0fc7">ProjectileWeapon</a>.</p>
+<p>Implemented in <a class="el" href="class_projectile_weapon.html#a3b8ac3bc8d558c0463bdc7646f8536dd">ProjectileWeapon</a>.</p>
 
 </div>
 </div>
@@ -285,7 +292,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 9 2015 10:34:08 for Gate2158 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 9 2015 16:25:08 for Gate2158 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

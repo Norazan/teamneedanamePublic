@@ -9,7 +9,7 @@ Inheritance diagram for Weapon\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \hyperlink{class_weapon_a56ab65d2be11c56256cc39b15f8f096b}{shoot} (sf\+::\+Vector2f location, float angle)=0
+virtual void \hyperlink{class_weapon_a4773536e15b1bb29177e6e8859ced786}{shoot} (sf\+::\+Vector2f location, float angle, sf\+::\+Vector2f draw\+Position)=0
 \item 
 virtual int \hyperlink{class_weapon_a27e4ab9f55e9cb7cd86023491fb075e2}{get\+Ammo} ()=0
 \item 
@@ -90,14 +90,15 @@ Sets the expoints of the current gun, and checked if the gun has leveled.
 
 Implemented in \hyperlink{class_projectile_weapon_ac2051c4518fcc9c04ee6b44adeffb0c2}{Projectile\+Weapon}.
 
-\hypertarget{class_weapon_a56ab65d2be11c56256cc39b15f8f096b}{}\index{Weapon@{Weapon}!shoot@{shoot}}
+\hypertarget{class_weapon_a4773536e15b1bb29177e6e8859ced786}{}\index{Weapon@{Weapon}!shoot@{shoot}}
 \index{shoot@{shoot}!Weapon@{Weapon}}
 \subsubsection[{shoot}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Weapon\+::shoot (
 \begin{DoxyParamCaption}
 \item[{sf\+::\+Vector2f}]{location, }
-\item[{float}]{angle}
+\item[{float}]{angle, }
+\item[{sf\+::\+Vector2f}]{draw\+Position}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_weapon_a56ab65d2be11c56256cc39b15f8f096b}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_weapon_a4773536e15b1bb29177e6e8859ced786}
 Used to shoot a bullet
 
 
@@ -106,10 +107,12 @@ Used to shoot a bullet
 \hline
 {\em angle} & The angle of the bullet \\
 \hline
+{\em draw\+Position} & The draw position of the bullet \\
+\hline
 \end{DoxyParams}
 
 
-Implemented in \hyperlink{class_projectile_weapon_a699846887ba66070f999db47057e0fc7}{Projectile\+Weapon}.
+Implemented in \hyperlink{class_projectile_weapon_a3b8ac3bc8d558c0463bdc7646f8536dd}{Projectile\+Weapon}.
 
 
 

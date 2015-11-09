@@ -105,8 +105,8 @@ Inheritance diagram for ProjectileWeapon:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a81de964b3548d21ce421418c836382f7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projectile_weapon.html#a81de964b3548d21ce421418c836382f7">ProjectileWeapon</a> (std::string weaponType, int isFriendly)</td></tr>
 <tr class="separator:a81de964b3548d21ce421418c836382f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a699846887ba66070f999db47057e0fc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projectile_weapon.html#a699846887ba66070f999db47057e0fc7">shoot</a> (sf::Vector2f location, float angle) override</td></tr>
-<tr class="separator:a699846887ba66070f999db47057e0fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b8ac3bc8d558c0463bdc7646f8536dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projectile_weapon.html#a3b8ac3bc8d558c0463bdc7646f8536dd">shoot</a> (sf::Vector2f location, float angle, sf::Vector2f drawPosition) override</td></tr>
+<tr class="separator:a3b8ac3bc8d558c0463bdc7646f8536dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2f5b5c83f10c8276d55b2ccb7ecb20d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projectile_weapon.html#ac2f5b5c83f10c8276d55b2ccb7ecb20d">getAmmo</a> () override</td></tr>
 <tr class="separator:ac2f5b5c83f10c8276d55b2ccb7ecb20d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4f099c2cc68a8ce6730cdf7a6af9c2f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projectile_weapon.html#ae4f099c2cc68a8ce6730cdf7a6af9c2f">getAmmoInMagazine</a> ()</td></tr>
@@ -437,7 +437,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a699846887ba66070f999db47057e0fc7"></a>
+<a class="anchor" id="a3b8ac3bc8d558c0463bdc7646f8536dd"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -454,7 +454,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>angle</em>&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Vector2f&#160;</td>
+          <td class="paramname"><em>drawPosition</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -473,11 +479,12 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">location</td><td>The start location of the bullet </td></tr>
     <tr><td class="paramname">angle</td><td>The angle of the bullet </td></tr>
+    <tr><td class="paramname">drawPosition</td><td>The draw position of the bullet </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="class_weapon.html#a56ab65d2be11c56256cc39b15f8f096b">Weapon</a>.</p>
+<p>Implements <a class="el" href="class_weapon.html#a4773536e15b1bb29177e6e8859ced786">Weapon</a>.</p>
 
 </div>
 </div>
@@ -505,7 +512,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 9 2015 10:34:08 for Gate2158 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 9 2015 16:25:07 for Gate2158 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
