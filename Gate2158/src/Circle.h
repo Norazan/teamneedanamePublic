@@ -55,10 +55,7 @@ public:
 	*/
 	void setRotation(float rotation) override;
 private:
-	/**
-	* The sf::CircleShape that will be used to draw the circle
-	*/
-	sf::CircleShape circle;
+	sf::CircleShape circle;			/** The sf::CircleShape that will be used to draw the circle */
 };
 
 #endif //GATE2158_CIRCLE_H

@@ -5,7 +5,6 @@
 #include <stdlib.h>
 
 ProjectileWeapon::ProjectileWeapon(std::string weaponType, int isFriendly) :
-weaponType(weaponType),
 isFriendly{ isFriendly },
 camera{ Camera::getInstance() }
 {
@@ -174,9 +173,9 @@ std::vector<int> ProjectileWeapon::getWeaponExpoints(){
 	tiers.push_back(int(shotgun.expoints));
 	return tiers;
 }
-void ProjectileWeapon::setWeaponExpoints(std::vector<int> tiers){
-	pistol.expoints = tiers[0];
-	shotgun.expoints = tiers[1];
+void ProjectileWeapon::setWeaponExpoints(std::vector<int> expoints){
+	pistol.expoints = expoints[0];
+	shotgun.expoints = expoints[1];
 	setExpoints(1);
 }
 

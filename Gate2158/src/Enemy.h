@@ -1,6 +1,6 @@
 /**
 * @file Enemy.h
-* @author -
+* @author Ole
 * @date -
 * @version 1.0
 *

@@ -4,7 +4,7 @@
 
 #include "World.h"
 
-World::World(float worldSeed){
+World::World(){
 	//Should be loading/generating a file here, for now we use seed 0 which is nothing ~
 	//MapLoader(worldSeed);
 }
