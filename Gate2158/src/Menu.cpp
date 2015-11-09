@@ -1,4 +1,5 @@
 #include "Menu.h"
+#include "Text.h"
 #include <iostream>
 
 Menu::Menu(sf::RenderWindow &windowRef, bool showMenu) :
@@ -12,6 +13,11 @@ Menu::Menu(sf::RenderWindow &windowRef, bool showMenu) :
 	input.setToggleKey(sf::Keyboard::Space);
 	input.setToggleKey(sf::Keyboard::Return);
 
+	if (!tFont.loadFromFile("../../Gate2158/media/Starjedi.ttf")){
+		//Error handeling
+		std::cout << "can't load font";
+	}
+
 	if (!logoTexture.loadFromFile("../../Gate2158/media/TEAMNEEDSANAME.png")){
 		return;
 	}
@@ -22,6 +28,9 @@ Menu::Menu(sf::RenderWindow &windowRef, bool showMenu) :
 		return;
 	}
 	if (!gameLogoTexture.loadFromFile("../../Gate2158/media/GameLogo.png")){
+		return;
+	}
+	if (!intstuctionTexture.loadFromFile("../../Gate2158/media/textures/Help.png")){
 		return;
 	}
 	if (!menuBackgroundMusic.openFromFile("../../Gate2158/media/audio/Analog_Boys_2.wav")){
@@ -35,7 +44,19 @@ void Menu::draw(){
 	input.updateToggleKey();
 	showingMenu = true;
 	
-	
+	Text pressSpace(
+		("press Space"),
+		sf::Vector2f(150, 650),
+		sf::Text::Style::Regular,
+		sf::Color::White,
+		30,
+		&tFont
+	);
+
+	sf::Sprite instructions;
+	instructions.setTexture(intstuctionTexture);
+	instructions.setPosition(sf::Vector2f(1280 / 2 - 600 / 2, 0));
+
 	sf::Sprite splashLogo;
 	splashLogo.setTexture(logoTexture);
 	splashLogo.setPosition(sf::Vector2f(1280 / 2 - 500 / 2, 720 / 2 - 380 / 2));
@@ -66,6 +87,11 @@ void Menu::draw(){
 		}
 		if (splashScreen){
 			window.draw(splashLogo);
+			pressSpace.draw(window, sf::Vector2f(520, 650));
+		}
+		else if (instructionScreen){
+			window.draw(instructions);
+			pressSpace.draw(window, sf::Vector2f(520, 650));
 		}
 		else{
 			window.draw(gameLogo);
@@ -78,9 +104,15 @@ void Menu::draw(){
 }
 
 void Menu::processKeys(){
-	if (splashScreen){
-		if (input.isKeyHold(sf::Keyboard::Space)){
-			splashScreen = false;
+	if (splashScreen || instructionScreen){
+		if (input.isKeyPressed(sf::Keyboard::Space)){
+			if (splashScreen){
+				splashScreen = false;
+				instructionScreen = true;
+			}
+			else {
+				instructionScreen = false;
+			}
 		}
 	}
 	else{

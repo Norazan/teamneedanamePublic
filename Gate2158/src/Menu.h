@@ -46,6 +46,7 @@ private:
 	bool showingMenu;										/** A boolean if the menu needs to be drawed */
 	int currentSelection;									/** A number which button is selected */
 	bool splashScreen;										/** A boolean if the splashscreen needs to be drawed */
+	bool instructionScreen = false;							/** A boolean if the instructions needs to be drawed */
 	UserInput input;										/** The input to check if a button is pressed */
 	sf::Vector2f startLocation{ 1280 / 2 - 200 / 2, 400 };	/** The position of the start button on the screen */
 	sf::Vector2f quitLocation{ 1280 / 2 - 200 / 2, 550 };	/** The position of the quit button on the screen */
@@ -53,7 +54,9 @@ private:
 	sf::Texture logoTexture;								/** The Texture of the logo on the splahscreen */
 	sf::Texture startTexture;								/** The Texture of the start button */	
 	sf::Texture quitTexture;								/** The Texture of the quit button */
+	sf::Texture intstuctionTexture;							/** The Texture for the instructions */
 	sf::Music menuBackgroundMusic;							/** The Music that wil be played while showing the menu */
+	sf::Font tFont;											/** The font of the text */
 };
 
 
