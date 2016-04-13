@@ -89,4 +89,4 @@ private:
 	std::vector<sf::Vector2f> points;
 };
 
-#endif GATE2158_CONVEX_H
+#endif
